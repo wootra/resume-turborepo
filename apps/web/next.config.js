@@ -1,4 +1,4 @@
 module.exports = {
     reactStrictMode: true,
-    transpilePackages: ['ui', 'expand-panel'],
+    transpilePackages: ['ui', 'expand-panel', 'common-data'],
 };

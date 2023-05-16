@@ -1,0 +1,17 @@
+{
+    "name": "common-data",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./index.js",
+    "type": "module",
+    "scripts": {
+        "build": "node ./parse.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Songhyeon Jun (shjeon0730@gmail.com)",
+    "license": "ISC",
+    "dependencies": {
+        "jsonc-parser": "^3.2.0",
+        "vite": "^4.3.6"
+    }
+}
