@@ -372,7 +372,33 @@ export const RightContents = Object.freeze({
     awards: [buildAward('3D-Scanner using 3-color layers', 2004)],
     authority: ['Green Card'],
     achievements: [
+        buildAchievement('Dimensional Fund Advisors', [
+            buildAchievementItem(
+                'Improve Pipeline performance of Small Business Insurance App',
+                `script modification`,
+                `improved pipeline speed by running the integration test scripts (cypress) conditionally depending on which development process (develop, feature, stage)`
+            ),
+        ]),
         buildAchievement('USAA', [
+            buildAchievementItem(
+                'Improve Pipeline performance of Small Business Insurance App',
+                `script modification`,
+                `improved pipeline speed by running the integration test scripts (cypress) conditionally depending on which development process (develop, feature, stage)`
+            ),
+            buildAchievementItem(
+                'Improve Performance of Small Business Insurance App(FE)',
+                'architecture, code, leading, documentation',
+                `architecture designs for the frontend taking advantage of react context and hooks. Code is modularized and categorized.`
+            ),
+            buildAchievementItem(
+                'Improve Performance of Small Business Insurance App(BE)',
+                'architecture, code, leading, analyzations, documentation',
+                `introducing microservice architecture on the backend, removing unncessary service calls. imporoved performance from >30sec to <20sec. The system was leaning on 3rd party service which was spending most of times, so the improvement was limited.`
+            ),
+            buildAchievementItem(
+                'Bug fixes on Small Business Insurance App',
+                'analyzations, code, leading'
+            ),
             buildAchievementItem(
                 'Predicted Card Experience (Talon/New Web)',
                 `show members predicted profiles instead of making members to start over for all the questionnaire to start to use Financial Wellness Tool`,

@@ -12,7 +12,7 @@
 }
 
 .expand-collapse-tool-header {
-    padding-top: 0.1rem;
+    padding-top: 0.4rem;
     pointer-events: none;
     text-transform: capitalize;
 }
@@ -21,7 +21,7 @@
     position: absolute;
     left: calc(100%-1rem);
     right: 0.2rem;
-    top: 0; /* -0.2rem; */
+    top: 0.1rem; /* -0.2rem; */
     bottom: 0;
     content: '⬆️';
     pointer-events: none;
