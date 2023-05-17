@@ -41,7 +41,8 @@
 
 .expand-collapse-tool .expand-collapse-tool-panel {
     transition: max-height 0.2s ease-in;
-    max-height: 5rem;
+    /* max-height: fit-content; */
+    max-height: 20rem;
 }
 
 .expand-collapse-tool.shrunk .expand-collapse-tool-panel {

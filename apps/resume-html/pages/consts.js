@@ -243,51 +243,56 @@ const buildAchievement = (company, items) => ({ company, items });
  */
 export const RightContents = Object.freeze({
     skillLevels: {
-        languages: [
+        'Languages(FE)': [
             buildSkillLevel('Javascript', 5),
+            buildSkillLevel('TypeScript', 5),
             buildSkillLevel('HTML', 5),
-            buildSkillLevel('CSS', 5),
-            buildSkillLevel('Java', 5),
-            buildSkillLevel('C/C++', 5),
-            buildSkillLevel('C#.Net', 5),
-            buildSkillLevel('Python', 5),
+            buildSkillLevel('CSS/3', 5),
+            buildSkillLevel('SASS/LESS/SCSS', 5),
+        ],
+        'Languages(Etc)': [
+            buildSkillLevel('Java', 4),
+            buildSkillLevel('C/C++', 3),
+            buildSkillLevel('C#.Net', 3),
+            buildSkillLevel('Python', 3),
             buildSkillLevel('YAML', 5),
             buildSkillLevel('XML', 5),
+            buildSkillLevel('SASS/LESS', 5),
             buildSkillLevel('NodeJs', 4),
             buildSkillLevel('LUA', 3),
-            buildSkillLevel('TypeScript', 3),
+            buildSkillLevel('Rust', 2),
+            buildSkillLevel('Dart', 2),
+            buildSkillLevel('Go', 2),
             buildSkillLevel('JPA', 3),
-            buildSkillLevel('SASS/LESS', 3),
         ],
-        ShellScripts: [
-            buildSkillLevel('bash-sh', 4),
-            buildSkillLevel('cmd-sh', 3),
+        'Frameworks(FE)': [
+            buildSkillLevel('React.js', 5),
+            buildSkillLevel('Astro.js', 4),
+            buildSkillLevel('Next.js', 3),
+            buildSkillLevel('Shvelt', 3),
+            buildSkillLevel('JQuery', 3),
+            buildSkillLevel('Angular 6', 2),
         ],
-        'Multimedia/Office': [
-            buildSkillLevel('Flash/Action Script', 5),
-            buildSkillLevel('Photoshop', 4),
-            buildSkillLevel('Illustrator', 4),
-            buildSkillLevel('Excel', 4),
-            buildSkillLevel('PowerPoint', 4),
-            buildSkillLevel('Word', 3),
-        ],
-        AnalysisTools: [
-            buildSkillLevel('Lab Windows/CVI', 5),
-            buildSkillLevel('Matlab', 4),
-            buildSkillLevel('TemsorFlow/Keras', 3),
-            buildSkillLevel('Jupiter Notebook', 3),
-            buildSkillLevel('Labview', 3),
-        ],
-        frameworks: [
-            buildSkillLevel('React Hooks', 5),
-            buildSkillLevel('React/Redux', 5),
+        'Frameworks(Etc)': [
             buildSkillLevel('.Net', 4),
             buildSkillLevel('Jax-RS', 4),
             buildSkillLevel('Spring Boot', 3),
-            buildSkillLevel('JQuery', 3),
-            buildSkillLevel('Angular 6', 2),
             buildSkillLevel('Kafka', 2),
         ],
+        'Workspace Management': [
+            buildSkillLevel('Turbo repo', 3),
+            buildSkillLevel('Nx Repo', 3),
+            buildSkillLevel('Rush Repo', 2),
+        ],
+        'State Libraries': [
+            buildSkillLevel('jotai', 5),
+            buildSkillLevel('zustand', 5),
+        ],
+        'Shell Scripts': [
+            buildSkillLevel('bash-sh', 4),
+            buildSkillLevel('cmd-sh', 3),
+        ],
+
         'Test Framework': [
             buildSkillLevel('Jest', 5),
             buildSkillLevel('Mocha', 5),
@@ -303,11 +308,20 @@ export const RightContents = Object.freeze({
             buildSkillLevel('MS-SQL', 4),
             buildSkillLevel('DB2', 4),
             buildSkillLevel('Mongo DB', 3),
+            buildSkillLevel('Postgres', 3),
         ],
-        DevOps: [
+        'Dev Ops': [
             buildSkillLevel('Gialb-ci', 4),
             buildSkillLevel('Docker', 3),
             buildSkillLevel('Openshift', 3),
+            buildSkillLevel('github-actions', 2),
+        ],
+        'Analysis Tools': [
+            buildSkillLevel('Lab Windows/CVI', 5),
+            buildSkillLevel('Matlab', 4),
+            buildSkillLevel('TemsorFlow/Keras', 3),
+            buildSkillLevel('Jupiter Notebook', 3),
+            buildSkillLevel('Labview', 3),
         ],
         Documentation: [
             buildSkillLevel('JsDocs', 5),
@@ -324,6 +338,14 @@ export const RightContents = Object.freeze({
             buildSkillLevel('Analog/Discrete', 4),
             buildSkillLevel('GPS/GNSS', 3),
             buildSkillLevel('I2C', 3),
+        ],
+        'Multimedia/Office': [
+            buildSkillLevel('Flash/Action Script', 5),
+            buildSkillLevel('Photoshop', 4),
+            buildSkillLevel('Illustrator', 4),
+            buildSkillLevel('Excel', 4),
+            buildSkillLevel('PowerPoint', 4),
+            buildSkillLevel('Word', 3),
         ],
     },
     volunteers: [
