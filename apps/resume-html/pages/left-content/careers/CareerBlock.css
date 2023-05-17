@@ -5,6 +5,7 @@
     width: 100%;
     margin-bottom: 0.7rem;
     position: relative;
+    gap: 0.3rem 0.5rem;
 }
 
 .career-block:not(:last-child)::after {
@@ -16,7 +17,6 @@
     bottom: -0.6rem;
     border-bottom: 1px solid rgb(124, 179, 142);
 }
-
 
 .career-block p {
     margin-top: 0;
@@ -48,7 +48,7 @@
     color: rgb(22, 175, 196);
     position: absolute;
     top: 100%;
-    bottom: calc( 100% + 0.5rem );
+    bottom: calc(100% + 0.5rem);
     left: calc(100% + 3px);
     top: calc(100% - 1rem);
     /* right: 0; */
@@ -74,15 +74,15 @@
 }
 
 .career-industry {
-    grid-column: 1/2;
     font-size: 0.8rem;
     color: rgb(221, 110, 6);
+    white-space: nowrap;
 }
 
 .career-job-title {
-    grid-column: 2/3;
     font-size: 0.8rem;
     color: rgb(29, 119, 192);
+    white-space: nowrap;
 }
 
 .career-tech-stack {
@@ -98,16 +98,23 @@ ul.career-achievements {
     grid-column: 1/4;
 }
 
-ul.career-achievements > li{
-   list-style: none;
-   font-size: 0.8rem;
-   display: inline-block;
+ul.career-achievements > li {
+    list-style: none;
+    font-size: 0.8rem;
+    display: inline-block;
 }
 
-ul.career-achievements > li::before{
+ul.career-achievements > li::before {
     content: '✅';
     left: -1rem;
     right: 100%;
-    top:0;
+    top: 0;
     bottom: 0;
- }
+}
+
+.career-industry-title {
+    display: flex;
+    flex-direction: row;
+    grid-column: 1/4;
+    gap: 0.5rem;
+}
