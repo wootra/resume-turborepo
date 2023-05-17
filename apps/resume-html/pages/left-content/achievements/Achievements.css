@@ -1,0 +1,67 @@
+
+.achievements {
+    margin-top: -0.5rem;
+}
+
+.achievements .expand-collapse-tool {
+    background-color: rgb(226, 226, 226);
+    color: black;
+}
+
+.achievements .expand-collapse-tool:not(.shrunk) .expand-collapse-tool-panel {
+    max-height: unset;
+}
+
+.achievement-for-company {
+    margin-top: 0;
+}
+
+.achievement-list {
+
+}
+
+.achievement-name {
+    font-weight: bold;
+}
+
+.achievement-my-part {
+    color:rgb(117, 0, 0);
+}
+
+.achievement-desc {
+    color:rgb(92, 92, 92);
+}
+
+.achievement-business-value {
+    color:rgb(37, 112, 161);
+}
+
+.achievement-desc::before {
+    content: '- ';
+}
+
+
+
+ul.achievement-for-company {
+    padding-left: 1rem;
+}
+
+ul.achievement-for-company > li{
+    list-style: none;
+    font-size: 0.8rem;
+    /* display: inline-block; */
+    position: relative;
+ }
+ 
+ ul.achievement-for-company > li::before{
+     position: absolute;
+     content: '✅';
+     left: -1rem;
+     right: 100%;
+     top:0;
+     bottom: 0;
+  }
+
+.achievement-item {
+    display: inline-block;
+}

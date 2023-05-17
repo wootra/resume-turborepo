@@ -1,0 +1,58 @@
+
+/* ProfilePhoto */
+.profile-photo-container {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    left: 1rem;
+    top: 1rem;
+    outline: 0.3rem solid var(--profilePhotoBorderClr);
+    filter: drop-shadow(0 0 4rem #e4eba8dc) blur(0);
+    position: relative;
+}
+
+.profile-photo-top, .profile-photo-bottom {
+	left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(0);
+    opacity: 1;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.meditation-photo {
+	left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+a:hover.profile-photo-container .profile-photo-top {
+	transition: all 1.3s ease;
+    filter: blur(5px);
+    opacity: 0.5;
+    left: -1rem;
+    top: -1rem;
+    width: 11.5rem;
+    height: 11.5rem;
+}
+
+a:hover.profile-photo-container .profile-photo-bottom {
+	transition: all 0.5s ease;
+    filter: blur(5px);
+    opacity: 0.7;
+}
+
+a:hover.profile-photo-container .meditation-photo {
+	transition: all 1s ease;
+    opacity: 1;
+}

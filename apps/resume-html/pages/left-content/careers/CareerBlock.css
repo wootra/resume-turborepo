@@ -1,0 +1,113 @@
+.career-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 150px;
+    color: black;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    position: relative;
+}
+
+.career-block:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    bottom: -0.6rem;
+    border-bottom: 1px solid rgb(124, 179, 142);
+}
+
+
+.career-block p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.company-title {
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: bold;
+    position: relative;
+    grid-column: 1/3;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.company-title a {
+    text-decoration: none;
+    color: rgb(197, 151, 0);
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    position: relative;
+}
+
+.company-title a::after {
+    content: attr(data-url);
+    text-transform: none;
+    font-size: 0.5rem;
+    color: rgb(22, 175, 196);
+    position: absolute;
+    top: 100%;
+    bottom: calc( 100% + 0.5rem );
+    left: calc(100% + 3px);
+    top: calc(100% - 1rem);
+    /* right: 0; */
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.career-span {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    color: rgb(133, 164, 175);
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+
+.career-role {
+    grid-column: 1/4;
+    font-size: 0.9rem;
+}
+
+.career-industry {
+    grid-column: 1/2;
+    font-size: 0.8rem;
+    color: rgb(221, 110, 6);
+}
+
+.career-job-title {
+    grid-column: 2/3;
+    font-size: 0.8rem;
+    color: rgb(29, 119, 192);
+}
+
+.career-tech-stack {
+    grid-column: 1/4;
+    font-size: 0.7rem;
+    color: rgb(122, 122, 122);
+}
+
+ul.career-achievements {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    grid-column: 1/4;
+}
+
+ul.career-achievements > li{
+   list-style: none;
+   font-size: 0.8rem;
+   display: inline-block;
+}
+
+ul.career-achievements > li::before{
+    content: '✅';
+    left: -1rem;
+    right: 100%;
+    top:0;
+    bottom: 0;
+ }

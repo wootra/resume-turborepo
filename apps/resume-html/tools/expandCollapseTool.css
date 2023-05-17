@@ -1,0 +1,51 @@
+
+.expand-collapse-tool {
+    width: 100%;
+    background-color: var(--expand-collapse-tool-back);
+    position: relative;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    min-height: 1.5rem;
+}
+
+.expand-collapse-tool > * {
+    margin-left: 1rem;
+}
+
+.expand-collapse-tool-header {
+    padding-top: 0.1rem;
+    pointer-events: none;
+    text-transform: capitalize;
+}
+
+.expand-collapse-tool::after {
+    position: absolute;
+    left: calc(100%-1rem);
+    right: 0;
+    top: -0.2rem;
+    bottom: 0;
+    content: '⬆️';
+    pointer-events: none;
+}
+
+.expand-collapse-tool.shrunk::after {
+    content: '⬇️';
+}
+
+.expand-collapse-tool-panel {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    display: block;
+    overflow-y:scroll;
+    overflow-x:visible;
+}
+
+.expand-collapse-tool .expand-collapse-tool-panel {
+    transition: max-height 0.2s ease-in;
+    max-height: 5rem;
+}
+
+.expand-collapse-tool.shrunk .expand-collapse-tool-panel {
+    transition: max-height 0.2s ease-in;
+    max-height: 0;
+}

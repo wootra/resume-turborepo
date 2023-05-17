@@ -1,0 +1,46 @@
+
+.educations {
+    margin-top: -0.5rem;
+}
+
+ul.education-list, ul.education-degree-list {
+    list-style: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+
+ul.education-list {
+    padding-left: 1rem;
+}
+
+ul.education-degree-list {
+    padding-left: 1.5rem;
+}
+
+
+ul.education-list > li, ul.education-degree-list > li {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+ul.education-degree-list > li::before {
+    content: "✅";
+    font-size: 0.8rem;
+    color: #fff;
+    position: absolute;
+    left: -1.2rem;
+    top: 0;
+    bottom: 0;
+    right: calc(100%);
+}
+
+a.education-school:link, a.education-school:visited, a.education-school:active {
+    color: var(--right-grid-link);
+    transition: color 1s ease;
+}
+
+a.education-school:hover {
+    color: var(--right-grid-link-hover);
+    transition: color 1s ease;
+    text-decoration: none;
+}

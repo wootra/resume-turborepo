@@ -1,0 +1,8 @@
+
+/* GridContainer */
+
+.grid-container {
+    background-color: var(--bgBlue);
+    color: var(--txtWhite);
+    filter: drop-shadow(2px 4px 6px black);
+}

@@ -1,0 +1,5 @@
+/* NormalDesc */
+.normal-desc {
+    color: var( --txtDesc );
+    margin: 0;
+}

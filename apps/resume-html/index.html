@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Songhyeon Jun's Resume</title>
+        <meta name="description" content="this is a resume for Songhyeon Jun" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script> -->
+        <base href="." />
+        <link rel="stylesheet" href="./main.css" />
+
+        <link rel="stylesheet" href="./pages/MainPage.css" />
+
+        <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+        <link rel="ICON" href="favicon.ico" type="image/ico" />
+
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Slab&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="#">upgrade your browser</a> to improve your experience.
+            </p>
+        <![endif]-->
+        <div class="top-banner">
+            This page is created with pure HTML, javascript, and CSS
+        </div>
+        <div id="root">
+            <div style="width: 100vw; height: 100vh; display: flex">
+                <div
+                    style="
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        width: 100%;
+                        text-align: center;
+                    "
+                >
+                    <div class="loading-container">
+                        <div class="loading-ball"></div>
+                        <div class="loading-ball ball2"></div>
+                    </div>
+                    <p style="text-transform: uppercase">
+                        Please wait while the page is being loaded...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script src="./tools/storageTools.js" type="text/javascript"></script>
+        <script id="main-script" async defer type="module"></script>
+        <script type="text/javascript">
+            //script loader.
+            window.addEventListener('load', () => {
+                var mainScript = document.getElementById('main-script');
+                var existingSrc = mainScript.src;
+                setVariant();
+
+                if (!existingSrc) {
+                    mainScript.src = './main.js?variant=' + getVariant();
+                }
+            });
+        </script>
+
+        <!-- <script src="./main.js" async defer type="module"></script> -->
+    </body>
+</html>

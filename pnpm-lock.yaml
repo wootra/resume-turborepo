@@ -54,6 +54,12 @@ importers:
         specifier: ^4.5.3
         version: 4.9.5
 
+  apps/resume-html:
+    devDependencies:
+      vite:
+        specifier: ^4.3.6
+        version: 4.3.6(@types/node@17.0.45)
+
   apps/web:
     dependencies:
       common-data:

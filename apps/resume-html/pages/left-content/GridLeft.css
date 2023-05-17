@@ -1,0 +1,11 @@
+/* GridLeft */
+.grid-left {
+    background-color: var(--bgWhite);
+    padding: 0.5em;
+    background-color: var(--sectionBack);
+}
+
+/* sections */
+.section {
+    margin: 3px;
+}

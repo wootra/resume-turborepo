@@ -1,0 +1,37 @@
+
+/* GridTop */
+
+.grid-top {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-top-photo {
+    display: none;
+}
+
+.grid-top-info {
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .grid-top {
+        display: grid;
+        grid-template-columns: 12rem 1fr;
+        grid-template-areas:
+          "photo info";
+    }
+   
+    .grid-top-photo {
+        grid-area: photo;
+        display: block;
+    }
+
+    .grid-top-info {
+        grid-area: info;
+    }
+}
+
+

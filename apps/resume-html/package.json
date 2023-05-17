@@ -1,0 +1,17 @@
+{
+    "name": "resume-html",
+    "version": "1.0.0",
+    "description": "resume html version(2020) for Songhyeon Jun",
+    "main": "./index.html",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "test": "echo 'no test.'"
+    },
+    "keywords": [],
+    "author": "Songhyeon Jun (shjeon0730@gmail.com)",
+    "license": "ISC",
+    "devDependencies": {
+        "vite": "^4.3.6"
+    }
+}

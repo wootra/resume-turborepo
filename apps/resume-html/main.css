@@ -1,0 +1,94 @@
+:root {
+    --bgBlue: rgb(0, 87, 114);
+    --txtWhite: white;
+    --bgWhite: white;
+    --txtTitle: #70ad47;
+    --txtDesc: black;
+    --titleBottom: rgb(12,138,40);
+    --sectionBack: rgb(245, 245, 245);
+    --profilePhotoBorderClr: rgb(39, 104, 158);
+    --skill-group-back: rgb(0, 68, 88);
+    --skill-gauge-back: rgba(187, 187, 187, 0.253);
+    --right-grid-link: rgb(197, 228, 241);
+    --right-grid-link-hover: rgb(238, 233, 143);
+    --expand-collapse-tool-back: rgb(0, 68, 88);
+}
+
+@keyframes loading {
+    0% { 
+        left: 0; 
+        top: 0;
+        transform: scaleY(0.8);
+        animation-timing-function: ease-out;
+    }
+    10% { 
+        transform: scaleY(1);
+    }
+    25% { 
+        top: -100px;
+        animation-timing-function: ease-in;
+    }
+    40% { 
+        transform: scaleY(1);
+    }
+    50% { 
+        left: 100%; 
+        top: 0;
+        transform: scaleY(0.8);
+        animation-timing-function: ease-out;
+    }
+    60% { 
+        transform: scaleY(1);
+    }
+    75% { 
+        top: -100px;
+        animation-timing-function: ease-in;
+    }
+    90% { 
+        transform: scaleY(1);
+    }
+    100% { 
+        top: 0;
+        transform: scaleY(0.8);
+        left: 0;
+    }
+}
+.loading-container {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.loading-ball {
+    animation: loading 2s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background-color: rgb(16, 71, 116);
+    z-index: 1;
+}
+
+.loading-ball.ball2{
+    animation-delay: 0.1s;
+    background-color: rgb(183, 187, 190);
+}
+
+.top-banner {
+    text-align: center; 
+    height: 30px; 
+    background-color:rgb(241, 235, 216); 
+    padding-top: 0.5rem;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body {
+    margin: 0;
+    min-width: 381px;
+}
+

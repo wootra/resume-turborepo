@@ -1,0 +1,19 @@
+
+/* Title */
+.title {
+    color: var( --txtTitle );
+    position: relative;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 1.35em;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: -20%;
+    bottom: -6px;
+    background-image: linear-gradient(90deg, rgba(12,138,40,1) 0%, rgba(12,138,40,1) 60%, rgba(12,138,40,0) 100%);
+}

@@ -1,0 +1,96 @@
+/* NameAddress */
+.name-address-container {
+    /* height: 100%; */
+    margin-right: 1rem;
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    text-align: right;
+}
+
+.profile-name {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.profile-address {
+    margin-top: -0.25rem;
+    margin-bottom: 0;
+    color: rgb(235, 235, 235);
+    font-size: 0.8rem;
+}
+
+.profile-position {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: rgb(219, 218, 163);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.profile-contacts {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 0.8rem;
+}
+
+.profile-phone {
+    display: inline;
+}
+
+.profile-email-icon, .profile-phone-icon, .profile-github-icon, .profile-home-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    object-fit: cover;
+    margin-right: 0.2rem;
+    margin-bottom: -0.1rem;
+}
+
+.profile-phone-icon{
+    width: 1rem;
+    height: 1rem;
+    margin-bottom: -0.25rem;
+    margin-right: 0;
+}
+
+
+.profile-phone::after {
+    content: " / ";
+}
+
+.profile-email {
+    position: relative;
+    margin-left: 0.2rem;
+}
+
+.name-address-container a:active, .name-address-container a:visited, .name-address-container a {
+    text-decoration: none;
+    color:rgb(180, 246, 255);
+    transition: all 1s;
+}
+
+.name-address-container a:hover {
+    text-decoration: underline;
+    color:rgb(239, 255, 180);
+    transition: all 1s;
+}
+
+.profile-websites {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 0.8rem;
+}
+
+.profile-homepage {
+    position: relative;
+}
+
+.profile-homepage::after {
+    content: " / ";
+}
+
+.profile-github {
+    position: relative;
+    margin-left: 0.2rem;
+}
