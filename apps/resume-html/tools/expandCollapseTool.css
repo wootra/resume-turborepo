@@ -1,4 +1,3 @@
-
 .expand-collapse-tool {
     width: 100%;
     background-color: var(--expand-collapse-tool-back);
@@ -21,8 +20,8 @@
 .expand-collapse-tool::after {
     position: absolute;
     left: calc(100%-1rem);
-    right: 0;
-    top: -0.2rem;
+    right: 0.2rem;
+    top: 0; /* -0.2rem; */
     bottom: 0;
     content: '⬆️';
     pointer-events: none;
@@ -36,8 +35,8 @@
     margin-left: 1rem;
     margin-top: 0.5rem;
     display: block;
-    overflow-y:scroll;
-    overflow-x:visible;
+    overflow-y: scroll;
+    overflow-x: visible;
 }
 
 .expand-collapse-tool .expand-collapse-tool-panel {
