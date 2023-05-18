@@ -50,8 +50,43 @@ export const LeftContents = Object.freeze({
         TITLE: 'Careers',
         CAREERS: [
             buildCareer(
+                'Dimensional Fund Advisors (DFA)',
+                'https://dimensional.com/',
+                [2018, 9],
+                [2021, 8],
+                'Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app',
+                'Financial / Insurance',
+                'SW Engineer Senior (Team Lead)',
+                [
+                    'React (class, functional)',
+                    'Redux',
+                    'Router(v5/v6)',
+                    'Java8',
+                    'Javascript(vanilla/ES6~2021)',
+                    'RESTful API(JBoss/Spring boot/Node.js & Express)',
+                    'Openshift',
+                    'gitlab-ci',
+                    'Mocha',
+                    'Jest',
+                    'Enzyme',
+                    'Cypress',
+                    'RTL(React Testing Library)',
+                    'Spock',
+                    'Mockito',
+                    'JUnit(4/5)',
+                    'Kafka',
+                ],
+                [
+                    'Improvement of Small business Insurance Experience',
+                    'Mordernization of Financial Readiness site (Talon/New Web)',
+                    'Improve performance/reliability of the Financial Readiness app',
+                    'Involved to overall applications except for batch process',
+                    'Leading the dev team',
+                ]
+            ),
+            buildCareer(
                 'USAA',
-                'http://usaa.com/',
+                'https://usaa.com/',
                 [2018, 9],
                 [2021, 8],
                 'Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app',
@@ -370,13 +405,29 @@ export const RightContents = Object.freeze({
         ),
     ],
     awards: [buildAward('3D-Scanner using 3-color layers', 2004)],
-    authority: ['Green Card'],
+    authority: ['Permanent Residence(Green Card)'],
     achievements: [
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
-                'Improve Pipeline performance of Small Business Insurance App',
-                `script modification`,
-                `improved pipeline speed by running the integration test scripts (cypress) conditionally depending on which development process (develop, feature, stage)`
+                'Refactor legacy code in fund/model center',
+                `plan, documentation, coding, testing(React, Typescript, Jotai 2.0)`,
+                `the existing code in model center and fund center was written 2000+ lines of class components
+                 with a lot of prop-drilling which makes code reusability and readability bad. 
+                 I refactored the code using Jotai 2.0 deleting a lot of prop drilling improving code readability and reusability.
+                 While refactoring I converted javascript code to typescript code as well as creating a lot of types 
+                 to reduce human errors in the future.`
+            ),
+            buildAchievementItem(
+                'Improve disclosure position on PDF using PDFMake',
+                `research on PDFMake, create new disclosure manager(React, Pdfmake)`,
+                `Disclosure on the PDF make in DFA is dynamic in size, 
+                so making it on the bottom of the document is touch subject. 
+                I made disclosure manager to save all the disclosure data attached 
+                to the subjects that should be added to the page first, 
+                and made the disclosure based on the subject added in the page 
+                to decide which disclosure should be added. 
+                Also measured the size of the disclosure 
+                before it is added to calculate if it fits in the page.`
             ),
         ]),
         buildAchievement('USAA', [

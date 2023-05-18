@@ -15,22 +15,29 @@ const assignDigits = (num, digits) => {
 };
 
 const CompanyTitle = (companyName, url) =>
-    createElement(
-        'h3',
-        { className: 'company-title' },
+    createElement('h3', { className: 'company-title' }, [
         createElement(
             'a',
             {
                 href: url,
                 target: '_blank',
                 ariaLabel: `link to ${companyName}`,
-                'data-url': `(${url})`,
+
                 'data-tooltip': `link to ${companyName} - ${url}`,
                 tooltip: `link to ${companyName}`,
             },
             [companyName]
-        )
-    );
+        ),
+        createElement(
+            'a',
+            {
+                href: url,
+                target: '_blank',
+                ariaLabel: `link to ${companyName}`,
+            },
+            [`(${url})`]
+        ),
+    ]);
 const CareerSpan = (start, end) => {
     const endTxt = (end && `${end[0]}.${assignDigits(end[1], 2)}`) || 'CURRENT';
     return createElement(
