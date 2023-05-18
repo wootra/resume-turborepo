@@ -43,8 +43,10 @@ const buildCareer = (
 export const LeftContents = Object.freeze({
     Introduction: Object.freeze({
         TITLE: 'Introduction',
-        DESC: `I am good at problem solving and enjoy learning new technology as well as trying fresh approach using the technologies.
-        From the recent experience, I am confident at React hooks, Jest, CSS for front end, and Java, JAX-RS, Mockito for backend.`,
+        DESC: `Fast and deep focusing is my weapon making me a good problem solver.
+         I enjoy learning new tech solutions as well as trying to use it in my personal projects. 
+         That makes me a valuable team member with high performance.
+         Recently focusing on Frnotend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS.`,
     }),
     Careers: Object.freeze({
         TITLE: 'Careers',
@@ -52,8 +54,8 @@ export const LeftContents = Object.freeze({
             buildCareer(
                 'Dimensional Fund Advisors (DFA)',
                 'https://dimensional.com/',
-                [2018, 9],
-                [2021, 8],
+                [2022, 8],
+                null,
                 'Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app',
                 'Financial / Insurance',
                 'SW Engineer Senior (Team Lead)',
@@ -88,7 +90,7 @@ export const LeftContents = Object.freeze({
                 'USAA',
                 'https://usaa.com/',
                 [2018, 9],
-                [2021, 8],
+                [2022, 8],
                 'Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app',
                 'Financial / Insurance',
                 'SW Engineer Senior (Team Lead)',
@@ -566,6 +568,28 @@ export const RightContents = Object.freeze({
             ),
         ]),
         buildAchievement('Personal Projects', [
+            buildAchievementItem(
+                'Setting up mono repo for Resume Project',
+                `Setup Turborepo, Test typescript/vitest test, Test Next.js app with test, Convert pure html project to Vite project`,
+                'Personal Project(Turborepo, Vite, Vanilla JS/CSS/HTML), typescript, vitest, Next.js',
+                `To make the project more maintainable before making next version of resume app, 
+                I have converted the project to Vite project living in the monorepo. 
+                I have tried Nx repo before using turbo repo, but typescript support with vitest test 
+                was not working as expected in the library. Turbo repo is a lot easier to set up the local packages.
+                It also supported vitest test using typescript source files. Converting html into vite project was smooth.`
+            ),
+            buildAchievementItem(
+                'Menu App(QR in Menu)',
+                `Created Production level application from A-Z as a solo developer.`,
+                'Personal Project(Next.js, Astro.js, React, TailwindCSS, Supabase, GraphQL, Typescript, Cloudflare Image, SalesTax)',
+                `Created Production level of application from planing to development. I have tried to make it using Next.js 13.0 which was 
+                still beta creating client side using Supabase, GraphQL, Typescript, TailwindCSS, Cloudflare Image, and SalesTax open source 
+                library. While Next.js 13.0 was still on beta status, error messages was not very clear. At the similar time,
+                Astro 2.0 is released. For the admin tool of the menu app, I started using Astro 2.0. The development 
+                environment is very good, especially the truth that I can use multiple javascript framework including 
+                shvelt and solid.js. Could not release the production since the project team is finished for the personal 
+                reason, but it was a great experience to learn a lot of tech stacks and schedule management.`
+            ),
             buildAchievementItem(
                 "Diagnositics of Parkinson's Desease",
                 `Found new patient with 90% of accuracy`,
