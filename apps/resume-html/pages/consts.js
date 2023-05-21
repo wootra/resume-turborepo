@@ -306,7 +306,7 @@ export const RightContents = Object.freeze({
             buildSkillLevel('React.js', 5),
             buildSkillLevel('Astro.js', 4),
             buildSkillLevel('Next.js', 3),
-            buildSkillLevel('Shvelt', 3),
+            buildSkillLevel('Svelte', 3),
             buildSkillLevel('JQuery', 3),
             buildSkillLevel('Angular 6', 2),
         ],
