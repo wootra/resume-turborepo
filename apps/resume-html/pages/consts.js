@@ -46,7 +46,7 @@ export const LeftContents = Object.freeze({
         DESC: `Fast and deep focusing is my weapon making me a good problem solver.
          I enjoy learning new tech solutions as well as trying to use it in my personal projects. 
          That makes me a valuable team member with high performance.
-         Recently focusing on Frnotend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS.`,
+         Recently focusing on Frontend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS.`,
     }),
     Careers: Object.freeze({
         TITLE: 'Careers',
