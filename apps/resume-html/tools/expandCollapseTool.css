@@ -16,6 +16,7 @@
     padding-top: 0.4rem;
     pointer-events: none;
     text-transform: capitalize;
+    user-select: none;
 }
 
 .expand-collapse-tool::after {
