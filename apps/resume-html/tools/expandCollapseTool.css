@@ -22,7 +22,7 @@
 .expand-collapse-tool::after {
     position: absolute;
     left: calc(100%-1rem);
-    right: 0.2rem;
+    right: 0.4rem;
     top: 0.4rem;
     bottom: 0;
     content: '⬆️';
