@@ -1,0 +1,43 @@
+a.animate-underline,
+a.animate-underline:visited,
+a.animate-underline:hover {
+    font-size: 0.6rem;
+    text-decoration: none;
+    position: relative;
+}
+
+a.animate-underline,
+a.animate-underline:visited {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+}
+
+a.animate-underline:hover {
+    color: var(--link-hover-color);
+    transition: color 0.2s ease-in-out;
+}
+
+a.animate-underline::after,
+a.animate-underline:visited:after,
+a.animate-underline:hover::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 100%;
+    z-index: 1;
+}
+
+a.animate-underline::after,
+a.animate-underline:visited::after {
+    border-bottom: var(--link-color) 1px solid;
+    transition: all 0.2s ease-in-out;
+}
+
+a.animate-underline:hover::after {
+    border-bottom: var(--link-hover-color) 1px solid;
+    transition: all 0.2s ease-in-out;
+    bottom: -0.2rem;
+    color: var(--link-hover-color);
+}
