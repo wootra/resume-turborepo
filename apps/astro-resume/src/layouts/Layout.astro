@@ -1,6 +1,9 @@
 ---
 import 'resume-css/variables/variables.css';// root
-
+import { FrameworkNoticeBanner } from 'solid-ui';
+const sourceLinks={
+	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume"
+}
 export interface Props {
 	title: string;
 }
@@ -19,7 +22,12 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, Svelte.js, CSS3, and Tailwind" currentLabel='Astro JS(Svelte.js, Solid.js)' sourceLinks={sourceLinks} client:load />
+		<main class="main-page">
+			<div class="grid-container">
+				<slot />
+			</div>
+		</main>
 	</body>
 </html>
 <style is:global>
@@ -39,4 +47,48 @@ const { title } = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	.main-page {
+		display: grid;
+		grid-template-columns: 1rem 1fr 1rem;
+		grid-template-rows: 1fr 1rem;
+	}
+
+	.grid-container {
+		grid-column: 2/3;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: minmax(12rem,auto) auto auto;
+		grid-template-areas:
+		"top"
+		"left" 
+		"right";
+	}
+
+	@media (min-width: 768px) {
+		.main-page {
+			display: grid;
+			grid-template-columns: 1fr minmax(400px 700px) 1fr;
+		}
+		
+		.grid-container {
+			grid-template-columns: 400px auto;
+			grid-template-rows: minmax(12rem,auto) auto;
+			grid-template-areas:
+			"top top"
+			"left right";
+		}
+	}
+
+	#top {
+		grid-area: top;
+	}
+
+	#left {
+		grid-area: left;
+	}
+
+	#right {
+		grid-area: right;
+	}
+
 </style>

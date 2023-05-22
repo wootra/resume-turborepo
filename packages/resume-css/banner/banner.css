@@ -2,7 +2,7 @@
     text-align: center;
     min-height: 30px;
     background-color: rgb(241, 235, 216);
-    padding: 0.4rem 0;
+    padding: 0.4rem 0.8rem;
     margin-bottom: 1rem;
     position: sticky;
     top: 0;
@@ -15,10 +15,15 @@
 
 .top-banner > * {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     flex-direction: row;
     justify-items: center;
     align-items: center;
+}
+
+.top-banner > * > * {
+    margin: auto;
 }
 
 .top-banner select {

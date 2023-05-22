@@ -1,23 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { FrameworkNoticeBanner } from 'solid-ui';
-const sourceLinks={
-	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume"
-}
+
 ---
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
-	<FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, Svelte.js, CSS3, and Tailwind" currentLabel='Astro JS(Svelte.js, Solid.js)' sourceLinks={sourceLinks} client:load />
-	<main>
-		
-	</main>
+	<section id="top" >
+		top
+	</section>
+	<section id="left" >
+		left
+	</section>
+	<section id="right">
+		right
+	</section>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
+
 	
 </style>
