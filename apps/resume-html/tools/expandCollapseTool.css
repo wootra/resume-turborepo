@@ -23,7 +23,7 @@
     position: absolute;
     left: calc(100%-1rem);
     right: 0.2rem;
-    top: 0.1rem; /* -0.2rem; */
+    top: 0.4rem;
     bottom: 0;
     content: '⬆️';
     pointer-events: none;
