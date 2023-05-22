@@ -1,0 +1,16 @@
+{
+    "name": "resume-css",
+    "version": "1.0.0",
+    "description": "css in resume mono repo",
+    "main": "./index.css",
+    "files": [
+        "**/*.css"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "echo 'no-build'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Songhyeon Jun (shjeon0730@gmail.com)",
+    "license": "ISC"
+}

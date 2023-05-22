@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "declaration": true,
+        "types": ["solid-js"]
+    },
+    "include": ["src/**/*.{ts,js,tsx,jsx}"],
+    "exclude": ["jest.config.ts", "tests/**/*.{spec,test}.{js,ts,jsx,tsx}"]
+}

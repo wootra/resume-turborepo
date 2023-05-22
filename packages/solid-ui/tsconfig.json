@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Solid Library",
+    "extends": "tsconfig/base.json",
+    "compilerOptions": {
+        "jsx": "preserve",
+        "outDir": "../../dist/out-tsc",
+        "jsxImportSource": "solid-js",
+        "lib": ["ES2015", "DOM"],
+        "module": "ESNext",
+        "target": "es6",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["."],
+    "exclude": ["dist", "build", "node_modules"]
+}

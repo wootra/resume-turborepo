@@ -1,16 +1,17 @@
 {
-    "name": "common-data",
+    "name": "resume-types",
     "version": "1.0.0",
-    "description": "",
+    "description": "types in resume mono repo",
     "main": "./index.ts",
+    "types": "./index.ts",
     "type": "module",
     "scripts": {
-        "build": "echo 'no build'",
+        "build": "echo 'no-build'",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Songhyeon Jun (shjeon0730@gmail.com)",
     "license": "ISC",
     "dependencies": {
-        "resume-types": "workspace:*"
+        "vite": "^4.3.6"
     }
 }

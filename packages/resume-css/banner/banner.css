@@ -1,0 +1,30 @@
+.top-banner {
+    text-align: center;
+    min-height: 30px;
+    background-color: rgb(241, 235, 216);
+    padding: 0.2rem 0;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.top-banner > * {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+}
+
+.top-banner select {
+    padding: 0.3rem;
+}
+
+.top-banner select > option {
+    text-align: center;
+}

@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Banner > from svelte to vanilla > should work 1`] = `"<div class=\\"top-banner\\"><div><span>desc</span><select><option value=\\"Vanilla JS\\">Vanilla JS</option><option value=\\"Astro JS(Svelte.js, Solid.js)\\">Astro JS(Svelte.js, Solid.js)</option></select></div></div>"`;
+
+exports[`Banner > from vanilla to svelte > should work 1`] = `"<div class=\\"top-banner\\"><div><span>desc</span><select><option value=\\"Vanilla JS\\">Vanilla JS</option><option value=\\"Astro JS(Svelte.js, Solid.js)\\">Astro JS(Svelte.js, Solid.js)</option></select></div></div>"`;
