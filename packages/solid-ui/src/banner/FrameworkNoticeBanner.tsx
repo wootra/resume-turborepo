@@ -6,12 +6,13 @@ import { BannerBase } from './BannerBase';
 
 export const FrameworkNoticeBanner: Component<
     FrameworkNoticeBannerProps<typeof bannerLinks>
-> = ({ description, currentLabel }) => {
+> = ({ description, currentLabel, sourceLinks }) => {
     return (
         <BannerBase
             description={description}
             currentLabel={currentLabel}
             links={bannerLinks}
+            sourceLinks={sourceLinks}
         />
     );
 };

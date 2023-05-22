@@ -1,0 +1,61 @@
+@keyframes loading {
+    0% {
+        left: 0;
+        top: 0;
+        transform: scaleY(0.8);
+        animation-timing-function: ease-out;
+    }
+    10% {
+        transform: scaleY(1);
+    }
+    25% {
+        top: -100px;
+        animation-timing-function: ease-in;
+    }
+    40% {
+        transform: scaleY(1);
+    }
+    50% {
+        left: 100%;
+        top: 0;
+        transform: scaleY(0.8);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        transform: scaleY(1);
+    }
+    75% {
+        top: -100px;
+        animation-timing-function: ease-in;
+    }
+    90% {
+        transform: scaleY(1);
+    }
+    100% {
+        top: 0;
+        transform: scaleY(0.8);
+        left: 0;
+    }
+}
+.loading-container {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.loading-ball {
+    animation: loading 2s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(16, 71, 116);
+    z-index: 1;
+}
+
+.loading-ball.ball2 {
+    animation-delay: 0.1s;
+    background-color: rgb(183, 187, 190);
+}

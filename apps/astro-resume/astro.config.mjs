@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
-import svelt from '@astrojs/svelte';
-
+import svelte from '@astrojs/svelte';
+import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
-    integrations: [solid(), svelt()],
+    integrations: [solid(), svelte(), tailwind()],
 });

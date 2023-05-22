@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "resume html version(2020) for Songhyeon Jun",
     "main": "./index.html",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wootra/resume-turborepo/tree/main/apps/resume-html"
+    },
     "scripts": {
         "dev": "vite",
         "build": "echo 'no build.'",

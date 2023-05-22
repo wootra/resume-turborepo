@@ -28,6 +28,10 @@ describe('FrameworkNoticeBanner', () => {
                 <FrameworkNoticeBanner
                     description='desc'
                     currentLabel='Vanilla JS'
+                    sourceLinks={{
+                        link1: 'http://link1',
+                        link2: 'http://link2',
+                    }}
                 />
             ));
         });
@@ -43,6 +47,10 @@ describe('FrameworkNoticeBanner', () => {
                 <FrameworkNoticeBanner
                     description='desc'
                     currentLabel='Astro JS(Svelte.js, Solid.js)'
+                    sourceLinks={{
+                        link1: 'http://link1',
+                        link2: 'http://link2',
+                    }}
                 />
             ));
         });

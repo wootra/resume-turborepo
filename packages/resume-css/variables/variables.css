@@ -1,0 +1,17 @@
+:root {
+    --bgBlue: rgb(0, 87, 114);
+    --txtWhite: white;
+    --bgWhite: white;
+    --txtTitle: #70ad47;
+    --txtDesc: black;
+    --titleBottom: rgb(12, 138, 40);
+    --sectionBack: rgb(245, 245, 245);
+    --profilePhotoBorderClr: rgb(39, 104, 158);
+    --skill-group-back: rgb(0, 68, 88);
+    --skill-gauge-back: rgba(187, 187, 187, 0.253);
+    --right-grid-link: rgb(197, 228, 241);
+    --right-grid-link-hover: rgb(238, 233, 143);
+    --expand-collapse-tool-back: rgb(0, 68, 88);
+    --link-color: rgb(0, 68, 88);
+    --link-hover-color: rgb(0, 158, 206);
+}

@@ -1,5 +1,6 @@
 import { BannerProps } from 'resume-types';
 import 'resume-css/banner/banner.css';
+import 'resume-css/link/animate-underline.css';
 import { Component, For } from 'solid-js';
 import { bannerLinks } from 'common-data';
 
@@ -13,6 +14,7 @@ export const BannerBase: Component<BannerProps> = ({
     description,
     currentLabel,
     links,
+    sourceLinks,
 }) => {
     return (
         <div class='top-banner'>
@@ -30,6 +32,15 @@ export const BannerBase: Component<BannerProps> = ({
                         )}
                     </For>
                 </select>
+            </div>
+            <div>
+                <For each={Object.keys(sourceLinks)}>
+                    {label => (
+                        <a class='animate-underline' href={sourceLinks[label]}>
+                            {label}
+                        </a>
+                    )}
+                </For>
             </div>
         </div>
     );
