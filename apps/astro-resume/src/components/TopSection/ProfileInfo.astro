@@ -17,13 +17,13 @@ const {name, address, contact, position, website} = TopContents;
             <a class="shrink" href=`mailto:${contact.email}?subject=Songhyeon, We are interested in you!`>{contact.email}</a>
         </div>
     </div>
-    <div class="inline-flex justify-end gap-1">
-        <div id="profile-contact-website" class="inline-flex">
+    <div class="flex flex-col sm:inline-flex sm:flex-row justify-end gap-1">
+        <div id="profile-contact-website" class="inline sm:inline-flex text-right">
             <img src="/home-icon.svg" alt="homepage icon" class="w-4 aspect-1 inline-block" />
             <a href=`${website.homepage}` target="_blank" data-tooltip=`move to ${website.homepage}`>{website.homepage}</a>
         </div>
-        <span class="text-white">/</span>
-        <div id="profile-contact-github" class="inline-flex">
+        <span class="text-white hidden sm:inline-flex">/</span>
+        <div id="profile-contact-github" class="inline sm:inline-flex text-right">
             <img src="/github-icon.svg" alt="github icon" class="w-4 aspect-1 inline-block" />
             <a href=`${website.github}` target="_blank" data-tooltip=`move to ${website.github}`>{website.github}</a>
         </div>
