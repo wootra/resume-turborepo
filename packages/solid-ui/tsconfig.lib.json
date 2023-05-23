@@ -5,6 +5,7 @@
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
         "declaration": true,
+        "declarationDir": "./declaration.d.ts",
         "types": ["solid-js"]
     },
     "include": ["src/**/*.{ts,js,tsx,jsx}"],

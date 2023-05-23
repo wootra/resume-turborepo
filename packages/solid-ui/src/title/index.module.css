@@ -1,0 +1,24 @@
+.title {
+    color: var(--txtTitle);
+    position: relative;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    font-size: 1.35rem;
+    font-family: Times New Roman, Times, serif;
+    font-weight: 700;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: -20%;
+    bottom: -2px;
+    height: 2px;
+    background-image: linear-gradient(
+        90deg,
+        rgba(12, 138, 40, 1) 0%,
+        rgba(12, 138, 40, 1) 60%,
+        rgba(12, 138, 40, 0) 100%
+    );
+}
