@@ -1,19 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TopSection from '../components/TopSection/index.astro'
+import ProfileImage from '../components/TopSection/ProfileImage.astro';
+import ProfileInfo from '../components/TopSection/ProfileInfo.astro';
+import Introduction from '../components/LeftSection/Introduction.astro';
 ---
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
-	<TopSection />
-	<section id="left" >
-		left
-	</section>
-	<section id="right">
-		right
-	</section>
+	<main class="main-page">
+		<div class="grid-container">
+			<section id="top" class="flex flex-row" >
+				<ProfileImage />
+				<ProfileInfo />
+			</section>
+			<section id="left" >
+				<Introduction />
+			</section>
+			<section id="right">
+				right
+			</section>
+		</div>
+	</main>
 </Layout>
 
 <style>
+	.main-page {
+		display: grid;
+		grid-template-columns: 1fr 700px 1fr;
+	}
+
+	.grid-container {
+		grid-column: 2/3;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: minmax(12rem,auto) auto auto;
+		grid-template-areas:
+		"top"
+		"left" 
+		"right";
+	}
+
+	@media (min-width: 768px) {
+		.main-page {
+			display: grid;
+			grid-template-columns: 1fr minmax(400px 700px) 1fr;
+		}
+		
+		.grid-container {
+			grid-template-columns: 400px auto;
+			grid-template-rows: minmax(12rem,auto) auto;
+			grid-template-areas:
+			"top top"
+			"left right";
+		}
+	}
+
+	#top {
+		grid-area: top;
+	}
+
+	#left {
+		grid-area: left;
+	}
+
+	#right {
+		grid-area: right;
+	}
 
 	
 </style>
