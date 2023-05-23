@@ -1,38 +1,19 @@
 ---
+import ProfileImage from "./ProfileImage.astro";
+import ProfileInfo from "./ProfileInfo.astro";
 
 ---
 <section id="top" class="flex flex-row" >
-    <div id="profile-picture" class="relative w-0 aspect-1 group md:w-48 hidden md:block">
-        <div class="absolute w-24 bg-back-blue top-0 right-0 h-full"></div>
-        <img src="/profile-photo.png" alt="profile photo" class="absolute left-0 top-0 w-full h-full rounded-full group-hover:opacity-30 transition-all duration-1000 group-hover:blur-lg border-4 border-profile-photo translate-x-0 group-hover:-translate-x-8" width="200" height="200">
-        <img src="/hidden-picture.png" alt="hidden picture" class="absolute left-0 top-0 w-full h-full rounded-full opacity-0 group-hover:opacity-100 transition-all duration-1000" />
-    </div>
-    <div id="top-content" class="relative w-full flex-grow bg-back-blue">
-        more
-    </div>
+    <ProfileImage />
+    <ProfileInfo />
 </section>
 <style>
-    #top-content::before {
-        content: '';
-        position: absolute;
-        left: -6rem;
-        top: 0;
-        width: 10rem;
-        height: 100%;
-        background-color: var(--bgBack);
-        z-index: -1;
-    }
     #top-content {
-        border-radius: 0 1rem 1rem 0;
+        border-radius: 0 1rem 0 0;
     }
-    #profile-picture {
-        filter: drop-shadow(0 0 4rem #e4eba8dc);
+    @media (max-width: 768px) {
+        #top-content {
+            border-radius: 1rem 1rem 0 0;
+        }
     }
-   #top > div > .inner-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 30rem;
-        height: 30rem;
-   }
 </style>

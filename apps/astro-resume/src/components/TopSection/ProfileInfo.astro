@@ -1,0 +1,43 @@
+---
+import {TopContents} from 'common-data';
+const {name, address, contact, position, website} = TopContents;
+---
+<div id="top-content" class="w-full flex-grow bg-back-blue flex flex-col py-4 px-5 justify-start items-end">
+    <h1 id="profile-name" class="text-white text-3xl uppercase">{name}</h1>
+    <h3 id="profile-address" class="text-gray-light text-xs">{address}</h3>
+    <h2 id="profile-position" class="text-light-lime text-lg py-4">{position}</h2>
+    <div id="profile-contact" class="text-cyan-200 flex flex-col text-sm">
+        <div class="inline-flex justify-end gap-1">
+            <div id="profile-contact-phone" class="inline-flex">
+                <img src="/phone-icon.svg" alt="phone icon" class="w-4 aspect-1 inline-block" />
+                <a class="shrink" href=`tel:+1${contact.phone.replace(/[\(\)-]/g,"")}`>{contact.phone}</a>
+            </div>
+            <span class="text-white">/</span>
+            <div id="profile-contact-email" class="inline-flex">
+                <img src="/email-icon.svg" alt="phone icon" class="w-4 aspect-1 inline-block" />
+                <a class="shrink" href=`mailto:${contact.email}?subject=Songhyeon, We are interested in you!`>{contact.email}</a>
+            </div>
+        </div>
+        <div class="inline-flex justify-end gap-1">
+            <div id="profile-contact-website" class="inline-flex">
+                <img src="/home-icon.svg" alt="homepage icon" class="w-4 aspect-1 inline-block" />
+                <a href=`${website.homepage}` target="_blank" data-tooltip=`move to ${website.homepage}`>{website.homepage}</a>
+            </div>
+            <span class="text-white">/</span>
+            <div id="profile-contact-github" class="inline-flex">
+                <img src="/github-icon.svg" alt="github icon" class="w-4 aspect-1 inline-block" />
+                <a href=`${website.github}` target="_blank" data-tooltip=`move to ${website.github}`>{website.github}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #top-content * {
+        font-family: 'Roboto Slab', serif;
+    }
+    #profile-contact .flex-row * {
+        flex: 0 1;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+</style>

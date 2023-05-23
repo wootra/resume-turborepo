@@ -1,0 +1,22 @@
+---
+
+---
+<div id="profile-picture" class="relative w-0 h-full group md:w-[16rem] md:h-48 hidden md:block">
+    <div id="profile-picture-back" class="absolute w-[16rem] bg-back-blue top-0 left-0 h-full"></div>
+    <div id="profile-picture-img-back" class="absolute left-0 top-0 h-full w-44 picture-round bg-back-blue"></div>
+    <img src="/profile-photo.png" alt="profile photo" class="absolute left-0 top-0 aspect-1 h-full picture-round group-hover:opacity-50 transition-all duration-1000 group-hover:blur-lg border-4 border-profile-photo translate-x-0 group-hover:-translate-x-8" width="200" height="200">
+    <img src="/hidden-picture.png" alt="hidden picture" class="absolute left-0 top-0 aspect-1 h-full picture-round opacity-0 group-hover:opacity-100 transition-all duration-1000" />
+</div>
+
+<style>
+    .picture-round {
+        border-radius: 6rem 6rem 6rem 0;
+    }
+    #profile-picture-back {
+        border-radius: 6rem 0 0 0;
+    }
+    #profile-picture-img-back {
+        filter: drop-shadow(0 0 2rem #e4eba8dc);
+    }
+
+</style>

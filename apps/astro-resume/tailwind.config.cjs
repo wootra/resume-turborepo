@@ -19,7 +19,7 @@ module.exports = {
                 desc: 'black',
                 'title-bottom': 'rgb(12, 138, 40)',
                 'section-back': 'rgb(245, 245, 245)',
-
+                'light-lime': 'rgb(219, 218, 163)',
                 'skill-group-back': 'rgb(0, 68, 88)',
                 'skill-gauge-back': 'rgba(187, 187, 187, 0.253)',
                 'right-grid-link': 'rgb(197, 228, 241)',
