@@ -32,6 +32,14 @@ const {name, address, contact, position, website} = TopContents;
     </div>
 </div>
 <style>
+    #top-content {
+        border-radius: 1rem 1rem 0 0;
+    }
+    @media (min-width: 701px) {
+        #top-content {
+            border-radius: 0 1rem 0 0;
+        }
+	}
     #top-content * {
         font-family: 'Roboto Slab', serif;
     }
