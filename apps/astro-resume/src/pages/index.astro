@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProfileImage from '../components/TopSection/ProfileImage.astro';
+import TopSection from '../components/TopSection/index.astro';
 import ProfileInfo from '../components/TopSection/ProfileInfo.astro';
 import Introduction from '../components/LeftSection/Introduction.astro';
 ---
@@ -8,9 +8,8 @@ import Introduction from '../components/LeftSection/Introduction.astro';
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
 	<main class="main-page">
 		<div class="grid-container">
-			<section id="top" class="flex flex-row" >
-				<ProfileImage />
-				<ProfileInfo />
+			<section id="top">
+				<TopSection />
 			</section>
 			<section id="left" >
 				<Introduction />

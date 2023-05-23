@@ -1,0 +1,35 @@
+---
+import ProfileImage from "./ProfileImage.astro";
+import ProfileInfo from "./ProfileInfo.astro";
+
+---
+<div class="flex flex-row h-48">
+    <div id="profile-picture" class="relative h-full group overflow-y-clip">
+        <ProfileImage />
+    </div>
+    <div id="top-content" class="w-full flex-grow bg-back-blue flex flex-col py-4 px-5 justify-start items-end">
+        <ProfileInfo />
+    </div>
+</div>
+
+<style>
+    #profile-picture {
+        display: none;
+        width: 0;
+    }
+    #top-content {
+        border-radius: 1rem 1rem 0 0;
+    }
+    @media (min-width: 701px) {
+        #profile-picture {
+            display: block;
+            width: 16rem;
+            flex: 0 0 16rem;
+            border-radius: 6rem 0 0 0; 
+        }
+
+        #top-content {
+            border-radius: 0 1rem 0 0;
+        }
+	}
+</style>
