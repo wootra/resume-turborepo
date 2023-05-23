@@ -11,10 +11,10 @@ import RightSection from '../components/RightSection/index.astro';
 			<section id="top">
 				<TopSection />
 			</section>
-			<section id="left" >
+			<section id="left" class="bg-section-back">
 				<LeftSection />
 			</section>
-			<section id="right">
+			<section id="right" class="bg-back-blue">
 				<RightSection />
 			</section>
 		</div>
@@ -24,7 +24,8 @@ import RightSection from '../components/RightSection/index.astro';
 <style>
 	.main-page {
 		display: grid;
-		grid-template-columns: 1fr minmax(auto, 700px) 1fr;
+		grid-template-columns: minmax(1rem,1fr) minmax(auto, 700px) minmax(1rem, 1fr);
+		filter: drop-shadow(2px 4px 6px black);
 	}
 
 	.grid-container {
@@ -36,6 +37,14 @@ import RightSection from '../components/RightSection/index.astro';
 		"top"
 		"left" 
 		"right";
+	}
+
+	#left {
+		border-radius: 0 0 0 0;
+	}
+
+	#right {
+		border-radius: 0 0 1rem 1rem;
 	}
 
 	@media (min-width: 701px) {
@@ -51,8 +60,16 @@ import RightSection from '../components/RightSection/index.astro';
 			"top top"
 			"left right";
 		}
+		#left {
+			border-radius: 0 0 0 1rem;
+		}
+
+		#right {
+			border-radius: 0 0 1rem 0;
+		}
 	}
 
+	
 	#top {
 		grid-area: top;
 	}
