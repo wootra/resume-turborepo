@@ -11,12 +11,10 @@ module.exports = {
                 '4xl': '2rem',
             },
             backgroundColor: {
-                blue: 'rgb(0, 87, 114)',
-            },
-            borderColor: {
-                'profile-photo': 'rgb(39, 104, 158)',
+                'back-blue': 'rgb(0, 87, 114)',
             },
             colors: {
+                'profile-photo': 'rgb(39, 104, 158)',
                 title: '#70ad47',
                 desc: 'black',
                 'title-bottom': 'rgb(12, 138, 40)',

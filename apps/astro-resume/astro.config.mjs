@@ -13,11 +13,7 @@ export default defineConfig({
     output: 'server',
     adapter: vercel(),
     integrations: [
-        tailwind({
-            config: {
-                applyBaseStyles: false,
-            },
-        }),
+        tailwind(),
         image({
             cacheDir: '.astro/cache',
         }),
