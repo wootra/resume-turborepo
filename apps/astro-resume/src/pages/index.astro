@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TopSection from '../components/TopSection/index.astro';
-import ProfileInfo from '../components/TopSection/ProfileInfo.astro';
-import Introduction from '../components/LeftSection/Introduction.astro';
+import LeftSection from '../components/LeftSection/index.astro';
+import RightSection from '../components/RightSection/index.astro';
 ---
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
@@ -12,10 +12,10 @@ import Introduction from '../components/LeftSection/Introduction.astro';
 				<TopSection />
 			</section>
 			<section id="left" >
-				<Introduction />
+				<LeftSection />
 			</section>
 			<section id="right">
-				right
+				<RightSection />
 			</section>
 		</div>
 	</main>
