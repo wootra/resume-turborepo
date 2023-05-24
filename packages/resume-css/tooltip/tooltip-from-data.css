@@ -2,13 +2,14 @@
     --tooltipBack: #323232;
     --tooltipShadow: #29292959;
     --tooltipColor: #f4ffb3;
+    --tooltipFontFamily: 'Times New Roman', Times, serif;
 }
-a[data-tooltip] {
+[data-tooltip] {
     position: relative;
 }
 
-a[data-tooltip]::after,
-a[data-tooltip]:hover::after {
+[data-tooltip]::after,
+[data-tooltip]:hover::after {
     content: attr(data-tooltip);
     position: absolute;
     left: 0;
@@ -22,15 +23,17 @@ a[data-tooltip]:hover::after {
     color: var(--tooltipColor);
     filter: drop-shadow(0 0 0.2rem var(--tooltipShadow));
     pointer-events: none;
+    font-family: var(--tooltipFontFamily);
+    text-transform: none;
 }
 
-a[data-tooltip]::after {
+[data-tooltip]::after {
     bottom: calc(100% + 1rem);
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
 
-a[data-tooltip]:hover::after {
+[data-tooltip]:hover::after {
     bottom: 100%;
     opacity: 1;
     transition: all 0.5s ease-in-out;

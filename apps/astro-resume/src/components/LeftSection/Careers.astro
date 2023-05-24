@@ -15,7 +15,7 @@ const getAriaLabel = (career: (typeof CAREERS)[number]) => {
 ---
 <Title>{TITLE}</Title>
 {CAREERS.map(career=>(
-    <div class="career">
+    <div class="career flex flex-col gap-2">
         <div class="flex flex-row">
             <h3 class="flex-grow flex flex-row flex-wrap gap-y-0 gap-x-2 leading-4">
                 <a class="company-name" 
@@ -27,7 +27,7 @@ const getAriaLabel = (career: (typeof CAREERS)[number]) => {
                 >
                     {career.companyName}
                 </a>
-                <a class="company-url pb-1 justify-self-end self-end" 
+                <a class="company-url justify-self-end self-end" 
                     href={career.url} 
                     target="_blank" 
                     data-tooltip={getAriaLabel(career)} 
@@ -37,12 +37,26 @@ const getAriaLabel = (career: (typeof CAREERS)[number]) => {
                     {career.url}
                 </a>
             </h3>
-            <div class="period flex-shrink basis-10 pt-1 text-sm font-bold">{getPeriod(career)}</div>
+            <div class="period flex-shrink basis-10 text-sm font-bold">{getPeriod(career)}</div>
         </div>
+        <div class="leading-4 text-slate-600" data-tooltip="Role">{career.role}</div>
+        <div class="flex flex-row text-sm gap-2">
+            <div data-tooltip="Industry" class="text-amber-600">{career.industry}</div>
+            <div data-tooltip="Job Title" class="text-sky-700">{career.jobTitle}</div>
+        </div>
+        <div data-tooltip="Tech stack" class="text-xs text-slate-600">{career.techStacks.join(' / ')}</div>
+        <ul data-tooltip="Achievements" class="achievement">
+            {career.achievements.map(a=>(
+                <li>{a}</li>
+            ))}
+        </ul>
     </div>
 ))}
 
 <style>
+    .career * {
+        font-family: 'Times New Roman', Times, serif;
+    }
     a{
         text-decoration: none;
     }
@@ -60,6 +74,25 @@ const getAriaLabel = (career: (typeof CAREERS)[number]) => {
     }
     
     .period {
+        font-family: 'Oswald', sans-serif;
         color: rgb(133, 164, 175);
+    }
+
+    .achievement li{
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+        text-indent: 0.1rem;
+        font-size: 0.8rem;
+    }
+
+    .achievement li::before {
+        font-size: 0.6rem;
+        content: '✅';
+        position:absolute;
+        right: calc(100% - 0.9rem);
+        top: 0.28rem;
+        height: 0.6rem;
+        width: 1rem;
     }
 </style>
