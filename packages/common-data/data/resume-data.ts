@@ -14,6 +14,7 @@ import {
     buildSkillLevel,
     buildVolunteer,
 } from './resume-builders';
+export type CareerType = ReturnType<typeof buildCareer>;
 type LeftContentsType = {
     Introduction: {
         TITLE: string;
@@ -21,7 +22,7 @@ type LeftContentsType = {
     };
     Careers: {
         TITLE: string;
-        CAREERS: ReturnType<typeof buildCareer>[];
+        CAREERS: CareerType[];
     };
 };
 export const LeftContents: LeftContentsType = Object.freeze({

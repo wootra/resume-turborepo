@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import TopSection from '../components/TopSection/index.astro';
 import LeftSection from '../components/LeftSection/index.astro';
 import RightSection from '../components/RightSection/index.astro';
+import "resume-css/tooltip/tooltip-from-data.css";
 ---
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
@@ -54,7 +55,7 @@ import RightSection from '../components/RightSection/index.astro';
 		}
 		
 		.grid-container {
-			grid-template-columns: 20rem auto;
+			grid-template-columns: auto 18rem;
 			grid-template-rows: minmax(12rem,auto) auto;
 			grid-template-areas:
 			"top top"
