@@ -1,4 +1,49 @@
 ---
-import {Title} from 'solid-ui';
+import {ExpandPanel, Title} from 'solid-ui';
+import {LeftContents} from 'common-data';
+
+const {achievements} = LeftContents;
 ---
 <Title>More Achievements</Title>
+{
+    achievements.map((a) => (
+        <ExpandPanel title={a.company} client:only="solid-js" class="bg-slate-200 rounded-md p-2">
+            <ul class="flex flex-col gap-4">{a.items.map(item=>(
+                <li class="flex flex-col">
+                    <heading>{item.name}</heading>
+                    <p class="business-value text-sm text-cyan-600" data-tooltip="Business Values">{item.businessValue}</p>
+                    <p class="my-part text-sm text-amber-900" data-tooltip="My Contribution">{item.myPart}</p>
+                    {item.desc && <p class="desc text-sm text-neutral-700" data-tooltip="More Description">{item.desc}</p>}
+                </li>
+            ))}</ul>
+        </ExpandPanel>
+    ))
+}
+<style>
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+    padding-left: 1rem;
+    position: relative;
+    text-indent: 0.1rem;
+    font-size: 0.8rem;
+}
+li::before {
+    font-size: 0.6rem;
+    content: '✅';
+    position:absolute;
+    right: calc(100% - 0.9rem);
+    top: 0.28rem;
+    height: 0.6rem;
+    width: 1rem;
+}
+heading {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+</style>

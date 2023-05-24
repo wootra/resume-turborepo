@@ -1,0 +1,65 @@
+.resume-expand-panel.gridContainer[data-expanded] {
+    display: grid;
+    transition: all 0.3s ease-in-out;
+}
+
+.resume-expand-panel.gridContainer[data-expanded='true'] {
+    grid-template-rows: 1.5rem 1fr;
+}
+
+.resume-expand-panel.gridContainer[data-expanded='false'] {
+    grid-template-rows: 1.5rem 0fr;
+}
+
+.resume-expand-panel > .title {
+    grid-row: 1/2;
+    cursor: pointer;
+}
+
+.resume-expand-panel > .panel {
+    grid-row: 2/3;
+}
+
+.resume-expand-panel > .title[data-expanded] {
+    color: var(--txtTitle);
+    position: relative;
+    height: 1.5rem;
+    width: 100%;
+}
+
+.resume-expand-panel > .title[data-expanded]::after {
+    content: '⬆️';
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid yellow; */
+    font-size: 0.8rem;
+    right: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.resume-expand-panel > .title[data-expanded='false']::after {
+    rotate: 360deg;
+    transform-origin: center;
+}
+
+.resume-expand-panel > .title[data-expanded='true']::after {
+    rotate: 180deg;
+    transform-origin: center;
+}
+
+.resume-expand-panel > .panel[data-expanded] {
+    transition: all 1s ease-in-out;
+}
+
+.resume-expand-panel > .panel[data-expanded='false'] {
+    overflow: hidden;
+}
+
+.resume-expand-panel > .panel[data-expanded='true'] {
+    overflow: none;
+}

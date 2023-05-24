@@ -24,6 +24,7 @@ type LeftContentsType = {
         TITLE: string;
         CAREERS: CareerType[];
     };
+    achievements: AchievementObj[];
 };
 export const LeftContents: LeftContentsType = Object.freeze({
     Introduction: Object.freeze({
@@ -164,179 +165,11 @@ export const LeftContents: LeftContentsType = Object.freeze({
             ),
         ],
     }),
-});
-
-type TopContentsType = {
-    name: string;
-    address: string;
-    position: string;
-    contact: {
-        phone: string;
-        email: string;
-    };
-    website: {
-        homepage: string;
-        github: string;
-    };
-};
-export const TopContents: TopContentsType = Object.freeze({
-    name: 'Songhyeon Jun',
-    address: 'San Antonio, TX, 78261',
-    position: 'Fullstack SW Engineer',
-    contact: {
-        phone: '(512)919-6009',
-        email: 'shjeon0730@gmail.com',
-    },
-    website: {
-        homepage: 'https://www.sh-jun.com',
-        github: 'https://github.com/wootra',
-    },
-});
-
-type RightContentsType = Readonly<{
-    skillLevels: {
-        [key: string]: SkillLevelObj[];
-    };
-    volunteers: VolunteerObj[];
-    educations: EducationObj[];
-    awards: AwardObj[];
-    authority: string[];
-    achievements: AchievementObj[];
-}>;
-export const RightContents: RightContentsType = Object.freeze({
-    skillLevels: {
-        'Languages(FE)': [
-            buildSkillLevel('Javascript', 5),
-            buildSkillLevel('TypeScript', 5),
-            buildSkillLevel('HTML', 5),
-            buildSkillLevel('CSS/3', 5),
-            buildSkillLevel('SASS/LESS/SCSS', 5),
-        ],
-        'Languages(Etc)': [
-            buildSkillLevel('Java', 4),
-            buildSkillLevel('C/C++', 3),
-            buildSkillLevel('C#.Net', 3),
-            buildSkillLevel('Python', 3),
-            buildSkillLevel('YAML', 5),
-            buildSkillLevel('XML', 5),
-            buildSkillLevel('SASS/LESS', 5),
-            buildSkillLevel('NodeJs', 4),
-            buildSkillLevel('LUA', 3),
-            buildSkillLevel('Rust', 2),
-            buildSkillLevel('Dart', 2),
-            buildSkillLevel('Go', 2),
-            buildSkillLevel('JPA', 3),
-        ],
-        'Frameworks(FE)': [
-            buildSkillLevel('React.js', 5),
-            buildSkillLevel('Astro.js', 4),
-            buildSkillLevel('Next.js', 3),
-            buildSkillLevel('Svelte', 3),
-            buildSkillLevel('JQuery', 3),
-            buildSkillLevel('Angular 6', 2),
-        ],
-        'Frameworks(Etc)': [
-            buildSkillLevel('.Net', 4),
-            buildSkillLevel('Jax-RS', 4),
-            buildSkillLevel('Spring Boot', 3),
-            buildSkillLevel('Kafka', 2),
-        ],
-        'Workspace Management': [
-            buildSkillLevel('Turbo repo', 3),
-            buildSkillLevel('Nx Repo', 3),
-            buildSkillLevel('Rush Repo', 2),
-        ],
-        'State Libraries': [
-            buildSkillLevel('jotai', 5),
-            buildSkillLevel('zustand', 5),
-        ],
-        'Shell Scripts': [
-            buildSkillLevel('bash-sh', 4),
-            buildSkillLevel('cmd-sh', 3),
-        ],
-
-        'Test Framework': [
-            buildSkillLevel('Jest', 5),
-            buildSkillLevel('Mocha', 5),
-            buildSkillLevel('Enzyme', 5),
-            buildSkillLevel('sinon', 5),
-            buildSkillLevel('Mockito', 5),
-            buildSkillLevel('cypress', 5),
-            buildSkillLevel('Selenium', 4),
-            buildSkillLevel('Spock', 3),
-        ],
-        database: [
-            buildSkillLevel('My-SQL', 4),
-            buildSkillLevel('MS-SQL', 4),
-            buildSkillLevel('DB2', 4),
-            buildSkillLevel('Mongo DB', 3),
-            buildSkillLevel('Postgres', 3),
-        ],
-        'Dev Ops': [
-            buildSkillLevel('Gialb-ci', 4),
-            buildSkillLevel('Docker', 3),
-            buildSkillLevel('Openshift', 3),
-            buildSkillLevel('github-actions', 2),
-        ],
-        'Analysis Tools': [
-            buildSkillLevel('Lab Windows/CVI', 5),
-            buildSkillLevel('Matlab', 4),
-            buildSkillLevel('TemsorFlow/Keras', 3),
-            buildSkillLevel('Jupiter Notebook', 3),
-            buildSkillLevel('Labview', 3),
-        ],
-        Documentation: [
-            buildSkillLevel('JsDocs', 5),
-            buildSkillLevel('ReadMe', 3),
-        ],
-        'Project Management': [
-            buildSkillLevel('Agile/Jira', 4),
-            buildSkillLevel('SAFE', 4),
-            buildSkillLevel('SDLC', 3),
-        ],
-        Network: [
-            buildSkillLevel('TCP/IP, UDP', 5),
-            buildSkillLevel('RS-232/RS-422/MIL1553', 4),
-            buildSkillLevel('Analog/Discrete', 4),
-            buildSkillLevel('GPS/GNSS', 3),
-            buildSkillLevel('I2C', 3),
-        ],
-        'Multimedia/Office': [
-            buildSkillLevel('Flash/Action Script', 5),
-            buildSkillLevel('Photoshop', 4),
-            buildSkillLevel('Illustrator', 4),
-            buildSkillLevel('Excel', 4),
-            buildSkillLevel('PowerPoint', 4),
-            buildSkillLevel('Word', 3),
-        ],
-    },
-    volunteers: [
-        buildVolunteer(
-            'Vice President',
-            'GonAPus ( Amateur Astronomy Club ) in GNU',
-            'https://www.facebook.com/GonApus/'
-        ),
-        buildVolunteer(
-            'Training Helper',
-            'Youth traning center',
-            'http://www.gnyouthtc.or.kr/'
-        ),
-    ],
-    educations: [
-        buildEducation(
-            buildSchool('Gyeongsang National Univ', 'https://www.gnu.ac.kr/'),
-            [
-                buildDegree('Computer Science', 'BC', 2005),
-                buildDegree('Mechanical Engineering', 'BE', 2005),
-            ]
-        ),
-    ],
-    awards: [buildAward('3D-Scanner using 3-color layers', 2004)],
-    authority: ['Permanent Residence(Green Card)'],
     achievements: [
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
                 'Refactor legacy code in fund/model center',
+                'improve developer experience, code readability, reusability, and maintainability',
                 `plan, documentation, coding, testing(React, Typescript, Jotai 2.0)`,
                 `the existing code in model center and fund center was written 2000+ lines of class components
                  with a lot of prop-drilling which makes code reusability and readability bad. 
@@ -346,6 +179,7 @@ export const RightContents: RightContentsType = Object.freeze({
             ),
             buildAchievementItem(
                 'Improve disclosure position on PDF using PDFMake',
+                'improve user experience, code maintainability',
                 `research on PDFMake, create new disclosure manager(React, Pdfmake)`,
                 `Disclosure on the PDF make in DFA is dynamic in size, 
                 so making it on the bottom of the document is touch subject. 
@@ -563,4 +397,172 @@ export const RightContents: RightContentsType = Object.freeze({
             ),
         ]),
     ],
+});
+
+type TopContentsType = {
+    name: string;
+    address: string;
+    position: string;
+    contact: {
+        phone: string;
+        email: string;
+    };
+    website: {
+        homepage: string;
+        github: string;
+    };
+};
+export const TopContents: TopContentsType = Object.freeze({
+    name: 'Songhyeon Jun',
+    address: 'San Antonio, TX, 78261',
+    position: 'Fullstack SW Engineer',
+    contact: {
+        phone: '(512)919-6009',
+        email: 'shjeon0730@gmail.com',
+    },
+    website: {
+        homepage: 'https://www.sh-jun.com',
+        github: 'https://github.com/wootra',
+    },
+});
+
+type RightContentsType = Readonly<{
+    skillLevels: {
+        [key: string]: SkillLevelObj[];
+    };
+    volunteers: VolunteerObj[];
+    educations: EducationObj[];
+    awards: AwardObj[];
+    authority: string[];
+}>;
+export const RightContents: RightContentsType = Object.freeze({
+    skillLevels: {
+        'Languages(FE)': [
+            buildSkillLevel('Javascript', 5),
+            buildSkillLevel('TypeScript', 5),
+            buildSkillLevel('HTML', 5),
+            buildSkillLevel('CSS/3', 5),
+            buildSkillLevel('SASS/LESS/SCSS', 5),
+        ],
+        'Languages(Etc)': [
+            buildSkillLevel('Java', 4),
+            buildSkillLevel('C/C++', 3),
+            buildSkillLevel('C#.Net', 3),
+            buildSkillLevel('Python', 3),
+            buildSkillLevel('YAML', 5),
+            buildSkillLevel('XML', 5),
+            buildSkillLevel('SASS/LESS', 5),
+            buildSkillLevel('NodeJs', 4),
+            buildSkillLevel('LUA', 3),
+            buildSkillLevel('Rust', 2),
+            buildSkillLevel('Dart', 2),
+            buildSkillLevel('Go', 2),
+            buildSkillLevel('JPA', 3),
+        ],
+        'Frameworks(FE)': [
+            buildSkillLevel('React.js', 5),
+            buildSkillLevel('Astro.js', 4),
+            buildSkillLevel('Next.js', 3),
+            buildSkillLevel('Svelte', 3),
+            buildSkillLevel('JQuery', 3),
+            buildSkillLevel('Angular 6', 2),
+        ],
+        'Frameworks(Etc)': [
+            buildSkillLevel('.Net', 4),
+            buildSkillLevel('Jax-RS', 4),
+            buildSkillLevel('Spring Boot', 3),
+            buildSkillLevel('Kafka', 2),
+        ],
+        'Workspace Management': [
+            buildSkillLevel('Turbo repo', 3),
+            buildSkillLevel('Nx Repo', 3),
+            buildSkillLevel('Rush Repo', 2),
+        ],
+        'State Libraries': [
+            buildSkillLevel('jotai', 5),
+            buildSkillLevel('zustand', 5),
+        ],
+        'Shell Scripts': [
+            buildSkillLevel('bash-sh', 4),
+            buildSkillLevel('cmd-sh', 3),
+        ],
+
+        'Test Framework': [
+            buildSkillLevel('Jest', 5),
+            buildSkillLevel('Mocha', 5),
+            buildSkillLevel('Enzyme', 5),
+            buildSkillLevel('sinon', 5),
+            buildSkillLevel('Mockito', 5),
+            buildSkillLevel('cypress', 5),
+            buildSkillLevel('Selenium', 4),
+            buildSkillLevel('Spock', 3),
+        ],
+        database: [
+            buildSkillLevel('My-SQL', 4),
+            buildSkillLevel('MS-SQL', 4),
+            buildSkillLevel('DB2', 4),
+            buildSkillLevel('Mongo DB', 3),
+            buildSkillLevel('Postgres', 3),
+        ],
+        'Dev Ops': [
+            buildSkillLevel('Gialb-ci', 4),
+            buildSkillLevel('Docker', 3),
+            buildSkillLevel('Openshift', 3),
+            buildSkillLevel('github-actions', 2),
+        ],
+        'Analysis Tools': [
+            buildSkillLevel('Lab Windows/CVI', 5),
+            buildSkillLevel('Matlab', 4),
+            buildSkillLevel('TemsorFlow/Keras', 3),
+            buildSkillLevel('Jupiter Notebook', 3),
+            buildSkillLevel('Labview', 3),
+        ],
+        Documentation: [
+            buildSkillLevel('JsDocs', 5),
+            buildSkillLevel('ReadMe', 3),
+        ],
+        'Project Management': [
+            buildSkillLevel('Agile/Jira', 4),
+            buildSkillLevel('SAFE', 4),
+            buildSkillLevel('SDLC', 3),
+        ],
+        Network: [
+            buildSkillLevel('TCP/IP, UDP', 5),
+            buildSkillLevel('RS-232/RS-422/MIL1553', 4),
+            buildSkillLevel('Analog/Discrete', 4),
+            buildSkillLevel('GPS/GNSS', 3),
+            buildSkillLevel('I2C', 3),
+        ],
+        'Multimedia/Office': [
+            buildSkillLevel('Flash/Action Script', 5),
+            buildSkillLevel('Photoshop', 4),
+            buildSkillLevel('Illustrator', 4),
+            buildSkillLevel('Excel', 4),
+            buildSkillLevel('PowerPoint', 4),
+            buildSkillLevel('Word', 3),
+        ],
+    },
+    volunteers: [
+        buildVolunteer(
+            'Vice President',
+            'GonAPus ( Amateur Astronomy Club ) in GNU',
+            'https://www.facebook.com/GonApus/'
+        ),
+        buildVolunteer(
+            'Training Helper',
+            'Youth traning center',
+            'http://www.gnyouthtc.or.kr/'
+        ),
+    ],
+    educations: [
+        buildEducation(
+            buildSchool('Gyeongsang National Univ', 'https://www.gnu.ac.kr/'),
+            [
+                buildDegree('Computer Science', 'BC', 2005),
+                buildDegree('Mechanical Engineering', 'BE', 2005),
+            ]
+        ),
+    ],
+    awards: [buildAward('3D-Scanner using 3-color layers', 2004)],
+    authority: ['Permanent Residence(Green Card)'],
 });
