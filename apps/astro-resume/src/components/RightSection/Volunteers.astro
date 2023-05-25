@@ -1,4 +1,39 @@
 ---
+import {Title} from 'solid-ui';
+import {RightContents} from 'common-data';
+
+const {volunteers} = RightContents;
 
 ---
-<h2>Volunteer Exp. or Leadership</h2>
+<Title color="yellow">Volunteer Exp / Leadership</Title>
+<ul class="volunteer text-sm">
+    {volunteers.map(a=>(
+        <li data-tooltip={`${a.role} at ${a.where}`}>
+            <a href={a.url} target="_blank" rel="noopener noreferrer" aria-label={`move to ${a.where}`} class="animate-underline">{a.role}</a></li>
+    ))}
+</ul>
+
+<style>
+    .volunteer li{
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+        text-indent: 0.1rem;
+        font-size: 0.8rem;
+    }
+
+    .volunteer li::before {
+        font-size: 0.6rem;
+        content: '✅';
+        position:absolute;
+        right: calc(100% - 0.9rem);
+        top: 0;
+        height: 0.6rem;
+        width: 1rem;
+    }
+
+    .volunteer a {
+        --link-color: rgb(197, 228, 241);
+        --link-hover-color: rgb(238, 233, 143);
+    }
+</style>
