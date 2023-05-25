@@ -12,8 +12,9 @@ import "resume-css/tooltip/tooltip-from-data.css";
 			<section id="top">
 				<TopSection />
 			</section>
-			<section id="left" class="bg-section-back pl-2">
+			<section id="left" class="bg-section-back pl-2 relative">
 				<LeftSection />
+				<div id="edge-smoother" class="bg-back-blue"/>
 			</section>
 			<section id="right" class="bg-back-blue px-4">
 				<RightSection />
@@ -48,6 +49,9 @@ import "resume-css/tooltip/tooltip-from-data.css";
 		border-radius: 0 0 1rem 1rem;
 	}
 
+	#edge-smoother{
+		display: none;
+	}
 	@media (min-width: 701px) {
 		.main-page {
 			display: grid;
@@ -68,6 +72,28 @@ import "resume-css/tooltip/tooltip-from-data.css";
 		#right {
 			border-radius: 0 0 1rem 0;
 		}
+
+		#edge-smoother{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 2rem;
+			height: 2rem;
+		}
+		#edge-smoother::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 2rem;
+			height: 2rem;
+			background-color: rgb(245 245 245);
+			border-radius: 0 2rem 0 0;
+		}
+		
 	}
 
 	
