@@ -24,7 +24,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-zinc-400">
 		<FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />
 		<slot />
 	</body>
