@@ -44,12 +44,12 @@
 
 .resume-expand-panel > .title[data-expanded='false']::after {
     transform-origin: 50% 50%;
-    rotate: 360deg;
+    rotate: 180deg;
 }
 
 .resume-expand-panel > .title[data-expanded='true']::after {
     transform-origin: 50% 50%;
-    rotate: 180deg;
+    rotate: 360deg;
 }
 
 .resume-expand-panel > .panel[data-expanded] {
