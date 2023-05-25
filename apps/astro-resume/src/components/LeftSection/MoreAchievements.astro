@@ -10,7 +10,7 @@ const {achievements} = LeftContents;
     {
         achievements.map((a) => (
             <ExpandPanel title={a.company} client:only="solid-js" class="bg-slate-200 rounded-md p-2" group="achievements" maxHeight="300px">
-                <ul class="flex flex-col gap-4">{a.items.map(item=>(
+                <ul class="flex flex-col gap-4 pt-4">{a.items.map(item=>(
                     <li class="flex flex-col">
                         <heading>{item.name}</heading>
                         <p class="business-value text-sm text-cyan-600" data-tooltip="Business Values">{item.businessValue}</p>
