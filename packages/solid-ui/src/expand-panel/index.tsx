@@ -37,12 +37,12 @@ export const ExpandPanel: Component<{
             data-expanded={isExpanded()}
             id={id}
         >
-            <h3 class={'title'} data-expanded={isExpanded()} onClick={onClick}>
+            <h3 class='title' data-expanded={isExpanded()} onClick={onClick}>
                 {title}
             </h3>
             {isExpanded() || (isShown() && !isExpanded()) ? (
                 <div
-                    class={'panel'}
+                    class='panel'
                     data-expanded={isExpanded()}
                     data-overflow-hidden={isOverflowHidden()}
                     onAnimationEnd={() => {

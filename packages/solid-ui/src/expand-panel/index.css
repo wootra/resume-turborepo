@@ -21,7 +21,7 @@
 }
 
 .resume-expand-panel > .title[data-expanded] {
-    color: var(--txtTitle);
+    color: currentColor;
     position: relative;
     height: 1.5rem;
     width: 100%;
