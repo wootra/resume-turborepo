@@ -9,6 +9,7 @@ export const ExpandPanel: Component<{
     children: ResolvedChildren | ResolvedChildren[];
     isInitiallyExpanded?: boolean;
     group?: string;
+    maxHeight?: string;
 }> = props => {
     const { class: classList, title, isInitiallyExpanded, group } = props;
     const [isExpanded, setIsExpanded] = createSignal(
@@ -58,7 +59,9 @@ export const ExpandPanel: Component<{
                 <div
                     class='panel'
                     data-expanded={isExpanded()}
-                    data-overflow-hidden={isOverflowHidden()}
+                    data-overflow-hidden={
+                        props.maxHeight ? 'auto' : isOverflowHidden()
+                    }
                     onAnimationEnd={() => {
                         if (isExpanded()) {
                             setIsShown(true);
@@ -66,6 +69,9 @@ export const ExpandPanel: Component<{
                             setIsShown(false);
                         }
                     }}
+                    style={
+                        props.maxHeight ? `max-height:${props.maxHeight}` : ''
+                    }
                 >
                     {props.children}
                 </div>

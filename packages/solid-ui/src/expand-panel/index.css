@@ -63,3 +63,7 @@
 .resume-expand-panel > .panel[data-overflow-hidden='false'] {
     overflow: none;
 }
+
+.resume-expand-panel > .panel[data-overflow-hidden='auto'] {
+    overflow: auto;
+}
