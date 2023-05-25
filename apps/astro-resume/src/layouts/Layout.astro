@@ -4,6 +4,8 @@ import { FrameworkNoticeBanner } from 'solid-ui';
 const sourceLinks={
 	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume"
 }
+import type { bannerLinks } from 'common-data';
+const selected: keyof typeof bannerLinks = 'Astro JS(Solid.js)';
 export interface Props {
 	title: string;
 }
@@ -23,7 +25,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, Svelte.js, CSS3, and Tailwind" currentLabel='Astro JS(Svelte.js, Solid.js)' sourceLinks={sourceLinks} client:load />
+		<FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />
 		<slot />
 	</body>
 </html>
