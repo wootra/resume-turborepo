@@ -1,4 +1,26 @@
 ---
+import {Title, ExpandPanel} from 'solid-ui';
+import {RightContents} from 'common-data';
+
+const {skillLevels} = RightContents;
 
 ---
-<h2>Skill Levels</h2>
+<Title color="yellow">Skill Levels</Title>
+{
+    <div class="flex flex-col gap-2 px-2">
+    {
+        Object.keys(skillLevels).map(category=>(
+        <ExpandPanel title={category} client:only="solid-js" class="bg-cyan-950 rounded-md p-2">
+            <ul class="flex flex-col gap-4">{skillLevels[category].map(({skillName, levelNo})=>(
+                <li class="flex flex-row pl-2 text-sm">
+                    <span class="grow text-left">{skillName}</span>
+                    <span class="text-right text-sm">{(new Array(levelNo).fill('🟢').join(''))}</span>
+                </li>
+            ))}</ul>
+        </ExpandPanel>
+        ))
+    }
+    
+    </div>
+    
+}

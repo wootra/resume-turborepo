@@ -56,10 +56,10 @@
     transition: all 1s ease-in-out;
 }
 
-.resume-expand-panel > .panel[data-expanded='false'] {
+.resume-expand-panel > .panel[data-overflow-hidden='true'] {
     overflow: hidden;
 }
 
-.resume-expand-panel > .panel[data-expanded='true'] {
+.resume-expand-panel > .panel[data-overflow-hidden='false'] {
     overflow: none;
 }

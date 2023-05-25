@@ -1,8 +1,6 @@
-import { Component, createSignal, createEffect } from 'solid-js';
+import { Component, createSignal, createMemo } from 'solid-js';
 import './index.css';
-import type { ResolvedChildren } from 'solid-js/types/reactive/signal';
-
-const DURATION = 300;
+import { ResolvedChildren } from 'solid-js/types/reactive/signal';
 
 export const ExpandPanel: Component<{
     class?: string;
@@ -15,18 +13,21 @@ export const ExpandPanel: Component<{
         isInitiallyExpanded || false
     );
     const [isShown, setIsShown] = createSignal(isInitiallyExpanded || false);
-    createEffect(() => {
-        if (!isExpanded()) {
-            setTimeout(() => {
-                setIsShown(false);
-            }, DURATION);
-        } else {
-            setIsShown(true);
-        }
+
+    const isOverflowHidden = createMemo(() => {
+        return (isExpanded() && !isShown()) || (!isExpanded() && isShown());
     });
     const onClick = () => {
-        setIsExpanded(!isExpanded());
+        const expanded = isExpanded();
+        if (expanded) {
+            setIsShown(true);
+            setIsExpanded(!expanded);
+        } else {
+            setIsShown(false);
+            setIsExpanded(!expanded);
+        }
     };
+
     const id = `expand-panel_${Math.random().toString(36).substring(7)}`;
     return (
         <div
@@ -39,11 +40,22 @@ export const ExpandPanel: Component<{
             <h3 class={'title'} data-expanded={isExpanded()} onClick={onClick}>
                 {title}
             </h3>
-            {isShown() && (
-                <div class={'panel'} data-expanded={isExpanded()}>
+            {isExpanded() || (isShown() && !isExpanded()) ? (
+                <div
+                    class={'panel'}
+                    data-expanded={isExpanded()}
+                    data-overflow-hidden={isOverflowHidden()}
+                    onAnimationEnd={() => {
+                        if (isExpanded()) {
+                            setIsShown(true);
+                        } else {
+                            setIsShown(false);
+                        }
+                    }}
+                >
                     {props.children}
                 </div>
-            )}
+            ) : null}
         </div>
     );
 };
