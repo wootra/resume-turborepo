@@ -1,14 +1,16 @@
-import { Component, createSignal, createMemo } from 'solid-js';
-import './index.css';
 import { ResolvedChildren } from 'solid-js/types/reactive/signal';
+import { Component, createSignal, createMemo, onCleanup } from 'solid-js';
+import './index.css';
+const groups: { [group: string]: () => void } = {};
 
 export const ExpandPanel: Component<{
     class?: string;
     title: string;
     children: ResolvedChildren | ResolvedChildren[];
     isInitiallyExpanded?: boolean;
+    group?: string;
 }> = props => {
-    const { class: classList, title, isInitiallyExpanded } = props;
+    const { class: classList, title, isInitiallyExpanded, group } = props;
     const [isExpanded, setIsExpanded] = createSignal(
         isInitiallyExpanded || false
     );
@@ -26,7 +28,19 @@ export const ExpandPanel: Component<{
             setIsShown(false);
             setIsExpanded(!expanded);
         }
+        if (group) {
+            if (groups[group] && groups[group] !== onClick) {
+                groups[group]();
+            }
+            groups[group] = onClick;
+        }
     };
+
+    onCleanup(() => {
+        if (group && groups[group] === onClick) {
+            delete groups[group];
+        }
+    });
 
     const id = `expand-panel_${Math.random().toString(36).substring(7)}`;
     return (
