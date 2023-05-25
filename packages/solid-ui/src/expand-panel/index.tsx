@@ -11,7 +11,13 @@ export const ExpandPanel: Component<{
     group?: string;
     maxHeight?: string;
 }> = props => {
-    const { class: classList, title, isInitiallyExpanded, group } = props;
+    const { class: classList, title, group } = props;
+    let isInitiallyExpanded = props.isInitiallyExpanded || false;
+    if (isInitiallyExpanded && group && groups[group]) {
+        // if group is already loaded, expand just one.
+        isInitiallyExpanded = false;
+    }
+
     const [isExpanded, setIsExpanded] = createSignal(
         isInitiallyExpanded || false
     );
@@ -36,7 +42,9 @@ export const ExpandPanel: Component<{
             groups[group] = onClick;
         }
     };
-
+    if (isInitiallyExpanded && group && !groups[group]) {
+        groups[group] = onClick;
+    }
     onCleanup(() => {
         if (group && groups[group] === onClick) {
             delete groups[group];
