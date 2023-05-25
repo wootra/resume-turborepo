@@ -7,10 +7,10 @@ const {skillLevels} = RightContents;
 ---
 <Title color="yellow">Skill Levels</Title>
 {
-    <div class="flex flex-col gap-2 px-2">
+    <div class="flex flex-col gap-2">
     {
         Object.keys(skillLevels).map(category=>(
-        <ExpandPanel title={category} client:only="solid-js" class="bg-cyan-950 rounded-md p-2">
+        <ExpandPanel title={category} client:only="solid-js" class="bg-cyan-950 rounded-md px-2">
             <ul class="flex flex-col gap-4">{skillLevels[category].map(({skillName, levelNo})=>(
                 <li class="flex flex-row pl-2 text-sm">
                     <span class="grow text-left">{skillName}</span>
