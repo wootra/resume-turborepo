@@ -4,7 +4,7 @@ import {LeftContents} from 'common-data';
 
 const {achievements} = LeftContents;
 ---
-<div>
+<div class="achievements">
     <Title>More Achievements</Title>
     <div class="flex flex-col gap-2">
     {
@@ -50,4 +50,9 @@ heading {
     font-size: 1rem;
 }
 
+</style>
+<style is:global>
+    .achievements .resume-expand-panel.gridContainer[data-expanded="true"] {
+        background-color: antiquewhite;
+    }
 </style>
