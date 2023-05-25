@@ -1,7 +1,11 @@
+:root {
+    --link-font-size: 0.6rem;
+}
+
 a.animate-underline,
 a.animate-underline:visited,
 a.animate-underline:hover {
-    font-size: 0.6rem;
+    font-size: var(--link-font-size);
     text-decoration: none;
     position: relative;
 }

@@ -5,13 +5,15 @@ import {RightContents} from 'common-data';
 const {volunteers} = RightContents;
 
 ---
-<Title color="yellow">Volunteer Exp / Leadership</Title>
-<ul class="volunteer text-sm">
-    {volunteers.map(a=>(
-        <li data-tooltip={`${a.role} at ${a.where}`}>
-            <a href={a.url} target="_blank" rel="noopener noreferrer" aria-label={`move to ${a.where}`} class="animate-underline">{a.role}</a></li>
-    ))}
-</ul>
+<div>
+    <Title color="yellow">Volunteer Exp / Leadership</Title>
+    <ul class="volunteer text-sm">
+        {volunteers.map(a=>(
+            <li data-tooltip={`${a.role} at ${a.where}`}>
+                <a href={a.url} target="_blank" rel="noopener noreferrer" aria-label={`move to ${a.where}`} class="animate-underline">{a.role}</a></li>
+        ))}
+    </ul>
+</div>
 
 <style>
     .volunteer li{
@@ -35,5 +37,6 @@ const {volunteers} = RightContents;
     .volunteer a {
         --link-color: rgb(197, 228, 241);
         --link-hover-color: rgb(238, 233, 143);
+        --link-font-size: 0.8rem;
     }
 </style>

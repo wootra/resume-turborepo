@@ -1,4 +1,57 @@
 ---
+import {Title} from 'solid-ui';
+import {RightContents} from 'common-data';
+
+const {educations} = RightContents;
 
 ---
-<h2>Educations</h2>
+
+
+<div>
+    <Title color="yellow">Educations</Title>
+    <div class="flex flex-col gap-2">
+        {educations.map(({school, degrees})=>(
+            <section class="flex flex-col gap-2 edu">
+                <heading class="edu-at" data-tooltip={`move to ${school.name}`} >
+                    <a href={school.url} target="_blank" rel="noopener noreferrer" aria-label={`move to ${school.name}`} class="animate-underline">
+                        {school.name}
+                    </a>
+                </heading>
+                <ul>
+                    {degrees.map(a=>(
+                        <li class="flex flex-row gap-1">
+                            <span>{`${a.degree} in ${a.major}`}</span><span class="text-amber-200">{`(${a.year})`}</span>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))}
+    </div>
+</div>
+
+<style>
+    .edu a {
+        --link-color: rgb(197, 228, 241);
+        --link-hover-color: rgb(238, 233, 143);
+        --link-font-size: 0.8rem;
+    }
+    .edu li{
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+        text-indent: 0.1rem;
+        font-size: 0.8rem;
+        color: rgb(197, 228, 241);
+    }
+
+    .edu li::before {
+        font-size: 0.6rem;
+        content: '✅';
+        position:absolute;
+        right: calc(100% - 0.9rem);
+        top: 0;
+        height: 0.6rem;
+        width: 1rem;
+    }
+
+</style>

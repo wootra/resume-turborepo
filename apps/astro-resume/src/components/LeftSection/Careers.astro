@@ -13,46 +13,49 @@ const getAriaLabel = (career: (typeof CAREERS)[number]) => {
     return `open ${companyName} homepage. ${url}`;
 };
 ---
-<Title>{TITLE}</Title>
-{CAREERS.map(career=>(
-    <div class="career flex flex-col gap-2">
-        <div class="flex flex-row">
-            <h3 class="flex-grow flex flex-row flex-wrap gap-y-0 gap-x-2 leading-4">
-                <a class="company-name" 
-                    href={career.url} 
-                    target="_blank" 
-                    aria-label={getAriaLabel(career)} 
-                    data-tooltip={getAriaLabel(career)} 
-                    rel="noopener noreferrer"
-                >
-                    {career.companyName}
-                </a>
-                <a class="company-url justify-self-end self-end" 
-                    href={career.url} 
-                    target="_blank" 
-                    data-tooltip={getAriaLabel(career)} 
-                    aria-label={getAriaLabel(career)} 
-                    rel="noopener noreferrer"
-                >
-                    {career.url}
-                </a>
-            </h3>
-            <div class="period flex-shrink basis-10 text-sm font-bold">{getPeriod(career)}</div>
-        </div>
-        <div class="leading-4 text-slate-600" data-tooltip="Role">{career.role}</div>
-        <div class="flex flex-row text-sm gap-2">
-            <div data-tooltip="Industry" class="text-amber-600">{career.industry}</div>
-            <div data-tooltip="Job Title" class="text-sky-700">{career.jobTitle}</div>
-        </div>
-        <div data-tooltip="Tech stack" class="text-xs text-slate-600">{career.techStacks.join(' / ')}</div>
-        <ul data-tooltip="Achievements" class="achievement">
-            {career.achievements.map(a=>(
-                <li>{a}</li>
-            ))}
-        </ul>
+<div class="flex flex-col gap-2">
+    <Title>{TITLE}</Title>
+    <div class="flex flex-col gap-4">
+        {CAREERS.map(career=>(
+            <div class="career flex flex-col gap-2">
+                <div class="flex flex-row">
+                    <h3 class="flex-grow flex flex-row flex-wrap gap-y-0 gap-x-2 leading-4">
+                        <a class="company-name" 
+                            href={career.url} 
+                            target="_blank" 
+                            aria-label={getAriaLabel(career)} 
+                            data-tooltip={getAriaLabel(career)} 
+                            rel="noopener noreferrer"
+                        >
+                            {career.companyName}
+                        </a>
+                        <a class="company-url justify-self-end self-end" 
+                            href={career.url} 
+                            target="_blank" 
+                            data-tooltip={getAriaLabel(career)} 
+                            aria-label={getAriaLabel(career)} 
+                            rel="noopener noreferrer"
+                        >
+                            {career.url}
+                        </a>
+                    </h3>
+                    <div class="period flex-shrink basis-10 text-sm font-bold">{getPeriod(career)}</div>
+                </div>
+                <div class="leading-4 text-slate-600" data-tooltip="Role">{career.role}</div>
+                <div class="flex flex-row text-sm gap-2">
+                    <div data-tooltip="Industry" class="text-amber-600">{career.industry}</div>
+                    <div data-tooltip="Job Title" class="text-sky-700">{career.jobTitle}</div>
+                </div>
+                <div data-tooltip="Tech stack" class="text-xs text-slate-600">{career.techStacks.join(' / ')}</div>
+                <ul data-tooltip="Achievements" class="achievement">
+                    {career.achievements.map(a=>(
+                        <li>{a}</li>
+                    ))}
+                </ul>
+            </div>
+        ))}
     </div>
-))}
-
+</div>
 <style>
     .career * {
         font-family: 'Times New Roman', Times, serif;

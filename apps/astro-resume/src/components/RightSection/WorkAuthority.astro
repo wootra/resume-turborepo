@@ -1,4 +1,39 @@
 ---
+import {Title} from 'solid-ui';
+import {RightContents} from 'common-data';
+
+const {authority} = RightContents;
 
 ---
-<h2>Work Authority</h2>
+<div>
+    <Title color="yellow">Work Authority</Title>
+    <ul class="authority text-sm">
+        {authority.map(a=>(
+            <li>
+                {a}
+            </li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    .authority li{
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+        text-indent: 0.1rem;
+        font-size: 0.8rem;
+        color: rgb(197, 228, 241);
+    }
+
+    .authority li::before {
+        font-size: 0.6rem;
+        content: '✅';
+        position:absolute;
+        right: calc(100% - 0.9rem);
+        top: 0;
+        height: 0.6rem;
+        width: 1rem;
+    }
+
+</style>

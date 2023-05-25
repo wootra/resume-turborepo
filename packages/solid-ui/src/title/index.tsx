@@ -18,7 +18,7 @@ export const Title = ({
         rgba(12, 138, 40, 0) 100%
     )`;
     return (
-        <div class={classList}>
+        <div class={[classList, styles.container].join(' ')}>
             <h2 class={styles.title} data-color={color || 'green'}>
                 {children || 'no-title'}
             </h2>

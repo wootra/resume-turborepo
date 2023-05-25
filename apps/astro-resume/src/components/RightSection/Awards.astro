@@ -1,4 +1,39 @@
 ---
+import {Title} from 'solid-ui';
+import {RightContents} from 'common-data';
+
+const {awards} = RightContents;
 
 ---
-<h2>Awards</h2>
+<div>
+    <Title color="yellow">Awards</Title>
+    <ul class="award text-sm">
+        {awards.map(a=>(
+            <li data-tooltip={`${a.award} in ${a.year}`}>
+                {a.award}
+            </li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    .award li{
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+        text-indent: 0.1rem;
+        font-size: 0.8rem;
+        color: rgb(197, 228, 241);
+    }
+
+    .award li::before {
+        font-size: 0.6rem;
+        content: '✅';
+        position:absolute;
+        right: calc(100% - 0.9rem);
+        top: 0;
+        height: 0.6rem;
+        width: 1rem;
+    }
+
+</style>

@@ -4,21 +4,25 @@ import {LeftContents} from 'common-data';
 
 const {achievements} = LeftContents;
 ---
-<Title>More Achievements</Title>
-{
-    achievements.map((a) => (
-        <ExpandPanel title={a.company} client:only="solid-js" class="bg-slate-200 rounded-md p-2">
-            <ul class="flex flex-col gap-4">{a.items.map(item=>(
-                <li class="flex flex-col">
-                    <heading>{item.name}</heading>
-                    <p class="business-value text-sm text-cyan-600" data-tooltip="Business Values">{item.businessValue}</p>
-                    <p class="my-part text-sm text-amber-900" data-tooltip="My Contribution">{item.myPart}</p>
-                    {item.desc && <p class="desc text-sm text-neutral-700" data-tooltip="More Description">{item.desc}</p>}
-                </li>
-            ))}</ul>
-        </ExpandPanel>
-    ))
-}
+<div>
+    <Title>More Achievements</Title>
+    <div class="flex flex-col gap-2">
+    {
+        achievements.map((a) => (
+            <ExpandPanel title={a.company} client:only="solid-js" class="bg-slate-200 rounded-md p-2">
+                <ul class="flex flex-col gap-4">{a.items.map(item=>(
+                    <li class="flex flex-col">
+                        <heading>{item.name}</heading>
+                        <p class="business-value text-sm text-cyan-600" data-tooltip="Business Values">{item.businessValue}</p>
+                        <p class="my-part text-sm text-amber-900" data-tooltip="My Contribution">{item.myPart}</p>
+                        {item.desc && <p class="desc text-sm text-neutral-700" data-tooltip="More Description">{item.desc}</p>}
+                    </li>
+                ))}</ul>
+            </ExpandPanel>
+        ))
+    }
+    </div>
+</div>
 <style>
 ul {
     list-style: none;
