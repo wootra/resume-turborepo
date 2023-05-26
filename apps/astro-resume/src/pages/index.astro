@@ -8,6 +8,7 @@ import "resume-css/tooltip/tooltip-from-data.css";
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
 	<main class="main-page">
+		<secion id="left-empty" />
 		<div class="grid-container mb-8">
 			<section id="top">
 				<TopSection />
@@ -20,97 +21,118 @@ import "resume-css/tooltip/tooltip-from-data.css";
 				<RightSection />
 			</section>
 		</div>
+		<section id="right-empty" />
 	</main>
 </Layout>
 
 <style>
+
+#left-empty {
+	display: none;
+}
+
+#right-empty {
+	display: none;
+}
+
+.main-page {
+	display: block;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+@media (max-width: 400px) {
+	.main-page {
+		margin: 0;
+	}
+}
+
+/* .grid-container {
+	grid-column: 2/3;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: minmax(12rem,auto) auto auto;
+	grid-template-areas:
+	"top"
+	"left" 
+	"right";
+	filter: drop-shadow(2px 4px 6px black);
+} */
+
+
+
+#left {
+	border-radius: 0 0 0 0;
+}
+
+#left {
+	border-radius: 0 0 0 0;
+}
+
+#right {
+	border-radius: 0 0 1rem 1rem;
+}
+
+#edge-smoother{
+	display: none;
+}
+@media (min-width: 701px) {
 	.main-page {
 		display: grid;
-		grid-template-columns: minmax(1rem,1fr) minmax(auto, 700px) minmax(1rem, 1fr);
-		filter: drop-shadow(2px 4px 6px black);
+		/* width: 100vw; */
+		grid-template-columns: minmax(1rem,1fr) auto minmax(1rem, 1fr);
 	}
-
 	.grid-container {
-		grid-column: 2/3;
 		display: grid;
-		grid-template-columns: auto;
-		grid-template-rows: minmax(12rem,auto) auto auto;
+		grid-column: 2/3;
+		grid-template-columns: auto 18rem;
+		grid-template-rows: minmax(12rem,auto) auto;
 		grid-template-areas:
-		"top"
-		"left" 
-		"right";
+		"top top"
+		"left right";
 	}
-
-	#left {
-		border-radius: 0 0 0 0;
-	}
-
-	#right {
-		border-radius: 0 0 1rem 1rem;
-	}
-
-	#edge-smoother{
-		display: none;
-	}
-	@media (min-width: 701px) {
-		.main-page {
-			display: grid;
-			grid-template-columns: 1fr 700px 1fr;
-		}
-		
-		.grid-container {
-			grid-template-columns: auto 18rem;
-			grid-template-rows: minmax(12rem,auto) auto;
-			grid-template-areas:
-			"top top"
-			"left right";
-		}
-		#left {
-			border-radius: 0 0 0 1rem;
-			box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
-		}
-
-		#right {
-			border-radius: 0 0 1rem 0;
-		}
-
-		#edge-smoother{
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 2rem;
-			height: 2rem;
-		}
-		#edge-smoother::after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 2rem;
-			height: 2rem;
-			background-color: rgb(245 245 245);
-			border-radius: 0 2rem 0 0;
-			overflow: hidden;
-			box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
-		}
-		
-	}
-
-	
 	#top {
 		grid-area: top;
 	}
 
 	#left {
 		grid-area: left;
+		border-radius: 0 0 0 1rem;
+		box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
 	}
-
+	
 	#right {
 		grid-area: right;
+		border-radius: 0 0 1rem 0;
+	}
+	#left-empty {
+		grid-column: 1/2;
 	}
 
-	
+	#right-empty {
+		grid-column: 3/4;
+	}
+	#edge-smoother{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 2rem;
+		height: 2rem;
+	}
+	#edge-smoother::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 2rem;
+		height: 2rem;
+		background-color: rgb(245 245 245);
+		border-radius: 0 2rem 0 0;
+		overflow: hidden;
+		box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
+	}
+}
 </style>
