@@ -37,10 +37,14 @@ export const ExpandPanel: Component<{
             setIsExpanded(!expanded);
         }
         if (group) {
-            if (groups[group] && groups[group] !== onClick) {
-                groups[group]();
+            if (groups[group] !== onClick) {
+                if (groups[group]) {
+                    groups[group]();
+                }
+                groups[group] = onClick;
+            } else {
+                delete groups[group];
             }
-            groups[group] = onClick;
         }
     };
     if (isInitiallyExpanded && group && !groups[group]) {
