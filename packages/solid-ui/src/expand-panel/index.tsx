@@ -10,8 +10,9 @@ export const ExpandPanel: Component<{
     isInitiallyExpanded?: boolean;
     group?: string;
     maxHeight?: string;
+    [key: `data-${string}`]: string;
 }> = props => {
-    const { class: classList, title, group } = props;
+    const { class: classList, title, group, maxHeight, ...rest } = props;
     let isInitiallyExpanded = props.isInitiallyExpanded || false;
     if (isInitiallyExpanded && group && groups[group]) {
         // if group is already loaded, expand just one.
@@ -58,6 +59,7 @@ export const ExpandPanel: Component<{
                 .filter(v => v)
                 .join(' ')}
             data-expanded={isExpanded()}
+            {...rest}
             id={id}
         >
             <h3 class='title' data-expanded={isExpanded()} onClick={onClick}>
@@ -68,7 +70,7 @@ export const ExpandPanel: Component<{
                     class='panel'
                     data-expanded={isExpanded()}
                     data-overflow-hidden={
-                        props.maxHeight ? 'auto' : isOverflowHidden()
+                        maxHeight ? 'auto' : isOverflowHidden()
                     }
                     onAnimationEnd={() => {
                         if (isExpanded()) {
@@ -77,9 +79,7 @@ export const ExpandPanel: Component<{
                             setIsShown(false);
                         }
                     }}
-                    style={
-                        props.maxHeight ? `max-height:${props.maxHeight}` : ''
-                    }
+                    style={maxHeight ? `max-height:${maxHeight}` : ''}
                 >
                     {props.children}
                 </div>
