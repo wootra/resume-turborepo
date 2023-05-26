@@ -10,9 +10,17 @@ export const ExpandPanel: Component<{
     isInitiallyExpanded?: boolean;
     group?: string;
     maxHeight?: string;
+    allowCollapseFromBody?: boolean;
     [key: `data-${string}`]: string;
 }> = props => {
-    const { class: classList, title, group, maxHeight, ...rest } = props;
+    const {
+        class: classList,
+        title,
+        group,
+        maxHeight,
+        allowCollapseFromBody,
+        ...rest
+    } = props;
     let isInitiallyExpanded = props.isInitiallyExpanded || false;
     if (isInitiallyExpanded && group && groups[group]) {
         // if group is already loaded, expand just one.
@@ -65,8 +73,13 @@ export const ExpandPanel: Component<{
             data-expanded={isExpanded()}
             {...rest}
             id={id}
+            onClick={allowCollapseFromBody ? onClick : () => {}}
         >
-            <h3 class='title' data-expanded={isExpanded()} onClick={onClick}>
+            <h3
+                class='title'
+                data-expanded={isExpanded()}
+                onClick={allowCollapseFromBody ? () => {} : onClick}
+            >
                 {title}
             </h3>
             {isExpanded() || (isShown() && !isExpanded()) ? (
