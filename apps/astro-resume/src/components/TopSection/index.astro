@@ -3,7 +3,7 @@ import ProfileImage from "./ProfileImage.astro";
 import ProfileInfo from "./ProfileInfo.astro";
 
 ---
-<div class="flex flex-row h-auto sm:h-48">
+<div class="flex flex-row">
     <div id="profile-picture" class="relative h-full group overflow-y-clip overflow-hidden">
         <ProfileImage />
     </div>
@@ -24,6 +24,7 @@ import ProfileInfo from "./ProfileInfo.astro";
         #profile-picture {
             display: block;
             width: 16rem;
+            height: 12rem;
             flex: 0 0 16rem;
             border-radius: 6rem 0 0 0; 
         }
