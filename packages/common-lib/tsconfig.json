@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Common Lib",
+    "extends": "tsconfig/base.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "lib": ["ES2015", "DOM"],
+        "module": "ESNext",
+        "target": "es6",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "rootDir": "."
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["dist", "build", "node_modules"]
+}

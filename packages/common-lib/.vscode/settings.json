@@ -1,0 +1,8 @@
+{
+    "vitest.enable": true,
+    "vitest.include": [
+        "vite.config.js",
+        "src/**/*.d.ts",
+        "tests/**/*.{spec,test}.{js,ts,jsx,tsx}"
+    ]
+}

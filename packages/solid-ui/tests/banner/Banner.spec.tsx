@@ -46,7 +46,7 @@ describe('FrameworkNoticeBanner', () => {
             rendered = render(() => (
                 <FrameworkNoticeBanner
                     description='desc'
-                    currentLabel='Astro JS(Svelte.js, Solid.js)'
+                    currentLabel='Astro JS(Solid.js)'
                     sourceLinks={{
                         link1: 'http://link1',
                         link2: 'http://link2',

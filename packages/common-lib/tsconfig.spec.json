@@ -2,14 +2,14 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "../../dist/out-tsc",
-        "types": ["vitest/globals", "vitest/importMeta", "vite/client", "node"],
+        "types": ["vitest/globals", "vitest/importMeta", "node"],
         "paths": {
             "@/*": ["./src/*"]
         }
     },
     "include": [
-        "vite.config.js",
+        "vite.config.ts",
         "src/**/*.d.ts",
-        "tests/**/*.{spec,test}.{js,ts,jsx,tsx}"
+        "src/**/*.{spec,test}.{js,ts}"
     ]
 }
