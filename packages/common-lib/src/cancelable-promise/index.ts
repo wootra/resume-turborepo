@@ -119,7 +119,17 @@ export class MyPromise<T = any, Arg = any> extends Promise<FnStoreData<T>> {
         this.#fnStore.resolve(data);
     }
 
-    // @ts-ignore-next-line
+    then<TResult = T, TRejected = never>(): MyPromise<TResult | TRejected, Arg>;
+    then<TResult = T, TRejected = never>(
+        onFulfilled?: (
+            ret: FnStoreData<T>,
+            arg?: Arg
+        ) => TResult | PromiseLike<TResult>,
+        onRejected?: (
+            reason: any,
+            arg?: Arg
+        ) => TRejected | PromiseLike<TRejected>
+    ): MyPromise<TResult | TRejected, Arg>;
     then<TResult = any, TRejected = any>(
         onFulfilled?: (
             ret: FnStoreData<T>,
