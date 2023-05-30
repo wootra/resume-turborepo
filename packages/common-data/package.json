@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "build": "echo 'no build'",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 0"
     },
     "author": "Songhyeon Jun (shjeon0730@gmail.com)",
     "license": "ISC",
