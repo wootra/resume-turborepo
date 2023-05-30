@@ -60,6 +60,63 @@ describe('promise test - typescript', () => {
         });
     });
 
+    it('should show cancel with then', async () => {
+        const myPromise = new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('value');
+            }, 100);
+        }).then(ret => {
+            expect(ret.state).toBe('canceled');
+            if (ret.state === 'canceled') {
+                expect(ret.msg).toBe('it is canceled');
+            } else {
+                expect(false).toBe(true); // safe guard. it should never run.
+            }
+        });
+        myPromise.cancel('it is canceled');
+        expect(myPromise.state()).toBe('canceled');
+        const ret = await myPromise;
+        expect(ret).toStrictEqual({
+            state: 'canceled',
+            msg: 'it is canceled',
+        });
+    });
+
+    describe('instance of MyPromise', () => {
+        it('from constructor', () => {
+            const myPromise = new MyPromise((resolve, reject) => {
+                resolve('value');
+            });
+            expect(myPromise instanceof MyPromise).toBe(true);
+        });
+
+        it('from resolve', () => {
+            const myPromise = MyPromise.resolve('value');
+            expect(myPromise instanceof MyPromise).toBe(true);
+        });
+
+        it('from reject', () => {
+            const myPromise = MyPromise.reject('value')
+                .then(
+                    () => {},
+                    rej => {
+                        expect(rej).toStrictEqual(new Error('value'));
+                    }
+                )
+                .catch(console.log);
+            expect(myPromise instanceof MyPromise).toBe(true);
+        });
+
+        it('from reject and catch', () => {
+            const myPromise = MyPromise.reject('value')
+                .catch(rej => {
+                    expect(rej).toStrictEqual(new Error('value'));
+                })
+                .catch(console.log);
+            expect(myPromise instanceof MyPromise).toBe(true);
+        });
+    });
+
     it('should reject', async () => {
         const myPromise = new MyPromise((resolve, reject) => {
             reject('this is error from original promise');

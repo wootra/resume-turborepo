@@ -40,10 +40,6 @@ const __updateFnStore = <T, Arg, TResult = T>(
 };
 export class MyPromise<T = any, Arg = any> extends Promise<FnStoreData<T>> {
     #fnStore: FnStore<T, Arg>;
-    #orgThen: <Resolved, Rejected>(
-        fullfilled?: (ret: FnStoreData<T>) => Resolved | PromiseLike<Resolved>,
-        failed?: (err: any) => Rejected | PromiseLike<Rejected>
-    ) => void;
     constructor(
         initializer: (
             resolve: (value?: T) => void,
@@ -93,7 +89,6 @@ export class MyPromise<T = any, Arg = any> extends Promise<FnStoreData<T>> {
             initializer(resolveWrapper, rejectWrapper);
         };
         super(initWrapper);
-        this.#orgThen = this.then.bind(this);
         this.#fnStore = fnStore as FnStore<T, Arg>;
     }
     state() {
@@ -117,6 +112,30 @@ export class MyPromise<T = any, Arg = any> extends Promise<FnStoreData<T>> {
         };
         this.updateFnStore(data);
         this.#fnStore.resolve(data);
+    }
+
+    static resolve<Ret, ArgType>(
+        value?: Ret,
+        arg?: ArgType
+    ): MyPromise<Ret, ArgType> {
+        const promise = new MyPromise<Ret, ArgType>((resolve, _reject) => {
+            resolve(value);
+        }, arg);
+        return promise;
+    }
+
+    static reject<Ret extends Error | string, ArgType>(
+        value?: Ret,
+        arg?: ArgType
+    ): MyPromise<Ret, ArgType> {
+        const promise = new MyPromise<Ret, ArgType>((_resolve, reject) => {
+            reject(
+                typeof value === 'string'
+                    ? new Error(value)
+                    : value || new Error('rejected')
+            );
+        }, arg);
+        return promise;
     }
 
     then<TResult = T, TRejected = never>(): MyPromise<TResult | TRejected, Arg>;
