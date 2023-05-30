@@ -1,143 +1,153 @@
-type FnStore<T, Arg> =
+type FnStoreData<T> =
     | {
           state: 'pending';
-          arg?: Arg;
       }
     | {
           state: 'canceled';
-          arg?: Arg;
-          errMsg: string;
+          msg: string;
       }
     | {
           state: 'done';
-          arg?: Arg;
-          resolvedValue: T;
+          value?: T | PromiseLike<T>;
       }
     | {
           state: 'errored';
-          arg?: Arg;
           error: Error;
       };
 
-type CanceledInfo = {
-    __state: 'canceled';
-    msg: string;
+type FnStoreFn<T, Arg> = {
+    resolve: (value: FnStoreData<T>) => void;
+    reject: (err: Error) => void;
+    arg?: Arg;
 };
+type FnStore<T, Arg> = FnStoreData<T> & FnStoreFn<T, Arg>;
 
-type PromiseLikeAndMore<T> = PromiseLike<T> | null | undefined;
-type TAndPromiseLike<T> = T | PromiseLikeAndMore<T>;
-
-export class MyPromise<T, Arg = undefined> extends Promise<
-    TAndPromiseLike<T> | CanceledInfo
-> {
+const __updateFnStore = <T, Arg, TResult = T>(
+    org: FnStore<T, Arg>,
+    data: FnStoreData<TResult>
+): void => {
+    const { resolve, reject, arg } = org;
+    const keys = Object.keys(org);
+    keys.forEach(key => {
+        delete (org as any)[key];
+    });
+    Object.assign(org, {
+        resolve,
+        reject,
+        arg,
+        ...data,
+    });
+};
+export class MyPromise<T = any, Arg = any> extends Promise<FnStoreData<T>> {
     #fnStore: FnStore<T, Arg>;
+    #orgThen: <Resolved, Rejected>(
+        fullfilled?: (ret: FnStoreData<T>) => Resolved | PromiseLike<Resolved>,
+        failed?: (err: any) => Rejected | PromiseLike<Rejected>
+    ) => void;
     constructor(
         initializer: (
-            resolve: (
-                value: CanceledInfo | TAndPromiseLike<CanceledInfo | T>
-            ) => void,
-            reject: (err: Error) => void
+            resolve: (value?: T) => void,
+            reject: (err: string | Error) => void
         ) => void,
         arg?: Arg
     ) {
-        const fnStore: FnStore<T, Arg> = {
+        const fnStore: Partial<FnStore<T, Arg>> = {
             state: 'pending',
             arg: arg,
         };
+        const initWrapper = (
+            resolve: (value: FnStoreData<T>) => void,
+            reject: (err: Error) => void
+        ) => {
+            fnStore.resolve = resolve;
+            fnStore.reject = reject;
+            const filledFnStore = fnStore as FnStore<T, Arg>;
+            const resolveWrapper = (value?: T) => {
+                if (fnStore.state !== 'pending') {
+                    return;
+                } else {
+                    // naturally resolved.
+                    const data: FnStoreData<T> = {
+                        state: 'done',
+                        value: value,
+                    };
+                    __updateFnStore(filledFnStore, data);
 
-        super(initializer);
-        this.#fnStore = fnStore;
+                    resolve(data);
+                }
+            };
+            const rejectWrapper = (err: Error | string) => {
+                if (fnStore.state !== 'pending') {
+                    return;
+                } else {
+                    // naturally resolved.
+                    const error =
+                        typeof err === 'string' ? new Error(err) : err;
+                    __updateFnStore(filledFnStore, {
+                        state: 'errored',
+                        error,
+                    });
+                    reject(error);
+                }
+            };
+            initializer(resolveWrapper, rejectWrapper);
+        };
+        super(initWrapper);
+        this.#orgThen = this.then.bind(this);
+        this.#fnStore = fnStore as FnStore<T, Arg>;
     }
     state() {
         return this.#fnStore.state;
     }
+    updateFnStore<TResult = T>(data: FnStoreData<TResult>) {
+        __updateFnStore<T, Arg, TResult>(this.#fnStore, data);
+    }
     done(value: T) {
-        this.#fnStore = {
+        const data: FnStoreData<T> = {
             state: 'done',
-            arg: this.#fnStore.arg,
-            resolvedValue: value,
+            value: value,
         };
-        return this;
+        this.updateFnStore(data);
+        this.#fnStore.resolve(data);
     }
     cancel(msg: string) {
-        this.#fnStore = {
+        const data: FnStoreData<T> = {
             state: 'canceled',
-            arg: this.#fnStore.arg,
-            errMsg: msg,
+            msg: msg,
         };
-        return this;
-    }
-    // then<TResult1 = T, TResult2 = never>(
-    //     onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | null | undefined,
-    //     onrejected?: ((reason: any) => TResult2) | PromiseLike<TResult2> | null | undefined
-    // ): Promise<TResult1|TResult2>;
-    static resolve<ResolveType, ArgType>(value?: TAndPromiseLike<ResolveType>) {
-        return new MyPromise<ResolveType, ArgType>((res, _rej) => {
-            res(value);
-        });
-    }
-    static reject<RejectType = never, ArgType = undefined>(
-        error: Error,
-        arg?: ArgType
-    ) {
-        return new MyPromise<RejectType, ArgType>((_res, rej) => {
-            rej(error);
-        }, arg) as Promise<RejectType>;
-    }
-    valueOf(): Object {
-        if (this.#fnStore.state === 'done') {
-            return this.#fnStore.resolvedValue as Object;
-        } else if (this.#fnStore.state === 'canceled') {
-            return {
-                __state: 'canceled',
-                msg: this.#fnStore.errMsg,
-            } as CanceledInfo;
-        } else if (this.#fnStore.state === 'errored') {
-            throw this.#fnStore.error;
-        } else {
-            return this;
-        }
+        this.updateFnStore(data);
+        this.#fnStore.resolve(data);
     }
 
-    thenWithArg<TResolved, TRejected>(
-        onFulfilled: (
-            ret: TAndPromiseLike<T> | CanceledInfo,
+    // @ts-ignore-next-line
+    then<TResult = any, TRejected = any>(
+        onFulfilled?: (
+            ret: FnStoreData<T>,
             arg?: Arg
-        ) => TResolved,
-        onRejected?: (reason: any, arg?: Arg) => TRejected
-    ) {
-        const fulfillWrapper = (
-            ret: TAndPromiseLike<T> | CanceledInfo
-        ): TResolved => {
-            return onFulfilled(ret, this.#fnStore.arg);
-        };
-        const rejectWrapper = (reason: any) => {
-            return onRejected ? onRejected(reason, this.#fnStore.arg) : reason;
-        };
-        return super.then<TResolved, TRejected>(fulfillWrapper, rejectWrapper);
-    }
+        ) => TResult | PromiseLike<TResult>,
+        onRejected?: (
+            reason: any,
+            arg?: Arg
+        ) => TRejected | PromiseLike<TRejected>
+    ): MyPromise<TResult | TRejected, Arg> {
+        const fulfillWrapper =
+            onFulfilled &&
+            ((ret: FnStoreData<T>): TResult | PromiseLike<TResult> => {
+                const res = onFulfilled(ret, this.#fnStore.arg);
+                return res;
+            });
+        const rejectWrapper =
+            onRejected &&
+            ((reason: any): TRejected | PromiseLike<TRejected> => {
+                return onRejected(reason, this.#fnStore.arg);
+            });
 
-    then<TResolved = TAndPromiseLike<T> | CanceledInfo, TRejected = never>(
-        onFulfilled?:
-            | ((
-                  ret: TAndPromiseLike<T> | CanceledInfo
-              ) => TResolved | PromiseLike<TResolved>)
-            | null
-            | undefined,
-        onRejected?:
-            | ((reason: any) => TRejected | PromiseLike<TRejected>)
-            | null
-            | undefined
-    ): Promise<TResolved | TRejected> {
-        // const fulfillWrapper = (
-        //     ret: TAndPromiseLike<T> | CanceledInfo
-        // ): TResolved | PromiseLike<TResolved> => {
-        //     return onFulfilled(ret);
-        // };
-        // const rejectWrapper = (reason: any) => {
-        //     return onRejected ? onRejected(reason) : reason;
-        // };
-        super.then<TResolved, TRejected>(onFulfilled, onRejected);
-        return this as Promise<TResolved | TRejected>;
+        const newPromise = super.then(
+            fulfillWrapper as (
+                value: FnStoreData<T>
+            ) => TResult | PromiseLike<TResult>,
+            rejectWrapper as (reason: any) => TRejected | PromiseLike<TRejected>
+        ) as MyPromise<TResult | TRejected, Arg>;
+        return newPromise;
     }
 }
