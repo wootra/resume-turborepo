@@ -28,7 +28,7 @@ describe('promise test', () => {
             }, 1000);
         });
         console.log('valueOf before resolve:', qVal.valueOf());
-        expect(qVal.valueOf()).toBe('val1');
+        expect(qVal.valueOf()).toBeInstanceOf(Promise);
         // const aVal = await qVal;
 
         // expect(aVal).toBe('val1');
@@ -58,18 +58,19 @@ describe('promise test', () => {
             resolve('value');
         }, 'thirdArg1');
         await myPromise
-            .thenWithArg(
-                (ret, thirdArg) => {
-                    expect(ret).toBe('value');
+            .then(
+                ({ state, value }, thirdArg) => {
+                    expect(state).toBe('done');
+                    expect(value).toBe('value');
                     expect(thirdArg).toBe('thirdArg1');
-                    return ret + thirdArg;
+                    return value + thirdArg;
                 },
                 null,
                 'thirdArg1'
             )
-            .then(ret => {
-                console.log('ret:', ret);
-                expect(ret).toBe('valuethirdArg1');
+            .then(({ value, state }) => {
+                expect(value).toBe('valuethirdArg1');
+                expect(state).toBe('done');
             });
     });
 
@@ -77,9 +78,10 @@ describe('promise test', () => {
         const myPromise = new MyPromise((resolve, reject) => {
             resolve('value');
         }, 'thirdArg1');
-        await myPromise.thenWithArg(
-            (ret, thirdArg) => {
-                expect(ret).toBe('value');
+        await myPromise.then(
+            ({ state, value }, thirdArg) => {
+                expect(state).toBe('done');
+                expect(value).toBe('value');
                 expect(thirdArg).toBe('thirdArg1');
             },
             null,
@@ -107,7 +109,7 @@ describe('promise test', () => {
         expect(myPromise.state()).toBe('canceled');
         const ret = await myPromise;
         expect(ret).toStrictEqual({
-            __state: 'canceled',
+            state: 'canceled',
             msg: 'it is canceled',
         });
     });
@@ -120,7 +122,9 @@ describe('promise test', () => {
             await myPromise;
             expect(false).toBe(true); // safe guard. it should never run.
         } catch (e) {
-            expect(e).toBe('this is error from original promise');
+            expect(e).toStrictEqual(
+                new Error('this is error from original promise')
+            );
         }
         expect(myPromise.state()).toBe('errored');
     });
@@ -134,6 +138,9 @@ describe('promise test', () => {
         myPromise.done('this is my return');
         expect(myPromise.state()).toBe('done');
         const ret = await myPromise;
-        expect(ret).toBe('this is my return');
+        expect(ret).toStrictEqual({
+            state: 'done',
+            value: 'this is my return',
+        });
     });
 });
