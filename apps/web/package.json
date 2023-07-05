@@ -9,12 +9,13 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "common-data": "workspace:*",
+        "expand-panel": "workspace:*",
         "next": "^13.4.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "ui": "workspace:*",
-        "expand-panel": "workspace:*",
-        "common-data": "workspace:*"
+        "react-solid-state": "^0.27.3",
+        "ui": "workspace:*"
     },
     "devDependencies": {
         "@types/node": "^17.0.12",

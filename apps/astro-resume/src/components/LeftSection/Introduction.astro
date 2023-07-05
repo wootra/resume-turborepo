@@ -1,8 +1,8 @@
 ---
 import {Title} from 'solid-ui';
 import {LeftContents} from 'common-data';
-const {Introduction} = LeftContents;
-const {TITLE, DESC} = Introduction;
+const DESC = LeftContents.Introduction.DESC;
+const TITLE = LeftContents.Introduction.TITLE;
 const descMultiLine = DESC.split('\n').join('<br/>');
 ---
 <div>

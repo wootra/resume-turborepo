@@ -2,8 +2,8 @@
 import {Title} from 'solid-ui';
 import {LeftContents} from 'common-data';
 
-const {Careers} = LeftContents;
-const {CAREERS, TITLE} = Careers;
+const CAREERS = LeftContents.Careers.CAREERS;
+const TITLE = LeftContents.Careers.TITLE;
 const getPeriod = (career: (typeof CAREERS)[number]) => {
     const {start, end} = career;
     return `${start?.map(v=>`${v}`).join('.')}~${end?.map(v=>`${v}`).join('.')||'CURRENT'}`;

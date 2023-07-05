@@ -1,7 +1,9 @@
-:root {
+.title {
+    --txtTitle: rgba(12, 138, 40, 1);
     --gradient-start: rgba(12, 138, 40, 1);
     --gradient-end: rgba(12, 138, 40, 0);
 }
+
 .container {
     margin-left: -0.5rem;
 }

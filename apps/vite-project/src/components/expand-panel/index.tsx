@@ -1,19 +1,25 @@
-import { ResolvedChildren } from 'solid-js/types/reactive/signal';
-import { createSignal, createMemo, onCleanup } from 'solid-js';
+'use client';
+
+import {
+    createSignal,
+    createMemo,
+    onCleanup,
+    withSolid,
+} from 'react-solid-state';
 import './index.css';
+import { PropsWithChildren } from 'react';
 const groups: { [group: string]: () => void } = {};
-type Props = {
+type Props = PropsWithChildren<{
     class?: string;
     title: string;
-    children: ResolvedChildren | ResolvedChildren[];
     isInitiallyExpanded?: boolean;
     group?: string;
     maxHeight?: string;
     allowCollapseFromBody?: boolean;
     [key: `data-${string}`]: string;
-};
+}>;
 
-export const ExpandPanel = (props: Props) => {
+export const ExpandPanel = withSolid<Props>((props: Props) => {
     const {
         class: classList,
         title,
@@ -38,12 +44,15 @@ export const ExpandPanel = (props: Props) => {
     });
     const onClick = () => {
         const expanded = isExpanded();
+        console.log('onClick', expanded);
         if (expanded) {
             setIsShown(true);
             setIsExpanded(!expanded);
+            console.log('onClick2', isExpanded());
         } else {
             setIsShown(false);
             setIsExpanded(!expanded);
+            console.log('onClick2', isExpanded());
         }
         if (group) {
             if (groups[group] !== onClick) {
@@ -68,7 +77,7 @@ export const ExpandPanel = (props: Props) => {
     const id = `expand-panel_${Math.random().toString(36).substring(7)}`;
     return () => (
         <div
-            class={[classList, 'resume-expand-panel', 'gridContainer']
+            className={[classList, 'resume-expand-panel', 'gridContainer']
                 .filter(v => v)
                 .join(' ')}
             data-expanded={isExpanded()}
@@ -77,7 +86,7 @@ export const ExpandPanel = (props: Props) => {
             onClick={allowCollapseFromBody ? onClick : () => {}}
         >
             <h3
-                class='title'
+                className='title'
                 data-expanded={isExpanded()}
                 onClick={allowCollapseFromBody ? () => {} : onClick}
             >
@@ -85,7 +94,7 @@ export const ExpandPanel = (props: Props) => {
             </h3>
             {isExpanded() || (isShown() && !isExpanded()) ? (
                 <div
-                    class='panel'
+                    className='panel'
                     data-expanded={isExpanded()}
                     data-overflow-hidden={
                         maxHeight ? 'auto' : isOverflowHidden()
@@ -97,11 +106,11 @@ export const ExpandPanel = (props: Props) => {
                             setIsShown(false);
                         }
                     }}
-                    style={maxHeight ? `max-height:${maxHeight}` : ''}
+                    style={maxHeight ? { maxHeight } : {}}
                 >
                     {props.children}
                 </div>
             ) : null}
         </div>
     );
-};
+});
