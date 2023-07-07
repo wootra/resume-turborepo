@@ -8,18 +8,22 @@
     export let group: string = '';
     export let maxHeight: string = '';
     export let allowCollapseFromBody: boolean = false;
-    export let children: Element;
+    export let test: () => Element;
     if (isInitiallyExpanded && group && groups[group]) {
         // if group is already loaded, expand just one.
         isInitiallyExpanded = false;
     }
-    let isExpanded = isInitiallyExpanded || false;
-    let isShown = isInitiallyExpanded || false;
+    let isExpanded;
+    let isShown;
+    let isOverflowHidden;
 
-    const isOverflowHidden =
-        (isExpanded && !isShown) || (!isExpanded && isShown);
+    $: isExpanded = isInitiallyExpanded || false;
+    $: isShown = isInitiallyExpanded || false;
+
+    $: isOverflowHidden = (isExpanded && !isShown) || (!isExpanded && isShown);
     const onClick = () => {
-        if (!allowCollapseFromBody) return;
+        console.log('onClick', allowCollapseFromBody);
+        // if (!allowCollapseFromBody) return;
         const expanded = isExpanded;
         if (expanded) {
             isShown = true;
@@ -39,8 +43,11 @@
             }
         }
     };
-    if (isInitiallyExpanded && group && !groups[group]) {
-        groups[group] = onClick;
+
+    $: {
+        if (isInitiallyExpanded && group && !groups[group]) {
+            groups[group] = onClick;
+        }
     }
     onDestroy(() => {
         if (group && groups[group] === onClick) {
@@ -49,12 +56,20 @@
     });
 
     const id = `expand-panel_${Math.random().toString(36).substring(7)}`;
+    let panelClassNames = [classList, 'resume-expand-panel', 'gridContainer']
+        .filter(v => v)
+        .join(' ');
+    const onAnimationEnd = () => {
+        if (isExpanded) {
+            isShown = true;
+        } else {
+            isShown = false;
+        }
+    };
 </script>
 
 <div
-    class={[classList, 'resume-expand-panel', 'gridContainer']
-        .filter(v => v)
-        .join(' ')}
+    class={panelClassNames}
     data-expanded={isExpanded}
     {id}
     on:click={onClick}
@@ -70,16 +85,10 @@
             class="panel"
             data-expanded={isExpanded}
             data-overflow-hidden={maxHeight ? 'auto' : isOverflowHidden}
-            on:animationend={() => {
-                if (isExpanded) {
-                    isShown = true;
-                } else {
-                    isShown = false;
-                }
-            }}
+            on:animationend={onAnimationEnd}
             style={maxHeight ? `max-height:${maxHeight}` : ''}
         >
-            {children}
+            <slot>panel content{test?.() || ''}</slot>
         </div>
     {/if}
 </div>
