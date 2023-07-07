@@ -1,6 +1,6 @@
 import './App.css';
 import { ExpandPanel } from './components/expand-panel';
-
+import { ExpandCollapse } from './ExpandCollapse';
 function App() {
     return (
         <>
@@ -11,9 +11,9 @@ function App() {
                 <ExpandPanel title='you'>
                     <div>Left Contents</div>
                 </ExpandPanel>
-                <ExpandPanel title='oh-no'>
+                <ExpandCollapse title='oh-no'>
                     <div>Left Contents</div>
-                </ExpandPanel>
+                </ExpandCollapse>
             </div>
         </>
     );

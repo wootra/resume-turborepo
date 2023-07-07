@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Svelte UI",
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "verbatimModuleSyntax": true,
+        "lib": ["esnext", "DOM", "DOM.Iterable"],
+        "moduleResolution": "Node",
+        "module": "esnext",
+        "target": "esnext",
+        "useDefineForClassFields": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "rootDirs": [".", "../.."],
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "checkJs": true
+    },
+    "exclude": ["node_modules/**", ".turbo", "dist"]
+}

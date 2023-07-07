@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "jsx": "preserve",
+        "declaration": true,
+        "declarationDir": "./declaration.d.ts",
+        "types": ["react"]
+    },
+    "include": ["src/**/*.{ts,js,tsx,jsx,svelte}"],
+    "exclude": ["tests/**/*.{spec,test}.{js,ts,jsx,tsx}"]
+}
