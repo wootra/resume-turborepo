@@ -1,0 +1,8 @@
+#snake-game-container {
+    position: relative;
+}
+
+#snake-game-container #gameOverDialog {
+    position: absolute;
+    inset: 0;
+}
