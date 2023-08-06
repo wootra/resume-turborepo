@@ -3,16 +3,19 @@ import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const robotoRegular =
-    __dirname + '../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf';
+    __dirname +
+    '../../public/assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf';
 const robotoBold =
-    __dirname + '../assets/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf';
+    __dirname +
+    '../../public/assets/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf';
 const robotoItalic =
-    __dirname + '../assets/fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf';
+    __dirname +
+    '../../public/assets/fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf';
 const robotoBoldItalic =
     __dirname +
-    '../assets/fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf';
+    '../../public/assets/fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf';
 const openSansEmoji =
-    __dirname + '../assets/fonts/OpenSansEmoji/OpenSansEmoji.ttf';
+    __dirname + '../../public/assets/fonts/OpenSansEmoji/OpenSansEmoji.ttf';
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
@@ -27,6 +30,7 @@ export const FONT_DESCRIPTOR = {
         italics: robotoItalic,
         bolditalics: robotoBoldItalic,
     },
+
     Emoji: {
         // https://en.wikipedia.org/w/index.php?title=Emoji&oldid=557685103#ref_U1F680_as_of_Unicode_version
         normal: openSansEmoji,
