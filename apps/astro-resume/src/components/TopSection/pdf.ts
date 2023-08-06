@@ -11,7 +11,7 @@ import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 export const getImageMap = async () => {
     const profileImage = await convertImgToBase64ServerSide(
-        __dirname + '/profile-photo150.png',
+        __dirname + 'profile-photo150.png',
         'png'
     );
     return {
