@@ -11,7 +11,9 @@ export default defineConfig({
         define: {},
     },
     output: 'server',
-    adapter: vercel(),
+    adapter: vercel({
+        includeFiles: ['public'],
+    }),
     integrations: [
         tailwind(),
         image({

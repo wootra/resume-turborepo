@@ -5,6 +5,7 @@ import { createPage, createSectionGap } from '../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
 import * as topSection from '../components/TopSection/pdf';
 import * as leftSection from '../components/LeftSection/pdf';
+import path from 'path';
 export const get: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
@@ -45,17 +46,13 @@ export const get: APIRoute = async () => {
 // const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = import.meta.env.DEV
     ? url.fileURLToPath(new URL('.', import.meta.url))
-    : '';
+    : path.join(process.cwd(), 'public', 'assets/');
 
-const robotoRegular =
-    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf';
-const robotoBold =
-    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf';
-const robotoItalic =
-    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf';
-const robotoBoldItalic =
-    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf';
-const openSansEmoji = __dirname + './_fonts/OpenSansEmoji/OpenSansEmoji.ttf';
+const robotoRegular = __dirname + 'fonts/RobotoCondensed-Regular.ttf';
+const robotoBold = __dirname + 'fonts/RobotoCondensed-Bold.ttf';
+const robotoItalic = __dirname + 'fonts/RobotoCondensed-Italic.ttf';
+const robotoBoldItalic = __dirname + 'fonts/RobotoCondensed-BoldItalic.ttf';
+const openSansEmoji = __dirname + 'fonts/OpenSansEmoji.ttf';
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
