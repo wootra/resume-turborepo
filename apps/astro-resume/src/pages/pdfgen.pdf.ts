@@ -1,10 +1,10 @@
 import * as url from 'url';
 import pdfMakePrinter from 'pdfmake';
 import type { TDocumentDefinitions } from 'pdfmake/interfaces';
-import { createPage, createSectionGap } from '../../server-utils/pdf-utils';
+import { createPage, createSectionGap } from '../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
-import * as topSection from '../../components/TopSection/pdf';
-import * as leftSection from '../../components/LeftSection/pdf';
+import * as topSection from '../components/TopSection/pdf';
+import * as leftSection from '../components/LeftSection/pdf';
 export const get: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
@@ -43,7 +43,9 @@ export const get: APIRoute = async () => {
 };
 
 // const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = import.meta.env.DEV
+    ? url.fileURLToPath(new URL('.', import.meta.url))
+    : '';
 
 const robotoRegular =
     __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf';
