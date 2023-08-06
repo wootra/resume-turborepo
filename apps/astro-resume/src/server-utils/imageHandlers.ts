@@ -16,15 +16,17 @@ export const convertImgToBase64ServerSide = async (
     )}`;
 };
 
-const lineSvg = `
+const lineSvg = (color = 'rgb(0, 0, 0)') => `
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 300 10" width="300" height="10" xmlns="http://www.w3.org/2000/svg">
-  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 0 5 L 300 5" />
+  <path style="stroke: ${color};" d="M 0 5 L 300 5" />
 </svg>
 `;
-export const getLineSvg = () => {
+export const getLineSvg = (color?: string, width: number = 300) => {
     return {
-        svg: lineSvg,
+        svg: lineSvg(color),
+        width: width,
+        height: 10,
     };
 };
 

@@ -1,11 +1,21 @@
-import { createPdfBinary } from '../../server-utils/pdf-utils';
+import {
+    createPage,
+    createPdfBinary,
+    createSectionGap,
+} from '../../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
 import * as topSection from '../../components/TopSection/pdf';
+import * as leftSection from '../../components/LeftSection/pdf';
 export const get: APIRoute = async () => {
     const top = await topSection.createPdfMake();
-    const dd = {
-        ...top,
-    };
+    const left = await leftSection.createPdfMake();
+    const topImage = await topSection.getImageMap();
+    const leftImage = await leftSection.getImageMap();
+    const sectionGap = createSectionGap();
+    const dd = createPage([...top, ...sectionGap, ...left], {
+        ...topImage,
+        ...leftImage,
+    });
     try {
         const binary = await createPdfBinary(dd);
         const headers = new Headers();
