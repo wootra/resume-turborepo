@@ -11,7 +11,11 @@ export const convertImgToBase64ServerSide = async (
         });
     });
     // convert binary data to base64 encoded string
-    return `data:image/${type};base64,${Buffer.from(bitmap).toString(
+    return convertImgBlobToBase64(type, bitmap);
+};
+
+export const convertImgBlobToBase64 = (type: string, buffer: Buffer) => {
+    return `data:image/${type};base64,${Buffer.from(buffer).toString(
         'base64'
     )}`;
 };
