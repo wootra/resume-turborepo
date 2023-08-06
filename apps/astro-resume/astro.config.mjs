@@ -7,7 +7,7 @@ import vercel from '@astrojs/vercel/serverless';
 // https://astro.build/config
 export default defineConfig({
     vite: {
-        assetsInclude: ['**/*.svg', '**/*.png'],
+        assetsInclude: ['**/*.svg', '**/*.png', '**/*.ttf'],
         define: {},
     },
     output: 'server',
