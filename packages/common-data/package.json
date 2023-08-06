@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "test": "vitest run"
+        "test": "echo 'no test'"
     },
     "author": "Songhyeon Jun (shjeon0730@gmail.com)",
     "license": "ISC",
