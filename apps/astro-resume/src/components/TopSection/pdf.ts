@@ -9,12 +9,13 @@ import fetch from 'node-fetch';
 import type { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
 const { name, address, contact, position, website } = TopContents;
 import * as url from 'url';
+import { getHost } from '../../server-utils/host';
 // const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 export const getImageMap = async () => {
-    const image = await fetch(
-        `${import.meta.env.VERCEL_URL}/profile-photo150.png`
-    ).then(res => res.blob());
+    const image = await fetch(`${getHost()}/profile-photo150.png`).then(res =>
+        res.blob()
+    );
     const imageBuffer = Buffer.from(await image.arrayBuffer());
     const profileImage = convertImgBlobToBase64('png', imageBuffer);
     // const profileImage = await convertImgToBase64ServerSide(
