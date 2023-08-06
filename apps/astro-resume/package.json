@@ -22,11 +22,16 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "astro": "^2.5.1",
         "common-data": "workspace:*",
+        "pdfmake": "^0.2.7",
+        "puppeteer-core": "^21.0.1",
         "resume-css": "workspace:*",
         "serverless": "link:@astrojs/vercel/serverless",
         "solid-js": "^1.7.5",
         "solid-ui": "workspace:*",
         "svelte": "^3.59.1",
         "tailwindcss": "^3.3.2"
+    },
+    "devDependencies": {
+        "@types/pdfmake": "^0.2.2"
     }
 }

@@ -1,12 +1,21 @@
 ---
 import {TopContents} from 'common-data';
+import PdfDownload from './PdfDownload.svelte';
+type Props = {
+    usePdf?: boolean;
+}
+const {usePdf = false} = Astro.props as Props;
 const {name, address, contact, position, website} = TopContents;
 const simplifyUrl = (url:string)=>url.replace(/(https?:\/\/)?(www\.)?/,'').replace(/\/$/,'');
 ---
 <div class="flex flex-col items-end">
-    <h1 id="profile-name" class="text-white uppercase">{name}</h1>
-    <h3 id="profile-address" class="text-gray-light text-xs">{address}</h3>
-    <h2 id="profile-position" class="text-light-lime text-lg py-4">{position}</h2>
+    <h1 id="profile-name" class="text-white uppercase">
+        {name}
+        
+    </h1>
+    <h3 id="profile-address" class="text-gray-light text-xs">{address}
+       </h3>
+    <h2 id="profile-position" class="text-light-lime text-lg py-4">{position} {!usePdf && <PdfDownload client:only="svelte" />}</h2>
     <div id="profile-contact" class="text-cyan-200 flex flex-col text-sm">
         <div class="flex flex-col sm:inline-flex sm:flex-row justify-end gap-1">
             <div id="profile-contact-phone" class="inline sm:inline-flex text-right">

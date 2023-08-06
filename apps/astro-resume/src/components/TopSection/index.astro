@@ -1,14 +1,18 @@
 ---
 import ProfileImage from "./ProfileImage.astro";
 import ProfileInfo from "./ProfileInfo.astro";
+export interface Props {
+	usePdf?: boolean;
+}
 
+const { usePdf=false } = Astro.props;
 ---
 <div class="flex flex-row">
-    <div id="profile-picture" class="relative h-full group overflow-y-clip overflow-hidden">
+    {!usePdf && <div id="profile-picture" class="relative h-full group overflow-y-clip overflow-hidden">
         <ProfileImage />
-    </div>
-    <div id="top-content" class="w-full flex-grow bg-back-blue flex flex-col py-4 px-5 justify-start items-end">
-        <ProfileInfo />
+    </div>}
+    <div id="top-content" data-pdf={usePdf ? "true": ""} class="w-full flex-grow bg-back-blue flex flex-col py-4 px-5 justify-start items-end">
+        <ProfileInfo usePdf={usePdf} />
     </div>
 </div>
 
@@ -17,7 +21,7 @@ import ProfileInfo from "./ProfileInfo.astro";
         display: none;
         width: 0;
     }
-    #top-content {
+    #top-content:not([data-pdf="true"]) {
         border-radius: 1rem 1rem 0 0;
     }
     @media (min-width: 701px) {
@@ -29,7 +33,7 @@ import ProfileInfo from "./ProfileInfo.astro";
             border-radius: 6rem 0 0 0; 
         }
 
-        #top-content {
+        #top-content:not([data-pdf="true"]) {
             border-radius: 0 1rem 0 0;
         }
 	}

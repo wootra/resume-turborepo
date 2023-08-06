@@ -1,0 +1,770 @@
+{
+    "Introduction": {
+        "TITLE": "Introduction",
+        "DESC": "Fast and deep focusing is my weapon making me a good problem solver.\n         I enjoy learning new tech solutions as well as trying to use it in my personal projects. \n         That makes me a valuable team member with high performance.\n         Recently focusing on Frontend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS."
+    },
+    "Careers": {
+        "TITLE": "Careers",
+        "CAREERS": [
+            {
+                "companyName": "Dimensional Fund Advisors (DFA)",
+                "url": "https://dimensional.com/",
+                "start": "2022-8",
+                "end": "current",
+                "role": "Maintain & Improve SMA, Model Center, Fund Center, and other applications",
+                "industry": "Financial / Investment / Asset Management",
+                "jobTitle": "SW Engineer Senior",
+                "techStacks": [
+                    "React (class, functional)",
+                    "jotai 1/2",
+                    "Javascript(vanilla/ES6~2022)",
+                    "Jenkins",
+                    "Jest",
+                    "Monorepo(Rush repo)",
+                    "Git",
+                    "playwrite",
+                    "RTL(React Testing Library)"
+                ],
+                "achievements": [
+                    "Improvement and management of SMA center, Model Center, Fund Center app",
+                    "Refactor large legacy class components to modularized function components",
+                    "Upgrade javascript to typescript",
+                    "Upgrade testing environment",
+                    "Upgrade CRA project to Vite project",
+                    "Upgrade jotai 1 to jotai 2",
+                    "Create/Improve logic for PDF generation(PDFMake)",
+                    "Create/Edit jest/RTL/Playright tests",
+                    "Create new disclosure manager",
+                    "Create jotai libraries for general purpose",
+                    "Create tooltip library for general purpose",
+                    "Improve rendering performance using jotai local atoms and react profiler",
+                    "Massive amount of debug"
+                ]
+            },
+            {
+                "companyName": "USAA",
+                "url": "https://usaa.com/",
+                "start": "2018-9",
+                "end": "2022-8",
+                "role": "Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app",
+                "industry": "Financial / Insurance",
+                "jobTitle": "SW Engineer Senior (Team Lead)",
+                "techStacks": [
+                    "React (class, functional)",
+                    "Redux",
+                    "Router(v5/v6)",
+                    "Java8",
+                    "Javascript(vanilla/ES6~2021)",
+                    "RESTful API(JBoss/Spring boot/Node.js & Express)",
+                    "Openshift",
+                    "gitlab-ci",
+                    "Mocha",
+                    "Jest",
+                    "Enzyme",
+                    "Cypress",
+                    "RTL(React Testing Library)",
+                    "Spock",
+                    "Mockito",
+                    "JUnit(4/5)",
+                    "Kafka"
+                ],
+                "achievements": [
+                    "Improvement of Small business Insurance Experience",
+                    "Mordernization of Financial Readiness site (Talon/New Web)",
+                    "Improve performance/reliability of the Financial Readiness app",
+                    "Involved to overall applications except for batch process",
+                    "Leading the dev team"
+                ]
+            },
+            {
+                "companyName": "Eonic Korea",
+                "url": "http://eonic.co.kr/",
+                "start": "2016-7",
+                "end": "2018-3",
+                "role": "Signal Analysis, Architecutre, Development",
+                "industry": "Sonar / Defense systems",
+                "jobTitle": "Lead SW Engineer",
+                "techStacks": [
+                    "C",
+                    "C++",
+                    "Socket communication",
+                    "Labview",
+                    "Intel IPP/TBB",
+                    "Linux",
+                    "Lab Windows/CVI",
+                    "GIT/SVN"
+                ],
+                "achievements": [
+                    "Development of Habor defense system",
+                    "Development of sonar system in a submarine(Jangbogo)",
+                    "Software team lead",
+                    "Software architecture, analyze sonar footprints"
+                ]
+            },
+            {
+                "companyName": "Realtimewave",
+                "url": "http://realtimewave.com/",
+                "start": "2011-2",
+                "end": "2016-6",
+                "role": "Development of Automated/Manual Test Solutions for real time devices such as UAV and Guided Missile Systems",
+                "industry": "Aero / Defense systems",
+                "jobTitle": "SW Engineer",
+                "techStacks": [
+                    "C/C++",
+                    "MFC",
+                    "C#.Net",
+                    "RT/Java",
+                    "LUA",
+                    "Python",
+                    "Socket",
+                    "XML",
+                    "OpenGL",
+                    "Python",
+                    "MATLAB",
+                    "VxWorks",
+                    "Linux",
+                    "QT"
+                ],
+                "achievements": [
+                    "Initiate / Develop TestNgine™ - RT testing tool",
+                    "Participate developing RTNgine™ - RT simulator",
+                    "Initiate Packet management and automated scenario software",
+                    "Initiate Realtime scenario management software"
+                ]
+            }
+        ]
+    },
+    "achievements": [
+        {
+            "company": "Dimensional Fund Advisors",
+            "items": [
+                {
+                    "name": "Refactor legacy code in fund/model center",
+                    "businessValue": "improve developer experience, code readability, reusability, and maintainability",
+                    "myPart": "plan, documentation, coding, testing(React, Typescript, Jotai 2.0)",
+                    "desc": "the existing code in model center and fund center was written 2000+ lines of class components\n                 with a lot of prop-drilling which makes code reusability and readability bad. \n                 I refactored the code using Jotai 2.0 deleting a lot of prop drilling improving code readability and reusability.\n                 While refactoring I converted javascript code to typescript code as well as creating a lot of types \n                 to reduce human errors in the future."
+                },
+                {
+                    "name": "Improve disclosure position on PDF using PDFMake",
+                    "businessValue": "improve user experience, code maintainability",
+                    "myPart": "research on PDFMake, create new disclosure manager(React, Pdfmake)",
+                    "desc": "Disclosure on the PDF make in DFA is dynamic in size, \n                so making it on the bottom of the document is touch subject. \n                I made disclosure manager to save all the disclosure data attached \n                to the subjects that should be added to the page first, \n                and made the disclosure based on the subject added in the page \n                to decide which disclosure should be added. \n                Also measured the size of the disclosure \n                before it is added to calculate if it fits in the page."
+                }
+            ]
+        },
+        {
+            "company": "USAA",
+            "items": [
+                {
+                    "name": "Improve Pipeline performance of Small Business Insurance App",
+                    "businessValue": "Improve Performance",
+                    "myPart": "script modification",
+                    "desc": "improved pipeline speed by running the integration test scripts (cypress) conditionally depending on which development process (develop, feature, stage)"
+                },
+                {
+                    "name": "Improve Response time of Small Business Insurance App(FE)",
+                    "businessValue": "Improve Performance",
+                    "myPart": "architecture, code, leading, documentation",
+                    "desc": "architecture designs for the frontend taking advantage of react context and hooks. Code is modularized and categorized."
+                },
+                {
+                    "name": "Improve Response time of Small Business Insurance App(BE)",
+                    "businessValue": "Improve Performance",
+                    "myPart": "architecture, code, leading, analyzations, documentation",
+                    "desc": "introducing microservice architecture on the backend, removing unncessary service calls. imporoved performance from >30sec to <20sec. The system was leaning on 3rd party service which was spending most of times, so the improvement was limited."
+                },
+                {
+                    "name": "Bug fixes on Small Business Insurance App",
+                    "businessValue": "stablize the app",
+                    "myPart": "analyzations, code, leading"
+                },
+                {
+                    "name": "Predicted Card Experience (Talon/New Web)",
+                    "businessValue": "show members predicted profiles instead of making members to start over for all the questionnaire to start to use Financial Wellness Tool",
+                    "myPart": "involved to the architecture design for the services and gave insights as a developer of existing services, update member home code and unit/functional tests, created and lead UI development from the base to the top using React Hooks/ Router/ Reducer  (Jax-RS/React/OpenL/Spring/NodeJs/DB2)",
+                    "desc": "I have merged existing FRS questionnaire application and dashboard application and created a new router structure to make them compatible to each other. \n            Also, wrote multiple scripts to make the pipelines to leave proper evidence from the new projects. \n            I have consulted and made sure the new service follow micro-service concept and would make calls effectively between services.\n            "
+                },
+                {
+                    "name": "Trust the member(Debt and Spending) (Talon/New Web)",
+                    "businessValue": "Improve member's experience, give member more specialized guideline adding more steps, show visual information about where the member is in the debt spending journey ",
+                    "myPart": "co-lead the team with the team lead, code review and debug, add horseshoe chart, lead the team, technical consult to the offshore teams, code reviews and debug(Jax-RS/React/OpenL/Spring/NodeJs/DB2)",
+                    "desc": ""
+                },
+                {
+                    "name": "Trust the member(Emergency Fund) (Talon/New Web)",
+                    "businessValue": "Improve member's experience, give member ability to add their own EF values, show visual information about where the member is in the savings journey",
+                    "myPart": "Create service architecture, design DB, Write Flow Diagrams, Add visual sign on the card, Introduce TDD concept, add scenario system to handle the complex card transition, add flip card effect (Jax-RS/React/OpenL/Spring/NodeJs/DB2)",
+                    "desc": ""
+                },
+                {
+                    "name": "Upgrade Pipelines to use compliant modules ",
+                    "businessValue": "meet compliant policy, improve reliability",
+                    "myPart": "implement x-ray, sonarqube, move repository to the managed repository(Gitlab-ci/bash/YAML)",
+                    "desc": ""
+                },
+                {
+                    "name": "Improve performance/reliability of the Financial Readiness app",
+                    "businessValue": "meet compliant policy, improve reliability",
+                    "myPart": "Found multiple possible sytem errors and fixed such as failure occured by timing issues and version mismatch of network cache and jackson (Java/gradle/Jax-RS)",
+                    "desc": "I have reviewed the source code occationally and found possible bugs. Also, I have participated to fix the errors found by other testers"
+                },
+                {
+                    "name": "Create EasyUnit",
+                    "businessValue": "save extra time to make unit tests for resource objects",
+                    "myPart": "created easy-unit, introduce it to the team(Java/Mockito)",
+                    "desc": "\n                Resource Objects are used overall server-client model. \n                lombok covers a lot, but it does not create unit test. \n                Easyunit create unit test and its vanilla java code.\n            "
+                },
+                {
+                    "name": "OpenL validation tool",
+                    "businessValue": "reduce human error when converting ActivityList from ERDC table(web) to OpenL(excel) by creating validation process",
+                    "myPart": "created the validation tool, use it to validate the new file(Excel/Javascript)",
+                    "desc": "\n            When converting activity list to openl, it was enumours amount of data and multiple people worked on it. \n            We didn't have a way to validate them so I have created parsers using excel and confirmed if the converted tables are equivalent to the original formula.\n            "
+                },
+                {
+                    "name": "Mordernization of Financial Readiness site (Talon/New Web)",
+                    "businessValue": "improve performance, reliability and maintainability",
+                    "myPart": "worked as a team member on RESTful API and database",
+                    "desc": "The legacy FRS(Financial Readiness Score) tool was built with Wicket, so we converted it using modern technology such as React/Jax-RS."
+                }
+            ]
+        },
+        {
+            "company": "Eonic Korea",
+            "items": [
+                {
+                    "name": "Create Circuit boards Test Solution",
+                    "businessValue": "Reduce the time to create similar tests",
+                    "myPart": "creator of the software(Lab Windows/CVI, C/C++)"
+                },
+                {
+                    "name": "Harbor defense system",
+                    "businessValue": "Create Korean first active sonar with LIG Nex1",
+                    "myPart": "Analyze the sonar data to detect multiple objects, create a UI to visualize the objects (Labview, FFT, Lab Windows, C/C++)"
+                },
+                {
+                    "name": "Passive sonar sytem for Submarine",
+                    "businessValue": "Create passive sonar and store the sonar data with LIG Nex1",
+                    "myPart": "Develop high performing storage system"
+                },
+                {
+                    "name": "Sonar signal monitoring system",
+                    "businessValue": "handle high load data",
+                    "myPart": "design the architecture, lead the sw team(Java/Javascript/C/C++/Intel IPP)",
+                    "desc": "To achieve the performance requirement, I have create an architecture of multiple platforms/languages"
+                }
+            ]
+        },
+        {
+            "company": "Realtimewave",
+            "items": [
+                {
+                    "name": "Create TestNgine",
+                    "businessValue": "Being sold as Company's new product",
+                    "myPart": "creator of the software, created UI and participate on the service in the Realtime-OS.",
+                    "desc": "TestNetConnector is evolved to the product version"
+                },
+                {
+                    "name": "Create NetConnector",
+                    "businessValue": "boost working efficiency at least 300%",
+                    "myPart": "creator of the software(C#/C/Python)",
+                    "desc": "replace most of integration test with hardware with software test using NetConnector"
+                },
+                {
+                    "name": "Panel builder",
+                    "businessValue": "give abilities to create a custom UI having multiple panels and network connections",
+                    "myPart": "creator of the software(C++/LUA)",
+                    "desc": ""
+                },
+                {
+                    "name": "Warning system in the nuclear power plant",
+                    "businessValue": "built a reliable warning system overall nuclear power plants",
+                    "myPart": "developer of the network system(C/bash)",
+                    "desc": ""
+                },
+                {
+                    "name": "Research",
+                    "businessValue": "Research of RT-Java, GPS/GNSS monitoring, encoding intra-red video",
+                    "myPart": "research of various area to evaluate the technical enability",
+                    "desc": "perform as a researcher"
+                }
+            ]
+        },
+        {
+            "company": "Personal Projects",
+            "items": [
+                {
+                    "name": "Setting up mono repo for Resume Project",
+                    "businessValue": "Setup Turborepo, Test typescript/vitest test, Test Next.js app with test, Convert pure html project to Vite project",
+                    "myPart": "Personal Project(Turborepo, Vite, Vanilla JS/CSS/HTML), typescript, vitest, Next.js",
+                    "desc": "To make the project more maintainable before making next version of resume app, \n                I have converted the project to Vite project living in the monorepo. \n                I have tried Nx repo before using turbo repo, but typescript support with vitest test \n                was not working as expected in the library. Turbo repo is a lot easier to set up the local packages.\n                It also supported vitest test using typescript source files. Converting html into vite project was smooth."
+                },
+                {
+                    "name": "Menu App(QR in Menu)",
+                    "businessValue": "Created Production level application from A-Z as a solo developer.",
+                    "myPart": "Personal Project(Next.js, Astro.js, React, TailwindCSS, Supabase, GraphQL, Typescript, Cloudflare Image, SalesTax)",
+                    "desc": "Created Production level of application from planing to development. I have tried to make it using Next.js 13.0 which was \n                still beta creating client side using Supabase, GraphQL, Typescript, TailwindCSS, Cloudflare Image, and SalesTax open source \n                library. While Next.js 13.0 was still on beta status, error messages was not very clear. At the similar time,\n                Astro 2.0 is released. For the admin tool of the menu app, I started using Astro 2.0. The development \n                environment is very good, especially the truth that I can use multiple javascript framework including \n                shvelt and solid.js. Could not release the production since the project team is finished for the personal \n                reason, but it was a great experience to learn a lot of tech stacks and schedule management."
+                },
+                {
+                    "name": "Diagnositics of Parkinson's Desease",
+                    "businessValue": "Found new patient with 90% of accuracy",
+                    "myPart": "personal contract(Python/TensorFlow/Keras/Jupiter Notebook/Deep Learning)",
+                    "desc": "\n            It was request from a Doctor(Yongsuk-Yang) in Korea and he wanted to know if Diagnositics using Deep Learning for the Parkinson's Desease using Blood analysis.\n            I received the results of blood analysis and proceed learning 3 levels of DNN after pre-processing.\n            the input node was 56, and output was 1 with percentage. after post processing, I could get meaningful result which find new patient as 90% accuracy.\n            "
+                },
+                {
+                    "name": "Horseshoe",
+                    "businessValue": "small size SVG based chart software with no external dependencies (Opensource)",
+                    "myPart": "personal project(javascript/SVG)",
+                    "desc": "used for FRS debt and spending card"
+                },
+                {
+                    "name": "Multi-domain redux",
+                    "businessValue": "enable users to use multi-domain of reducer",
+                    "myPart": "personal project",
+                    "desc": "it was before react hook comes out when I develop this. Now it can be replaced with React hooks reducer/context"
+                }
+            ]
+        },
+        {
+            "company": "GNU",
+            "items": [
+                {
+                    "name": "White board",
+                    "businessValue": "small chatting application with drawing ability",
+                    "myPart": "pair programming",
+                    "desc": "Instead of boring chatting, I gave the drawing functionality adding a fun factor."
+                },
+                {
+                    "name": "Circuit simulator",
+                    "businessValue": "give an ability to draw/simulate circuit design",
+                    "myPart": "pair programming(Java/applet)",
+                    "desc": "add AND/OR/XOR/NOT block in the board and give any signal by user to simulate the behavior of the circuit"
+                },
+                {
+                    "name": "3D scanner",
+                    "businessValue": "create a 3D image based on 2 pictures.",
+                    "myPart": "graduation paper project, perform as the sw programmer",
+                    "desc": ""
+                }
+            ]
+        }
+    ],
+    "skillLevels": {
+        "Languages(FE)": [
+            {
+                "skillName": "Javascript",
+                "levelNo": 5
+            },
+            {
+                "skillName": "TypeScript",
+                "levelNo": 5
+            },
+            {
+                "skillName": "HTML",
+                "levelNo": 5
+            },
+            {
+                "skillName": "CSS/3",
+                "levelNo": 5
+            },
+            {
+                "skillName": "SASS/LESS/SCSS",
+                "levelNo": 5
+            }
+        ],
+        "Languages(Etc)": [
+            {
+                "skillName": "Java",
+                "levelNo": 5
+            },
+            {
+                "skillName": "YAML",
+                "levelNo": 5
+            },
+            {
+                "skillName": "SASS/LESS",
+                "levelNo": 5
+            },
+            {
+                "skillName": "NodeJs",
+                "levelNo": 4
+            },
+            {
+                "skillName": "C#.Net",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Python",
+                "levelNo": 3
+            },
+            {
+                "skillName": "XML",
+                "levelNo": 3
+            },
+            {
+                "skillName": "LUA",
+                "levelNo": 3
+            },
+            {
+                "skillName": "C/C++",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Rust",
+                "levelNo": 2
+            },
+            {
+                "skillName": "Dart",
+                "levelNo": 2
+            },
+            {
+                "skillName": "Go",
+                "levelNo": 2
+            },
+            {
+                "skillName": "JPA",
+                "levelNo": 3
+            }
+        ],
+        "Frameworks(FE)": [
+            {
+                "skillName": "React.js",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Astro.js",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Next.js",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Svelte",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Solid.js",
+                "levelNo": 3
+            },
+            {
+                "skillName": "JQuery",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Angular 6",
+                "levelNo": 2
+            }
+        ],
+        "Frameworks(Etc)": [
+            {
+                "skillName": ".Net",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Jax-RS",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Spring Boot",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Kafka",
+                "levelNo": 2
+            }
+        ],
+        "Pakcage Management": [
+            {
+                "skillName": "Turbo repo",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Nx Repo",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Rush Repo",
+                "levelNo": 2
+            },
+            {
+                "skillName": "Vite",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Npm.js",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Npm",
+                "levelNo": 3
+            },
+            {
+                "skillName": "pnpm",
+                "levelNo": 3
+            },
+            {
+                "skillName": "yarn",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Rollup",
+                "levelNo": 2
+            },
+            {
+                "skillName": "Webpack",
+                "levelNo": 2
+            }
+        ],
+        "State Libraries": [
+            {
+                "skillName": "jotai",
+                "levelNo": 5
+            },
+            {
+                "skillName": "zustand",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Redux/Toolkit",
+                "levelNo": 5
+            },
+            {
+                "skillName": "React Context",
+                "levelNo": 5
+            },
+            {
+                "skillName": "React Hooks",
+                "levelNo": 5
+            }
+        ],
+        "Shell Scripts": [
+            {
+                "skillName": "bash-sh",
+                "levelNo": 4
+            },
+            {
+                "skillName": "cmd-sh",
+                "levelNo": 3
+            }
+        ],
+        "Test Framework": [
+            {
+                "skillName": "Jest",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Mocha",
+                "levelNo": 5
+            },
+            {
+                "skillName": "TestingLibrary",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Enzyme",
+                "levelNo": 5
+            },
+            {
+                "skillName": "sinon",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Mockito",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Cypress",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Vitest",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Selenium",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Spock",
+                "levelNo": 3
+            }
+        ],
+        "database": [
+            {
+                "skillName": "My-SQL",
+                "levelNo": 4
+            },
+            {
+                "skillName": "MS-SQL",
+                "levelNo": 4
+            },
+            {
+                "skillName": "DB2",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Mongo DB",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Postgres",
+                "levelNo": 3
+            }
+        ],
+        "Dev Ops": [
+            {
+                "skillName": "Gialb-ci",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Docker",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Openshift",
+                "levelNo": 3
+            },
+            {
+                "skillName": "github-actions",
+                "levelNo": 2
+            }
+        ],
+        "Machine Learning": [
+            {
+                "skillName": "TensorFlow/Keras",
+                "levelNo": 3
+            },
+            {
+                "skillName": "Jupiter Notebook",
+                "levelNo": 3
+            }
+        ],
+        "Analysis Tools": [
+            {
+                "skillName": "Lab Windows/CVI",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Matlab",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Labview",
+                "levelNo": 3
+            }
+        ],
+        "Documentation": [
+            {
+                "skillName": "JsDocs",
+                "levelNo": 5
+            },
+            {
+                "skillName": "ReadMe(md)",
+                "levelNo": 3
+            }
+        ],
+        "Project Management": [
+            {
+                "skillName": "Agile/Jira",
+                "levelNo": 5
+            },
+            {
+                "skillName": "SAFE",
+                "levelNo": 5
+            },
+            {
+                "skillName": "SDLC",
+                "levelNo": 5
+            }
+        ],
+        "Network": [
+            {
+                "skillName": "TCP/IP, UDP",
+                "levelNo": 5
+            },
+            {
+                "skillName": "RS-232/RS-422/MIL1553",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Analog/Discrete",
+                "levelNo": 4
+            },
+            {
+                "skillName": "GPS/GNSS",
+                "levelNo": 3
+            },
+            {
+                "skillName": "I2C",
+                "levelNo": 3
+            }
+        ],
+        "Multimedia/Office": [
+            {
+                "skillName": "Flash/Action Script",
+                "levelNo": 5
+            },
+            {
+                "skillName": "Photoshop",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Illustrator",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Excel",
+                "levelNo": 4
+            },
+            {
+                "skillName": "PowerPoint",
+                "levelNo": 4
+            },
+            {
+                "skillName": "Word",
+                "levelNo": 3
+            }
+        ]
+    },
+    "volunteers": [
+        {
+            "role": "Vice President",
+            "where": "GonAPus ( Amateur Astronomy Club ) in GNU",
+            "url": "https://www.facebook.com/GonApus/"
+        },
+        {
+            "role": "Training Helper",
+            "where": "Youth traning center",
+            "url": "http://www.gnyouthtc.or.kr/"
+        }
+    ],
+    "educations": [
+        {
+            "school": {
+                "name": "Gyeongsang National Univ",
+                "url": "https://www.gnu.ac.kr/"
+            },
+            "degrees": [
+                {
+                    "major": "Computer Science",
+                    "degree": "BC",
+                    "year": 2005
+                },
+                {
+                    "major": "Mechanical Engineering",
+                    "degree": "BE",
+                    "year": 2005
+                }
+            ]
+        }
+    ],
+    "awards": [
+        {
+            "award": "3D-Scanner using 3-color layers",
+            "year": 2004
+        }
+    ],
+    "authority": [
+        "Permanent Residence(Green Card)"
+    ]
+}
