@@ -1,8 +1,7 @@
-import {
-    createPage,
-    createPdfBinary,
-    createSectionGap,
-} from '../../server-utils/pdf-utils';
+import * as url from 'url';
+import pdfMakePrinter from 'pdfmake';
+import type { TDocumentDefinitions } from 'pdfmake/interfaces';
+import { createPage, createSectionGap } from '../../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
 import * as topSection from '../../components/TopSection/pdf';
 import * as leftSection from '../../components/LeftSection/pdf';
@@ -42,3 +41,62 @@ export const get: APIRoute = async () => {
         });
     }
 };
+
+// const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+const robotoRegular =
+    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf';
+const robotoBold =
+    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf';
+const robotoItalic =
+    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-Italic.ttf';
+const robotoBoldItalic =
+    __dirname + './_fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf';
+const openSansEmoji = __dirname + './_fonts/OpenSansEmoji/OpenSansEmoji.ttf';
+
+export const FONT_DESCRIPTOR = {
+    RobotoCondensed: {
+        normal: robotoRegular,
+        bold: robotoBold,
+        italics: robotoItalic,
+        bolditalics: robotoBoldItalic,
+    },
+    Roboto: {
+        normal: robotoRegular,
+        bold: robotoBold,
+        italics: robotoItalic,
+        bolditalics: robotoBoldItalic,
+    },
+
+    Emoji: {
+        // https://en.wikipedia.org/w/index.php?title=Emoji&oldid=557685103#ref_U1F680_as_of_Unicode_version
+        normal: openSansEmoji,
+        bold: openSansEmoji,
+        italics: openSansEmoji,
+        bolditalics: openSansEmoji,
+    },
+};
+
+export async function createPdfBinary(
+    pdfDoc: TDocumentDefinitions
+): Promise<Buffer> {
+    return new Promise((res, rej) => {
+        var fontDescriptors = FONT_DESCRIPTOR;
+
+        const printer = new pdfMakePrinter(fontDescriptors);
+
+        const doc = printer.createPdfKitDocument(pdfDoc);
+        const chunks: any[] = [];
+        let result;
+
+        doc.on('data', function (chunk) {
+            chunks.push(chunk);
+        });
+        doc.on('end', function () {
+            result = Buffer.concat(chunks);
+            res(result);
+        });
+        doc.end();
+    });
+}
