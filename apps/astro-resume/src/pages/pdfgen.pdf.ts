@@ -5,7 +5,7 @@ import { createPage, createSectionGap } from '../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
 import * as topSection from '../components/TopSection/pdf';
 import * as leftSection from '../components/LeftSection/pdf';
-import path from 'path';
+import path from 'node:path';
 export const get: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
