@@ -12,7 +12,13 @@ export default defineConfig({
     },
     output: 'server',
     adapter: vercel({
-        includeFiles: ['public'],
+        includeFiles: [
+            'src/assets/fonts/OpenSansEmoji.ttf',
+            'src/assets/fonts/RobotoCondensed-Bold.ttf',
+            'src/assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            'src/assets/fonts/RobotoCondensed-Italic.ttf',
+            'src/assets/fonts/RobotoCondensed-Regular.ttf',
+        ],
     }),
     integrations: [
         tailwind(),
