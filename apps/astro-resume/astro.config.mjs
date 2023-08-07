@@ -7,7 +7,16 @@ import vercel from '@astrojs/vercel/serverless';
 // https://astro.build/config
 export default defineConfig({
     vite: {
-        assetsInclude: ['**/*.svg', '**/*.png', '**/*.ttf'],
+        assetsInclude: [
+            '**/*.svg',
+            '**/*.png',
+            '**/*.ttf',
+            'src/assets/fonts/OpenSansEmoji.ttf',
+            'src/assets/fonts/RobotoCondensed-Bold.ttf',
+            'src/assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            'src/assets/fonts/RobotoCondensed-Italic.ttf',
+            'src/assets/fonts/RobotoCondensed-Regular.ttf',
+        ],
         define: {},
     },
     output: 'server',
