@@ -44,15 +44,24 @@ export const get: APIRoute = async () => {
 };
 
 // const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = import.meta.env.DEV
-    ? url.fileURLToPath(new URL('.', import.meta.url))
-    : path.join(process.cwd(), 'public', 'assets/');
 
-const robotoRegular = __dirname + 'fonts/RobotoCondensed-Regular.ttf';
-const robotoBold = __dirname + 'fonts/RobotoCondensed-Bold.ttf';
-const robotoItalic = __dirname + 'fonts/RobotoCondensed-Italic.ttf';
-const robotoBoldItalic = __dirname + 'fonts/RobotoCondensed-BoldItalic.ttf';
-const openSansEmoji = __dirname + 'fonts/OpenSansEmoji.ttf';
+const robotoRegular = path.resolve(
+    './src/assets/fonts/',
+    'RobotoCondensed-Regular.ttf'
+);
+const robotoBold = path.resolve(
+    './src/assets/fonts/',
+    'RobotoCondensed-Bold.ttf'
+);
+const robotoItalic = path.resolve(
+    './src/assets/fonts/',
+    'RobotoCondensed-Italic.ttf'
+);
+const robotoBoldItalic = path.resolve(
+    './src/assets/fonts/',
+    'RobotoCondensed-BoldItalic.ttf'
+);
+const openSansEmoji = path.resolve('./src/assets/fonts/', 'OpenSansEmoji.ttf');
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
