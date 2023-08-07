@@ -47,27 +47,27 @@ export const get: APIRoute = async () => {
 
 const robotoRegular = path.join(
     process.cwd(),
-    'public',
+    'src',
     '/assets/fonts/RobotoCondensed-Regular.ttf'
 );
 const robotoBold = path.join(
     process.cwd(),
-    'public',
+    'src',
     '/assets/fonts/RobotoCondensed-Bold.ttf'
 );
 const robotoItalic = path.join(
     process.cwd(),
-    'public',
+    'src',
     '/assets/fonts/RobotoCondensed-Italic.ttf'
 );
 const robotoBoldItalic = path.join(
     process.cwd(),
-    'public',
+    'src',
     '/assets/fonts/RobotoCondensed-BoldItalic.ttf'
 );
 const openSansEmoji = path.join(
     process.cwd(),
-    'public',
+    'src',
     '/assets/fonts/OpenSansEmoji.ttf'
 );
 
