@@ -99,24 +99,54 @@ const openSansEmoji = path.join(
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
-        normal: robotoRegular,
-        bold: robotoBold,
-        italics: robotoItalic,
-        bolditalics: robotoBoldItalic,
+        // normal: robotoRegular,
+        // bold: robotoBold,
+        // italics: robotoItalic,
+        // bolditalics: robotoBoldItalic,
+        normal: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Regular.ttf`,
+        bold: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Bold.ttf`,
+        italics: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Italic.ttf`,
+        bolditalics: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
     },
     Roboto: {
-        normal: robotoRegular,
-        bold: robotoBold,
-        italics: robotoItalic,
-        bolditalics: robotoBoldItalic,
+        // normal: robotoRegular,
+        // bold: robotoBold,
+        // italics: robotoItalic,
+        // bolditalics: robotoBoldItalic,
+        normal: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Regular.ttf`,
+        bold: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Bold.ttf`,
+        italics: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-Italic.ttf`,
+        bolditalics: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
     },
 
     Emoji: {
         // https://en.wikipedia.org/w/index.php?title=Emoji&oldid=557685103#ref_U1F680_as_of_Unicode_version
-        normal: openSansEmoji,
-        bold: openSansEmoji,
-        italics: openSansEmoji,
-        bolditalics: openSansEmoji,
+        // normal: openSansEmoji,
+        // bold: openSansEmoji,
+        // italics: openSansEmoji,
+        // bolditalics: openSansEmoji,
+        normal: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
+        bold: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
+        italics: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
+        bolditalics: `${
+            import.meta.env.VERCEL_URL
+        }/assets/fonts/OpenSansEmoji.ttf`,
     },
 };
 
