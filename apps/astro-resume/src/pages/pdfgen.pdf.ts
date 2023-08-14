@@ -71,11 +71,12 @@ export const get: APIRoute = async () => {
 
 // const __filename = url.fileURLToPath(import.meta.url);
 const getUrl = () => {
-    if (import.meta.env.VERCEL_URL.includes('localhost')) {
-        return `http://${import.meta.env.VERCEL_URL}`;
-    } else {
-        return `https://${import.meta.env.VERCEL_URL}`;
-    }
+    return '';
+    // if (import.meta.env.VERCEL_URL.includes('localhost')) {
+    //     return `http://${import.meta.env.VERCEL_URL}`;
+    // } else {
+    //     return `https://${import.meta.env.VERCEL_URL}`;
+    // }
 };
 const robotoRegular = path.join(
     process.cwd(),
@@ -109,36 +110,20 @@ export const FONT_DESCRIPTOR = {
         // bold: robotoBold,
         // italics: robotoItalic,
         // bolditalics: robotoBoldItalic,
-        normal: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Regular.ttf`,
-        bold: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Bold.ttf`,
-        italics: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Italic.ttf`,
-        bolditalics: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
+        normal: `src/assets/fonts/RobotoCondensed-Regular.ttf`,
+        bold: `src/assets/fonts/RobotoCondensed-Bold.ttf`,
+        italics: `src/assets/fonts/RobotoCondensed-Italic.ttf`,
+        bolditalics: `src/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
     },
     Roboto: {
         // normal: robotoRegular,
         // bold: robotoBold,
         // italics: robotoItalic,
         // bolditalics: robotoBoldItalic,
-        normal: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Regular.ttf`,
-        bold: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Bold.ttf`,
-        italics: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-Italic.ttf`,
-        bolditalics: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
+        normal: `src/assets/fonts/RobotoCondensed-Regular.ttf`,
+        bold: `src/assets/fonts/RobotoCondensed-Bold.ttf`,
+        italics: `src/assets/fonts/RobotoCondensed-Italic.ttf`,
+        bolditalics: `src/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
     },
 
     Emoji: {
@@ -147,12 +132,10 @@ export const FONT_DESCRIPTOR = {
         // bold: openSansEmoji,
         // italics: openSansEmoji,
         // bolditalics: openSansEmoji,
-        normal: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
-        bold: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
-        italics: `${import.meta.env.VERCEL_URL}/assets/fonts/OpenSansEmoji.ttf`,
-        bolditalics: `${
-            import.meta.env.VERCEL_URL
-        }/assets/fonts/OpenSansEmoji.ttf`,
+        normal: `src/assets/fonts/OpenSansEmoji.ttf`,
+        bold: `src/assets/fonts/OpenSansEmoji.ttf`,
+        italics: `src/assets/fonts/OpenSansEmoji.ttf`,
+        bolditalics: `src/assets/fonts/OpenSansEmoji.ttf`,
     },
 };
 

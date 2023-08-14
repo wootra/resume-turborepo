@@ -28,4 +28,5 @@ export default defineConfig({
         solid(),
         svelte(),
     ],
+    root: './',
 });
