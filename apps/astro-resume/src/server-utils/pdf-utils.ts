@@ -16,7 +16,7 @@ export const createPage = (
         pageOrientation: 'portrait',
 
         // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
-        pageMargins: [20, 10],
+        pageMargins: [20, 40],
         content,
         images,
     };
@@ -24,6 +24,7 @@ export const createPage = (
 
 export const createTitle = (title: string): Content[] => {
     return [
+        { text: '', fontSize: 0, margin: [0, 20, 0, 0] },
         {
             text: title,
             fontSize: 20,

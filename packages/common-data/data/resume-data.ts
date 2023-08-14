@@ -42,7 +42,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'https://dimensional.com/',
                 [2022, 8],
                 null,
-                'Maintain & Improve SMA, Model Center, Fund Center, and other applications',
+                'Maintain, Debug & Improve for SMA, Model Center, Fund Center, and other applications',
                 'Financial / Investment / Asset Management',
                 'SW Engineer Senior',
                 [
@@ -59,17 +59,11 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 [
                     'Improvement and management of SMA center, Model Center, Fund Center app',
                     'Refactor large legacy class components to modularized function components',
-                    'Upgrade javascript to typescript',
-                    'Upgrade testing environment',
-                    'Upgrade CRA project to Vite project',
-                    'Upgrade jotai 1 to jotai 2',
+                    'upgrade legacy project to modernized project including typescript, vite, jotai2',
+                    'Upgrade testing environments including jest, RTL, playwrite, jest-preview, react profiler',
                     'Create/Improve logic for PDF generation(PDFMake)',
-                    'Create/Edit jest/RTL/Playright tests',
                     'Create new disclosure manager',
-                    'Create jotai libraries for general purpose',
-                    'Create tooltip library for general purpose',
-                    'Improve rendering performance using jotai local atoms and react profiler',
-                    'Massive amount of debug',
+                    'Create general purpose libraries including tooltip, local atom handler,  jotai libraries for general purpose',
                 ]
             ),
             buildCareer(
@@ -172,23 +166,23 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'improve developer experience, code readability, reusability, and maintainability',
                 `plan, documentation, coding, testing(React, Typescript, Jotai 2.0)`,
                 `the existing code in model center and fund center was written 2000+ lines of class components
-                 with a lot of prop-drilling which makes code reusability and readability bad. 
-                 I refactored the code using Jotai 2.0 deleting a lot of prop drilling improving code readability and reusability.
-                 While refactoring I converted javascript code to typescript code as well as creating a lot of types 
-                 to reduce human errors in the future.`
+with a lot of prop-drilling which makes code reusability and readability bad. 
+I refactored the code using Jotai 2.0 deleting a lot of prop drilling improving code readability and reusability.
+While refactoring I converted javascript code to typescript code as well as creating a lot of types 
+to reduce human errors in the future.`
             ),
             buildAchievementItem(
                 'Improve disclosure position on PDF using PDFMake',
                 'improve user experience, code maintainability',
                 `research on PDFMake, create new disclosure manager(React, Pdfmake)`,
-                `Disclosure on the PDF make in DFA is dynamic in size, 
-                so making it on the bottom of the document is touch subject. 
-                I made disclosure manager to save all the disclosure data attached 
-                to the subjects that should be added to the page first, 
-                and made the disclosure based on the subject added in the page 
-                to decide which disclosure should be added. 
-                Also measured the size of the disclosure 
-                before it is added to calculate if it fits in the page.`
+                `
+Disclosure on the PDF make in DFA is dynamic in size, so making it on the bottom of the document is touch subject. 
+I made disclosure manager to save all the disclosure data attached 
+to the subjects that should be added to the page first, 
+and made the disclosure based on the subject added in the page 
+to decide which disclosure should be added. 
+Also measured the size of the disclosure 
+before it is added to calculate if it fits in the page.`
             ),
         ]),
         buildAchievement('USAA', [
@@ -220,8 +214,8 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 `show members predicted profiles instead of making members to start over for all the questionnaire to start to use Financial Wellness Tool`,
                 `involved to the architecture design for the services and gave insights as a developer of existing services, update member home code and unit/functional tests, created and lead UI development from the base to the top using React Hooks/ Router/ Reducer  (Jax-RS/React/OpenL/Spring/NodeJs/DB2)`,
                 `I have merged existing FRS questionnaire application and dashboard application and created a new router structure to make them compatible to each other. 
-            Also, wrote multiple scripts to make the pipelines to leave proper evidence from the new projects. 
-            I have consulted and made sure the new service follow micro-service concept and would make calls effectively between services.
+Also, wrote multiple scripts to make the pipelines to leave proper evidence from the new projects. 
+I have consulted and made sure the new service follow micro-service concept and would make calls effectively between services.
             `
             ),
             buildAchievementItem(
@@ -253,9 +247,9 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'save extra time to make unit tests for resource objects',
                 'created easy-unit, introduce it to the team(Java/Mockito)',
                 `
-                Resource Objects are used overall server-client model. 
-                lombok covers a lot, but it does not create unit test. 
-                Easyunit create unit test and its vanilla java code.
+Resource Objects are used overall server-client model. 
+lombok covers a lot, but it does not create unit test. 
+Easyunit create unit test and its vanilla java code.
             `
             ),
             buildAchievementItem(
@@ -263,8 +257,8 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'reduce human error when converting ActivityList from ERDC table(web) to OpenL(excel) by creating validation process',
                 'created the validation tool, use it to validate the new file(Excel/Javascript)',
                 `
-            When converting activity list to openl, it was enumours amount of data and multiple people worked on it. 
-            We didn't have a way to validate them so I have created parsers using excel and confirmed if the converted tables are equivalent to the original formula.
+When converting activity list to openl, it was enumours amount of data and multiple people worked on it. 
+We didn't have a way to validate them so I have created parsers using excel and confirmed if the converted tables are equivalent to the original formula.
             `
             ),
             buildAchievementItem(
@@ -301,9 +295,10 @@ export const LeftContents: LeftContentsType = Object.freeze({
         buildAchievement('Realtimewave', [
             buildAchievementItem(
                 'Create TestNgine',
-                "Being sold as Company's new product",
+                "Being sold as Company's new product. Boost test process dramatically by removing the coding process by using drag&drop based UI",
                 'creator of the software, created UI and participate on the service in the Realtime-OS.',
-                `TestNetConnector is evolved to the product version`
+                `TestNgine is a military level realtime test application which is upgraded from TestNetConnector that I have created and shared with the company members.
+This can download network test scenario to the real test object from drag&drop based application.`
             ),
             buildAchievementItem(
                 'Create NetConnector',
@@ -315,13 +310,13 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'Panel builder',
                 `give abilities to create a custom UI having multiple panels and network connections`,
                 'creator of the software(C++/LUA)',
-                ''
+                'generating LUA code automatically for the new avionics panels to generate a simulators.'
             ),
             buildAchievementItem(
                 'Warning system in the nuclear power plant',
                 `built a reliable warning system overall nuclear power plants`,
                 'developer of the network system(C/bash)',
-                ''
+                'Korean nuclear power plant has a warning system which is connected to the nuclear power plant. upgraded existing analog based warning system to the digital version.'
             ),
             buildAchievementItem(
                 'Research',
@@ -336,22 +331,22 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 `Setup Turborepo, Test typescript/vitest test, Test Next.js app with test, Convert pure html project to Vite project`,
                 'Personal Project(Turborepo, Vite, Vanilla JS/CSS/HTML), typescript, vitest, Next.js',
                 `To make the project more maintainable before making next version of resume app, 
-                I have converted the project to Vite project living in the monorepo. 
-                I have tried Nx repo before using turbo repo, but typescript support with vitest test 
-                was not working as expected in the library. Turbo repo is a lot easier to set up the local packages.
-                It also supported vitest test using typescript source files. Converting html into vite project was smooth.`
+I have converted the project to Vite project living in the monorepo. 
+I have tried Nx repo before using turbo repo, but typescript support with vitest test 
+was not working as expected in the library. Turbo repo is a lot easier to set up the local packages.
+It also supported vitest test using typescript source files. Converting html into vite project was smooth.`
             ),
             buildAchievementItem(
                 'Menu App(QR in Menu)',
                 `Created Production level application from A-Z as a solo developer.`,
                 'Personal Project(Next.js, Astro.js, React, TailwindCSS, Supabase, GraphQL, Typescript, Cloudflare Image, SalesTax)',
                 `Created Production level of application from planing to development. I have tried to make it using Next.js 13.0 which was 
-                still beta creating client side using Supabase, GraphQL, Typescript, TailwindCSS, Cloudflare Image, and SalesTax open source 
-                library. While Next.js 13.0 was still on beta status, error messages was not very clear. At the similar time,
-                Astro 2.0 is released. For the admin tool of the menu app, I started using Astro 2.0. The development 
-                environment is very good, especially the truth that I can use multiple javascript framework including 
-                shvelt and solid.js. Could not release the production since the project team is finished for the personal 
-                reason, but it was a great experience to learn a lot of tech stacks and schedule management.`
+still beta creating client side using Supabase, GraphQL, Typescript, TailwindCSS, Cloudflare Image, and SalesTax open source 
+library. While Next.js 13.0 was still on beta status, error messages was not very clear. At the similar time,
+Astro 2.0 is released. For the admin tool of the menu app, I started using Astro 2.0. The development 
+environment is very good, especially the truth that I can use multiple javascript framework including 
+shvelt and solid.js. Could not release the production since the project team is finished for the personal 
+reason, but it was a great experience to learn a lot of tech stacks and schedule management.`
             ),
             buildAchievementItem(
                 "Diagnositics of Parkinson's Desease",

@@ -3,20 +3,46 @@ import pdfMakePrinter from 'pdfmake';
 import type { TDocumentDefinitions } from 'pdfmake/interfaces';
 import { createPage, createSectionGap } from '../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
-import * as topSection from '../components/TopSection/pdf';
-import * as leftSection from '../components/LeftSection/pdf';
+import * as topSection from './_pdf-data/top-info';
+import * as introduction from './_pdf-data/introduction';
+import * as career from './_pdf-data/career';
+import * as education from './_pdf-data/education';
+import * as skillLevels from './_pdf-data/skill-levels';
+import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
+import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
 export const get: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
-        const left = await leftSection.createPdfMake();
+        const introductionDoc = await introduction.createPdfMake();
+        const careerDoc = await career.createPdfMake();
+        const educationDoc = await education.createPdfMake();
+        const skillLevelsDoc = await skillLevels.createPdfMake();
+        const moreAchievementsDoc = await moreAchievements.createPdfMake();
         const topImage = await topSection.getImageMap();
-        const leftImage = await leftSection.getImageMap();
+
         const sectionGap = createSectionGap();
-        const dd = createPage([...top, ...sectionGap, ...left], {
-            ...topImage,
-            ...leftImage,
-        });
+        const dd = createPage(
+            [
+                ...top,
+                ...sectionGap,
+                ...introductionDoc,
+                ...careerDoc,
+                ...educationDoc,
+                {
+                    text: '...continue in the next page',
+                    pageBreak: 'after',
+                    fontSize: 10,
+                    margin: [0, 20, 0, 0],
+                },
+                ...skillLevelsDoc,
+                CONTINUE_IN_NEXT_PAGE,
+                ...moreAchievementsDoc,
+            ],
+            {
+                ...topImage,
+            }
+        );
         const binary = await createPdfBinary(dd);
         const headers = new Headers();
         headers.set('Content-Type', 'application/pdf');
