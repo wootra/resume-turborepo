@@ -70,7 +70,13 @@ export const get: APIRoute = async () => {
 };
 
 // const __filename = url.fileURLToPath(import.meta.url);
-
+const getUrl = () => {
+    if (import.meta.env.VERCEL_URL.includes('localhost')) {
+        return `http://${import.meta.env.VERCEL_URL}`;
+    } else {
+        return `https://${import.meta.env.VERCEL_URL}`;
+    }
+};
 const robotoRegular = path.join(
     process.cwd(),
     'src',
