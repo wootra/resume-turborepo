@@ -11,10 +11,10 @@ import * as skillLevels from './_pdf-data/skill-levels';
 import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
 import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
-import RobotoCondensed from './_assets/fonts/RobotoCondensed-Regular.ttf';
-import RobotoCondensedBold from './_assets/fonts/RobotoCondensed-Bold.ttf';
-import RobotoCondensedItalic from './_assets/fonts/RobotoCondensed-Italic.ttf';
-import RobotoCondensedBoldItalic from './_assets/fonts/RobotoCondensed-BoldItalic.ttf';
+// import RobotoCondensed from './_assets/fonts/RobotoCondensed-Regular.ttf';
+// import RobotoCondensedBold from './_assets/fonts/RobotoCondensed-Bold.ttf';
+// import RobotoCondensedItalic from './_assets/fonts/RobotoCondensed-Italic.ttf';
+// import RobotoCondensedBoldItalic from './_assets/fonts/RobotoCondensed-BoldItalic.ttf';
 import OpenSansEmoji from './_assets/fonts/OpenSansEmoji.ttf';
 
 export const get: APIRoute = async () => {
@@ -84,64 +84,64 @@ const getUrl = () => {
     //     return `https://${import.meta.env.VERCEL_URL}`;
     // }
 };
-// const robotoRegular = path.join(
-//     process.cwd(),
-//     'src',
-//     '/assets/fonts/RobotoCondensed-Regular.ttf'
-// );
-// const robotoBold = path.join(
-//     process.cwd(),
-//     'src',
-//     '/assets/fonts/RobotoCondensed-Bold.ttf'
-// );
-// const robotoItalic = path.join(
-//     process.cwd(),
-//     'src',
-//     '/assets/fonts/RobotoCondensed-Italic.ttf'
-// );
-// const robotoBoldItalic = path.join(
-//     process.cwd(),
-//     'src',
-//     '/assets/fonts/RobotoCondensed-BoldItalic.ttf'
-// );
-// const openSansEmoji = path.join(
-//     process.cwd(),
-//     'src',
-//     '/assets/fonts/OpenSansEmoji.ttf'
-// );
+const robotoRegular = path.join(
+    process.cwd(),
+    'src',
+    'assets/fonts/RobotoCondensed-Regular.ttf'
+);
+const robotoBold = path.join(
+    process.cwd(),
+    'src',
+    'assets/fonts/RobotoCondensed-Bold.ttf'
+);
+const robotoItalic = path.join(
+    process.cwd(),
+    'src',
+    'assets/fonts/RobotoCondensed-Italic.ttf'
+);
+const robotoBoldItalic = path.join(
+    process.cwd(),
+    'src',
+    'assets/fonts/RobotoCondensed-BoldItalic.ttf'
+);
+const openSansEmoji = path.join(
+    process.cwd(),
+    'src',
+    'assets/fonts/OpenSansEmoji.ttf'
+);
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
-        // normal: robotoRegular,
-        // bold: robotoBold,
-        // italics: robotoItalic,
-        // bolditalics: robotoBoldItalic,
-        normal: RobotoCondensed,
-        bold: RobotoCondensedBold,
-        italics: RobotoCondensedItalic,
-        bolditalics: RobotoCondensedBoldItalic,
+        normal: robotoRegular,
+        bold: robotoBold,
+        italics: robotoItalic,
+        bolditalics: robotoBoldItalic,
+        // normal: RobotoCondensed,
+        // bold: RobotoCondensedBold,
+        // italics: RobotoCondensedItalic,
+        // bolditalics: RobotoCondensedBoldItalic,
     },
     Roboto: {
-        // normal: robotoRegular,
-        // bold: robotoBold,
-        // italics: robotoItalic,
-        // bolditalics: robotoBoldItalic,
-        normal: RobotoCondensed,
-        bold: RobotoCondensedBold,
-        italics: RobotoCondensedItalic,
-        bolditalics: RobotoCondensedBoldItalic,
+        normal: robotoRegular,
+        bold: robotoBold,
+        italics: robotoItalic,
+        bolditalics: robotoBoldItalic,
+        // normal: RobotoCondensed,
+        // bold: RobotoCondensedBold,
+        // italics: RobotoCondensedItalic,
+        // bolditalics: RobotoCondensedBoldItalic,
     },
 
     Emoji: {
         // https://en.wikipedia.org/w/index.php?title=Emoji&oldid=557685103#ref_U1F680_as_of_Unicode_version
-        // normal: openSansEmoji,
-        // bold: openSansEmoji,
-        // italics: openSansEmoji,
-        // bolditalics: openSansEmoji,
-        normal: OpenSansEmoji,
-        bold: OpenSansEmoji,
-        italics: OpenSansEmoji,
-        bolditalics: OpenSansEmoji,
+        normal: openSansEmoji,
+        bold: openSansEmoji,
+        italics: openSansEmoji,
+        bolditalics: openSansEmoji,
+        // normal: OpenSansEmoji,
+        // bold: OpenSansEmoji,
+        // italics: OpenSansEmoji,
+        // bolditalics: OpenSansEmoji,
     },
 };
 
