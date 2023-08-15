@@ -7,17 +7,26 @@ import vercel from '@astrojs/vercel/serverless';
 // https://astro.build/config
 export default defineConfig({
     vite: {
-        assetsInclude: ['**/*.svg', '**/*.png'],
+        assetsInclude: [
+            '**/*.svg',
+            '**/*.png',
+            '**/*.ttf',
+            'src/pages/_assets/fonts/OpenSansEmoji.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Bold.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Italic.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Regular.ttf',
+        ],
         define: {},
     },
     output: 'server',
     adapter: vercel({
         includeFiles: [
-            'src/assets/fonts/OpenSansEmoji.ttf',
-            'src/assets/fonts/RobotoCondensed-Bold.ttf',
-            'src/assets/fonts/RobotoCondensed-BoldItalic.ttf',
-            'src/assets/fonts/RobotoCondensed-Italic.ttf',
-            'src/assets/fonts/RobotoCondensed-Regular.ttf',
+            'src/pages/_assets/fonts/OpenSansEmoji.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Bold.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Italic.ttf',
+            'src/pages/_assets/fonts/RobotoCondensed-Regular.ttf',
         ],
     }),
     integrations: [
@@ -28,5 +37,5 @@ export default defineConfig({
         solid(),
         svelte(),
     ],
-    root: './',
+    // root: './',
 });

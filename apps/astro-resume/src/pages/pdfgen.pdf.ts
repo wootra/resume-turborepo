@@ -11,6 +11,12 @@ import * as skillLevels from './_pdf-data/skill-levels';
 import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
 import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
+import RobotoCondensed from './_assets/fonts/RobotoCondensed-Regular.ttf';
+import RobotoCondensedBold from './_assets/fonts/RobotoCondensed-Bold.ttf';
+import RobotoCondensedItalic from './_assets/fonts/RobotoCondensed-Italic.ttf';
+import RobotoCondensedBoldItalic from './_assets/fonts/RobotoCondensed-BoldItalic.ttf';
+import OpenSansEmoji from './_assets/fonts/OpenSansEmoji.ttf';
+
 export const get: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
@@ -78,31 +84,31 @@ const getUrl = () => {
     //     return `https://${import.meta.env.VERCEL_URL}`;
     // }
 };
-const robotoRegular = path.join(
-    process.cwd(),
-    'src',
-    '/assets/fonts/RobotoCondensed-Regular.ttf'
-);
-const robotoBold = path.join(
-    process.cwd(),
-    'src',
-    '/assets/fonts/RobotoCondensed-Bold.ttf'
-);
-const robotoItalic = path.join(
-    process.cwd(),
-    'src',
-    '/assets/fonts/RobotoCondensed-Italic.ttf'
-);
-const robotoBoldItalic = path.join(
-    process.cwd(),
-    'src',
-    '/assets/fonts/RobotoCondensed-BoldItalic.ttf'
-);
-const openSansEmoji = path.join(
-    process.cwd(),
-    'src',
-    '/assets/fonts/OpenSansEmoji.ttf'
-);
+// const robotoRegular = path.join(
+//     process.cwd(),
+//     'src',
+//     '/assets/fonts/RobotoCondensed-Regular.ttf'
+// );
+// const robotoBold = path.join(
+//     process.cwd(),
+//     'src',
+//     '/assets/fonts/RobotoCondensed-Bold.ttf'
+// );
+// const robotoItalic = path.join(
+//     process.cwd(),
+//     'src',
+//     '/assets/fonts/RobotoCondensed-Italic.ttf'
+// );
+// const robotoBoldItalic = path.join(
+//     process.cwd(),
+//     'src',
+//     '/assets/fonts/RobotoCondensed-BoldItalic.ttf'
+// );
+// const openSansEmoji = path.join(
+//     process.cwd(),
+//     'src',
+//     '/assets/fonts/OpenSansEmoji.ttf'
+// );
 
 export const FONT_DESCRIPTOR = {
     RobotoCondensed: {
@@ -110,20 +116,20 @@ export const FONT_DESCRIPTOR = {
         // bold: robotoBold,
         // italics: robotoItalic,
         // bolditalics: robotoBoldItalic,
-        normal: `src/assets/fonts/RobotoCondensed-Regular.ttf`,
-        bold: `src/assets/fonts/RobotoCondensed-Bold.ttf`,
-        italics: `src/assets/fonts/RobotoCondensed-Italic.ttf`,
-        bolditalics: `src/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
+        normal: RobotoCondensed,
+        bold: RobotoCondensedBold,
+        italics: RobotoCondensedItalic,
+        bolditalics: RobotoCondensedBoldItalic,
     },
     Roboto: {
         // normal: robotoRegular,
         // bold: robotoBold,
         // italics: robotoItalic,
         // bolditalics: robotoBoldItalic,
-        normal: `src/assets/fonts/RobotoCondensed-Regular.ttf`,
-        bold: `src/assets/fonts/RobotoCondensed-Bold.ttf`,
-        italics: `src/assets/fonts/RobotoCondensed-Italic.ttf`,
-        bolditalics: `src/assets/fonts/RobotoCondensed-BoldItalic.ttf`,
+        normal: RobotoCondensed,
+        bold: RobotoCondensedBold,
+        italics: RobotoCondensedItalic,
+        bolditalics: RobotoCondensedBoldItalic,
     },
 
     Emoji: {
@@ -132,10 +138,10 @@ export const FONT_DESCRIPTOR = {
         // bold: openSansEmoji,
         // italics: openSansEmoji,
         // bolditalics: openSansEmoji,
-        normal: `src/assets/fonts/OpenSansEmoji.ttf`,
-        bold: `src/assets/fonts/OpenSansEmoji.ttf`,
-        italics: `src/assets/fonts/OpenSansEmoji.ttf`,
-        bolditalics: `src/assets/fonts/OpenSansEmoji.ttf`,
+        normal: OpenSansEmoji,
+        bold: OpenSansEmoji,
+        italics: OpenSansEmoji,
+        bolditalics: OpenSansEmoji,
     },
 };
 
