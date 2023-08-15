@@ -25,7 +25,20 @@ export default defineConfig({
     //     define: {},
     // },
     output: 'server',
-    adapter: vercel(),
+    adapter: vercel({
+        includeFiles: [
+            'assets/fonts/OpenSansEmoji.ttf',
+            'assets/fonts/RobotoCondensed-Bold.ttf',
+            'assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            'assets/fonts/RobotoCondensed-Italic.ttf',
+            'assets/fonts/RobotoCondensed-Regular.ttf',
+            // 'src/pages/_assets/fonts/OpenSansEmoji.ttf',
+            // 'src/pages/_assets/fonts/RobotoCondensed-Bold.ttf',
+            // 'src/pages/_assets/fonts/RobotoCondensed-BoldItalic.ttf',
+            // 'src/pages/_assets/fonts/RobotoCondensed-Italic.ttf',
+            // 'src/pages/_assets/fonts/RobotoCondensed-Regular.ttf',
+        ],
+    }),
     integrations: [
         tailwind(),
         image({

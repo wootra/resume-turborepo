@@ -90,27 +90,27 @@ export async function createPdfBinary(
 ): Promise<Buffer> {
     const robotoRegular = path.join(
         process.cwd(),
-        'public',
+        'apps/astro-resume',
         'assets/fonts/RobotoCondensed-Regular.ttf'
     );
     const robotoBold = path.join(
         process.cwd(),
-        'public',
+        import.meta.env.DEV ? '' : 'apps/astro-resume',
         'assets/fonts/RobotoCondensed-Bold.ttf'
     );
     const robotoItalic = path.join(
         process.cwd(),
-        'public',
+        import.meta.env.DEV ? '' : 'apps/astro-resume',
         'assets/fonts/RobotoCondensed-Italic.ttf'
     );
     const robotoBoldItalic = path.join(
         process.cwd(),
-        'public',
+        import.meta.env.DEV ? '' : 'apps/astro-resume',
         'assets/fonts/RobotoCondensed-BoldItalic.ttf'
     );
     const openSansEmoji = path.join(
         process.cwd(),
-        'public',
+        import.meta.env.DEV ? '' : 'apps/astro-resume',
         'assets/fonts/OpenSansEmoji.ttf'
     );
 
