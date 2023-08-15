@@ -90,22 +90,27 @@ export async function createPdfBinary(
 ): Promise<Buffer> {
     const robotoRegular = path.join(
         process.cwd(),
+        'public',
         'assets/fonts/RobotoCondensed-Regular.ttf'
     );
     const robotoBold = path.join(
         process.cwd(),
+        'public',
         'assets/fonts/RobotoCondensed-Bold.ttf'
     );
     const robotoItalic = path.join(
         process.cwd(),
+        'public',
         'assets/fonts/RobotoCondensed-Italic.ttf'
     );
     const robotoBoldItalic = path.join(
         process.cwd(),
+        'public',
         'assets/fonts/RobotoCondensed-BoldItalic.ttf'
     );
     const openSansEmoji = path.join(
         process.cwd(),
+        'public',
         'assets/fonts/OpenSansEmoji.ttf'
     );
 
@@ -115,6 +120,10 @@ export async function createPdfBinary(
             bold: robotoBold,
             italics: robotoItalic,
             bolditalics: robotoBoldItalic,
+            // normal: './_assets/fonts/RobotoCondensed-Regular.ttf',
+            // bold: './_assets/fonts/RobotoCondensed-Bold.ttf',
+            // italics: './_assets/fonts/RobotoCondensed-Italic.ttf',
+            // bolditalics: './_assets/fonts/RobotoCondensed-BoldItalic.ttf',
             // normal: RobotoCondensed,
             // bold: RobotoCondensedBold,
             // italics: RobotoCondensedItalic,
@@ -125,6 +134,10 @@ export async function createPdfBinary(
             bold: robotoBold,
             italics: robotoItalic,
             bolditalics: robotoBoldItalic,
+            // normal: './_assets/fonts/RobotoCondensed-Regular.ttf',
+            // bold: './_assets/fonts/RobotoCondensed-Bold.ttf',
+            // italics: './_assets/fonts/RobotoCondensed-Italic.ttf',
+            // bolditalics: './_assets/fonts/RobotoCondensed-BoldItalic.ttf',
             // normal: RobotoCondensed,
             // bold: RobotoCondensedBold,
             // italics: RobotoCondensedItalic,
@@ -137,6 +150,10 @@ export async function createPdfBinary(
             bold: openSansEmoji,
             italics: openSansEmoji,
             bolditalics: openSansEmoji,
+            // normal: './_assets/fonts/OpenSansEmoji.ttf',
+            // bold: './_assets/fonts/OpenSansEmoji.ttf',
+            // italics: './_assets/fonts/OpenSansEmoji.ttf',
+            // bolditalics: './_assets/fonts/OpenSansEmoji.ttf',
             // normal: OpenSansEmoji,
             // bold: OpenSansEmoji,
             // italics: OpenSansEmoji,
