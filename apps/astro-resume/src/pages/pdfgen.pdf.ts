@@ -90,7 +90,7 @@ export async function createPdfBinary(
 ): Promise<Buffer> {
     const robotoRegular = path.join(
         process.cwd(),
-        'apps/astro-resume',
+        import.meta.env.DEV ? '' : 'apps/astro-resume',
         'assets/fonts/RobotoCondensed-Regular.ttf'
     );
     const robotoBold = path.join(

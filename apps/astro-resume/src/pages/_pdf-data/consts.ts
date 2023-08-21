@@ -1,4 +1,10 @@
-import type { Content } from 'pdfmake/interfaces';
+import type {
+    Column,
+    Content,
+    ContentColumns,
+    ContentStack,
+    ContentText,
+} from 'pdfmake/interfaces';
 
 export const INDENT_SIZE = 10;
 export const COLORS = {
@@ -16,3 +22,42 @@ export const CONTINUE_IN_NEXT_PAGE = {
     fontSize: 10,
     margin: [0, 20, 0, 0],
 } as Content;
+
+export const NEXT_PAGE = {
+    pageBreak: 'after',
+    fontSize: 0,
+    text: '',
+} as Content;
+
+export const TITLE_WID = 70;
+export const buildTitle = (title: string, topMargin: number = 6): Column => ({
+    width: TITLE_WID,
+    text: `${title.toUpperCase()}:`,
+    fontSize: 10,
+    color: '#bbbbbb',
+    // margin: [3, 6, 0, 0],
+    alignment: 'right',
+    margin: [0, topMargin, 6, 0],
+});
+
+export const buildTitleWithContent = (
+    title: string,
+    topMargin: number = 6,
+    content: ContentText | ContentStack | ContentColumns
+): ContentColumns => ({
+    columns: [
+        {
+            width: TITLE_WID,
+            text: `${title.toUpperCase()}:`,
+            fontSize: 10,
+            color: '#bbbbbb',
+            // margin: [3, 6, 0, 0],
+            alignment: 'right',
+            margin: [0, topMargin, 6, 0],
+        },
+        {
+            width: '*',
+            ...content,
+        },
+    ],
+});

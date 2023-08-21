@@ -43,8 +43,10 @@ export async function createPdfMake() {
                                             columns: [
                                                 {
                                                     width: 100,
-                                                    text: `MY PART`,
-                                                    color: '#660000',
+                                                    text: `MY ROLE:`,
+                                                    color: '#aaaaaa',
+                                                    alignment: 'right',
+                                                    margin: [0, 0, 6, 0],
                                                 },
                                                 {
                                                     width: '*',
@@ -57,8 +59,10 @@ export async function createPdfMake() {
                                             columns: [
                                                 {
                                                     width: 100,
-                                                    text: `BUSINESS VALUE`,
-                                                    color: '#000066',
+                                                    text: `BUSINESS VALUE:`,
+                                                    alignment: 'right',
+                                                    color: '#aaaaaa',
+                                                    margin: [0, 0, 6, 0],
                                                 },
                                                 {
                                                     width: '*',

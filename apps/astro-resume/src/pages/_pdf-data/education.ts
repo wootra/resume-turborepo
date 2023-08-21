@@ -1,7 +1,7 @@
 import { createTitle } from '../../server-utils/pdf-utils';
 import { RightContents } from 'common-data';
-import type { Content } from 'pdfmake/interfaces';
-import { INDENT_SIZE } from './consts';
+import type { Content, ContentText } from 'pdfmake/interfaces';
+import { INDENT_SIZE, buildTitleWithContent } from './consts';
 const { educations, authority, volunteers } = RightContents;
 export const getImageMap = async () => {
     return {};
@@ -12,10 +12,16 @@ export async function createPdfMake() {
         ...educations.map(education => {
             return {
                 stack: [
-                    buildSchoolInfo(education),
-                    ...buildDegreeInfo(education),
+                    buildTitleWithContent(
+                        'university',
+                        4,
+                        buildSchoolInfo(education)
+                    ),
+                    buildTitleWithContent('degrees', 4, {
+                        stack: [...buildDegreeInfo(education)],
+                    }),
                 ],
-                margin: [INDENT_SIZE, 0, 0, 0],
+                // margin: [INDENT_SIZE, 0, 0, 0],
             } as Content;
         }),
 
@@ -28,7 +34,7 @@ export async function createPdfMake() {
     return doc;
 }
 
-const buildSchoolInfo = (education: (typeof educations)[0]): Content => {
+const buildSchoolInfo = (education: (typeof educations)[0]): ContentText => {
     return {
         text: education.school.name,
         link: education.school.url,
@@ -39,7 +45,7 @@ const buildSchoolInfo = (education: (typeof educations)[0]): Content => {
     };
 };
 
-const buildDegreeInfo = (education: (typeof educations)[0]): Content[] => {
+const buildDegreeInfo = (education: (typeof educations)[0]): ContentText[] => {
     return education.degrees.map(degree => ({
         text: `${degree.degree} in ${degree.major} (${degree.year})`,
         fontSize: 10,
