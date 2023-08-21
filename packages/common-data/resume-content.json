@@ -70,7 +70,7 @@
                 ],
                 "achievements": [
                     "Improvement of Small business Insurance Experience",
-                    "Mordernization of Financial Readiness site (Talon/New Web)",
+                    "Modernization of Financial Readiness site (Talon/New Web)",
                     "Improve performance/reliability of the Financial Readiness app",
                     "Involved to overall applications except for batch process",
                     "Leading the dev team"
@@ -81,7 +81,7 @@
                 "url": "http://eonic.co.kr/",
                 "start": "2016-7",
                 "end": "2018-3",
-                "role": "Signal Analysis, Architecutre, Development",
+                "role": "Signal Analysis, Architecture, Development",
                 "industry": "Sonar / Defense systems",
                 "jobTitle": "Lead SW Engineer",
                 "techStacks": [
@@ -95,7 +95,7 @@
                     "GIT/SVN"
                 ],
                 "achievements": [
-                    "Development of Habor defense system",
+                    "Development of the Harbor defense system",
                     "Development of sonar system in a submarine(Jangbogo)",
                     "Software team lead",
                     "Software architecture, analyze sonar footprints"
@@ -764,7 +764,5 @@
             "year": 2004
         }
     ],
-    "authority": [
-        "Permanent Residence(Green Card)"
-    ]
+    "authority": ["Permanent Residence(Green Card)"]
 }
