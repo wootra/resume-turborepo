@@ -14,15 +14,15 @@ export const getImageMap = async () => {
 };
 export async function createPdfMake() {
     const doc: Content[] = [
-        createTitle(Careers.TITLE),
+        createTitle('Work Experience'),
         {
             stack: Careers.CAREERS.map((career, idx) => {
                 return [
                     {
                         stack: [
+                            buildIndustryAndPosition(career),
                             buildCompanyInfo(career),
                             buildRoleInfo(career),
-                            buildIndustryAndPosition(career),
                             buildTechStack(career),
                             buildAchievements(career),
                         ],
@@ -89,37 +89,43 @@ const buildIndustryAndPosition = (
     career: (typeof Careers.CAREERS)[0]
 ): Content => {
     return {
-        columns: [
-            {
-                width: 'auto',
-                columns: [
-                    buildTitle('job title', 4),
-                    {
-                        width: '*',
-                        text: career.jobTitle,
-                        color: COLORS.JOB_TITLE,
-                        fontSize: 14,
-                    },
-                ],
-            },
-            {
-                width: 10,
-                text: ' ',
-            },
-            {
-                columns: [
-                    buildTitle('industry', 4),
-                    {
-                        width: '*',
-                        text: career.industry,
-                        color: COLORS.INDUSTRY,
-                        fontSize: 12,
-                        margin: [0, 2, 0, 0],
-                    },
-                ],
-            },
-        ],
+        // width: '*',
+        text: career.jobTitle,
+        color: COLORS.JOB_TITLE,
+        fontSize: 14,
     };
+    // return {
+    //     columns: [
+    //         {
+    //             width: 'auto',
+    //             columns: [
+    //                 buildTitle('job title', 4),
+    //                 {
+    //                     width: '*',
+    //                     text: career.jobTitle,
+    //                     color: COLORS.JOB_TITLE,
+    //                     fontSize: 14,
+    //                 },
+    //             ],
+    //         },
+    //         // {
+    //         //     width: 10,
+    //         //     text: ' ',
+    //         // },
+    //         // {
+    //         //     columns: [
+    //         //         buildTitle('industry', 4),
+    //         //         {
+    //         //             width: '*',
+    //         //             text: career.industry,
+    //         //             color: COLORS.INDUSTRY,
+    //         //             fontSize: 12,
+    //         //             margin: [0, 2, 0, 0],
+    //         //         },
+    //         //     ],
+    //         // },
+    //     ],
+    // };
 };
 
 const buildRoleInfo = (career: (typeof Careers.CAREERS)[0]): Content => {
@@ -139,7 +145,7 @@ const getMonthYear = (
     yearMonthArr: [number, number] | null,
     fromOrTo: string
 ) => {
-    if (yearMonthArr === null) return `${fromOrTo}: CURRENT`;
+    if (yearMonthArr === null) return `currently work here`;
     const [year, month] = yearMonthArr;
     return `${fromOrTo}: ${month}/${year}`;
 };
