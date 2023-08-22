@@ -17,6 +17,9 @@
                 "techStacks": [
                     "React (class, functional)",
                     "jotai 1/2",
+                    "Typescript",
+                    "Vite",
+                    "PdfMake",
                     "Javascript(vanilla/ES6~2022)",
                     "Jenkins",
                     "Jest",
@@ -30,6 +33,7 @@
                     "Refactor large legacy class components to modularized function components",
                     "Upgrade javascript to typescript",
                     "Upgrade testing environment",
+                    "Setup and create Playwright BDD project",
                     "Upgrade CRA project to Vite project",
                     "Upgrade jotai 1 to jotai 2",
                     "Create/Improve logic for PDF generation(PDFMake)",
