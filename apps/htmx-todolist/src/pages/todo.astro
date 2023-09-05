@@ -1,0 +1,22 @@
+---
+import { TodoList } from "../components/TodoList";
+import { Todo } from "../components/types";
+const req = Astro.request;
+// const txt = await req.text();
+const forms = await req.text();
+console.log("req.body===>", req);
+const data = new URL("http://localhost?"+forms).searchParams;
+console.log("data", forms, data.get("todo"))
+let idBase = +data.get("id-base");
+const todoText = data.get("todo");
+
+const todos:Todo[] = [
+	{ id: 'todo-1', text: 'Learn Astro' },
+	{ id: 'todo-2', text: 'Build something amazing' },
+	{ id: 'todo-3', text: 'Deploy it to the web' },
+];
+todos.push(({id: `todo-${idBase}`, text: todoText}))
+// const data = await req.formData();
+// const todoText = data.get("todo");
+---
+<TodoList todos={todos} idBase={idBase+1}/>

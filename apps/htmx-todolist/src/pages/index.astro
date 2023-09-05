@@ -1,0 +1,18 @@
+---
+import { TodoList } from '../components/TodoList';
+import type { Todo } from '../components/types';
+import Layout from '../layouts/Layout.astro';
+const todos:Todo[] = [
+	{ id: 'todo-1', text: 'Learn Astro' },
+	{ id: 'todo-2', text: 'Build something amazing' },
+	{ id: 'todo-3', text: 'Deploy it to the web' },
+];
+const idBase = 4;
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Todo list</h1>
+		<TodoList todos={todos} idBase={idBase}/>
+	</main>
+</Layout>
