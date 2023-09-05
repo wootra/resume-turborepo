@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/ResumeLayout.astro';
+import TopSection from '../../components/resume/TopSection/index.astro';
+import LeftSection from '../../components/resume/LeftSection/index.astro';
+import RightSection from '../../components/resume/RightSection/index.astro';
+import "resume-css/tooltip/tooltip-from-data.css";
+---
+
+<Layout title="Welcome to Songhueon Jun's resume(Astro)">
+	<main class="main-page pb-8">
+		<secion id="left-empty" />
+		<div class="grid-container">
+			<section id="top">
+				<TopSection />
+			</section>
+			<section id="left" class="bg-section-back pl-2 relative">
+				<LeftSection />
+				<div id="edge-smoother" class="bg-back-blue"/>
+			</section>
+			<section id="right" class="bg-back-blue px-4">
+				<RightSection />
+			</section>
+		</div>
+		<section id="right-empty" />
+	</main>
+</Layout>
+
+<style>
+
+#left-empty {
+	display: none;
+}
+
+#right-empty {
+	display: none;
+}
+
+.main-page {
+	display: block;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+@media (max-width: 400px) {
+	.main-page {
+		margin: 0;
+	}
+}
+
+/* .grid-container {
+	grid-column: 2/3;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: minmax(12rem,auto) auto auto;
+	grid-template-areas:
+	"top"
+	"left" 
+	"right";
+	filter: drop-shadow(2px 4px 6px black);
+} */
+
+
+
+#left {
+	border-radius: 0 0 0 0;
+}
+
+#left {
+	border-radius: 0 0 0 0;
+}
+
+#right {
+	border-radius: 0 0 1rem 1rem;
+	padding-bottom: 1rem;
+}
+
+#edge-smoother{
+	display: none;
+}
+@media (min-width: 701px) {
+	.main-page {
+		display: grid;
+		/* width: 100vw; */
+		grid-template-columns: minmax(1rem,1fr) auto minmax(1rem, 1fr);
+	}
+	.grid-container {
+		display: grid;
+		grid-column: 2/3;
+		grid-template-columns: auto 18rem;
+		grid-template-rows: minmax(12rem,auto) auto;
+		grid-template-areas:
+		"top top"
+		"left right";
+	}
+	#top {
+		grid-area: top;
+	}
+
+	#left {
+		grid-area: left;
+		border-radius: 0 0 0 1rem;
+		box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
+	}
+	
+	#right {
+		grid-area: right;
+		border-radius: 0 0 1rem 0;
+		
+	}
+	#left-empty {
+		grid-column: 1/2;
+	}
+
+	#right-empty {
+		grid-column: 3/4;
+	}
+	#edge-smoother{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 2rem;
+		height: 2rem;
+	}
+	#edge-smoother::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 2rem;
+		height: 2rem;
+		background-color: rgb(245 245 245);
+		border-radius: 0 2rem 0 0;
+		overflow: hidden;
+		box-shadow: inset -0.1rem 0.1rem 0.1rem 0.04rem rgba(54, 54, 54, 0.466);
+	}
+}
+</style>

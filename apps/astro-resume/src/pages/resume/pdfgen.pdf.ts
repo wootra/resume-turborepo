@@ -1,7 +1,6 @@
-import * as url from 'url';
 import pdfMakePrinter from 'pdfmake';
 import type { TDocumentDefinitions } from 'pdfmake/interfaces';
-import { createPage, createSectionGap } from '../server-utils/pdf-utils';
+import { createPage, createSectionGap } from '../../server-utils/pdf-utils';
 import type { APIRoute } from 'astro';
 import * as topSection from './_pdf-data/top-info';
 import * as introduction from './_pdf-data/introduction';
@@ -11,11 +10,6 @@ import * as skillLevels from './_pdf-data/skill-levels';
 import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
 import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
-// import RobotoCondensed from './_assets/fonts/RobotoCondensed-Regular.ttf';
-// import RobotoCondensedBold from './_assets/fonts/RobotoCondensed-Bold.ttf';
-// import RobotoCondensedItalic from './_assets/fonts/RobotoCondensed-Italic.ttf';
-// import RobotoCondensedBoldItalic from './_assets/fonts/RobotoCondensed-BoldItalic.ttf';
-// import OpenSansEmoji from './_assets/fonts/OpenSansEmoji.ttf';
 
 export const get: APIRoute = async () => {
     try {
@@ -75,16 +69,6 @@ export const get: APIRoute = async () => {
     }
 };
 
-// const __filename = url.fileURLToPath(import.meta.url);
-const getUrl = () => {
-    return '';
-    // if (import.meta.env.VERCEL_URL.includes('localhost')) {
-    //     return `http://${import.meta.env.VERCEL_URL}`;
-    // } else {
-    //     return `https://${import.meta.env.VERCEL_URL}`;
-    // }
-};
-
 export async function createPdfBinary(
     pdfDoc: TDocumentDefinitions
 ): Promise<Buffer> {
@@ -120,28 +104,12 @@ export async function createPdfBinary(
             bold: robotoBold,
             italics: robotoItalic,
             bolditalics: robotoBoldItalic,
-            // normal: './_assets/fonts/RobotoCondensed-Regular.ttf',
-            // bold: './_assets/fonts/RobotoCondensed-Bold.ttf',
-            // italics: './_assets/fonts/RobotoCondensed-Italic.ttf',
-            // bolditalics: './_assets/fonts/RobotoCondensed-BoldItalic.ttf',
-            // normal: RobotoCondensed,
-            // bold: RobotoCondensedBold,
-            // italics: RobotoCondensedItalic,
-            // bolditalics: RobotoCondensedBoldItalic,
         },
         Roboto: {
             normal: robotoRegular,
             bold: robotoBold,
             italics: robotoItalic,
             bolditalics: robotoBoldItalic,
-            // normal: './_assets/fonts/RobotoCondensed-Regular.ttf',
-            // bold: './_assets/fonts/RobotoCondensed-Bold.ttf',
-            // italics: './_assets/fonts/RobotoCondensed-Italic.ttf',
-            // bolditalics: './_assets/fonts/RobotoCondensed-BoldItalic.ttf',
-            // normal: RobotoCondensed,
-            // bold: RobotoCondensedBold,
-            // italics: RobotoCondensedItalic,
-            // bolditalics: RobotoCondensedBoldItalic,
         },
 
         Emoji: {
@@ -150,18 +118,10 @@ export async function createPdfBinary(
             bold: openSansEmoji,
             italics: openSansEmoji,
             bolditalics: openSansEmoji,
-            // normal: './_assets/fonts/OpenSansEmoji.ttf',
-            // bold: './_assets/fonts/OpenSansEmoji.ttf',
-            // italics: './_assets/fonts/OpenSansEmoji.ttf',
-            // bolditalics: './_assets/fonts/OpenSansEmoji.ttf',
-            // normal: OpenSansEmoji,
-            // bold: OpenSansEmoji,
-            // italics: OpenSansEmoji,
-            // bolditalics: OpenSansEmoji,
         },
     };
 
-    return new Promise((res, rej) => {
+    return new Promise((res, _rej) => {
         var fontDescriptors = FONT_DESCRIPTOR;
 
         const printer = new pdfMakePrinter(fontDescriptors);

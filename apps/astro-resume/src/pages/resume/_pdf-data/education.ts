@@ -1,8 +1,8 @@
-import { createTitle } from '../../server-utils/pdf-utils';
+import { createTitle } from '../../../server-utils/pdf-utils';
 import { RightContents } from 'common-data';
 import type { Content, ContentText } from 'pdfmake/interfaces';
 import { INDENT_SIZE, buildTitleWithContent } from './consts';
-const { educations, authority, volunteers } = RightContents;
+const { educations, authority } = RightContents;
 export const getImageMap = async () => {
     return {};
 };

@@ -1,6 +1,6 @@
-import { createTitle } from '../../server-utils/pdf-utils';
+import { createTitle } from '../../../server-utils/pdf-utils';
 import { LeftContents } from 'common-data';
-import type { Column, Content } from 'pdfmake/interfaces';
+import type { Content } from 'pdfmake/interfaces';
 import {
     COLORS,
     INDENT_SIZE,

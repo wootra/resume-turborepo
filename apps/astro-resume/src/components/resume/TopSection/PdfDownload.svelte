@@ -1,6 +1,6 @@
 <script>
     const onClick = () => {
-        window.open('/pdfgen.pdf', '_blank');
+        window.open('/resume/pdfgen.pdf', '_blank');
     };
 </script>
 

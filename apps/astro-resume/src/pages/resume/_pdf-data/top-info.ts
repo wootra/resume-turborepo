@@ -3,11 +3,11 @@ import {
     convertImgBlobToBase64,
     getGithubSvg,
     getLineSvg,
-} from '../../server-utils/imageHandlers';
+} from '../../../server-utils/imageHandlers';
 import fetch from 'node-fetch';
 import type { Content } from 'pdfmake/interfaces';
 const { name, address, contact, position, website } = TopContents;
-import { getHost } from '../../server-utils/host';
+import { getHost } from '../../../server-utils/host';
 export const getImageMap = async () => {
     const image = await fetch(`${getHost()}/profile-photo150.png`).then(res =>
         res.blob()
