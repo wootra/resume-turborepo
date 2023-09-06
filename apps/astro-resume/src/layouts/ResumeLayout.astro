@@ -1,6 +1,7 @@
 ---
 import 'resume-css/variables/variables.css';// root
 import { FrameworkNoticeBanner } from 'solid-ui';
+import { ViewTransitions } from 'astro:transitions';
 const sourceLinks={
 	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume"
 }
@@ -28,6 +29,7 @@ const { title, usePdf=false } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&amp;family=Roboto+Slab&amp;display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body class="bg-zinc-400 resume" {...(usePdf ? {style: {width: '768px'}} : {})}>
 		{!usePdf && <FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />}

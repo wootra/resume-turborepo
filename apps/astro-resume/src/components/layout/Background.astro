@@ -37,29 +37,76 @@ const {className} = Astro.props;
 
 <style>
   :root {
+    --moveStart: 0px;
     --moveY: 10px;
+    --scale: 1;
+    --scaleStart: 0.5;
   }
 @keyframes up-down {
   0% {
-    transform: translateY(0px);
+    transform: translateY(var(--moveStart, 0px));
   }
   50% {
-    transform: translateY(--moveY, 10px);
+    transform: translateY(var(--moveY, 10px));
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(var(--moveStart, 0px));
+  }
+}
+
+@keyframes height {
+  0% {
+    transform: scaleY(var(--scaleStart, 0.5));
+  }
+  50% {
+    transform: scaleY(var(--scale, 2));
+  }
+  100% {
+    transform: scaleY(var(--scaleStart, 0.5));
+  }
+}
+
+@keyframes rotateRight {
+  0% {
+    rotate: var(--rotateStart, 0deg);
+  }
+  100% {
+    rotate: var(--rotateEnd, 360deg);
+  }
+}
+
+@keyframes rotateLeft {
+  0% {
+    rotate: var(--rotateStart, 360deg);
+  }
+  100% {
+    rotate: var(--rotateEnd, 0deg);
   }
 }
   #curve-1 {
-    --moveY: 40px;
-    animation: up-down 2s infinite;
+    --moveStart: 80px;
+    --moveY: 100px;
+    --scale: 1;
+    --scaleStart: 2;
+    animation: up-down 40s ease infinite,
+              height 10s ease-in-out infinite,
+              rotateRight 60s ease-in-out infinite;
   }
   #curve-2 {
+    --moveStart: 0px;
     --moveY: 20px;
-    animation: up-down 2s infinite;
+    --scale: 5;
+    --scaleStart: 2;
+    animation: up-down 30s ease-in-out infinite,
+              height 20s ease-in-out infinite;
   }
   #curve-3 {
-    --moveY: 100px;
-    animation: up-down 2s infinite;
+    --moveStart: 200px;
+    --moveY: 40x;
+    --scale: 2;
+    --scaleStart: 4;
+    animation: up-down 25s ease-in-out infinite,
+    height 15s ease-in-out infinite,
+    rotateLeft 100s ease-in-out infinite;;
   }
 </style>

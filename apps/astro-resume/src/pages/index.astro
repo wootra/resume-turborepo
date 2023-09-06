@@ -3,21 +3,22 @@ import Layout from '../layouts/MainLayout.astro';
 import { twMerge as tw } from 'tailwind-merge'
 import Background from '../components/layout/Background.astro';
 
+
 const cardClass = tw("flex items-center justify-center w-32 h-16 rounded-xl shadow-lg bg-slate-400");
 ---
 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
 	<div class="w-full h-full px-8 py-8">
-		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
+		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-[#ffffff88] py-4 px-4">
 			<h1 class="text-3xl">Songhyeon Jun's PORTFOLIO</h1>
 			<main class="flex items-center justify-center flex-row gap-4 w-full h-full flex-wrap">
-					<a href="/resume" class={cardClass}>Resume</a>
-					<a href="/todo-list" class={cardClass}>HTMX todo list</a>
+					<a href="/resume" class={cardClass} >Resume</a>
+					<a href="/todo-list" class={cardClass} transition:name="HTMX todo list" >HTMX todo list</a>
 					<a href="/games" class={cardClass}>Games</a>
 			</main>
-			<Background className="absolute w-full h-full -z-10"/>
 		</section>
 	</div>
+	<Background className="absolute w-full h-full -z-10 -top-10"/>
 </Layout>
 
 <style>

@@ -8,11 +8,30 @@ const todos:Todo[] = [
 	{ id: 'todo-3', text: 'Deploy it to the web' },
 ];
 const idBase = 4;
+const anim = {
+  old: {
+    name: 'fadeIn',
+    duration: '0.2s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'fadeOut',
+    duration: '0.3s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  }
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="w-96 py-4">
-		<h1 class="text-xl">Todo list</h1>
+		<h1 class="text-xl" transition:name="HTMX todo List" >HTMX Todo List</h1>
 		<TodoList todos={todos} idBase={idBase}/>
 	</main>
 </Layout>
