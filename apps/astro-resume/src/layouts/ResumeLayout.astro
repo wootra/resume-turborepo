@@ -5,7 +5,7 @@ const sourceLinks={
 	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume"
 }
 import type { bannerLinks } from 'common-data';
-import GoHome from '../components/layout/GoHome.astro';
+import GoBack from '../components/layout/GoBack.astro';
 const selected: keyof typeof bannerLinks = 'Astro JS(Solid.js)';
 export interface Props {
 	title: string;
@@ -32,7 +32,7 @@ const { title, usePdf=false } = Astro.props;
 	<body class="bg-zinc-400 resume" {...(usePdf ? {style: {width: '768px'}} : {})}>
 		{!usePdf && <FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />}
 		<slot />
-		<GoHome />
+		<GoBack />
 	</body>
 	
 </html>

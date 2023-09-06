@@ -1,14 +1,19 @@
 ---
-
+type Props = {
+	backUrl?: string,
+	label?: string
+}
+const {backUrl = '/', label = 'Home'} = Astro.props;
 ---
-<a id="go-home" aria-label="go home" class="flex items-center justify-center" href="/">Home</a>
+<a id="go-home" aria-label="go home" class="flex items-center justify-center basis-auto" href={backUrl}>{label}</a>
 <style>
 	#go-home {
 		position: fixed;
 		left: 10px;
 		top: 10px;
 		z-index: 1000000;
-		width: 50px;
+		min-width: 50px;
+		padding: 0 10px;
 		height: 30px;
 		font-size: 0.8rem;
 		border-radius: 10px;
