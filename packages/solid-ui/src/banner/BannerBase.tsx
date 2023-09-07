@@ -20,28 +20,35 @@ export const BannerBase: Component<BannerProps> = ({
         <div class='top-banner'>
             <div>
                 <span>{description}</span>
-                <select onChange={e => onSelect(e.currentTarget)}>
-                    <For each={Object.keys(links)}>
+                {links && currentLabel && (
+                    <select onChange={e => onSelect(e.currentTarget)}>
+                        <For each={Object.keys(links)}>
+                            {label => (
+                                <option
+                                    selected={currentLabel === label}
+                                    value={label}
+                                >
+                                    {label}
+                                </option>
+                            )}
+                        </For>
+                    </select>
+                )}
+            </div>
+            {sourceLinks && (
+                <div>
+                    <For each={Object.keys(sourceLinks)}>
                         {label => (
-                            <option
-                                selected={currentLabel === label}
-                                value={label}
+                            <a
+                                class='animate-underline'
+                                href={sourceLinks[label]}
                             >
                                 {label}
-                            </option>
+                            </a>
                         )}
                     </For>
-                </select>
-            </div>
-            <div>
-                <For each={Object.keys(sourceLinks)}>
-                    {label => (
-                        <a class='animate-underline' href={sourceLinks[label]}>
-                            {label}
-                        </a>
-                    )}
-                </For>
-            </div>
+                </div>
+            )}
         </div>
     );
 };

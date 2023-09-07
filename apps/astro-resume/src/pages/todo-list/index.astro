@@ -1,11 +1,14 @@
 ---
+import { FrameworkNoticeBanner } from 'solid-ui';
 import Layout from '../../layouts/TodoLayout.astro';
-
+const sourceLinks={
+	"source repo": "https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/pages/todo-list"
+}
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="w-full h-full flex flex-col justify-center items-center">
-
+	{<FrameworkNoticeBanner description="This page is written in Astro.js, HTMX, and Tailwind" sourceLinks={sourceLinks} client:load />}
+	<div class="w-full h-[calc(100%-62px)] flex flex-col justify-center items-center">
 		<main class="w-auto h-auto shadow-md flex flex-col gap-2 bg-slate-200 p-10 rounded-lg">
 			<h1 class="text-xl text-center font-extrabold" transition:name="HTMX todo List" >HTMX Todo List</h1>
 			<input type="text" id="email-address" placeholder="email to save todo list" type="email" class="p-2 rounded-md w-[300px] shadow-inner">

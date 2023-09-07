@@ -4,13 +4,13 @@ export type LinkMap = Readonly<{
 
 export interface BannerProps {
     description: string;
-    currentLabel: string;
-    links: LinkMap;
-    sourceLinks: LinkMap;
+    currentLabel?: string;
+    links?: LinkMap;
+    sourceLinks?: LinkMap;
 }
 
 export interface FrameworkNoticeBannerProps<T extends LinkMap> {
     description: string;
-    currentLabel: keyof T;
-    sourceLinks: LinkMap;
+    currentLabel?: keyof T;
+    sourceLinks?: LinkMap;
 }
