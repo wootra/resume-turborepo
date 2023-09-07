@@ -1,11 +1,10 @@
 ---
 import TodoList from "../../components/todo-list/TodoList.astro";
-import type { Todo } from "../../components/todo-list/types";
-import {AstroGlobal} from 'astro';
+import { createPool } from "@vercel/postgres";
+import { getTodos } from "../../components/todo-list/todo-utils";
 
-//@ts-ignore
-const req = (Astro as AstroGlobal).request;
-
+const req = Astro.request;
+const email = 'shjeon0730@gmail.com'
 // const txt = await req.text();
 const forms = await req.text();
 const data = new URL("http://localhost?"+forms).searchParams;
@@ -14,11 +13,16 @@ const todoItem = data.get('todo-item');
 console.log("req.body===>", todoItem);
 // const data = await req.formData();
 // const todoText = data.get("todo");
-const todos:Todo[] = [
-	{ id: 'todo-1', text: 'Learn Astro' },
-	{ id: 'todo-2', text: 'Build something amazing' },
-	{ id: 'todo-3', text: 'Deploy it to the web' },
-].filter(v=>v.id !== todoItem);
-const idBase = 4;
+const pool = createPool({
+		connectionString: import.meta.env.POSTGRES_URL,
+});
+await pool.sql`DELETE FROM "Todo" WHERE id = ${todoItem}`;
+const todos = await getTodos(email);
+// const todos:Todo[] = [
+// 	{ id: 'todo-1', text: 'Learn Astro' },
+// 	{ id: 'todo-2', text: 'Build something amazing' },
+// 	{ id: 'todo-3', text: 'Deploy it to the web' },
+// ].filter(v=>v.id !== todoItem);
+// const idBase = 4;
 ---
-<TodoList todos={todos} idBase={idBase}/>
+<TodoList todos={todos}/>

@@ -1,25 +1,30 @@
 ---
 import TodoList from "../../components/todo-list/TodoList.astro";
+import { getTodos } from "../../components/todo-list/todo-utils";
 import type { Todo } from "../../components/todo-list/types";
-import {AstroGlobal} from 'astro';
+import { createPool } from "@vercel/postgres";
 
-//@ts-ignore
-const req = (Astro as AstroGlobal).request;
+
+const req = Astro.request;
 // const txt = await req.text();
 const forms = await req.text();
 console.log("req.body===>", req);
 const data = new URL("http://localhost?"+forms).searchParams;
 console.log("data", forms, data.get("todo"))
-let idBase = +(data.get("id-base") || '')?? 1;
+// let idBase = +(data.get("id-base") || '')?? 1;
 const todoText = data.get("todo") ?? "default";
 
-const todos:Todo[] = [
-	{ id: 'todo-1', text: 'Learn Astro' },
-	{ id: 'todo-2', text: 'Build something amazing' },
-	{ id: 'todo-3', text: 'Deploy it to the web' },
-];
-todos.push(({id: `todo-${idBase}`, text: todoText}))
+const pool = createPool({
+		connectionString: import.meta.env.POSTGRES_URL,
+});
+const email = 'shjeon0730@gmail.com';
+await pool.sql`INSERT INTO "Todo" (text, email) VALUES (${todoText}, ${email})`;
+
+const todos = await getTodos(email);
+
+// todos.push(({id: `todo-${idBase}`, text: todoText}))
+
 // const data = await req.formData();
 // const todoText = data.get("todo");
 ---
-<TodoList todos={todos} idBase={idBase+1}/>
+<TodoList todos={todos} />

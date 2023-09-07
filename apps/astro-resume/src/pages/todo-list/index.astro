@@ -2,36 +2,16 @@
 import TodoList from '../../components/todo-list/TodoList.astro';
 import type { Todo } from '../../components/todo-list/types';
 import Layout from '../../layouts/TodoLayout.astro';
-const todos:Todo[] = [
-	{ id: 'todo-1', text: 'Learn Astro' },
-	{ id: 'todo-2', text: 'Build something amazing' },
-	{ id: 'todo-3', text: 'Deploy it to the web' },
-];
-const idBase = 4;
-const anim = {
-  old: {
-    name: 'fadeIn',
-    duration: '0.2s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  },
-  new: {
-    name: 'fadeOut',
-    duration: '0.3s',
-    easing: 'linear',
-    fillMode: 'backwards',
-  }
-};
+import { getTodos } from "../../components/todo-list/todo-utils";
 
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
+const email = 'shjeon0730@gmail.com';
+const todos:Todo[] = await getTodos(email);
+
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="w-96 py-4">
 		<h1 class="text-xl" transition:name="HTMX todo List" >HTMX Todo List</h1>
-		<TodoList todos={todos} idBase={idBase}/>
+		<TodoList todos={todos} />
 	</main>
 </Layout>

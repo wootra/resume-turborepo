@@ -2,11 +2,9 @@
 import type { Todo } from './types';
 type Props = {
     todos: Todo[];
-    idBase: number;
 };
 const {
     todos,
-    idBase,
 } = Astro.props;
 ---
 <div id='todo-list'>
@@ -22,7 +20,6 @@ const {
             hx-action='enter'
             name='todo'
         />
-        <input type='hidden' name='id-base' value={idBase ?? 1} />
     </form>
     <ul class='py-4'>
         {todos.map(todo => (
