@@ -4,15 +4,11 @@ import { createPool } from "@vercel/postgres";
 import { getTodos } from "../../components/todo-list/todo-utils";
 
 const req = Astro.request;
-const email = 'shjeon0730@gmail.com'
-// const txt = await req.text();
 const forms = await req.text();
 const data = new URL("http://localhost?"+forms).searchParams;
-console.log("data", data.get('todo-item'));
+const email = data.get('email') || 'public@no-email.com';
 const todoItem = data.get('todo-item');
-console.log("req.body===>", todoItem);
-// const data = await req.formData();
-// const todoText = data.get("todo");
+
 const pool = createPool({
 		connectionString: import.meta.env.POSTGRES_URL,
 });
@@ -25,4 +21,4 @@ const todos = await getTodos(email);
 // ].filter(v=>v.id !== todoItem);
 // const idBase = 4;
 ---
-<TodoList todos={todos}/>
+<TodoList todos={todos} email={email}/>

@@ -1,0 +1,18 @@
+---
+import TodoList from '../../components/todo-list/TodoList.astro';
+import type { Todo } from '../../components/todo-list/types';
+import Layout from '../../layouts/TodoLayout.astro';
+import { getTodos } from "../../components/todo-list/todo-utils";
+
+const req = Astro.request;
+const emailFromQuery = new URL(req.url).searchParams.get('email');
+const email = emailFromQuery || 'public@no-email.com';
+const todos:Todo[] = await getTodos(email);
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="w-96 py-4">
+		<h1 class="text-xl" transition:name="HTMX todo List" >HTMX Todo List</h1>
+		<TodoList todos={todos} email={email} />
+	</main>
+</Layout>

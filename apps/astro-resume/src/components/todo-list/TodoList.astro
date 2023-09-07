@@ -2,9 +2,11 @@
 import type { Todo } from './types';
 type Props = {
     todos: Todo[];
+    email?: string;
 };
 const {
     todos,
+    email,
 } = Astro.props;
 
 ---
@@ -21,6 +23,14 @@ const {
             placeholder='What needs to be done?'
             hx-action='enter'
             name='todo'
+        />
+        <input
+            class='border-spacing-2 border border-cyan-700 p-2 w-full rounded-md'
+            type="hidden"
+            value={email}
+            placeholder='Who is the owner of this Todo list? (email)'
+            id="email-input"
+            name='email'
         />
     </form>
     <ul class='py-4'>
