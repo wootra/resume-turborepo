@@ -6,16 +6,18 @@ type Props = {
 const {
     todos,
 } = Astro.props;
+
 ---
 <div id='todo-list'>
     <form
         hx-post='/todo-list/todo'
         hx-target='#todo-list'
-        hx-swap='outerHTML'
+        hx-swap='outerHTML transition:true'
     >
         <input
             class='border-spacing-2 border border-cyan-700 p-2 w-full rounded-md'
             type='text'
+            id="todo-input"
             placeholder='What needs to be done?'
             hx-action='enter'
             name='todo'
@@ -41,3 +43,8 @@ const {
         ))}
     </ul>
 </div>
+
+<script>
+    const input = document.getElementById("todo-input");
+    input?.focus();
+</script>
