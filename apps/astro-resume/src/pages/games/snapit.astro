@@ -1,0 +1,20 @@
+---
+import SnapIt from '../../components/games/SnapIt';
+import GameLayout from '../../layouts/GameLayout.astro';
+type Props = {
+	name: string;
+}
+const name = "Snap it game"
+
+---
+
+<GameLayout title={name} backUrl='/games' backText='Game Home'>
+	<div class="w-full h-full px-8 py-8">
+		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
+			<h1 class="text-3xl">{name}</h1>
+			<main class="flex items-center justify-center flex-row gap-4 w-full h-full flex-wrap">
+				<SnapIt client:load />
+			</main>
+		</section>
+	</div>
+</GameLayout>
