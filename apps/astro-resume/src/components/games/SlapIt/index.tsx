@@ -123,14 +123,14 @@ const cardInfo = (no: Accessor<number>, add: number = 0) => {
             const imgName = (imageNum % 52) + 1;
             const imageExt = imgName < 29 ? 'jpg' : 'png';
             return {
-                image: `/images/snapit/${imgName}.${imageExt}`,
+                image: `/images/slapit/${imgName}.${imageExt}`,
                 id: num, // `image-${num}`,
                 color: colors[parseInt(`${imageNum / 52}`)],
             } as CardItem;
         });
     });
 };
-const SnapIt = () => {
+const SlapIt = () => {
     const { cards, maxNum } = createCardItems();
     shuppledCards = cards;
     colors = colors.sort(() => Math.random() - 0.5);
@@ -154,4 +154,4 @@ const SnapIt = () => {
     );
 };
 
-export default SnapIt;
+export default SlapIt;
