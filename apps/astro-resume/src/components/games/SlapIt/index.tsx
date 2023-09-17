@@ -144,8 +144,8 @@ const SlapIt = () => {
     const cardInfo1 = cardInfo(cardNo);
     const cardInfo2 = cardInfo(cardNo, 1);
     return (
-        <div class='w-full h-full'>
-            <h1>Find the difference!</h1>
+        <>
+            <h1 class='hidden md:block py-4'>Find the difference!</h1>
             <div class='w-full h-full'>
                 <div class='flex flex-row flex-wrap w-max h-1/2 items-center justify-center mx-auto'>
                     <Card items={cardInfo1} />
@@ -156,7 +156,7 @@ const SlapIt = () => {
                     <Score team={1} />
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
