@@ -29,17 +29,18 @@ type FruitButtonProps = {
 };
 let shuppledCards: CardInfo[];
 let colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
+
 const FruitButton = ({ items, index }: FruitButtonProps) => {
     const item = createMemo(() => items()[index]);
     const angle = Math.round(Math.random() * 360);
     let x, y;
     if (index === 0) {
-        x = 100;
+        x = 120;
         y = 120;
     } else {
         const rad = (((index - 1) * oneAngle) / 360.0) * 3.1415 * 2;
-        x = Math.cos(rad) * 80 + 100;
-        y = Math.sin(rad) * 80 + 120;
+        x = Math.cos(rad) * (100 - Math.random() * 30) + 120;
+        y = Math.sin(rad) * (100 - Math.random() * 30) + 120;
     }
     const imgSize = Math.random() * 30 + 30;
 
@@ -66,16 +67,18 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
                 left: `${x}px`,
                 top: `${y}px`,
             }}
-            class='absolute bg-transparent'
+            class='absolute bg-transparent rounded-full hover:border-4'
             onClick={() => checkMatching(item().id)}
         >
             <div
+                class='shadow-lg rounded-full hover:outline-2 hover:outline-red-500'
                 style={{
                     rotate: `${getRandomAngle()}deg`,
-                    border: `2px solid ${item().color}`,
+                    border: `5px solid ${item().color}`,
                 }}
             >
                 <img
+                    class='rounded-full'
                     src={item().image}
                     alt={item().id + ''}
                     width={imgSize}
@@ -87,8 +90,8 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
 };
 const Card = ({ items }: { items: Accessor<CardItem[]> }) => {
     return (
-        <div class='w-72 h-80 p-4 '>
-            <div class='w-full h-full rounded-md bg-white shadow-lg relative border border-gray'>
+        <div class='w-80 h-80 p-4 '>
+            <div class='w-full h-full rounded-full bg-white shadow-lg relative border border-gray'>
                 {Array(numOfItems - 1)
                     .fill(0)
                     .map((_item, i) => {
@@ -132,6 +135,7 @@ const cardInfo = (no: Accessor<number>, add: number = 0) => {
 };
 const SlapIt = () => {
     const { cards, maxNum } = createCardItems();
+    console.log('maxNum:', maxNum);
     shuppledCards = cards;
     colors = colors.sort(() => Math.random() - 0.5);
     shuppleImages(maxNum);
