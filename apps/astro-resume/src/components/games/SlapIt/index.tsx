@@ -38,9 +38,11 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
         x = 120;
         y = 120;
     } else {
+        const radiusBase = index % 2 === 0 ? 120 : 80;
         const rad = (((index - 1) * oneAngle) / 360.0) * 3.1415 * 2;
-        x = Math.cos(rad) * (100 - Math.random() * 30) + 120;
-        y = Math.sin(rad) * (100 - Math.random() * 30) + 120;
+        const radius = radiusBase - Math.random() * 10;
+        x = Math.cos(rad) * radius + 120;
+        y = Math.sin(rad) * radius + 120;
     }
     const imgSize = Math.random() * 30 + 30;
 
@@ -63,7 +65,7 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
     return (
         <button
             style={{
-                rotate: `${angle}`,
+                rotate: `${angle}deg`,
                 left: `${x}px`,
                 top: `${y}px`,
             }}
@@ -78,7 +80,7 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
                 }}
             >
                 <img
-                    class='rounded-full'
+                    class='rounded-full aspect-1'
                     src={item().image}
                     alt={item().id + ''}
                     width={imgSize}
