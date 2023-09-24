@@ -11,7 +11,7 @@ import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
 import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
         const introductionDoc = await introduction.createPdfMake();
