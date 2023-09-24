@@ -163,6 +163,23 @@ export const LeftContents: LeftContentsType = Object.freeze({
     achievements: [
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
+                'Toggle Feature From UI',
+                'participating design and architecture, and implement the features',
+                `React, typescript`,
+                `Suggesting an accessible way of toggle feature from UI and expandable and upgradable feature on backend.
+                implemented automatic upgradable feature on the backend and frontend.`
+            ),
+            buildAchievementItem(
+                'Playwright BDD testing',
+                'introducing BDD style regression test',
+                `Playwright, typescript, playwright-bdd`,
+                `creating a new project to support BDD style of testing that uses common language for tester and business owners.
+                It improves the communication between developers and business owners.
+                The tough part was playwright-bdd was not well known library and it did not support
+                multiple fixtures that uses the same step description. I had to make a custom library to modularize the tests
+                taking advantage of class inheritance to make the step language as simple as possible.`
+            ),
+            buildAchievementItem(
                 'Refactor legacy code in fund/model center',
                 'improve developer experience, code readability, reusability, and maintainability',
                 `plan, documentation, coding, testing(React, Typescript, Jotai 2.0)`,
@@ -330,12 +347,14 @@ This can download network test scenario to the real test object from drag&drop b
             buildAchievementItem(
                 'Setting up mono repo for Resume Project',
                 `Setup Turborepo, Test typescript/vitest test, Test Next.js app with test, Convert pure html project to Vite project`,
-                'Personal Project(Turborepo, Vite, Vanilla JS/CSS/HTML), typescript, vitest, Next.js',
+                'Personal Project(Turborepo, Vite, Vanilla JS/CSS/HTML), typescript, vitest, Next.js, PDF-Make, Solid-js',
                 `To make the project more maintainable before making next version of resume app, 
 I have converted the project to Vite project living in the monorepo. 
 I have tried Nx repo before using turbo repo, but typescript support with vitest test 
 was not working as expected in the library. Turbo repo is a lot easier to set up the local packages.
-It also supported vitest test using typescript source files. Converting html into vite project was smooth.`
+It also supported vitest test using typescript source files. Converting html into vite project was smooth.
+When I implement automatic PDF generation, It was hard to make it happen in server side generation since the file creation in monorepo is not common use case.
+Eventually figured out by creating temporary endpoint that can give me multiple inner system information until I remove it to prevent security bleach.`
             ),
             buildAchievementItem(
                 'Menu App(QR in Menu)',
@@ -358,6 +377,12 @@ reason, but it was a great experience to learn a lot of tech stacks and schedule
             I received the results of blood analysis and proceed learning 3 levels of DNN after pre-processing.
             the input node was 56, and output was 1 with percentage. after post processing, I could get meaningful result which find new patient as 90% accuracy.
             `
+            ),
+            buildAchievementItem(
+                'SVG Designer',
+                'A Simple svg drawer supporting React style svg file export',
+                'personal project(javascript/React/SVG)',
+                'Open Source (git@github.com:wootra/react-svg-designer.git)'
             ),
             buildAchievementItem(
                 'Horseshoe',
