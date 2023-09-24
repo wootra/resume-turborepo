@@ -164,15 +164,15 @@ export const LeftContents: LeftContentsType = Object.freeze({
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
                 'Toggle Feature From UI',
+                'improve the internal and pilot user experience to try out the new features',
                 'participating design and architecture, and implement the features',
-                `React, typescript`,
                 `Suggesting an accessible way of toggle feature from UI and expandable and upgradable feature on backend.
                 implemented automatic upgradable feature on the backend and frontend.`
             ),
             buildAchievementItem(
                 'Playwright BDD testing',
-                'introducing BDD style regression test',
-                `Playwright, typescript, playwright-bdd`,
+                'improve communication between tester and test scenario creators, improve test creation/modify speed from the changed requirement',
+                'introducing BDD style regression test, implement BDD style regression test, creating test scenario',
                 `creating a new project to support BDD style of testing that uses common language for tester and business owners.
                 It improves the communication between developers and business owners.
                 The tough part was playwright-bdd was not well known library and it did not support
