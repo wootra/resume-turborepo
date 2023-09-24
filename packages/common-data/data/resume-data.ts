@@ -29,10 +29,10 @@ type LeftContentsType = {
 export const LeftContents: LeftContentsType = Object.freeze({
     Introduction: Object.freeze({
         TITLE: 'Introduction',
-        DESC: `Fast and deep focusing is my weapon making me a good problem solver.
-         I enjoy learning new tech solutions as well as trying to use it in my personal projects. 
-         That makes me a valuable team member with high performance.
-         Recently focusing on Frontend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS.`,
+        DESC: `A strong problem solver from Fast and deep focusing with dynamic programming method.
+         An enthusiastic performance improver. A patient mentor. An Addict on High performance.
+         A careful proposer. 
+         Recently interested in the trend on frontend technology crossing over backend area.`,
     }),
     Careers: Object.freeze({
         TITLE: 'Careers',
@@ -57,6 +57,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                     'RTL(React Testing Library)',
                 ],
                 [
+                    'Created BDD testing process using Playwright and Playwright-BDD library',
                     'Improvement and management of SMA center, Model Center, Fund Center app',
                     'Refactor large legacy class components to modularized function components',
                     'upgrade legacy project to modernized project including typescript, vite, jotai2',
@@ -459,25 +460,32 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('Astro.js', 4),
             buildSkillLevel('Next.js', 4),
             buildSkillLevel('Svelte', 3),
-            buildSkillLevel('Solid.js', 3),
+            buildSkillLevel('Solid.js', 4),
             buildSkillLevel('JQuery', 3),
             buildSkillLevel('Angular 6', 2),
         ],
-        'Frameworks(Etc)': [
-            buildSkillLevel('.Net', 4),
+        'Backend skills': [
+            buildSkillLevel('Node.js', 5),
+            buildSkillLevel('Express', 5),
             buildSkillLevel('Jax-RS', 4),
-            buildSkillLevel('Spring Boot', 3),
+            buildSkillLevel('Spring Boot', 4),
+            buildSkillLevel('GraphQL', 4),
+            buildSkillLevel('Firebase/firestore', 4),
+            buildSkillLevel('NextAuth', 4),
+            buildSkillLevel('supabase', 4),
+            buildSkillLevel('.Net', 3),
+            buildSkillLevel('Elastic Search', 3),
             buildSkillLevel('Kafka', 2),
         ],
         'Pakcage Management': [
-            buildSkillLevel('Turbo repo', 4),
+            buildSkillLevel('Vite', 5),
+            buildSkillLevel('Turbo repo', 5),
+            buildSkillLevel('Npm.js', 5),
+            buildSkillLevel('Npm', 5),
+            buildSkillLevel('pnpm', 5),
+            buildSkillLevel('yarn', 4),
             buildSkillLevel('Nx Repo', 3),
             buildSkillLevel('Rush Repo', 2),
-            buildSkillLevel('Vite', 4),
-            buildSkillLevel('Npm.js', 3),
-            buildSkillLevel('Npm', 3),
-            buildSkillLevel('pnpm', 3),
-            buildSkillLevel('yarn', 3),
             buildSkillLevel('Rollup', 2),
             buildSkillLevel('Webpack', 2),
         ],
@@ -513,6 +521,7 @@ export const RightContents: RightContentsType = Object.freeze({
         ],
         'Dev Ops': [
             buildSkillLevel('Gialb-ci', 4),
+            buildSkillLevel('Jenkins', 3),
             buildSkillLevel('Docker', 3),
             buildSkillLevel('Openshift', 3),
             buildSkillLevel('github-actions', 2),
