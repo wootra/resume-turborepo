@@ -1,60 +1,24 @@
-import { createMemo, createSignal, type Accessor } from 'solid-js';
-import type { CardInfo, CardItem, Node } from './types';
-import { numOfCards, numOfItems } from './consts';
-import { createCardItems } from './stores';
-
-const getRandomAngle = () => {
-    return Math.round(Math.random() * 360);
-};
-
-const oneAngle = 360 / (numOfItems - 1);
-const [cardNo, setCardNo] = createSignal<number>(0);
-
-const [shuppledImages, setShuppledImages] = createSignal<number[]>([]);
-const shuppleImages = (maxNum: number) => {
-    const imageNumbers = Array(maxNum)
-        .fill(0)
-        .map((_c, i) => i + 1);
-
-    const randomNum = Math.round(Math.random() * 100000);
-    const sorted = imageNumbers.sort(
-        (a, b) => ((a * randomNum) % 10) - ((b * randomNum) % 10)
-    );
-    setShuppledImages(sorted);
-};
-
-type FruitButtonProps = {
-    index: number;
-    items: Accessor<CardItem[]>;
-};
-let shuppledCards: CardInfo[];
-let colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
-
-const FruitButton = ({ items, index }: FruitButtonProps) => {
+import { createMemo, createSignal, onMount } from 'solid-js';
+import type { CardInfo, FruitButtonProps, Node } from './types';
+import { numOfCards, numOfItems, oneAngle } from './consts';
+import { cardInfo, cardNo, setCardNo } from './signals';
+import { getRandomAngle } from './utils';
+import { CardProvider, useCards } from './CardProvider';
+let cardRef: HTMLDivElement | undefined = undefined;
+const FruitButton = ({ items, index, rotation }: FruitButtonProps) => {
     const item = createMemo(() => items()[index]);
-    const angle = Math.round(Math.random() * 360);
-    let x, y;
-    if (index === 0) {
-        x = 120;
-        y = 120;
-    } else {
-        const radiusBase = index % 2 === 0 ? 120 : 80;
-        const rad = (((index - 1) * oneAngle) / 360.0) * 3.1415 * 2;
-        const radius = radiusBase - Math.random() * 10;
-        x = Math.cos(rad) * radius + 120;
-        y = Math.sin(rad) * radius + 120;
-    }
-    const imgSize = Math.random() * 30 + 30;
-
-    const checkMatching = (id: number) => {
-        const card1 = shuppledCards[cardNo()];
-        const card2 = shuppledCards[cardNo() + 1];
-        console.log('number', id, card1.items, card2.items);
+    const angle = getRandomAngle();
+    const { cards } = useCards();
+    const [imgSize, setImgSize] = createSignal(0);
+    const [pos, setPos] = createSignal({ x: 120, y: 120 });
+    const checkMatching = () => {
+        const id = item().id;
+        const cardNum = cardNo();
+        const card1 = cards()[cardNum];
+        const card2 = cards()[cardNum + 1];
         if (card1.items.includes(+id) && card2.items.includes(+id)) {
-            console.log('matched!');
-            if (cardNo() + 2 < numOfCards) {
-                // shuppleImages();
-                setCardNo(cardNo() + 2);
+            if (cardNum + 2 < numOfCards) {
+                setCardNo(cardNum + 2);
             } else {
                 console.log('game over');
             }
@@ -62,20 +26,44 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
             console.log('not matching!');
         }
     };
+    let x, y;
+    let btn: HTMLButtonElement = null as unknown as HTMLButtonElement;
+    onMount(() => {
+        let halfSizeOrg = (cardRef?.getBoundingClientRect().width || 0) / 2;
+        let halfSize = halfSizeOrg * 0.8;
+
+        console.log(cardRef, halfSize);
+        if (index === 0) {
+            x = halfSize + halfSizeOrg * 0.1;
+            y = halfSize + halfSizeOrg * 0.1;
+        } else {
+            const radiusBase = index % 2 === 0 ? halfSize : halfSize / 2 + 20;
+            const rad =
+                (((index - 1) * oneAngle + rotation) / 360.0) * 3.1415 * 2;
+            const radius = radiusBase - Math.random() * 10;
+            x = Math.cos(rad) * radius + halfSize;
+            y = Math.sin(rad) * radius + halfSize;
+        }
+        console.log('button pos:', { x, y });
+        setImgSize(Math.random() * 30 + 30);
+        setPos({ x, y });
+    });
+
     return (
         <button
+            ref={btn}
             style={{
                 rotate: `${angle}deg`,
-                left: `${x}px`,
-                top: `${y}px`,
+                left: `${pos().x}px`,
+                top: `${pos().y}px`,
             }}
-            class='absolute bg-transparent rounded-full hover:border-4'
-            onClick={() => checkMatching(item().id)}
+            class='absolute bg-transparent transition-all rounded-full hover:border-4'
+            onClick={() => checkMatching()}
         >
             <div
                 class='shadow-lg rounded-full hover:outline-2 hover:outline-red-500'
                 style={{
-                    rotate: `${getRandomAngle()}deg`,
+                    // rotate: `${getRandomAngle()}deg`,
                     border: `5px solid ${item().color}`,
                 }}
             >
@@ -83,26 +71,34 @@ const FruitButton = ({ items, index }: FruitButtonProps) => {
                     class='rounded-full aspect-1'
                     src={item().image}
                     alt={item().id + ''}
-                    width={imgSize}
-                    height={imgSize}
+                    width={imgSize()}
+                    height={imgSize()}
                 />
             </div>
         </button>
     );
 };
-const Card = ({ items }: { items: Accessor<CardItem[]> }) => {
+const Card = ({ add = 1 }: { add?: number }) => {
+    const [addNum] = createSignal(add);
+    const items = cardInfo(addNum);
+    const rotation = getRandomAngle();
     return (
-        <div class='w-80 h-80 p-4 '>
+        <div ref={cardRef} class='min-w-[20rem] w-1/2 max-w-[30rem] aspect-1'>
             <div class='w-full h-full rounded-full bg-white shadow-lg relative border border-gray'>
                 {Array(numOfItems - 1)
                     .fill(0)
                     .map((_item, i) => {
-                        return <FruitButton {...{ index: i + 1, items }} />;
+                        return (
+                            <FruitButton
+                                {...{ index: i + 1, rotation, items }}
+                            />
+                        );
                     })}
                 <FruitButton
                     {...{
                         index: 0,
                         items,
+                        rotation,
                     }}
                 />
             </div>
@@ -112,7 +108,7 @@ const Card = ({ items }: { items: Accessor<CardItem[]> }) => {
 
 const Score = ({ team }: { team: number }) => {
     return (
-        <div class='w-72 px-4'>
+        <div class='h-full px-4 w-full bg-yellow bg-opacity-20 p-2 rounded-md select-none pointer-events-none'>
             <h1>Team {team + 1}</h1>
             <div>
                 <h2>Score</h2>
@@ -120,41 +116,29 @@ const Score = ({ team }: { team: number }) => {
         </div>
     );
 };
-const cardInfo = (no: Accessor<number>, add: number = 0) => {
-    return createMemo(() => {
-        const card = shuppledCards[no() + add];
-        return card.items.map(num => {
-            const imageNum = +shuppledImages()[num - 1];
-            const imgName = (imageNum % 52) + 1;
-            const imageExt = imgName < 29 ? 'jpg' : 'png';
-            return {
-                image: `/images/slapit/${imgName}.${imageExt}`,
-                id: num, // `image-${num}`,
-                color: colors[parseInt(`${imageNum / 52}`)],
-            } as CardItem;
-        });
-    });
-};
+
 const SlapIt = () => {
-    const { cards, maxNum } = createCardItems();
-    console.log('maxNum:', maxNum);
-    shuppledCards = cards;
-    colors = colors.sort(() => Math.random() - 0.5);
-    shuppleImages(maxNum);
-    const cardInfo1 = cardInfo(cardNo);
-    const cardInfo2 = cardInfo(cardNo, 1);
     return (
         <>
-            <h1 class='hidden md:block py-4'>Find the difference!</h1>
-            <div class='w-full h-full'>
-                <div class='flex flex-row flex-wrap w-max h-1/2 items-center justify-center mx-auto'>
-                    <Card items={cardInfo1} />
-                    <Card items={cardInfo2} />
-                </div>
-                <div class='w-full h-auto flex-wrap flex flex-row items-center justify-center mx-auto'>
-                    <Score team={0} />
-                    <Score team={1} />
-                </div>
+            <h1 class='hidden md:block py-4'>
+                Find the matching a color & image!
+            </h1>
+            <h2 class='w-full h-4 text-center'>
+                Cards left: {numOfCards - cardNo()}
+            </h2>
+            <div class='w-full h-full relative flex flex-row flex-wrap'>
+                <CardProvider>
+                    <div class='flex flex-row flex-wrap w-full h-full items-center justify-center mx-auto'>
+                        <Card add={0} />
+                        <Card add={1} />
+                    </div>
+                    <div class='w-1/2 md:absolute md:h-full md:left-0 md:top-0 md:w-32 md:pointer-events-none'>
+                        <Score team={0} />
+                    </div>
+                    <div class='w-1/2 md:absolute md:h-full md:right-0 md:top-0 md:w-32 md:pointer-events-none'>
+                        <Score team={1} />
+                    </div>
+                </CardProvider>
             </div>
         </>
     );

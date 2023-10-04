@@ -5,11 +5,13 @@ import type { CardInfo } from './types';
 describe('createCardItems', () => {
     it('should create items', () => {
         const { cards } = createCardItems();
-        expect(cards.length).toBe(numOfCards);
+        console.log(cards().map(card => card.items));
+        expect(cards().length).toBe(numOfCards);
     });
 
     it('should match only one items', () => {
-        const { cards } = createCardItems();
+        const { cards: cardList } = createCardItems();
+        const cards = cardList();
         for (let i = 0; i < cards.length; i++) {
             for (let j = 0; j < cards.length; j++) {
                 if (i === j) continue;
