@@ -42,7 +42,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'https://dimensional.com/',
                 [2022, 8],
                 null,
-                'Maintain, Debug & Improve for SMA, Model Center, Fund Center, and other applications',
+                'maintain, debug, and improvement for SMA, Model Center, Fund Center, and other applications',
                 'Financial / Investment / Asset Management',
                 'SW Engineer Senior',
                 [
@@ -57,7 +57,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                     'RTL(React Testing Library)',
                 ],
                 [
-                    'Created BDD testing process using Playwright and Playwright-BDD library',
+                    'Playwright test automation in BDD style on Docker, dev server in authenticated network',
                     'Improvement and management of SMA center, Model Center, Fund Center app',
                     'Refactor large legacy class components to modularized function components',
                     'upgrade legacy project to modernized project including typescript, vite, jotai2',
@@ -174,10 +174,15 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'improve communication between tester and test scenario creators, improve test creation/modify speed from the changed requirement',
                 'introducing BDD style regression test, implement BDD style regression test, creating test scenario',
                 `creating a new project to support BDD style of testing that uses common language for tester and business owners.
-                It improves the communication between developers and business owners.
-                The tough part was playwright-bdd was not well known library and it did not support
-                multiple fixtures that uses the same step description. I had to make a custom library to modularize the tests
-                taking advantage of class inheritance to make the step language as simple as possible.`
+                It improves the communication between developers and business owners. There was a useful library called playwright-bdd,
+                but its dependency with latest decorator syntax made limitation to the existing Jenkins system.
+                To continue using BDD syntax, made function name to have BDD style and it turned out supporting full typescript autocompletion.
+                Playwright has limits depending on versions, but the existing Jenkins system was running on the old version of node.
+                Still having limitation on e2e tests which only main branch has url for the playwright tests to run on, 
+                I have created a docker container with running dev server and playwright tests in it so the team could validate the feature branch before merging to main branch.
+                There was a lot of huddles since the dev server was running pointing to the real services with authentication.
+                I have inplemented certs creation in Vite configuration to make it work as well as adding test url in host file in docker-compose file.
+                I also made local testing environment for the developers can perform the further improvements.`
             ),
             buildAchievementItem(
                 'Refactor legacy code in fund/model center',
@@ -469,9 +474,10 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('Java', 5),
             buildSkillLevel('YAML', 5),
             buildSkillLevel('SASS/LESS', 5),
-            buildSkillLevel('NodeJs', 4),
+            buildSkillLevel('Python', 5),
+            buildSkillLevel('NodeJs', 5),
+            buildSkillLevel('SQL', 4),
             buildSkillLevel('C#.Net', 3),
-            buildSkillLevel('Python', 3),
             buildSkillLevel('XML', 3),
             buildSkillLevel('LUA', 3),
             buildSkillLevel('C/C++', 3),
@@ -484,8 +490,8 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('React.js', 5),
             buildSkillLevel('Astro.js', 4),
             buildSkillLevel('Next.js', 4),
-            buildSkillLevel('Svelte', 3),
             buildSkillLevel('Solid.js', 4),
+            buildSkillLevel('Svelte', 3),
             buildSkillLevel('JQuery', 3),
             buildSkillLevel('Angular 6', 2),
         ],
@@ -495,6 +501,8 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('Jax-RS', 4),
             buildSkillLevel('Spring Boot', 4),
             buildSkillLevel('GraphQL', 4),
+            buildSkillLevel('Flask', 4),
+            buildSkillLevel('SQL Alchemy', 4),
             buildSkillLevel('Firebase/firestore', 4),
             buildSkillLevel('NextAuth', 4),
             buildSkillLevel('supabase', 4),
@@ -502,7 +510,7 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('Elastic Search', 3),
             buildSkillLevel('Kafka', 2),
         ],
-        'Pakcage Management': [
+        'Project/Pakcage Management': [
             buildSkillLevel('Vite', 5),
             buildSkillLevel('Turbo repo', 5),
             buildSkillLevel('Npm.js', 5),
@@ -526,13 +534,15 @@ export const RightContents: RightContentsType = Object.freeze({
             buildSkillLevel('cmd-sh', 3),
         ],
         'Test Framework': [
+            buildSkillLevel('Playwright', 5),
             buildSkillLevel('Jest', 5),
             buildSkillLevel('Mocha', 5),
-            buildSkillLevel('TestingLibrary', 5),
+            buildSkillLevel('React TestingLibrary', 5),
             buildSkillLevel('Enzyme', 5),
             buildSkillLevel('sinon', 5),
             buildSkillLevel('Mockito', 5),
             buildSkillLevel('Cypress', 5),
+            buildSkillLevel('Pytest', 4),
             buildSkillLevel('Vitest', 4),
             buildSkillLevel('Selenium', 3),
             buildSkillLevel('Spock', 3),
@@ -546,8 +556,8 @@ export const RightContents: RightContentsType = Object.freeze({
         ],
         'Dev Ops': [
             buildSkillLevel('Gialb-ci', 4),
-            buildSkillLevel('Jenkins', 3),
-            buildSkillLevel('Docker', 3),
+            buildSkillLevel('Jenkins', 4),
+            buildSkillLevel('Docker', 4),
             buildSkillLevel('Openshift', 3),
             buildSkillLevel('github-actions', 2),
         ],

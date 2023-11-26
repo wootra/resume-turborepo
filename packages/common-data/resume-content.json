@@ -11,7 +11,7 @@
                 "url": "https://dimensional.com/",
                 "start": "2022-8",
                 "end": "current",
-                "role": "Maintain & Improve SMA, Model Center, Fund Center, and other applications",
+                "role": "maintain, debug, and improvement SMA, Model Center, Fund Center, and other applications",
                 "industry": "Financial / Investment / Asset Management",
                 "jobTitle": "SW Engineer Senior",
                 "techStacks": [
@@ -29,17 +29,13 @@
                     "RTL(React Testing Library)"
                 ],
                 "achievements": [
+                    "Playwright test automation in BDD style on Docker, dev server in authenticated network",
                     "Improvement and management of SMA center, Model Center, Fund Center app",
-                    "Refactor large legacy class components to modularized function components",
-                    "Upgrade javascript to typescript",
-                    "Upgrade testing environment",
-                    "Setup and create Playwright BDD project",
+                    "Refactor large legacy class components to modularized function components using jotai 2.0 and typescript",
+                    "Upgrade testing environment using jest, RTL, jest-preview, Locator.js, and Playwright",
                     "Upgrade CRA project to Vite project",
-                    "Upgrade jotai 1 to jotai 2",
                     "Create/Improve logic for PDF generation(PDFMake)",
-                    "Create/Edit jest/RTL/Playright tests",
-                    "Create new disclosure manager",
-                    "Create jotai libraries for general purpose",
+                    "Create new disclosure manager on PDF pages using PDFMake",
                     "Create tooltip library for general purpose",
                     "Improve rendering performance using jotai local atoms and react profiler",
                     "Massive amount of debug"
