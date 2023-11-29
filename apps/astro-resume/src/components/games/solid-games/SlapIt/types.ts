@@ -16,6 +16,7 @@ export type CardInfo = {
 };
 
 export type FruitButtonProps = {
+    team: number;
     index: number;
     rotation: number;
     items: Accessor<CardItem[]>;

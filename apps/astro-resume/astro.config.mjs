@@ -28,7 +28,7 @@ export default defineConfig({
             include: ['**/SlapIt/**/*', '**/SnakeGame/**/*'],
         }),
         react({
-            include: ['**/resume/**/*'],
+            include: ['**/resume/**/*', '**/SlapIt2/**/*'],
         }),
         // preact({
         //     compat: true,

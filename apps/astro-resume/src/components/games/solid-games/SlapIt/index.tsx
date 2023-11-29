@@ -4,8 +4,9 @@ import { numOfCards, numOfItems, oneAngle } from './consts';
 import { cardInfo, cardNo, setCardNo } from './signals';
 import { getRandomAngle } from './utils';
 import { CardProvider, useCards } from './CardProvider';
+import { scores, setScores } from './stores';
 let cardRef: HTMLDivElement | undefined = undefined;
-const FruitButton = ({ items, index, rotation }: FruitButtonProps) => {
+const FruitButton = ({ team, items, index, rotation }: FruitButtonProps) => {
     const item = createMemo(() => items()[index]);
     const angle = getRandomAngle();
     const { cards } = useCards();
@@ -19,6 +20,11 @@ const FruitButton = ({ items, index, rotation }: FruitButtonProps) => {
         if (card1.items.includes(+id) && card2.items.includes(+id)) {
             if (cardNum + 2 < numOfCards) {
                 setCardNo(cardNum + 2);
+                if (team === 0) {
+                    setScores(scores => [scores[0] + 1, scores[1]]);
+                } else {
+                    setScores(scores => [scores[0], scores[1] + 1]);
+                }
             } else {
                 console.log('game over');
             }
@@ -90,11 +96,13 @@ const Card = ({ add = 1 }: { add?: number }) => {
                     .map((_item, i) => {
                         return (
                             <FruitButton
+                                team={add}
                                 {...{ index: i + 1, rotation, items }}
                             />
                         );
                     })}
                 <FruitButton
+                    team={add}
                     {...{
                         index: 0,
                         items,
@@ -111,13 +119,16 @@ const Score = ({ team }: { team: number }) => {
         <div class='h-full px-4 w-full bg-yellow bg-opacity-20 p-2 rounded-md select-none pointer-events-none'>
             <h1>Team {team + 1}</h1>
             <div>
-                <h2>Score</h2>
+                <h2>Score: {scores()[team]}</h2>
             </div>
         </div>
     );
 };
 
 const SlapIt = () => {
+    onMount(() => {
+        setScores([0, 0]);
+    });
     return (
         <>
             <h1 class='hidden md:block py-4'>

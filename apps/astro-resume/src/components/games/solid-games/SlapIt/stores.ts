@@ -8,6 +8,8 @@ const createNewCard = (): CardInfo => ({
     items: [] as number[],
 });
 
+export const [scores, setScores] = createSignal<number[]>([0, 0]);
+
 const addFirstCard = (
     usedCount: Record<number, number>,
     maxNum: number,
@@ -129,5 +131,6 @@ export const createCardItems = () => {
     const [cardsOrg] = createSignal<CardInfo[]>(cards);
     const [images] = createSignal<number[]>(imagesOrg);
     const [colors] = createSignal<string[]>(colorsOrg);
-    return { images, cards: cardsOrg, colors };
+
+    return { images, cards: cardsOrg, colors, scores, setScores };
 };
