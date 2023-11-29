@@ -20,9 +20,9 @@ export const ExpandPanel = (props: PropsWithChildren<Props>) => {
         group,
         maxHeight,
         allowCollapseFromBody,
+        isInitiallyExpanded = false,
         ...rest
     } = props;
-    let isInitiallyExpanded = props.isInitiallyExpanded || false;
     const { expanded, shown, onClick, onAnimationEnd, isOverflowHidden } =
         useExpandPanelGroups(group, isInitiallyExpanded);
 

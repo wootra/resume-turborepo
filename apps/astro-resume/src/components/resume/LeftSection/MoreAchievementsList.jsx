@@ -8,15 +8,15 @@ export const MoreAchievementsList = () => {
         <ExpandPanelProvider client:only='react'>
             {achievements.map(a => (
                 <ExpandPanel
+                    key={a.company}
                     title={a.company}
                     className='bg-slate-200 rounded-md p-2'
-                    // group='achievements'
                     maxHeight='300px'
                     allowCollapseFromBody={true}
                 >
                     <ul className='flex flex-col gap-4 pt-4'>
                         {a.items.map(item => (
-                            <li className='flex flex-col'>
+                            <li className='flex flex-col' key={item.name}>
                                 <heading>{item.name}</heading>
                                 <p
                                     className='business-value text-sm text-cyan-600'

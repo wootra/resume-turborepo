@@ -43,16 +43,11 @@ export const useExpandPanelGroups = (
     }
     useEffect(() => {
         id = id + 1;
-        console.log('id is', id);
         setCurrId(id);
         currState.current![id] = {
             expanded: isInitiallyExpanded || false,
             shown: isInitiallyExpanded || false,
         };
-        // setStates(states => ({
-        //     ...states,
-        //     [id]: isInitiallyExpanded || false,
-        // }));
     }, [isInitiallyExpanded, setCurrId]);
     const expanded = states[currId]?.expanded || false;
     const shown = states[currId]?.shown || false;
