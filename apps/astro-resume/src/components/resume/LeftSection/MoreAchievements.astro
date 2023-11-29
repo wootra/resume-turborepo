@@ -1,33 +1,11 @@
 ---
-import {ExpandPanel, Title} from 'solid-ui';
-import {LeftContents} from 'common-data';
-
-const {achievements} = LeftContents;
+import {Title} from 'react-ui';
+import {MoreAchievementsList} from './MoreAchievementsList';
 ---
 <div class="achievements">
     <Title>More Achievements</Title>
     <div class="flex flex-col gap-2">
-    {
-        achievements.map((a) => (
-            <ExpandPanel 
-                client:only="solid-js" 
-                title={a.company} 
-                class="bg-slate-200 rounded-md p-2" 
-                group="achievements" 
-                maxHeight="300px"
-                allowCollapseFromBody={true}
-            >
-                <ul class="flex flex-col gap-4 pt-4">{a.items.map(item=>(
-                    <li class="flex flex-col">
-                        <heading>{item.name}</heading>
-                        <p class="business-value text-sm text-cyan-600" data-tooltip="Business Values">{item.businessValue}</p>
-                        <p class="my-part text-sm text-amber-900" data-tooltip="My Contribution">{item.myPart}</p>
-                        {item.desc && <p class="desc text-sm text-neutral-700" data-tooltip="More Description">{item.desc}</p>}
-                    </li>
-                ))}</ul>
-            </ExpandPanel>
-        ))
-    }
+        <MoreAchievementsList client:only="react" />
     </div>
 </div>
 <style>

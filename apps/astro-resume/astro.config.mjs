@@ -2,7 +2,8 @@ import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
-// import react from '@astrojs/react';
+import react from '@astrojs/react';
+// import preact from '@astrojs/preact';
 // import image from '@astrojs/image';
 import vercel from '@astrojs/vercel/serverless';
 
@@ -23,8 +24,15 @@ export default defineConfig({
         // image({
         //     cacheDir: '.astro/cache',
         // }),
-        solid(),
-        // react(),
-        svelte(),
+        solid({
+            include: ['**/SlapIt/**/*', '**/SnakeGame/**/*'],
+        }),
+        react({
+            include: ['**/resume/**/*'],
+        }),
+        // preact({
+        //     compat: true,
+        // }),
+        svelte({}),
     ],
 });
