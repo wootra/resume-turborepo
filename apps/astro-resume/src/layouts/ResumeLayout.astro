@@ -32,7 +32,7 @@ const { title, usePdf=false } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body class="bg-zinc-400 resume" {...(usePdf ? {style: {width: '768px'}} : {})}>
-		{!usePdf && <FrameworkNoticeBanner description="This page is written in Astro.js, Solid.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />}
+		{!usePdf && <FrameworkNoticeBanner description="This page is written in Astro.js, React.js, CSS3, and Tailwind" currentLabel={selected} sourceLinks={sourceLinks} client:load />}
 		<slot />
 		<GoBack />
 	</body>
