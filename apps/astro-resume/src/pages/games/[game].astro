@@ -1,5 +1,6 @@
 ---
 import SlapIt from '../../components/games/solid-games/SlapIt';
+import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
 import GameLayout from '../../layouts/GameLayout.astro';
 type Props = {
@@ -14,6 +15,10 @@ const info: {[game:string]:Info} = {
 	'slap-it': {
 		title: 'Slap It!',
 		languages: ['Solid.js']
+	},
+	'slap-it2': {
+		title: 'Slap It! 2',
+		languages: ['React.js']
 	},
 	'snake': {
 		title: 'Snake',
@@ -31,6 +36,7 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 
 				<div class="flex flex-wrap items-center justify-center gap-4 w-full h-auto">
 					{game === 'slap-it' && <SlapIt client:load />}
+					{game === 'slap-it2' && <SlapIt2 client:load />}
 					{game === 'snake' && <SnakeGame client:load />}
 				</div>
 				<div class="w-full flex flex-wrap items-center h-32 bg-slate-300 rounded-md shadow-md">

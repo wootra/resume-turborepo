@@ -48,9 +48,5 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
-    },
-    "overrides": {
-        "react": "npm:@preact/compat@latest",
-        "react-dom": "npm:@preact/compat@latest"
     }
 }

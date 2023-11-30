@@ -25,10 +25,10 @@ export default defineConfig({
         //     cacheDir: '.astro/cache',
         // }),
         solid({
-            include: ['**/SlapIt/**/*', '**/SnakeGame/**/*'],
+            include: ['**/solid-games/**/*'],
         }),
         react({
-            include: ['**/resume/**/*', '**/SlapIt2/**/*'],
+            include: ['**/resume/**/*', '**/react-games/**/*', '**/react/**/*'],
         }),
         // preact({
         //     compat: true,
