@@ -28,7 +28,12 @@ export default defineConfig({
             include: ['**/solid-games/**/*'],
         }),
         react({
-            include: ['**/resume/**/*', '**/react-games/**/*', '**/react/**/*'],
+            include: [
+                '**/resume/**/*',
+                '**/react-games/**/*',
+                '**/react/**/*',
+                '**/react-apps/**/*',
+            ],
         }),
         // preact({
         //     compat: true,
