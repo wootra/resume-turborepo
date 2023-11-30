@@ -1,0 +1,28 @@
+
+.selectedToolBtn{
+    outline-width: 3px;
+    outline-offset: 2px;
+    outline-color: red;
+    outline-style: solid;
+    background-color: #f6f86d;
+}
+
+.unselectedToolBtn{
+    background-color: #cecece;
+}
+
+.selectedToolBtn, .unselectedToolBtn{
+    display:inline-flex;
+    width:1rem;
+    height:1rem;
+    margin: 3px;
+}
+
+.toolImg{
+    width:1rem;
+    height:1rem;
+}
+
+.selectedToolBtn:hover, .unselectedToolBtn:hover{
+    cursor:pointer;
+}

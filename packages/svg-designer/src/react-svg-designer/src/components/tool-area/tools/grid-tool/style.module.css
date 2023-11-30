@@ -1,0 +1,80 @@
+.elementInfo {
+  display: flex;
+  position: relative;
+  padding-left: 70px;
+}
+
+.gridSizeInput {
+  width: 50px;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-bottom: -5px;
+}
+
+.itemInfoName {
+  position: absolute;
+  left: 5px;
+  font-size: 10px;
+  top: calc(50% - 5px);
+}
+
+.gridSizeInput {
+  margin-left: 0;
+  width: 30px;
+  font-size: 10px;
+}
+
+.gridPlusMinus {
+  width: 18px;
+}
+
+.gridPlusMinusSmall {
+  width: 15px;
+}
+
+.gridPlusMinusSmall,
+.gridPlusMinus {
+  border: solid 1px gray;
+  border-radius: 4px;
+  font-size: 8px;
+  padding-top: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.gridPlusMinusSmall:hover,
+.gridPlusMinus:hover {
+  background-color: #fcd8a4;
+}
+
+.backColorBtn {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.backColorBtn:hover {
+  outline: 2px solid #ffbc5fb4;
+  outline-offset: -2px;
+}
+
+.backColorResult {
+  width: 15px;
+  height: 10px;
+}
+
+.backColorBtn,
+.backColorResult {
+  display: inline-block;
+  border: solid 1px black;
+  outline: solid 1px white;
+  outline-offset: 1px;
+  margin: 1px;
+}
+
+.arrow {
+  font-size: 10px;
+}

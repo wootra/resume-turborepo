@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" 
+    xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="70" cy="30" rx="20" ry="20" style="fill: transparent; stroke: black; stroke-width: 10;"></ellipse>
+    <path d="M 55.000,45.000 L25.000,80.000 Z" fill="transparent" stroke="black" stroke-width="10"></path>
+    <ellipse cx="70" cy="30" rx="15" ry="15" style="fill: rgb(153, 221, 255); stroke: black; stroke-width: 0;"></ellipse>
+    <ellipse cx="65" cy="25" rx="5" ry="5" style="fill: white; stroke: black; stroke-width: 0;"></ellipse>
+    <path d="M 37.321,65.536 L16.786,88.929 Z" fill="transparent" stroke="#ffdd66" stroke-width="11"></path>
+</svg>

@@ -1,0 +1,79 @@
+
+.pathItemWrapper{
+    background-color: #cecece;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    padding-left:5px;
+    position:relative;
+    font-size:8pt;
+}
+
+.pathItemTitleRow{
+    background-color: #cecece;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    position:relative;
+}
+
+.pathItemWrapper:hover, .pathItemTitleRow:hover{
+    background-color: #92ffa4;
+    
+}
+
+.stylesWrapper{
+    background-color: #f6f86d;
+}
+
+.stylesTitle{
+    background-color: #cecece;
+}
+
+.historyItemName{
+    width: auto;
+}
+
+.expandBtn{
+    width:8px;
+    height: 100%;
+    background-color: #fff567;
+    color: black;
+    cursor: pointer;
+}
+
+.expandBtn:hover{
+    background-color: #ffc72e;
+    color: white;
+}
+
+
+.deleteHistory{
+    position: absolute;
+    right:8px;
+    top:0;
+    width: 8px;
+    height: 100%;
+    background-color: #ff6767;
+    color: black;
+    cursor: pointer;
+}
+
+.deleteHistory:hover{
+    background-color: #ff2e2e;
+    color: white;
+}
+
+.elementInfo{
+    margin-left:15px;
+}
+
+
+.pathLoggerWrapper{
+    background-color: #ffb067;
+}
+
+.pathLogItem{
+    background-color: #ffb067;
+    font-size: 8pt;
+}

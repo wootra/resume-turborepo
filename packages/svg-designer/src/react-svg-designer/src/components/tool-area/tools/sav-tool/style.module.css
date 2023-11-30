@@ -1,0 +1,12 @@
+.saveButtonLeft {
+  width: calc(50% - 15px);
+  margin-right: 14px;
+}
+
+.saveButtonLeft {
+  width: 50%;
+}
+
+.buttonContainer {
+  display: flex;
+}

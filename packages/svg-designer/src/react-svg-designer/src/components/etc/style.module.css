@@ -1,0 +1,9 @@
+.normalInputCss{
+    background-color: white;
+    color:black;
+}
+
+.errorInputCss{
+    background-color:pink;
+    color:red;
+}

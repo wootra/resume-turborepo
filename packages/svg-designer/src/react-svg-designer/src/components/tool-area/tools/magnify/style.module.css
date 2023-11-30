@@ -1,0 +1,13 @@
+.magnifyRate{
+    background-color:#fdfdfd;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.magnifier{
+    width:20px;
+    height:20px;
+    margin-top:-5px;
+    margin-bottom:-5px;
+    margin-right:5px;
+}

@@ -1,0 +1,126 @@
+.historyWrapper {
+  font-size: 8pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.historyItemTitleRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+}
+
+.selectedTitle {
+  background-color: #ffaaaa;
+  /* font-weight: 800; */
+  /* outline: 1px solid #4d4918;
+  outline-offset: -2px; */
+}
+
+.unSelectedTitle {
+  background-color: #cecece;
+}
+.historyItemWrapper {
+  background-color: #cecece;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 5px;
+  position: relative;
+}
+
+.historyItemWrapper:hover,
+.historyItemTitleRow:hover {
+  background-color: #92ffa4;
+}
+
+.historyItemWrapperSelected {
+  background-image: linear-gradient(#ffeb92, #ffffff);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 5px;
+  position: relative;
+}
+
+.historyItemTitleRowSelected {
+  background-image: linear-gradient(90deg, #ffddee, #ffffff);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  border: solid 1px #fdaf1e;
+  border-radius: 4px;
+}
+
+.expandBtn {
+  background-color: #fff567;
+  color: black;
+}
+
+.expandBtnSelected {
+  background-color: #efefef;
+  color: black;
+}
+
+.expandBtnSelected:hover {
+  background-color: #efefef;
+  color: black;
+}
+
+.expandBtn:hover {
+  background-color: #ffc72e;
+  color: white;
+}
+
+.expandBtn,
+.expandBtn:hover,
+.expandBtnSelected,
+.expandBtnSelected:hover {
+  cursor: pointer;
+  width: 8px;
+  height: 100%;
+  border: 1px solid #ffaaaa;
+  border-radius: 4px;
+}
+
+.onRight {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  width: 50px;
+  display: flex;
+}
+
+.deleteHistory {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6767;
+  border: solid 1px black;
+  border-radius: 2px;
+}
+
+.deleteHistory:hover {
+  background-color: #ff2e2e;
+  color: white;
+  cursor: pointer;
+}
+
+.upImg,
+.downImg {
+  width: 10px;
+  height: 10px;
+  border: solid 1px black;
+  border-radius: 2px;
+}
+
+.upImg:hover,
+.downImg:hover {
+  cursor: pointer;
+  background-color: yellow;
+}
+
+.downImg {
+  margin-right: 10px;
+}

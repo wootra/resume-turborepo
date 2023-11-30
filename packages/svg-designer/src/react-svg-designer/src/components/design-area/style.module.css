@@ -1,0 +1,65 @@
+.designAreaWrapper {
+    overflow: scroll;
+    position: relative;
+    /* height: calc( 100% - 30px );
+    max-height: calc( 100% -30px ); */
+    z-index: 999999998;
+}
+
+.designAreaWrapper::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.designAreaWrapper::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.designAreaWrapper::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.designAreaWrapper::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    /* background-color: rgba(0, 0, 0, .5); */
+}
+
+.backArea {
+    /* position:absolute; */
+    /* left:0;
+    top:0;
+    z-index: 888;
+    width:100%;
+    height:calc(100% - 30px); */
+}
+
+.actualArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 888;
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.designArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    outline-offset: -1px;
+    outline: 1px solid gray;
+}
+
+.designAreaCover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    outline-offset: -1px;
+    outline: 1px solid gray;
+    z-index: 999999999; /* dock component was using 99999999 */
+}
