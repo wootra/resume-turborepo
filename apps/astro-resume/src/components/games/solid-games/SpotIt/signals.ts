@@ -3,7 +3,7 @@ import type { CardItem } from './types';
 import { useCards } from './CardProvider';
 
 const [cardNo, setCardNo] = createSignal<number>(0);
-const maxImageNo = 51;
+const maxImageNo = 53;
 const cardInfo = (add: Accessor<number>) => {
     const { cards, colors, images } = useCards();
     return createMemo(() => {
@@ -13,7 +13,7 @@ const cardInfo = (add: Accessor<number>) => {
             const imgName = (imageNum % maxImageNo) + 1;
             const imageExt = imgName < 29 ? 'jpg' : 'png';
             return {
-                image: `/images/slapit/${imgName}.${imageExt}`,
+                image: `/images/spotit/${imgName}.${imageExt}`,
                 id: num, // `image-${num}`,
                 color: colors()[parseInt(`${imageNum / maxImageNo}`)],
             } as CardItem;

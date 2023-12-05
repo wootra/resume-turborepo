@@ -1,5 +1,5 @@
 ---
-import SlapIt from '../../components/games/solid-games/SlapIt';
+import SpotIt from '../../components/games/solid-games/SpotIt';
 import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
 import GameLayout from '../../layouts/GameLayout.astro';
@@ -10,12 +10,12 @@ type Info = {
 	languages: string[],
 }
 const info: {[game:string]:Info} = {
-	'slap-it': {
-		title: 'Slap It!',
+	'spot-it': {
+		title: 'Spot It!',
 		languages: ['Solid.js']
 	},
-	'slap-it2': {
-		title: 'Slap It! 2',
+	'spot-it2': {
+		title: 'Spot It! 2',
 		languages: ['React.js']
 	},
 	'snake': {
@@ -33,8 +33,8 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 			<main class="flex flex-col w-full gap-4">
 
 				<div class="flex flex-wrap items-center justify-center gap-4 w-full h-auto">
-					{game === 'slap-it' && <SlapIt client:load />}
-					{game === 'slap-it2' && <SlapIt2 client:load />}
+					{game === 'spot-it' && <SpotIt client:load />}
+					{game === 'spot-it2' && <SlapIt2 client:load />}
 					{game === 'snake' && <SnakeGame client:load />}
 				</div>
 				<div class="w-full flex flex-wrap items-center h-32 bg-slate-300 rounded-md shadow-md">
@@ -50,4 +50,4 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 			</main>
 		</section>
 	</div>
-</GameLayout>
+</GameLayout>../../components/games/solid-games/SpotIt

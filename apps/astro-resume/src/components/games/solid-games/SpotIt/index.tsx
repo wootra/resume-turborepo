@@ -125,7 +125,7 @@ const Score = ({ team }: { team: number }) => {
     );
 };
 
-const SlapIt = () => {
+const SpotIt = () => {
     onMount(() => {
         setScores([0, 0]);
     });
@@ -155,4 +155,4 @@ const SlapIt = () => {
     );
 };
 
-export default SlapIt;
+export default SpotIt;

@@ -5,7 +5,11 @@ const SvgDesigner = () => {
             <p>SVG Designer is a React component for creating SVGs.</p>
             <p>
                 See the{' '}
-                <a href='https://svg-designer-snowy.vercel.app' target='_blank'>
+                <a
+                    className='link'
+                    href='https://svg-designer-snowy.vercel.app'
+                    target='_blank'
+                >
                     SVG Designer
                 </a>{' '}
                 page for more information.
