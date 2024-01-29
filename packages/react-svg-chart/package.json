@@ -52,6 +52,10 @@
         ".": {
             "types": "./dist/index.d.ts",
             "default": "./dist/index.mjs"
+        },
+        "./src": {
+            "types": "./src/index.tsx",
+            "default": "./src/index.tsx"
         }
     },
     "devDependencies": {

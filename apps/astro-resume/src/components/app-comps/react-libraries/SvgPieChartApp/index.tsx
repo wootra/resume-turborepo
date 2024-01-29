@@ -1,5 +1,5 @@
 import { renderToString } from 'react-dom/server';
-import { PieChart } from '@shjeon0730/react-svg-chart';
+import { PieChart } from '@shjeon0730/react-svg-chart/src';
 
 const SvgPieChartApp = () => {
     const svgString = renderToString(
