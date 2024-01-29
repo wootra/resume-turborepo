@@ -33,6 +33,7 @@ export default defineConfig({
                 '**/react-games/**/*',
                 '**/react/**/*',
                 '**/react-apps/**/*',
+                '**/react-libraries/**/*',
             ],
         }),
         // preact({

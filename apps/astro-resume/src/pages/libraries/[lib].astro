@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/AppLayout.astro';
+import SvgPieChartApp from '../../components/app-comps/react-libraries/SvgPieChartApp';
+type Props = {
+	name: string;
+}
+const { lib } = Astro.params;
+let name;
+switch(lib) {
+	case'svg-pie-chart':
+		name = 'SVG Pie Chart'
+		break;
+	default:
+		name = 'SVG Pie Chart'
+		break;
+}
+---
+<Layout title={name} backUrl='/libraries' backText='Apps Home'>
+	<div class="w-full h-full px-8 py-8">
+		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
+			<h1 class="text-3xl">{name}</h1>
+			<main class="flex items-center justify-center flex-row gap-4 w-full h-full flex-wrap">
+				{lib === 'svg-pie-chart' && <SvgPieChartApp client:load/>}
+			</main>
+		</section>
+	</div>
+</Layout>
+<style is:global>
+	.link {
+		color: blue;
+		text-decoration: underline;
+  	}
+</style>../../components/app-comps/react-libraries/PieChart

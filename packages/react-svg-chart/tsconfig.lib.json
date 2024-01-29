@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "jsx": "preserve",
+        "jsxImportSource": "react",
+        "declaration": true,
+        "declarationDir": "./declaration.d.ts",
+        "types": ["react"]
+    },
+    "include": ["src/**/*.{ts,js,tsx,jsx}"],
+    "exclude": ["tests/**/*.{spec,test}.{js,ts,jsx,tsx}"]
+}
