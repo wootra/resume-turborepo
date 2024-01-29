@@ -17,6 +17,36 @@
         "README.md",
         "LICENSE"
     ],
+    "repository": {
+        "type": "https",
+        "url": "https://github.com/wootra/resume-turborepo/tree/main/packages/react-svg-chart"
+    },
+    "keywords": [
+        "react",
+        "react-serverside",
+        "react-serverside-chart",
+        "react-serverside-svg-chart",
+        "svg",
+        "chart",
+        "charting",
+        "chartjs",
+        "charting-library",
+        "charting-library-chartjs",
+        "javascript",
+        "typescript",
+        "reactjs",
+        "react-component",
+        "react-chart",
+        "react-charting",
+        "react-charting-library",
+        "react-charting-library-chartjs",
+        "react-svg",
+        "react-svg-chart",
+        "react-svg-charting",
+        "react-svg-charting-library",
+        "react-svg-charting-library-chartjs",
+        "react-charting"
+    ],
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
