@@ -170,6 +170,15 @@ export const LeftContents: LeftContentsType = Object.freeze({
     achievements: [
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
+                'DFA Custom Chart Architecture',
+                'Created a modularized chart libary to support the company design',
+                'plan, architecture, and implement bar/line chart',
+                `Suggesting a re-usable architecture that works for both PDF and UI. It is started to fix JSDOM memory leak while converting svg from D3 library to Base64 format.
+                Existing code was mixed with html and svg as well as styles from CSS classes which makes impossible to pull SVG image with the same style.
+                Made an algorithm to calculate positioning of labels and chart items. Because of the special way of dealing with labels and baseline in the graph, 
+                this solution includes highly customizable.`
+            ),
+            buildAchievementItem(
                 'Toggle Feature From UI',
                 'improve the internal and pilot user experience to try out the new features',
                 'participating design and architecture, and implement the features',
@@ -603,6 +612,11 @@ export const RightContents: RightContentsType = Object.freeze({
         ],
     },
     volunteers: [
+        buildVolunteer(
+            'Korean Language Teacher',
+            'San Antonio Korean School',
+            'https://www.facebook.com/SanAntonioKoreanSchool/'
+        ),
         buildVolunteer(
             'Vice President',
             'GonAPus ( Amateur Astronomy Club ) in GNU',
