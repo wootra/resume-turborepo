@@ -35,14 +35,14 @@ const DataManager = () => {
                         max={data.length}
                     />
                 </Row>
-                <Row className='grid grid-cols-8'>
+                <Row className='grid grid-cols-8 bg-slate-200'>
                     <span className='text-center col-span-3'>Label</span>
                     <span className='text-center col-span-3'>Percentage</span>
                     <span className='text-center col-span-1'>color</span>
                     <span className='text-center col-span-1'>delete</span>
                 </Row>
             </Column>
-            <Column className='overflow-y-auto h-56'>
+            <Column className='overflow-y-auto h-56 gap-1'>
                 {data.map((d, idx) => {
                     return (
                         <Row className='grid-cols-8' key={d.label + idx}>

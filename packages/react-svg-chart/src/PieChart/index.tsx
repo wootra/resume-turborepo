@@ -37,6 +37,7 @@ export const PieChart: React.FC<PieChartProps> = props => {
                 preserveAspectRatio={getPreserveAspectRatio(props)}
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
+                style={{ overflow: 'visible' }}
             >
                 {renderPie.map((d, idx) => {
                     return (
