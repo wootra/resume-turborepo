@@ -1,3 +1,5 @@
+import React from 'react';
+
 const createD = ({
     radius,
     startAngle,
@@ -62,8 +64,7 @@ const createD = ({
 };
 
 const radius = 100;
-
-export const PieByAngle = (props: {
+type Props = {
     startAngle: number;
     endAngle: number;
     label: string;
@@ -71,7 +72,9 @@ export const PieByAngle = (props: {
     distance?: number;
     yRatio: number;
     innerRadius?: number;
-}) => {
+};
+
+export const PieByAngle: React.FC<Props> = props => {
     const {
         startAngle,
         endAngle,

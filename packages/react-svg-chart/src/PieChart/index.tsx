@@ -5,7 +5,7 @@ import { PieChartProps } from './types';
 import { getPreserveAspectRatio } from './getPreserveAspectRatio';
 import { getPieAngles } from './getPieAngles';
 
-export const PieChart = (props: PieChartProps) => {
+export const PieChart: React.FC<PieChartProps> = props => {
     const {
         width,
         height,
@@ -30,7 +30,8 @@ export const PieChart = (props: PieChartProps) => {
             <svg
                 width={width - padding.l - padding.r}
                 height={height - padding.t - padding.b}
-                transform={`translate(${padding.l}, ${padding.t})`}
+                x={padding.l}
+                y={padding.t}
                 viewBox='-120 -120 240 240'
                 // viewBox={`0 0 ${width / 2} ${height / 2}`}
                 preserveAspectRatio={getPreserveAspectRatio(props)}
