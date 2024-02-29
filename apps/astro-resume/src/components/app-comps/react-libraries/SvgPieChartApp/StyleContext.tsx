@@ -4,6 +4,14 @@ import React, {
     type PropsWithChildren,
     type ReactNode,
 } from 'react';
+
+const defaultStyles = {
+    padding: { l: 10, r: 10, t: 10, b: 10 },
+    innerRadius: 30,
+    distance: 10,
+    xRotate: 20,
+};
+
 const StyleContext = createContext<{
     padding: { l: number; r: number; t: number; b: number };
     setPadding: React.Dispatch<
@@ -16,13 +24,10 @@ const StyleContext = createContext<{
     xRotate: number;
     setXRotate: React.Dispatch<React.SetStateAction<number>>;
 }>({
-    padding: { l: 10, r: 10, t: 10, b: 10 },
+    ...defaultStyles,
     setPadding: () => {},
-    innerRadius: 0,
     setInnerRadius: () => {},
-    distance: 0,
     setDistance: () => {},
-    xRotate: 0,
     setXRotate: () => {},
 });
 
@@ -37,11 +42,11 @@ export const useStyleContext = () => {
 };
 
 export function StyleContextProvider({ children }: PropsWithChildren) {
-    const [padding, setPadding] = useState({ l: 10, r: 10, t: 10, b: 10 });
-    const [innerRadius, setInnerRadius] = useState(0);
+    const [padding, setPadding] = useState(defaultStyles.padding);
+    const [innerRadius, setInnerRadius] = useState(defaultStyles.innerRadius);
 
-    const [distance, setDistance] = useState(0);
-    const [xRotate, setXRotate] = useState(0);
+    const [distance, setDistance] = useState(defaultStyles.distance);
+    const [xRotate, setXRotate] = useState(defaultStyles.xRotate);
 
     return (
         <StyleContext.Provider
