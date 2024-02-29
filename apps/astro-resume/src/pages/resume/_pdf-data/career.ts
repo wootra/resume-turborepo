@@ -16,22 +16,28 @@ export async function createPdfMake() {
     const doc: Content[] = [
         createTitle('Work Experience'),
         {
-            stack: Careers.CAREERS.map((career, idx) => {
-                return [
-                    {
-                        stack: [
-                            buildIndustryAndPosition(career),
-                            buildCompanyInfo(career),
-                            buildRoleInfo(career),
-                            buildTechStack(career),
-                            buildAchievements(career),
-                        ],
-                        margin: [0, 0, 0, 15],
-                    },
-                    idx === 1 ? NEXT_PAGE : null,
-                ].filter(v => v) as Content[];
-            }).flat(),
-            margin: [INDENT_SIZE, 0, 0, 0],
+            table: {
+                widths: [INDENT_SIZE, '*'],
+                dontBreakRows: true,
+
+                body: Careers.CAREERS.map((career, idx) => {
+                    return [
+                        { text: '' },
+                        {
+                            stack: [
+                                buildIndustryAndPosition(career),
+                                buildCompanyInfo(career),
+                                buildRoleInfo(career),
+                                buildTechStack(career),
+                                buildAchievements(career),
+                            ],
+                            margin: [0, 0, 0, 15],
+                        },
+                        // idx === 1 ? NEXT_PAGE : null,
+                    ].filter(v => v) as Content[];
+                }),
+            },
+            layout: 'noBorders',
         },
     ];
     return doc;
