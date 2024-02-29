@@ -16,46 +16,44 @@ export const Styles = () => {
     } = useStyleContext();
 
     return (
-        <Narrow>
-            <Column>
-                <Header>styles</Header>
-                <Row>
-                    <NumberField
-                        label='padding'
-                        value={padding.l}
-                        onChange={num => {
-                            setPadding({
-                                l: num,
-                                r: num,
-                                t: num,
-                                b: num,
-                            });
-                        }}
-                    />
-                </Row>
-                <Row>
-                    <NumberField
-                        label='innerRadius'
-                        value={innerRadius}
-                        onChange={setInnerRadius}
-                    />
-                </Row>
+        <Column>
+            <Header>styles</Header>
+            <Row>
+                <NumberField
+                    label='padding'
+                    value={padding.l}
+                    onChange={num => {
+                        setPadding({
+                            l: num,
+                            r: num,
+                            t: num,
+                            b: num,
+                        });
+                    }}
+                />
+            </Row>
+            <Row>
+                <NumberField
+                    label='innerRadius'
+                    value={innerRadius}
+                    onChange={setInnerRadius}
+                />
+            </Row>
 
-                <Row>
-                    <NumberField
-                        label='distance'
-                        value={distance}
-                        onChange={setDistance}
-                    />
-                </Row>
-                <Row>
-                    <NumberField
-                        label='xRotate'
-                        value={xRotate}
-                        onChange={setXRotate}
-                    />
-                </Row>
-            </Column>
-        </Narrow>
+            <Row>
+                <NumberField
+                    label='distance'
+                    value={distance}
+                    onChange={setDistance}
+                />
+            </Row>
+            <Row>
+                <NumberField
+                    label='xRotate'
+                    value={xRotate}
+                    onChange={setXRotate}
+                />
+            </Row>
+        </Column>
     );
 };

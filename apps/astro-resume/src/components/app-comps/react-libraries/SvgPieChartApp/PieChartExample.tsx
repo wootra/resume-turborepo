@@ -27,30 +27,37 @@ const PieChartExample = () => {
         />
     );
     return (
-        <Column>
-            <h1 className='font-extrabold text-4xl'>Pie Chart</h1>
-            <Row className='basis-[15rem] gap-4'>
-                <Narrow>
-                    <Header>Server Side Support</Header>
-                    <div dangerouslySetInnerHTML={{ __html: svgString }} />
-                </Narrow>
+        <Row>
+            <Column>
+                <h1 className='font-extrabold text-4xl'>Pie Chart</h1>
+                <Row className='basis-[15rem] gap-4'>
+                    <Narrow>
+                        <Header>Server Side Support</Header>
+                        <div dangerouslySetInnerHTML={{ __html: svgString }} />
+                    </Narrow>
 
-                <Narrow>
-                    <Header>Client Side Support</Header>
-                    <PieChart
-                        width={300}
-                        height={300}
-                        type='percentage'
-                        colorSelector={idx => data[idx].color}
-                        data={data}
-                    />
-                </Narrow>
-            </Row>
-            <Row className='gap-4'>
+                    <Narrow>
+                        <Header>Client Side Support</Header>
+                        <PieChart
+                            width={300}
+                            height={300}
+                            type='percentage'
+                            padding={padding}
+                            data={data}
+                            innerRadius={innerRadius}
+                            selectedIndex={selectedIndex}
+                            colorSelector={idx => data[idx].color}
+                            distance={distance}
+                            xRotate={xRotate}
+                        />
+                    </Narrow>
+                </Row>
+            </Column>
+            <Column className='gap-4'>
                 <Styles />
                 <DataManager />
-            </Row>
-        </Column>
+            </Column>
+        </Row>
     );
 };
 

@@ -23,9 +23,9 @@ const DataManager = () => {
         useDataContext();
 
     return (
-        <Narrow>
+        <Column>
+            <Header>data manager</Header>
             <Column>
-                <Header>data manager</Header>
                 <Row>
                     <NumberField
                         label='selectedIndex'
@@ -39,6 +39,8 @@ const DataManager = () => {
                     <span className='text-center'>Label</span>
                     <span className='text-center'>Percentage</span>
                 </Row>
+            </Column>
+            <Column className='overflow-y-auto h-56'>
                 {data.map((d, idx) => {
                     return (
                         <Row className='grid-cols-7' key={d.label + idx}>
@@ -100,31 +102,31 @@ const DataManager = () => {
                         </Row>
                     );
                 })}
-                <Row>
-                    <button
-                        className='p-4 bg-slate-500 text-white rounded-lg'
-                        onClick={() => {
-                            setData(data => [
-                                ...data,
-                                {
-                                    label: 'unlabeled',
-                                    percentage: 0,
-                                    color: colors[data.length % colors.length],
-                                },
-                            ]);
-                        }}
-                    >
-                        ADD
-                    </button>
-                    <button
-                        className='p-4 bg-slate-500 text-white rounded-lg'
-                        onClick={resetData}
-                    >
-                        Reset
-                    </button>
-                </Row>
             </Column>
-        </Narrow>
+            <Row>
+                <button
+                    className='p-4 bg-slate-500 text-white rounded-lg'
+                    onClick={() => {
+                        setData(data => [
+                            ...data,
+                            {
+                                label: 'unlabeled',
+                                percentage: 0,
+                                color: colors[data.length % colors.length],
+                            },
+                        ]);
+                    }}
+                >
+                    ADD
+                </button>
+                <button
+                    className='p-4 bg-slate-500 text-white rounded-lg'
+                    onClick={resetData}
+                >
+                    Reset
+                </button>
+            </Row>
+        </Column>
     );
 };
 
