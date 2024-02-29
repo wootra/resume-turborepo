@@ -35,15 +35,17 @@ const DataManager = () => {
                         max={data.length}
                     />
                 </Row>
-                <Row>
-                    <span className='text-center'>Label</span>
-                    <span className='text-center'>Percentage</span>
+                <Row className='grid grid-cols-8'>
+                    <span className='text-center col-span-3'>Label</span>
+                    <span className='text-center col-span-3'>Percentage</span>
+                    <span className='text-center col-span-1'>color</span>
+                    <span className='text-center col-span-1'>delete</span>
                 </Row>
             </Column>
             <Column className='overflow-y-auto h-56'>
                 {data.map((d, idx) => {
                     return (
-                        <Row className='grid-cols-7' key={d.label + idx}>
+                        <Row className='grid-cols-8' key={d.label + idx}>
                             <input
                                 className='border border-gray border-solid grid col-span-3'
                                 type='text'
@@ -82,7 +84,7 @@ const DataManager = () => {
                                 value={d.percentage}
                             />
                             <input
-                                className='col-span-1'
+                                className='col-span-1 mx-auto'
                                 type='color'
                                 value={d.color}
                                 onChange={e => {
@@ -99,6 +101,19 @@ const DataManager = () => {
                                     );
                                 }}
                             />
+                            <button
+                                type='button'
+                                className='col-span-1 bg-red-500 text-white rounded-lg w-8 mx-auto'
+                                onClick={() => {
+                                    setData(
+                                        data.filter((d1, idx1) => {
+                                            return idx1 !== idx;
+                                        })
+                                    );
+                                }}
+                            >
+                                X
+                            </button>
                         </Row>
                     );
                 })}
