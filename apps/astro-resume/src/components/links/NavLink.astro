@@ -4,9 +4,11 @@ interface Props {
 	className?: string;
     href: string;
     "aria-label"?: string;
+    isNewWindow?: boolean;
 }
 
-const { className, ["aria-label"]:ariaLabel, href } = Astro.props;
+const { className, ["aria-label"]:ariaLabel, href, isNewWindow } = Astro.props;
+const anchorProps = isNewWindow ? {target: '_blank'} : {};
 ---
-<a href={href} class={twMerge("px-2 flex-nowrap whitespace-nowrap hover:scale-125 transition-all", className)} aria-label={ariaLabel}><slot/></a>
+<a href={href} class={twMerge("px-2 flex-nowrap whitespace-nowrap hover:scale-125 transition-all", className)} aria-label={ariaLabel} {...anchorProps}><slot/></a>
 	
