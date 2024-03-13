@@ -1,0 +1,14 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import IndexFirst from '@/components/portfolio/IndexFirst.astro';
+import IndexSecond from '@/components/portfolio/IndexSecond.astro';
+import IndexThird from '@/components/portfolio/IndexThird.astro';
+
+---
+<MainLayout title="home">
+	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
+		<IndexFirst />
+		<IndexSecond />
+		<IndexThird />
+	</div>
+</MainLayout>

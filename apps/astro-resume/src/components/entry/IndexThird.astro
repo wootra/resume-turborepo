@@ -1,0 +1,38 @@
+---
+import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import { twMerge } from 'tailwind-merge';
+const classNames = [
+    twMerge('from-cyan-700/70 to-cyan-500/50'),
+    twMerge('bg-cyan-200/50'),
+    twMerge('to-cyan-700/50 from-cyan-500/30')
+]
+
+---
+<ContentHolder
+    anchorId='third'
+   
+    classNames={classNames}
+    before="#second"
+    after="#final"
+    bgColor="rgb(166, 173, 188)"
+    bgImage="images/mountain.jpg"
+>
+<span class="text-5xl">
+
+    Most likely,
+</span>
+<span>
+
+    I love my job.
+</span>
+<span>
+    I like making dedication
+</span>
+
+<a href="/portfolios" class="underline hover:scale-125 transition-all underline-offset-8">
+    In the production level
+</a>
+
+<img slot="image-area" alt="profile" src="/images/app-screenshots/fund-center.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+
+</ContentHolder>

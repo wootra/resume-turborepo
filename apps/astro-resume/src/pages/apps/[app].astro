@@ -1,21 +1,31 @@
 ---
 import SvgDesigner from '../../components/app-comps/react-apps/SvgDesigner';
+import TodoList from '@/components/app-comps/todo-list/index.astro';
 import Layout from '../../layouts/AppLayout.astro';
-type Props = {
-	name: string;
-}
-const name = "svg designer"
+
 const { app } = Astro.params;
+let name;
+switch(app) {
+	case'svg-pie-chart':
+		name = 'SVG Designer'
+		break;
+	default:
+		name = 'HTMX Todo List'
+		break;
+}
+
 ---
 <Layout title={name} backUrl='/apps' backText='Apps Home'>
-	<div class="w-full h-full px-8 py-8">
+	{app === 'svg-designer' && (<div class="w-full h-full px-8 py-8">
 		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
 			<h1 class="text-3xl">{name}</h1>
 			<main class="flex items-center justify-center flex-row gap-4 w-full h-full flex-wrap">
 				{app === 'svg-designer' && <SvgDesigner client:load/>}
+				
 			</main>
 		</section>
-	</div>
+	</div>)}
+{app === 'todo-list' && <TodoList />}
 </Layout>
 <style is:global>
 	.link {

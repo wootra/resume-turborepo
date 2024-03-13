@@ -30,6 +30,7 @@
         "@types/react-dom": "^18.2.0",
         "@vercel/postgres": "^0.4.1",
         "astro": "^4.0.1",
+        "astro-icon": "^1.1.0",
         "common-data": "workspace:*",
         "node-fetch": "^3.3.2",
         "pdfmake": "^0.2.7",

@@ -1,0 +1,39 @@
+---
+import Nav from '@/components/links/Nav.astro';
+import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import { twMerge } from 'tailwind-merge';
+const colorSets = [
+    twMerge('from-slate-700/70 to-slate-500/50'),
+    twMerge('bg-slate-200/50'),
+    twMerge('to-slate-700/50 from-slate-500/30')
+]
+---
+<ContentHolder
+    anchorId='final'
+    classNames={colorSets}
+    before="#third"
+    after="#first"
+    bgImage="images/mountain.jpg"
+    bgColor="gray"
+>
+            
+<span class="text-5xl">
+
+    Hi!
+</span>
+<span>
+
+    I am Songhyeon Jun
+</span>
+<span>
+    Front-end leaning
+</span>
+<span>
+    Fullstack Senior Engineer
+</span>
+<a href="/resume" class="underline hover:scale-125 transition-all underline-offset-8">
+    resume
+</a>
+
+<img slot="image-area" alt="profile" src="/profile-photo.png" class="flex-shrink rounded-full max-w-[400px] max-h-[400px] object-cover w-full lg:h-auto h-auto aspect-1" />
+</ContentHolder>

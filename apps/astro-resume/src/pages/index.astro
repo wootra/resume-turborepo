@@ -1,11 +1,20 @@
 ---
-import Layout from '../layouts/MainLayout.astro';
-
-import Background from '../components/layout/Background.astro';
-import { cardClass } from '../consts/classes';
+import MainLayout from '@/layouts/MainLayout.astro';
+import IndexFirst from '@/components/entry/IndexFirst.astro';
+import IndexSecond from '@/components/entry/IndexSecond.astro';
+import IndexThird from '@/components/entry/IndexThird.astro';
+import IndexFnal from '@/components/entry/IndexFinal.astro';
 
 ---
-
+<MainLayout title="home">
+	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory overflow-y-auto">
+		<IndexFirst />
+		<IndexSecond />
+		<IndexThird />
+		<IndexFnal />
+	</div>
+</MainLayout>
+<!-- 
 <Layout title="Welcome to Songhueon Jun's resume(Astro)">
 	<div class="w-full h-full px-8 py-8">
 		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-[#ffffff88] py-4 px-4">
@@ -20,10 +29,25 @@ import { cardClass } from '../consts/classes';
 		</section>
 	</div>
 	<Background className="absolute w-full h-full -z-10 top-0"/>
-</Layout>
+</Layout> -->
 
 <style>
-.card {
+	scroll-behavior: smooth;
+	#hero-container {
+		container-type: inline-size;
+		container-name: hero;
+		
+	}
 
-}
+	@container hero (max-height: 500px) {
+		#hero-container .hidden-on-small-container {
+			display: none;
+		}
+	}
+
+
+	.medium-one-font{
+		font-family: 'MadimiOne';
+	}
+
 </style>

@@ -1,0 +1,35 @@
+---
+import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import { twMerge } from 'tailwind-merge';
+const classNames = [
+    twMerge('from-red-700/70 to-red-500/50'),
+    twMerge('bg-red-200/50'),
+    twMerge('to-red-700/50 from-red-500/30')
+]
+---
+<ContentHolder
+    anchorId='second'
+    classNames={classNames}
+    before="#first"
+    after="#third"
+    bgColor="rgb(206, 157, 199)"
+    bgImage="/images/nasa-star-night.jpg"
+>
+<div class="flex flex-col w-full h-full overflow-y-auto">
+
+    <span class="text-5xl">
+
+        Yes,
+    </span>
+    <span>
+    
+        I can do boring things.
+    </span>
+    <span>
+        And I am pretty good at it.
+    </span>
+</div>
+
+<img slot="image-area" alt="profile" src="/images/app-screenshots/svg-designer.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+
+</ContentHolder>

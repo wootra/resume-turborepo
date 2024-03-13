@@ -1,0 +1,25 @@
+--- 
+import {twMerge} from 'tailwind-merge';
+interface Props {
+	className?: string;
+	bgImage?: string;
+	snapScroll?: boolean;
+	bgColor?: string;
+}
+
+const { className, bgImage, snapScroll, bgColor } = Astro.props;
+let style = bgImage ? `background-image:url("${bgImage}")`: '';
+style = bgColor ? `${style};--bgColor:${bgColor}`: style;
+---
+<div class={twMerge("w-[100vw] h-[100vh] flex flex-col justify-center items-center", className, snapScroll && 'snap-center')} id="center-full" style={style}>
+	<slot />
+</div>
+	
+<style type="text/css">
+	#center-full {
+		background-size: cover;
+		background-color: var(--bgColor, rgb(174, 161, 19));
+		/* background-color: rgb(166, 173, 188); */
+		background-blend-mode: color-burn;
+	}
+</style>

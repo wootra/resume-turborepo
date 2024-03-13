@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 // import preact from '@astrojs/preact';
 // import image from '@astrojs/image';
 import vercel from '@astrojs/vercel/serverless';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,5 +41,6 @@ export default defineConfig({
         //     compat: true,
         // }),
         svelte({}),
+        icon(),
     ],
 });
