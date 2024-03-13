@@ -1,8 +1,8 @@
 ---
-import TodoList from '../../components/todo-list/TodoList.astro';
-import type { Todo } from '../../components/todo-list/types';
-import Layout from '../../layouts/TodoLayout.astro';
-import { getTodos } from "../../components/todo-list/todo-utils";
+import TodoList from '@/components/app-comps/todo-list/TodoList.astro';
+import type { Todo } from '@/components/app-comps/todo-list/types';
+import Layout from '@/layouts/TodoLayout.astro';
+import { getTodos } from "@/components/app-comps/todo-list/todo-utils";
 
 const req = Astro.request;
 const emailFromQuery = new URL(req.url).searchParams.get('email');

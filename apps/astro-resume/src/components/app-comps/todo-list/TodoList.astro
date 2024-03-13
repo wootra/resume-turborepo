@@ -12,7 +12,7 @@ const {
 ---
 <div id='todo-list'>
     <form
-        hx-post='/todo-list/todo'
+        hx-post='/apps/todo-list/todo'
         hx-target='#todo-list'
         hx-swap='outerHTML transition:true'
     >
@@ -34,11 +34,11 @@ const {
         />
     </form>
     <ul class='py-4'>
-        {todos.map(todo => (
-            <li class='flex gap-2'>
+        {todos.map(todo => {
+            return (<li class='flex gap-2'>
                 <input
                     type='checkbox'
-                    hx-post='/todo-list/remove'
+                    hx-post='/apps/todo-list/remove'
                     name='todo-item'
                     value={todo.id}
                     id={todo.id}
@@ -49,8 +49,8 @@ const {
                 <label for={todo.id} class='cursor-pointer'>
                     {todo.text}
                 </label>
-            </li>
-        ))}
+            </li>)
+        })}
     </ul>
 </div>
 

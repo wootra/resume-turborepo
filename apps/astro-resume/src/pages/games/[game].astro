@@ -2,7 +2,7 @@
 import SpotIt from '../../components/games/solid-games/SpotIt';
 import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
-import GameLayout from '../../layouts/GameLayout.astro';
+import GameLayout from '@/layouts/GameLayout.astro';
 
 const { game } = Astro.params;
 type Info = {
@@ -26,7 +26,7 @@ const info: {[game:string]:Info} = {
 const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 ---
 
-<GameLayout title={name} backUrl='/games' backText='Game Home'>
+<GameLayout title={name} backUrl='/apps' backText='App Home'>
 	<div class="w-full h-full p-2 md:p-8">
 		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
 			<h1 class="text-3xl fixed md:block top-3 right-3 bg-white rounded-md bg-opacity-70 p-4 outline outline-slate-500">{name}</h1>
@@ -50,4 +50,4 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 			</main>
 		</section>
 	</div>
-</GameLayout>../../components/games/solid-games/SpotIt
+</GameLayout>

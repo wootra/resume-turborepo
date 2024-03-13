@@ -1,10 +1,142 @@
 ---
-import Background from '../../components/layout/Background.astro';
-import { cardClass } from '../../consts/classes';
-import Layout from '../../layouts/AppLayout.astro';
+import { twMerge } from 'tailwind-merge';
+import AppHolder from '@/layouts/sublayouts/AppHolder.astro';
+import Nav from '@/components/links/Nav.astro';
+import AppLayout from '@/layouts/AppLayout.astro';
+import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
+import { Icon } from 'astro-icon/components'
+const colorThemes = [
+	[
+		twMerge('from-slate-700/70 to-slate-500/50'),
+		twMerge('bg-slate-200/50'),
+		twMerge('to-slate-700/50 from-slate-500/30')
+	],
+	[
+		twMerge('from-red-700/70 to-red-500/50'),
+		twMerge('bg-red-200/50'),
+		twMerge('to-red-700/50 from-red-500/30')
+	],
+	[
+		twMerge('from-cyan-700/70 to-cyan-500/50'),
+		twMerge('bg-cyan-200/50'),
+		twMerge('to-cyan-700/50 from-cyan-500/30')
+	],
+	[
+		twMerge('from-lime-700/70 to-lime-500/50'),
+		twMerge('bg-lime-200/50'),
+		twMerge('to-lime-700/50 from-lime-500/30')
+	]
+];
+const bgThemes = [
+	"gray", 
+	"rgb(206, 157, 199)",
+	"rgb(166, 173, 188)",
+	"rgb(174, 161, 19)",
+]
+
+const portfolios = [
+	{
+		id:'svg-designer',
+		title: 'SVG Designer',
+		techStacks: 'React.js 16, SVG, Canvas',
+		desc: 'A simple tool to create SVG image on Web.',
+		href: "https://svg-designer-snowy.vercel.app/",
+		src: "/images/app-screenshots/svg-designer.png",
+		github: "https://github.com/wootra/react-svg-designer",
+	},
+	{
+		id:'todo-list',
+		title: 'HTMX Todo list',
+		techStacks: 'HTMX',
+		desc: 'A toy project to play with HTMX',
+		href: "/apps/todo-list",
+		src: "/images/app-screenshots/todo-list.png",
+		github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/app-comps/todo-list',
+	},
+	{
+		id:'snake-game',
+		title: 'Snake Game',
+		techStacks:"Solid.js, Canvas", 
+		desc: 'A Simple toy project to test AI generated code. I hade to make a lot of adjustments to fix the bugs for many different situation.',
+		href: "/games/snake",
+		src: "/images/app-screenshots/snake-game.png",
+		github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/solid-games/SnakeGame',
+	},
+	{
+		id:'spot-it-game',
+		title: 'Spot It! Game',
+		techStacks: 'Solid.js',
+		desc: 'Reproduction of a famous board game Spot It. Algorithm of the game is extremly complex. It took a lot of time for me to figure out the algorithm of the game.',
+		href: "/games/spot-it",
+		src: "/images/app-screenshots/spot-it.png",
+		github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/solid-games/SpotIt'
+	},
+	{
+		id:'spot-it-game2',
+		title: 'Spot It! React Version',
+		techStacks: 'React.js, D3',
+		desc: 'WIP',
+		href: "/games/spot-it2",
+		src: "/images/app-screenshots/spot-it.png"
+	},
+];
 
 ---
+<AppLayout title="home" backText='Home' backUrl='/'>
+	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
+		{portfolios.map((item, idx)=>{
+			const {id, href, src, title, desc, techStacks, github} = item;
+			const bgColor = bgThemes[idx% bgThemes.length];
+			const colorTheme = colorThemes[idx % colorThemes.length];
+			const before = idx === 0? undefined : `#${portfolios[idx-1].id}`;
+			const after = `#${portfolios[(idx+1)%portfolios.length].id}`;
+			return (
 
+				<AppHolder
+					anchorId={id}
+					classNames={colorTheme}
+					before={before}
+					after={after}
+					bgColor={bgColor}
+					bgImage="/images/nasa-star-night.jpg"
+				> 
+					{
+						idx === 0 && <Nav slot="nav-area" className="absolute pl-[2rem] top-0 right-0 rounded-bl-[3rem] bg-white/30 z-50 py-2"/>
+					}
+					<PortfolioLayout>
+						<h1 class="text-3xl flex flex-row gap-2">
+							{title}
+							{github && 
+								<a href={github} target="_blank" slot="image-area" >
+									<Icon name="github" class="w-8 h-8"/>
+								</a>
+							}
+						</h1>
+
+						<section>
+							<h2 class="text-lg text-slate-300">Tech stacks</h2>
+							<p class="text-sm">{techStacks} </p>
+						</section>
+						
+						<section class="text-sm">  
+							<h2 class="text-lg text-slate-300">Description</h2>
+							<p class="text-sm">{desc}</p>
+						</section>
+						
+							
+							
+					</PortfolioLayout>
+					{href && src && (
+						<a href={href} target="_blank" slot="image-area" >
+							<img alt="profile" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+						</a>
+					)}
+				</AppHolder>
+			)
+		})}
+	</div>
+</AppLayout>
+<!-- 
 <Layout title="Apps">
 	<div class="w-full h-full px-8 py-8">
 		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-[#ffeeee88] py-4 px-4">
@@ -16,4 +148,4 @@ import Layout from '../../layouts/AppLayout.astro';
 		</section>
 	</div>
 	<Background className="absolute w-full h-full -z-10 top-0"/>
-</Layout>
+</Layout> -->

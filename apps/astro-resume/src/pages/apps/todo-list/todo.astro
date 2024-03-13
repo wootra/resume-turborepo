@@ -1,7 +1,7 @@
 ---
-import TodoList from "../../components/todo-list/TodoList.astro";
-import { getTodos } from "../../components/todo-list/todo-utils";
-import type { Todo } from "../../components/todo-list/types";
+import TodoList from "@/components/app-comps/todo-list/TodoList.astro";
+import { getTodos } from "@/components/app-comps/todo-list/todo-utils";
+import type { Todo } from "@/components/app-comps/todo-list/types";
 import { createPool } from "@vercel/postgres";
 
 const req = Astro.request;

@@ -1,0 +1,54 @@
+---
+import { twMerge } from 'tailwind-merge';
+import CenterFullLayout from './CenterFullLayout.astro';
+import FlexCenterLayout from './FlexCenterLayout.astro';
+import FlexRightLayout from './FlexRightLayout.astro';
+import { Icon } from 'astro-icon/components'
+const colorSetsDefault = [
+    twMerge('from-lime-700/70 to-lime-500/50'),
+    twMerge('bg-lime-200/50'),
+    twMerge('to-lime-700/50 from-lime-500/30')
+]
+interface Props {
+	before?: string,
+    after?: string,
+    classNames?: string[],
+    bgColor?: string;
+    bgImage?: string;
+    anchorId: string;
+}
+
+const { before, after, classNames:colorSetsFromProps, bgColor = "rgb(174, 161, 19)", bgImage: bgImageFromProps, anchorId } = Astro.props;
+const colorSets = colorSetsFromProps ?? colorSetsDefault
+const bgImage = bgImageFromProps ?? "/images/nasa-star-night.jpg";
+
+---
+
+<CenterFullLayout snapScroll className={twMerge("bg-gradient-to-br p-8 relative", colorSets[0])} bgImage={bgImage} bgColor={bgColor}>
+    <div id={anchorId} class="absolute left-0 top-0 w-1 h-1"></div>
+    <FlexCenterLayout className={twMerge("rounded-3xl max-w-[1024px] max-h-[768px] m-auto w-full h-full shadow-lg p-1", colorSets[1])}>
+        <FlexCenterLayout className={twMerge("rounded-3xl max-w-[1024px] max-h-[768px] m-auto bg-gradient-to-br  w-full h-full shadow-inner relative overflow-hidden", colorSets[2])}>
+            <slot name="nav-area" />
+            <div class="w-full h-[calc(100%-4rem)] grid grid-rows-[1fr,8rem] md:grid-rows-none md:grid-cols-2 medium-one-font relative">
+                <FlexRightLayout className="hidden md:flex col-span-1 text-2xl px-4 text-white gap-5 z-10 drop-shadow-lg">
+                   <slot />
+                </FlexRightLayout>
+                <FlexCenterLayout className="md:col-span-1 row-auto md:pt-0">
+                    <slot name="image-area" />
+                </FlexCenterLayout>
+                <FlexCenterLayout className="md:hidden md:col-span-1 absolute bottom-0 inset-x-0 min-h-[5rem] ">
+                    <FlexCenterLayout className="text-2xl text-white drop-shadow-lg bg-black/40 rounded-md p-4">
+                        <slot />
+                    </FlexCenterLayout>
+                </FlexCenterLayout>
+            </div>
+            {before && <a href={before} class="absolute flex flex-row justify-center items-center top-0 inset-x-0 h-8 z-40">
+                <Icon name="arrow-down" class="w-4 h-4 text-white rotate-180"/>
+            </a>}
+            {after && <a href={after} class="absolute flex flex-row justify-center items-center bottom-0 inset-x-0 h-8 z-40 animate-ping duration-1000">
+                <Icon name="arrow-down" class="w-4 h-4 text-white"/>
+            </a>}
+            
+        </FlexCenterLayout>
+    </FlexCenterLayout>
+</CenterFullLayout>
