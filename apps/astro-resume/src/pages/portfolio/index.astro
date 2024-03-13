@@ -1,14 +1,97 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
-import IndexFirst from '@/components/portfolio/IndexFirst.astro';
-import IndexSecond from '@/components/portfolio/IndexSecond.astro';
-import IndexThird from '@/components/portfolio/IndexThird.astro';
+import SanAntonioKoreanSchool from '@/components/portfolio/SanAntonioKoreanSchool.astro';
+import DimensionalFundCenter from '@/components/portfolio/DimensionalFundCenter.astro';
+import SmallBusinessInsurance from '@/components/portfolio/SmallBusinessInsurance.astro';
+import FinancialReadiness from '@/components/portfolio/FinancialReadiness.astro';
+import { twMerge } from 'tailwind-merge';
+import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import Nav from '@/components/links/Nav.astro';
+import AppLayout from '@/layouts/AppLayout.astro';
+const colorThemes = [
+	[
+		twMerge('from-slate-700/70 to-slate-500/50'),
+		twMerge('bg-slate-200/50'),
+		twMerge('to-slate-700/50 from-slate-500/30')
+	],
+	[
+		twMerge('from-red-700/70 to-red-500/50'),
+		twMerge('bg-red-200/50'),
+		twMerge('to-red-700/50 from-red-500/30')
+	],
+	[
+		twMerge('from-cyan-700/70 to-cyan-500/50'),
+		twMerge('bg-cyan-200/50'),
+		twMerge('to-cyan-700/50 from-cyan-500/30')
+	],
+	[
+		twMerge('from-lime-700/70 to-lime-500/50'),
+		twMerge('bg-lime-200/50'),
+		twMerge('to-lime-700/50 from-lime-500/30')
+	]
+];
+const bgThemes = [
+	"gray", 
+	"rgb(206, 157, 199)",
+	"rgb(166, 173, 188)",
+	"rgb(174, 161, 19)",
+]
 
+const portfolios = [
+	{
+		id:'san-antonio-korean-school',
+		element: SanAntonioKoreanSchool,
+		href: "https://sa-korean-school.vercel.app",
+		src: "/images/app-screenshots/sakr-home.png"
+	},
+	{
+		id:'dimensional-fund-center',
+		element: DimensionalFundCenter,
+		href: "https://www.dimensional.com/us-en/funds/dcor/us-core-equity-1-etf",
+		src: "/images/app-screenshots/fund-center.png"
+	},
+	{
+		id:'small-business-insurance',
+		element: SmallBusinessInsurance,
+		href: 'https://www.usaa.com/insurance/small-business',
+		src: "/images/app-screenshots/small-business-insurance.png",
+	},
+	{
+		id: 'financial-readiness',
+		element: FinancialReadiness,
+		href: 'https://mobile.usaa.com/advice/financial-readiness?akredirect=true',
+		src: '/images/app-screenshots/usaa-financial-readiness.png',
+	}
+]
 ---
-<MainLayout title="home">
+<AppLayout title="home" backText='Home' backUrl='/'>
 	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
-		<IndexFirst />
-		<IndexSecond />
-		<IndexThird />
+		{portfolios.map((item, idx)=>{
+			const {id, element:Element, href, src} = item;
+			const bgColor = bgThemes[idx% bgThemes.length];
+			const colorTheme = colorThemes[idx % colorThemes.length];
+			const before = idx === 0? undefined : `#${portfolios[idx-1].id}`;
+			const after = `#${portfolios[(idx+1)%portfolios.length].id}`;
+			return (
+
+				<ContentHolder
+					anchorId={id}
+					classNames={colorTheme}
+					before={before}
+					after={after}
+					bgColor={bgColor}
+					bgImage="/images/nasa-star-night.jpg"
+				> 
+					{
+						idx === 0 && <Nav slot="nav-area" className="absolute pl-[2rem] top-0 right-0 rounded-bl-[3rem] bg-white/30 z-50 py-2"/>
+					}
+					<Element />
+					{href && src && (
+						<a href={href} target="_blank" slot="image-area" >
+							<img alt="profile" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+						</a>
+					)}
+				</ContentHolder>
+			)
+		})}
 	</div>
-</MainLayout>
+</AppLayout>
