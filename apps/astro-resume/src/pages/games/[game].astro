@@ -33,9 +33,9 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 			<main class="flex flex-col w-full gap-4">
 
 				<div class="flex flex-wrap items-center justify-center gap-4 w-full h-auto">
-					{game === 'spot-it' && <SpotIt client:load />}
-					{game === 'spot-it2' && <SlapIt2 client:load />}
-					{game === 'snake' && <SnakeGame client:load />}
+					{game === 'spot-it' && <SpotIt client:only="solid" />}
+					{game === 'spot-it2' && <SlapIt2 client:only="react" />}
+					{game === 'snake' && <SnakeGame client:only="solid" />}
 				</div>
 				<div class="w-full flex flex-wrap items-center h-32 bg-slate-300 rounded-md shadow-md">
 					<div>
