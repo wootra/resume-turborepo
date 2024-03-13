@@ -1,12 +1,15 @@
 ---
 import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
-
+import {Icon } from 'astro-icon/components'
 ---
 
 <PortfolioLayout>
 
-    <h1 class="text-3xl">
-        San Antonio Korean School Homepage
+    <h1 class="text-3xl flex flex-row gap-2">
+        San Antonio Korean School Homepage 
+        <a href="https://github.com/wootra/sa-korean-school" target="_blank">
+            <Icon name="github" class="w-8 h-8"/>
+        </a>
     </h1>
 
     <section>
