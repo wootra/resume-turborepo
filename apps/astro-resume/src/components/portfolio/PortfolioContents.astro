@@ -1,0 +1,49 @@
+---
+import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
+import MultiLineParagraph from '@/layouts/sublayouts/MultiLineParagraph.astro';
+import SourceRenderer from '@/utils/SourceRenderer.astro';
+import SpaceSeparator from '@/layouts/sublayouts/SpaceSeparator.astro';
+
+interface Props {
+    title: string;
+    desc: string;
+    techStacks: string;
+    devTechStacks?: string;
+    myRole: string;
+    github?: string;
+    gitlab?: string;
+    npm?: string;
+}
+const {title, desc, techStacks, devTechStacks, myRole, github,gitlab,npm} = Astro.props;
+---
+<PortfolioLayout>
+    <h1 class="text-3xl flex flex-row gap-2 flex-wrap">
+        <SpaceSeparator>{title}</SpaceSeparator>
+        <SourceRenderer 
+            github={github}
+            gitlab={gitlab}
+            npm={npm}
+        />
+    </h1>
+
+    <section>
+        <h2 class="text-lg text-slate-300">Tech stacks</h2>
+        <MultiLineParagraph className="text-sm">{techStacks}</MultiLineParagraph>
+    </section>
+    {devTechStacks && (
+        <section>
+            <h2 class="text-lg text-slate-300">Tech stacks(Dev)</h2>
+            <p class="text-sm">{devTechStacks}</p>
+        </section>
+    )}
+    <section class="text-sm">  
+        <h2 class="text-lg text-slate-300">Description</h2>
+        <MultiLineParagraph className="text-sm">{desc}</MultiLineParagraph>
+    </section>
+    
+    <section class="text-sm">  
+        <h2 class="text-lg text-slate-300">My Role</h2>
+        <MultiLineParagraph className="text-sm">{myRole}</MultiLineParagraph>
+    </section>
+        
+</PortfolioLayout> 
