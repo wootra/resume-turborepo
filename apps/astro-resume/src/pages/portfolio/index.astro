@@ -1,8 +1,4 @@
 ---
-import SanAntonioKoreanSchool from '@/components/portfolio/SanAntonioKoreanSchool.astro';
-import DimensionalFundCenter from '@/components/portfolio/DimensionalFundCenter.astro';
-import SmallBusinessInsurance from '@/components/portfolio/SmallBusinessInsurance.astro';
-import FinancialReadiness from '@/components/portfolio/FinancialReadiness.astro';
 import { twMerge } from 'tailwind-merge';
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
 import Nav from '@/components/links/Nav.astro';
@@ -10,6 +6,9 @@ import AppLayout from '@/layouts/AppLayout.astro';
 import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
 import ImageLinkRenderer from '@/utils/ImageLinkRenderer.astro';
 import MultiLineParagraph from '@/layouts/sublayouts/MultiLineParagraph.astro';
+import SourceRenderer from '@/utils/SourceRenderer.astro';
+import SpaceSeparator from '@/layouts/sublayouts/SpaceSeparator.astro';
+import { Icon } from 'astro-icon/components'
 
 const colorThemes = [
 	[
@@ -43,25 +42,47 @@ const bgThemes = [
 const portfolios = [
 	{
 		id:'san-antonio-korean-school',
-		element: SanAntonioKoreanSchool,
+		title: 'San Antonio Korean School Homepage',
+		github: 'https://github.com/wootra/sa-korean-school',
+		gitlab: '',
+		npm: '',
+		techStacks: 'Next.js 14(app router), Tailwindcss, shadcn/ui, Stripe, Google Sheet API',
+		desc: ` San Antonio Korean School wanted to improve existing homepage.
+        Implemented SSG first pages using Google Sheets API for the contents update.
+        Full server side generated Navigation system, payment system using stripe API.`,
+		myRole: 'A-Z, Design / Architecture / Implementation / Testing ',
 		href: "https://sa-korean-school.vercel.app",
 		src: "/images/app-screenshots/sakr-home.png"
 	},
 	{
 		id:'dimensional-fund-center',
-		element: DimensionalFundCenter,
+		title: 'Dimensional Fund Center / Model Center / SMA Center',
+		techStacks: 'React.js 16~18, React Router 5, D3, PDFMake, Express.js, Sitecore-CMS, Jotai 1/2',
+		devTechStacks: 'Vite, Jest, RTL, Playwright, Docker, Bitbucket/Github, Jenkins',
+		desc: 'For the fund advisors, DFA offers multiple ways of analyzation and visualization.',
+		myRole: `Development/Debug/Testing over Fund Center & Model Center & SMA Center.
+        Leading Unit/e2e/Manual testing process / Code Review
+        Optimizations on performance, readability, management`,
 		href: "https://www.dimensional.com/us-en/funds/dcor/us-core-equity-1-etf",
 		src: "/images/app-screenshots/fund-center.png"
 	},
 	{
 		id:'small-business-insurance',
-		element: SmallBusinessInsurance,
+		title: 'Small Business Insurance',
+		techStacks: 'React.js 16(Hook, Context), ReduxToolkit, React Router 5, Guidewire, Java',
+		devTechStacks: 'Chai, Mocha, sinon, RTL, Storybook, Cypress, Mockito, Spring Framework',
+		desc: 'Created the join/maintain process of Small business Insurance',
+		myRole: 'Leading Frontend team, Cowork with BE team as co-leader.',
 		href: 'https://www.usaa.com/insurance/small-business',
 		src: "/images/app-screenshots/small-business-insurance.png",
 	},
 	{
 		id: 'financial-readiness',
-		element: FinancialReadiness,
+		title: 'USAA Financial Readiness Assessments',
+		techStacks: 'React.js 15,16(Class, Hook), Redux, React Router 4, MS-DB2, Java',
+		devTechStacks: 'Chai, Mocha, sinon, Enzyme, Selenium, Mockito, Spock, Jax-RS(RestAPI)',
+		desc: 'Created a process for Financial Readiness Assessment and analyzations',
+		myRole: 'Develop/Debug/Architecture on both FE and BE',
 		href: 'https://mobile.usaa.com/advice/financial-readiness?akredirect=true',
 		src: '/images/app-screenshots/usaa-financial-readiness.png',
 	}
@@ -79,6 +100,9 @@ const portfoliosInKr = [
 		With realtime data using UDP communication.`,
 		src: "/images/app-screenshots/ligntening.png",
 		myRole: "Design/Architecture/Development on Client Application",
+		github: '',
+		gitlab: '',
+		npm: '',
 	},
 	{
 		id:'global-report',
@@ -87,8 +111,8 @@ const portfoliosInKr = [
 		desc: `Converting manual reporting process to automated report process
 		reducing reporting time dramatically.
 		Introducing MV model (Model/View)
-		View/Print/PDF generation
-		`,
+		View/Print/PDF generation`,
+		github: 'https://github.com/wootra/GlobalReporter',
 		href: 'https://github.com/wootra/GlobalReporter',
 		src: ["/images/app-screenshots/global-report.png", "/images/app-screenshots/global-report2.png", ],
 		myRole: 'A-Z, Plan, Introducing MV concept, Architecture, Design, Implement',
@@ -190,7 +214,7 @@ const portfoliosInKr = [
 	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
 		
 		{portfolios.map((item, idx)=>{
-			const {id, element:Element, href, src} = item;
+			const {id, src, title, desc, techStacks, devTechStacks, myRole, href, github,gitlab,npm} = item;
 			const bgColor = bgThemes[idx% bgThemes.length];
 			const colorTheme = colorThemes[idx % colorThemes.length];
 			const before = idx === 0? undefined : `#${portfolios[idx-1].id}`;
@@ -208,17 +232,50 @@ const portfoliosInKr = [
 					{
 						idx === 0 && <Nav slot="nav-area" className="absolute pl-[2rem] top-0 right-0 rounded-bl-[3rem] bg-white/30 z-50 py-2"/>
 					}
-					<Element />
-					{href && src && (
-						<a href={href} target="_blank" slot="image-area" >
-							<img alt="profile" loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
-						</a>
-					)}
+					{ idx !== 0 && <div slot="nav-area" class="absolute flex flex-row justify-end items-center top-0 right-4 h-8 z-40">
+							<a href={`#${portfolios[0].id}`} class="h-8 flex justify-center items-center text-white text-xs gap-2">
+								TOP<Icon name="arrow-down" class="w-4 h-4 rotate-180"/>
+							</a>
+						</div>
+					}
+
+					<PortfolioLayout>
+						<h1 class="text-3xl flex flex-row gap-2 flex-wrap">
+							<SpaceSeparator>{title}</SpaceSeparator>
+							<SourceRenderer 
+								github={github}
+								gitlab={gitlab}
+								npm={npm}
+							/>
+						</h1>
+
+						<section>
+							<h2 class="text-lg text-slate-300">Tech stacks</h2>
+							<MultiLineParagraph className="text-sm">{techStacks}</MultiLineParagraph>
+						</section>
+						{devTechStacks && (
+							<section>
+								<h2 class="text-lg text-slate-300">Tech stacks(Dev)</h2>
+								<p class="text-sm">{devTechStacks}</p>
+							</section>
+						)}
+						<section class="text-sm">  
+							<h2 class="text-lg text-slate-300">Description</h2>
+							<MultiLineParagraph className="text-sm">{desc}</MultiLineParagraph>
+						</section>
+						
+						<section class="text-sm">  
+							<h2 class="text-lg text-slate-300">My Role</h2>
+							<MultiLineParagraph className="text-sm">{myRole}</MultiLineParagraph>
+						</section>
+							
+					</PortfolioLayout>
+					<ImageLinkRenderer slot="image-area" href={href} src={src} />
 				</ContentHolder>
 			)
 		})}
 		{portfoliosInKr.map((item, idx)=>{
-			const {id, src, title, desc, techStacks, myRole, href} = item;
+			const {id, src, title, desc, techStacks, myRole, href, github, gitlab, npm} = item;
 			const bgColor = bgThemes[idx% bgThemes.length];
 			const colorTheme = colorThemes[idx % colorThemes.length];
 			const before = idx === 0? undefined : `#${portfoliosInKr[idx-1].id}`;
@@ -231,12 +288,23 @@ const portfoliosInKr = [
 					before={before}
 					after={after}
 					bgColor={bgColor}
-					bgImage="/images/game-back.jpg"
+					bgImage="/images/nasa-star-night.jpg"
 				> 
 				<heading slot="location" class="absolute left-4 top-4 text-sm text-white/40">@KR</heading>
+					<div slot="nav-area" class="absolute flex flex-row justify-end items-center top-0 right-4 h-8 z-40">
+						<a href={`#${portfolios[0].id}`} class="h-8 flex justify-center items-center text-white text-xs gap-2 z-40">
+							TOP<Icon name="arrow-down" class="w-4 h-4 rotate-180"/>
+						</a>
+					</div>
 					<PortfolioLayout>
-						<h1 class="text-3xl flex flex-row gap-2">
-							{title}
+						<h1 class="text-3xl flex flex-row gap-2  flex-wrap">
+							<SpaceSeparator>{title}</SpaceSeparator>
+							
+							<SourceRenderer 
+								github={github}
+								gitlab={gitlab}
+								npm={npm}
+							/>
 						</h1>
 
 						<section>

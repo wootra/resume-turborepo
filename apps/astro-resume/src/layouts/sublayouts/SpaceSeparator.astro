@@ -1,0 +1,28 @@
+---
+
+interface Props {
+    className?: string,
+    tag?: 'span'|'p'|'div',
+}
+
+const { className, tag:Tag = 'span' } = Astro.props;
+const slot = await Astro.slots.render('default');
+let multiWords:string[] = [];
+let node = null;
+
+if(typeof slot === 'string'){
+    multiWords = slot.split(' ').filter(v=>v);
+}else{
+    node = slot;
+}
+---
+{multiWords.map(txt=>(
+    <Tag class={className}>
+        {txt}
+    </Tag>
+))}
+{node && (
+     <Tag class={className}>
+        {node}
+    </Tag>
+)}

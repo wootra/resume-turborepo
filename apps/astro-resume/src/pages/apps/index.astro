@@ -5,6 +5,8 @@ import Nav from '@/components/links/Nav.astro';
 import AppLayout from '@/layouts/AppLayout.astro';
 import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
 import { Icon } from 'astro-icon/components'
+import SourceRenderer from '@/utils/SourceRenderer.astro';
+import SpaceSeparator from '@/layouts/sublayouts/SpaceSeparator.astro';
 const colorThemes = [
 	[
 		twMerge('from-slate-700/70 to-slate-500/50'),
@@ -119,22 +121,14 @@ const portfolios = [
 					}
 					<PortfolioLayout>
 						<h1 class="text-3xl flex flex-row gap-2">
-							{title}
-							{github && 
-								<a href={github} target="_blank">
-									<Icon name="github" class="w-8 h-8"/>
-								</a>
-							}
-							{gitlab && 
-								<a href={gitlab} target="_blank">
-									<Icon name="gitlab" class="w-8 h-8"/>
-								</a>
-							}
-							{npm && 
-								<a href={npm} target="_blank">
-									<Icon name="npm" class="w-8 h-8"/>
-								</a>
-							}
+							<SpaceSeparator>{title}</SpaceSeparator>
+							
+							<SourceRenderer 
+								github={github}
+								gitlab={gitlab}
+								npm={npm}
+							/>
+							
 						</h1>
 
 						<section>
@@ -163,16 +157,3 @@ const portfolios = [
 		})}
 	</div>
 </AppLayout>
-<!-- 
-<Layout title="Apps">
-	<div class="w-full h-full px-8 py-8">
-		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-[#ffeeee88] py-4 px-4">
-			<h1 class="text-3xl">App List</h1>
-			<main class="flex items-center justify-center flex-row gap-4 w-full h-full flex-wrap">
-				<a href="/apps/svg-designer" class={cardClass}>Svg Designer</a>
-				<a href="/apps/todo-list" class={cardClass}>Todo List</a>
-			</main>
-		</section>
-	</div>
-	<Background className="absolute w-full h-full -z-10 top-0"/>
-</Layout> -->
