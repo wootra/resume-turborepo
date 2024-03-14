@@ -1,6 +1,7 @@
 ---
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
 import UpperCaseLink from '@/utils/UpperCaseLink.astro';
+import GamificBackground from './GamificBackground';
 import { twMerge } from 'tailwind-merge';
 const colorSets = [
     twMerge('from-red-700/70 to-red-500/50'),
@@ -16,6 +17,7 @@ const colorSets = [
     bgColor="rgb(206, 157, 199)"
     bgImage="images/mountain.jpg"
 >
+<GamificBackground slot="image-area" client:only="react"/>
 <span class="text-5xl">
 
     And,
