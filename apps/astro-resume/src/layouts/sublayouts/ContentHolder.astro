@@ -29,6 +29,7 @@ const bgImage = bgImageFromProps ?? "/images/nasa-star-night.jpg";
     <FlexCenterLayout className={twMerge("rounded-3xl max-w-[1024px] max-h-[768px] m-auto w-full h-full shadow-lg p-1", colorSets[1])}>
         <FlexCenterLayout className={twMerge("rounded-3xl max-w-[1024px] max-h-[768px] m-auto bg-gradient-to-br  w-full h-full shadow-inner relative overflow-hidden", colorSets[2])}>
             <slot name="nav-area" />
+            <slot name="location" />
             <div class="w-full h-[calc(100%-4rem)] grid grid-rows-[1fr,8rem] md:grid-rows-none md:grid-cols-2 medium-one-font relative">
                 <FlexRightLayout className="hidden md:flex col-span-1 text-2xl px-4 text-white gap-5 z-10 drop-shadow-lg">
                    <slot />

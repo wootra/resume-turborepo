@@ -1,0 +1,50 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+    href?: string;
+    src?: string | string[];
+}
+const {href, src} = Astro.props;
+const isArray = Array.isArray(src);
+const itemCount = isArray ? src.length : 1;
+
+---
+<div  slot="image-area" class={`gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden`}>
+    <div 
+        class={twMerge(
+            isArray && 'animate-scroll-x absolute inset-y-0 grid grid-cols-4 justify-center items-center',
+            !isArray && 'absolute inset-0 flex justify-center items-center'
+        )} 
+        style={`--itemCount:${itemCount}`}>
+        {href && src && isArray && src.map(aSrc=>(
+            <a href={href} target="_blank" class="col-span-1" >
+                
+                <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            </a>
+        ))}
+        {
+            // if it is array, animation will be applied. should be rendered double amount
+        href && src && isArray && src.map(aSrc=>(
+            <a href={href} target="_blank" class="col-span-1" >
+                
+                <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            </a>
+        ))}
+        {href && src && !isArray && (
+            <a href={href} target="_blank"  class="col-span-1">
+                
+                <img alt="profile" loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+            </a>
+        )}
+        {!href && src && isArray && src.map(aSrc=>(
+            <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+        ))}
+        {!href && src && isArray && src.map(aSrc=>(
+            <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+        ))}
+        {!href && src && !isArray && (
+            <img alt="profile"  loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+        )}
+    </div>
+</div>

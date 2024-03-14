@@ -1,0 +1,27 @@
+---
+
+interface Props {
+    className: string,
+}
+
+const { className } = Astro.props;
+const slot = await Astro.slots.render('default');
+let multiLines:string[] = [];
+let singleLine = null;
+
+if(typeof slot === 'string'){
+    multiLines = slot.split('\n');
+}else{
+    singleLine = slot;
+}
+---
+{multiLines.map(txt=>(
+    <p class={className}>
+        {txt}
+    </p>
+))}
+{singleLine && (
+     <p class={className}>
+        {singleLine}
+    </p>
+)}

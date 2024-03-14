@@ -41,6 +41,21 @@ module.exports = {
                 sans: ['Graphik', 'sans-serif'],
                 serif: ['Merriweather', 'serif'],
             },
+            keyframes: {
+                'scroll-x': {
+                    from: {
+                        marginLeft: '0',
+                        width: 'calc(var(--itemCount,2) * 200%)',
+                    },
+                    to: {
+                        marginLeft: 'calc(var(--itemCount,2) * 100% * -1)',
+                        width: 'calc(var(--itemCount,2) * 200%)',
+                    },
+                },
+            },
+            animation: {
+                'scroll-x': 'scroll-x 10s linear infinite',
+            },
         },
     },
     plugins: [require('@tailwindcss/aspect-ratio')],
