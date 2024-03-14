@@ -1,5 +1,6 @@
 ---
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import UpperCaseLink from '@/utils/UpperCaseLink.astro';
 import { twMerge } from 'tailwind-merge';
 const colorSets = [
     twMerge('from-red-700/70 to-red-500/50'),
@@ -23,9 +24,9 @@ const colorSets = [
 
     I like doing something 
 </span>
-<a href="/apps" class="underline hover:scale-125 transition-all underline-offset-8">
+<UpperCaseLink href="/apps">
     interesting.
-</a>
+</UpperCaseLink>
 
 <img slot="image-area" alt="profile" src="/images/app-screenshots/svg-designer.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
 </ContentHolder>

@@ -52,9 +52,24 @@ module.exports = {
                         width: 'calc(var(--itemCount,2) * 200%)',
                     },
                 },
+                'ping-bounce': {
+                    '0%, 100%': {
+                        transform: 'translateY(-25%)',
+                        animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+                        opacity: '0.3',
+                    },
+                    '50%': {
+                        transform: 'none',
+                        animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+                        transform: 'scale(2)',
+                        opacity: '1',
+                    },
+                },
             },
             animation: {
                 'scroll-x': 'scroll-x 10s linear infinite',
+                'ping-bounce':
+                    'ping-bounce 1s cubic-bezier(0, 0, 0.2, 1) infinite',
             },
         },
     },

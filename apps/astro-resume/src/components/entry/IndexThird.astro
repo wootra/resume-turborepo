@@ -1,5 +1,6 @@
 ---
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import UpperCaseLink from '@/utils/UpperCaseLink.astro';
 import { twMerge } from 'tailwind-merge';
 const classNames = [
     twMerge('from-cyan-700/70 to-cyan-500/50'),
@@ -29,9 +30,9 @@ const classNames = [
     I like making dedication
 </span>
 
-<a href="/portfolio" class="underline hover:scale-125 transition-all underline-offset-8">
+<UpperCaseLink href="/portfolio">
     In the production level
-</a>
+</UpperCaseLink>
 
 <img slot="image-area" alt="profile" src="/images/app-screenshots/fund-center.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
 

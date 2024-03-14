@@ -1,6 +1,6 @@
 ---
 import { twMerge } from 'tailwind-merge';
-import AppHolder from '@/layouts/sublayouts/AppHolder.astro';
+import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
 import Nav from '@/components/links/Nav.astro';
 import AppLayout from '@/layouts/AppLayout.astro';
 import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
@@ -92,7 +92,7 @@ const portfolios = [
 			const after = `#${portfolios[(idx+1)%portfolios.length].id}`;
 			return (
 
-				<AppHolder
+				<ContentHolder
 					anchorId={id}
 					classNames={colorTheme}
 					before={before}
@@ -131,7 +131,7 @@ const portfolios = [
 							<img alt="profile" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
 						</a>
 					)}
-				</AppHolder>
+				</ContentHolder>
 			)
 		})}
 	</div>
