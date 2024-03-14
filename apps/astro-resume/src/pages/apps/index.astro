@@ -54,6 +54,27 @@ const portfolios = [
 		github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/app-comps/todo-list',
 	},
 	{
+		id:'horse-shoe-chart',
+		title: 'Horse Shoe chart',
+		techStacks: 'common.js, React.js',
+		desc: `I could not find the exact shape of chart component to show horse shoe shape that I needed to use.
+		So I made one.`,
+		videoSrc: "/images/app-screenshots/horseshoe.mp4",
+		gitlab: 'https://gitlab.com/shjeon0730/horseshoe-chart',
+		npm: 'https://www.npmjs.com/package/@shjeon0730/horseshoe-chart',
+	},
+	{
+		id:'svg-gen-util',
+		title: 'Svg Gen Util',
+		techStacks: 'common.js, React.js',
+		desc: `While I was making horseshoe chart, I thought it would be great for me to modularize this svg generation functionality.
+		I made it as a separated module. It was great experience to make a new npm package and learning SVG.`,
+		src: "/images/app-screenshots/svg-gen-util.png",
+		href: 'https://www.npmjs.com/package/@shjeon0730/svg-gen-utils',
+		gitlab: 'https://gitlab.com/shjeon0730/svg-gen-utils',
+		npm: 'https://www.npmjs.com/package/@shjeon0730/svg-gen-utils',
+	},
+	{
 		id:'snake-game',
 		title: 'Snake Game',
 		techStacks:"Solid.js, Canvas", 
@@ -71,21 +92,14 @@ const portfolios = [
 		src: "/images/app-screenshots/spot-it.png",
 		github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/solid-games/SpotIt'
 	},
-	{
-		id:'spot-it-game2',
-		title: 'Spot It! React Version',
-		techStacks: 'React.js, D3',
-		desc: 'WIP',
-		href: "/games/spot-it2",
-		src: "/images/app-screenshots/spot-it.png"
-	},
+	
 ];
 
 ---
 <AppLayout title="home" backText='Home' backUrl='/'>
 	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
 		{portfolios.map((item, idx)=>{
-			const {id, href, src, title, desc, techStacks, github} = item;
+			const {id, href, src, title, desc, techStacks, github, gitlab, npm, videoSrc} = item;
 			const bgColor = bgThemes[idx% bgThemes.length];
 			const colorTheme = colorThemes[idx % colorThemes.length];
 			const before = idx === 0? undefined : `#${portfolios[idx-1].id}`;
@@ -107,8 +121,18 @@ const portfolios = [
 						<h1 class="text-3xl flex flex-row gap-2">
 							{title}
 							{github && 
-								<a href={github} target="_blank" slot="image-area" >
+								<a href={github} target="_blank">
 									<Icon name="github" class="w-8 h-8"/>
+								</a>
+							}
+							{gitlab && 
+								<a href={gitlab} target="_blank">
+									<Icon name="gitlab" class="w-8 h-8"/>
+								</a>
+							}
+							{npm && 
+								<a href={npm} target="_blank">
+									<Icon name="npm" class="w-8 h-8"/>
 								</a>
 							}
 						</h1>
@@ -130,6 +154,9 @@ const portfolios = [
 						<a href={href} target="_blank" slot="image-area" >
 							<img alt="profile" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
 						</a>
+					)}
+					{videoSrc && (
+						<embed slot="image-area" width="400" height="300" src={videoSrc} class="flex-shrink w-full px-4 object-contain" />
 					)}
 				</ContentHolder>
 			)
