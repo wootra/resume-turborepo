@@ -32,6 +32,24 @@ export const bgThemes = [
 
 export const portfolios = [
     {
+        id: 'sh-jun-dot-com',
+        title: 'sh-jun.com',
+        github: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume',
+        gitlab: '',
+        npm: '',
+        techStacks:
+            'Astro.js(SSG, SSR, SPA), React.js, Solid.js, TailwindCSS, CSS, Prisma, Typescript, TurboRepo, PDFMake',
+        desc: `My Homepage that introduces my portfolio, Resume, and personal projects.
+        Astro.js is the base application living in Turborepo to pull all the custom components 
+        managed in the other folders in turborepo. 
+        Highly optimized using Astro's latest functionality.
+        Using both Solid.js and React.js, It supports mutlipel framework to show off
+        multiple projects. `,
+        myRole: 'A-Z',
+        href: 'https://github.com/wootra/resume-turborepo',
+        src: '/images/app-screenshots/sh-jun.com.png',
+    },
+    {
         id: 'san-antonio-korean-school',
         title: 'San Antonio Korean School Homepage',
         github: 'https://github.com/wootra/sa-korean-school',
