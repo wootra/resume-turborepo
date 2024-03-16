@@ -2,6 +2,7 @@
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
 import UpperCaseLink from '@/utils/UpperCaseLink.astro';
 import GamificBackground from './GamificBackground';
+import GamificBackgroundPulse from './GamificBackgroundPulse';
 import { twMerge } from 'tailwind-merge';
 const colorSets = [
     twMerge('from-red-700/70 to-red-500/50'),
@@ -9,6 +10,7 @@ const colorSets = [
     twMerge('to-red-700/50 from-red-500/30')
 ]
 ---
+
 <ContentHolder
     anchorId='second'
     classNames={colorSets}
@@ -17,18 +19,20 @@ const colorSets = [
     bgColor="rgb(206, 157, 199)"
     bgImage="images/mountain.jpg"
 >
-<GamificBackground slot="image-area" client:only="react"/>
-<span class="text-5xl">
+    
+    <GamificBackground slot="image-area"  client:only="react"/>
+    <img slot="image-area" alt="profile" src="/images/app-screenshots/svg-designer.png" class="flex-shrink max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-fill rounded-full" />
 
-    And,
-</span>
-<span>
+    <span class="text-5xl">
 
-    I like doing something 
-</span>
-<UpperCaseLink href="/apps">
-    interesting.
-</UpperCaseLink>
+        And,
+    </span>
+    <span>
 
-<img slot="image-area" alt="profile" src="/images/app-screenshots/svg-designer.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+        I like doing something 
+    </span>
+    <UpperCaseLink href="/apps">
+        interesting.
+    </UpperCaseLink>
+    <GamificBackgroundPulse slot="background" client:only="react"/>
 </ContentHolder>

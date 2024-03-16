@@ -65,11 +65,20 @@ module.exports = {
                         opacity: '1',
                     },
                 },
+                'size-pulse': {
+                    '0%, 100%': {
+                        transform: 'scale(1)',
+                    },
+                    '50%': {
+                        transform: 'scale(1.2)',
+                    },
+                },
             },
             animation: {
                 'scroll-x': 'scroll-x 10s linear infinite',
                 'ping-bounce':
                     'ping-bounce 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+                'size-pulse': 'size-pulse 1s ease-in infinite',
             },
         },
     },

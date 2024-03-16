@@ -3,10 +3,17 @@
     "compilerOptions": {
         "module": "ES2022",
         "baseUrl": ".",
-
+        "jsxImportSource": "react",
+        "jsx": "preserve",
         "paths": {
             "@/*": ["src/*"]
         }
     },
-    "include": ["./*.d.ts", "src/**/*.d.ts", "src/**/*.ts", "src/**/*.astro"]
+    "include": [
+        "./*.d.ts",
+        "src/**/*.d.ts",
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.astro"
+    ]
 }

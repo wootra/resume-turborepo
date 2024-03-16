@@ -1,9 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as d3 from 'd3';
-import { useState } from 'react';
-import { useCallback } from 'react';
+import { checkVisible } from '@/utils/checkVisible';
 type Pos = {
     key: string;
     x: number;
@@ -13,7 +10,7 @@ type Pos = {
     size: number;
 };
 const NUM_OF_BOXES = 10;
-const OPEN_RADIUS = NUM_OF_BOXES * 0.3;
+const OPEN_RADIUS = NUM_OF_BOXES * 0.5;
 const init = (setPoints: React.Dispatch<React.SetStateAction<Pos[]>>) => {
     const rows = Array(NUM_OF_BOXES)
         .fill(null)
@@ -37,14 +34,7 @@ const init = (setPoints: React.Dispatch<React.SetStateAction<Pos[]>>) => {
         .flat();
     return rows;
 };
-function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(
-        document.documentElement.clientHeight,
-        window.innerHeight
-    );
-    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-}
+
 const GamificBackground = () => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [points, setPoints] = useState<Pos[]>([]);
@@ -74,7 +64,7 @@ const GamificBackground = () => {
         };
         // }
     }, []);
-    const onMouseMove = useCallback(
+    const onMouseMove: React.MouseEventHandler<HTMLDivElement> = useCallback(
         e => {
             if (ref.current) {
                 if (!checkVisible(ref.current)) {
@@ -130,7 +120,6 @@ const GamificBackground = () => {
             <svg
                 className='w-full rounded-full'
                 viewBox={`0 0 ${NUM_OF_BOXES} ${NUM_OF_BOXES}`}
-                // preserveAspectRatio='xMidYMid'
             >
                 {points.map(d => {
                     let size = d.size === 1 ? 1 : d.size * d.size * d.size;
@@ -146,8 +135,8 @@ const GamificBackground = () => {
                             <rect
                                 x={-0.5}
                                 y={-0.5}
-                                rx={size === 1 ? 0 : 0.5 - (size * size) / 2}
-                                ry={size === 1 ? 0 : 0.5 - (size * size) / 2}
+                                rx={size === 1 ? 0 : 0.5 - size / 2}
+                                ry={size === 1 ? 0 : 0.5 - size / 2}
                                 style={
                                     size === 1
                                         ? {}
@@ -157,10 +146,12 @@ const GamificBackground = () => {
                                               ).toFixed(2)}deg)`,
                                           }
                                 }
-                                // rotate={size === 1 ? 45 : 90 * d.size}
-                                width={size}
-                                height={size}
+                                width={size * 1.1}
+                                height={size * 1.1}
                                 fill={d.color}
+                                strokeWidth={0}
+                                // stroke={d.color}
+                                // strokeWidth={size}
                             />
                         </g>
                     );

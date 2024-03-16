@@ -25,6 +25,7 @@
         "@prisma/client": "5.2.0",
         "@shjeon0730/react-svg-chart": "workspace:*",
         "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@types/d3": "^7.4.3",
         "@types/pdfmake": "^0.2.2",
         "@types/react": "^18.2.0",
         "@types/react-dom": "^18.2.0",
