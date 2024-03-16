@@ -9,5 +9,10 @@ interface Props {
 
 const { className, ["aria-label"]:ariaLabel, href, isNewWindow } = Astro.props;
 const anchorProps = isNewWindow ? {target: '_blank'} : {};
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname; // remove the first "/"
 ---
-<a href={href} class={twMerge("px-2 flex-nowrap whitespace-nowrap hover:scale-125 transition-all", className)} aria-label={ariaLabel} {...anchorProps}><slot/></a>
+<a href={href} class={twMerge("px-2 flex-nowrap whitespace-nowrap hover:scale-125 transition-all relative", className)} aria-label={ariaLabel} {...anchorProps}>
+    <slot/>
+    {href ===currentPath && <div class="h-[2px] absolute -bottom-2 inset-x-2 bg-white/50"></div>}
+</a>
