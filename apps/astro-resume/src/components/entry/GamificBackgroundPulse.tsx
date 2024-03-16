@@ -169,10 +169,7 @@ const GamificBackgroundPulse = () => {
         };
     }, []);
     return (
-        <div
-            className='absolute inset-0 pointer-events-none'
-            ref={containerRef}
-        >
+        <>
             <button
                 onClick={() => setIsAnimationOn(state => !state)}
                 className='absolute w-12 h-8 z-50 left-2 top-2 bg-red-200 text-black rounded-md hover:bg-red-50'
@@ -180,10 +177,15 @@ const GamificBackgroundPulse = () => {
                 {isAnimnationOn ? 'OFF' : 'ON'}
             </button>
             <div
-                ref={ballRef}
-                className='bg-gradient-to-br from-slate-100 to-lime-900 w-4 h-4 absolute rounded-full z-50 animate-size-pulse'
-            />
-        </div>
+                className='absolute inset-0 pointer-events-none'
+                ref={containerRef}
+            >
+                <div
+                    ref={ballRef}
+                    className='bg-gradient-to-br from-slate-100 to-lime-900 w-4 h-4 absolute rounded-full z-50 animate-size-pulse'
+                />
+            </div>
+        </>
     );
 };
 
