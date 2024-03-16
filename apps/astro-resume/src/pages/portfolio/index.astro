@@ -53,7 +53,7 @@ import {bgThemes, colorThemes, portfolios, portfoliosInKr} from '@/components/po
 			const {id, src, title, desc, techStacks, myRole, href, github, gitlab, npm} = item;
 			const bgColor = bgThemes[idx% bgThemes.length];
 			const colorTheme = colorThemes[idx % colorThemes.length];
-			const before = idx === 0? undefined : `#${portfoliosInKr[idx-1].id}`;
+			const before = idx === 0? `#${portfolios[portfolios.length-1].id}` : `#${portfoliosInKr[idx-1].id}`;
 			const after = idx === portfoliosInKr.length-1 ? `#${portfolios[0].id}` : `#${portfoliosInKr[(idx+1)].id}`; 
 			return (
 
