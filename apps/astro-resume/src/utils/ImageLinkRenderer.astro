@@ -10,7 +10,7 @@ const isArray = Array.isArray(src);
 const itemCount = isArray ? src.length : 1;
 
 ---
-<div class={`gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden`}>
+<div class={`gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden mask-image`}>
     <div 
         class={twMerge(
             isArray && 'animate-scroll-x absolute inset-y-0 grid justify-center items-center',
@@ -21,7 +21,8 @@ const itemCount = isArray ? src.length : 1;
             isArray && itemCount === 5 && 'grid-cols-10',
             isArray && itemCount === 6 && 'grid-cols-12',
             isArray && itemCount === 7 && 'grid-cols-14',
-            !isArray && 'absolute inset-0 flex justify-center items-center'
+            !isArray && 'absolute inset-0 flex justify-center items-center',
+            
         )} 
         style={`--itemCount:${itemCount}`}>
         {href && src && isArray && src.map(aSrc=>(
@@ -55,3 +56,9 @@ const itemCount = isArray ? src.length : 1;
         )}
     </div>
 </div>
+
+<style>
+    .mask-image {
+        mask-image: linear-gradient(to right, transparent 5%,black 25%,black 75%, transparent 95%)
+    }
+</style>
