@@ -144,6 +144,12 @@ const GamificBackgroundPulse = () => {
                 if (!animationRef.current) {
                     animationRef.current = true;
                     window.requestAnimationFrame(pulseCb);
+                    ballInfoRef.current = {
+                        xSpeed: 1,
+                        ySpeed: 1,
+                        x: 0,
+                        y: 0,
+                    };
                     if (containerRef.current) {
                         const scales = getScales(containerRef);
                         scalesRef.current = scales;
