@@ -10,17 +10,24 @@ const isArray = Array.isArray(src);
 const itemCount = isArray ? src.length : 1;
 
 ---
-<div  slot="image-area" class={`gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden`}>
+<div class={`gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden`}>
     <div 
         class={twMerge(
-            isArray && 'animate-scroll-x absolute inset-y-0 grid grid-cols-4 justify-center items-center',
+            isArray && 'animate-scroll-x absolute inset-y-0 grid justify-center items-center',
+            isArray && itemCount === 1 && 'grid-cols-2',
+            isArray && itemCount === 2 && 'grid-cols-4',
+            isArray && itemCount === 3 && 'grid-cols-6',
+            isArray && itemCount === 4 && 'grid-cols-8',
+            isArray && itemCount === 5 && 'grid-cols-10',
+            isArray && itemCount === 6 && 'grid-cols-12',
+            isArray && itemCount === 7 && 'grid-cols-14',
             !isArray && 'absolute inset-0 flex justify-center items-center'
         )} 
         style={`--itemCount:${itemCount}`}>
         {href && src && isArray && src.map(aSrc=>(
             <a href={href} target="_blank" class="col-span-1" >
                 
-                <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+                <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
             </a>
         ))}
         {
@@ -28,23 +35,23 @@ const itemCount = isArray ? src.length : 1;
         href && src && isArray && src.map(aSrc=>(
             <a href={href} target="_blank" class="col-span-1" >
                 
-                <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+                <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
             </a>
         ))}
         {href && src && !isArray && (
             <a href={href} target="_blank"  class="col-span-1">
                 
-                <img alt="profile" loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+                <img alt={src} loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
             </a>
         )}
         {!href && src && isArray && src.map(aSrc=>(
-            <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
         ))}
         {!href && src && isArray && src.map(aSrc=>(
-            <img alt="profile" loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
         ))}
         {!href && src && !isArray && (
-            <img alt="profile"  loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+            <img alt={src}  loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
         )}
     </div>
 </div>

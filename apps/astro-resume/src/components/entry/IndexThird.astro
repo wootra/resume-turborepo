@@ -1,5 +1,6 @@
 ---
 import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
+import ImageLinkRenderer from '@/utils/ImageLinkRenderer.astro';
 import UpperCaseLink from '@/utils/UpperCaseLink.astro';
 import { twMerge } from 'tailwind-merge';
 const classNames = [
@@ -7,7 +8,12 @@ const classNames = [
     twMerge('bg-cyan-200/50'),
     twMerge('to-cyan-700/50 from-cyan-500/30')
 ]
-
+const images = [
+    "/images/app-screenshots/sakr-home.png",
+    "/images/app-screenshots/fund-center.png",
+    "/images/app-screenshots/small-business-insurance.png",
+    "/images/app-screenshots/usaa-financial-readiness.png",
+]
 ---
 <ContentHolder
     anchorId='third'
@@ -33,7 +39,6 @@ const classNames = [
 <UpperCaseLink href="/portfolio">
     In the production level
 </UpperCaseLink>
-
-<img slot="image-area" alt="profile" src="/images/app-screenshots/fund-center.png" class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+<ImageLinkRenderer slot="image-area" href="#third" src={images} />
 
 </ContentHolder>

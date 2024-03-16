@@ -75,7 +75,8 @@ module.exports = {
                 },
             },
             animation: {
-                'scroll-x': 'scroll-x 10s linear infinite',
+                'scroll-x':
+                    'scroll-x calc(10s*var(--itemCount,2)) linear infinite',
                 'ping-bounce':
                     'ping-bounce 1s cubic-bezier(0, 0, 0.2, 1) infinite',
                 'size-pulse': 'size-pulse 1s ease-in infinite',
