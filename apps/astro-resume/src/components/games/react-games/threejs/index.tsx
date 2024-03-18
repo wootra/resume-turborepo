@@ -73,6 +73,13 @@ export const ThreeJsSamples = () => {
     return (
         <div className='flex flex-col gap-4 min-w-[calc(100vw-8rem)] min-h-[calc(100vh-8rem)]'>
             <div className='flex flex-row gap-2'>
+                <GrayButton
+                    onClick={() => setCompo('none')}
+                    selected={compo === 'none'}
+                    className={compo === 'none' ? 'bg-lime-400' : ''}
+                >
+                    None
+                </GrayButton>
                 {examples.map(({ compoType, label }) => (
                     <GrayButton
                         onClick={() => setCompo(compoType)}
@@ -82,13 +89,6 @@ export const ThreeJsSamples = () => {
                     </GrayButton>
                 ))}
 
-                <GrayButton
-                    onClick={() => setCompo('none')}
-                    selected={compo === 'none'}
-                    className={compo === 'none' ? 'bg-lime-400' : ''}
-                >
-                    None
-                </GrayButton>
                 <span>
                     Size: {size.w}/{size.h}
                 </span>

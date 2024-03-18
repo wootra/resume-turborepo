@@ -18,7 +18,15 @@ export const BannerBase = ({
     return (
         <div className='top-banner'>
             <div>
-                <span>{description}</span>
+                <span
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: '0.25rem',
+                    }}
+                >
+                    {description}
+                </span>
                 {links && currentLabel && (
                     <select
                         onChange={e => onSelect(e.currentTarget)}

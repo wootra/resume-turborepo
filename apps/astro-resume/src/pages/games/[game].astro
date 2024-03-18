@@ -4,55 +4,59 @@ import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
 import GameLayout from '@/layouts/GameLayout.astro';
 import { ThreeJsSamples } from '@/components/games/react-games/threejs';
+import FrameworkList from '@/components/common/FrameworkList.astro';
+type Games = "spot-it"|"spot-it2"|"snake"|"threejs";
+const { game } = Astro.params as { game: Games };
 
-const { game } = Astro.params;
 type Info = {
 	title: string,
 	languages: string[],
+	repo: string,
 }
-const info: {[game:string]:Info} = {
+
+
+const info: Record<Games, Info> = {
 	'spot-it': {
 		title: 'Spot It!',
-		languages: ['Solid.js']
+		languages: ['Solid.js'],
+		repo: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/solid-games/SpotIt',
 	},
 	'spot-it2': {
 		title: 'Spot It! 2',
-		languages: ['React.js']
+		languages: ['React.js'],
+		repo: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/react-games/SlapIt2',
 	},
 	'snake': {
 		title: 'Snake',
-		languages: ['Solid.js']
+		languages: ['Solid.js'],
+		repo: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/solid-games/SnakeGame',
 	},
 	'threejs': {
 		title: 'Three.js Playground',
-		languages: ['Three.js', "React"]
+		languages: ['Three.js', "React"],
+		repo: 'https://github.com/wootra/resume-turborepo/tree/main/apps/astro-resume/src/components/games/react-games/threejs',
 	}
-}
+};
 const name = info[game as keyof typeof info]?.title ?? 'Untitled';
+const sourceLink = info[game as keyof typeof info]?.repo ?? '';
+const frameworks = info[game as keyof typeof info]?.languages ?? [];
+
 ---
 
 <GameLayout title={name} backUrl='/apps' backText='App Home'>
+	<FrameworkList frameworks={frameworks} sourceLink={sourceLink}/>
+	
 	<div class="w-full h-full p-2 md:p-8">
-		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4">
-			<h1 class="text-3xl fixed md:block top-3 right-3 bg-white rounded-md bg-opacity-70 p-4 outline outline-slate-500">{name}</h1>
-			<main class="flex flex-col w-full gap-4">
-
-				<div class="flex flex-wrap items-center justify-center gap-4 w-full h-auto">
+		<section class="flex flex-col gap-4 w-full h-full rounded-xl shadow-lg bg-white py-4 px-4 relative">
+			<h1 class="text-xl fixed md:block top-3 right-3 bg-white/50 rounded-md bg-opacity-70 p-2 outline outline-slate-500 z-50 pointer-events-none">{name}</h1>
+			<main class="flex flex-col w-full h-full flex-1 gap-4">
+				<div class="flex flex-wrap items-center justify-center gap-4 w-full h-full">
 					{game === 'spot-it' && <SpotIt client:only="solid" />}
 					{game === 'spot-it2' && <SlapIt2 client:only="react" />}
 					{game === 'snake' && <SnakeGame client:only="solid" />}
 					{game === 'threejs' && <ThreeJsSamples client:only="react" />}
 				</div>
-				<div class="w-full flex flex-wrap items-center h-32 bg-slate-300 rounded-md shadow-md">
-					<div>
-						<h2 class="text-2xl text-slate-900 font-semibold">Used Languages</h2>
-						<ul class="flex flex-wrap gap-2">
-							{info[game as keyof typeof info]?.languages.map(lang => (
-								<li class="bg-slate-400 text-slate-900 rounded-md px-2 py-1">{lang}</li>
-							))}
-						</ul>
-					</div>
-				</div>
+				
 			</main>
 		</section>
 	</div>
