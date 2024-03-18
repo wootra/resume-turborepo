@@ -27,9 +27,9 @@ export default function ThreeExample({
         scene.add(cube);
         camera.position.z = 5;
 
-        const update = (frame: number) => {
-            cube.rotation.x += 0.05;
-            cube.rotation.y += 0.1;
+        const update = () => {
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         };
         return { renderer, update };

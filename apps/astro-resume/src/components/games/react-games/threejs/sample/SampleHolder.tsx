@@ -7,7 +7,6 @@ import Loading from './Loading';
 
 // const controls = new OrbitControls( camera, renderer.domElement );
 // const loader = new GLTFLoader();
-const frameSize = 20;
 export default function SampleHolder({
     width,
     height,
@@ -17,7 +16,7 @@ export default function SampleHolder({
     width: number;
     height: number;
     renderer: THREE.WebGLRenderer;
-    update: (frameSize: number) => void;
+    update: () => void;
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const animationRef = useRef<boolean>(true);
@@ -25,27 +24,24 @@ export default function SampleHolder({
     useEffect(() => {
         const animate = (frame: number) => {
             if (animationRef.current) {
-                if (frame - timing.current > frameSize) {
-                    timing.current = frame;
-                    update(frameSize);
-                }
+                timing.current = frame;
+                update();
                 requestAnimationFrame(animate);
             }
         };
-        setTimeout(() => {
-            if (ref.current) {
-                ref.current.innerHTML = '';
-                animationRef.current = true;
-                timing.current = 0;
-                ref.current?.appendChild(renderer.domElement);
-                animate(0);
-            }
-        }, 1000);
+        if (ref.current) {
+            ref.current.innerHTML = '';
+            animationRef.current = true;
+            timing.current = 0;
+            ref.current?.appendChild(renderer.domElement);
+            requestAnimationFrame(animate);
+        }
         return () => {
             animationRef.current = false;
+            timing.current = 0;
             //when unmouting
         };
-    }, [width, height]);
+    }, [width, height, update, renderer]);
     const [percentage, setPercentage] = useState(0);
     useEffect(() => {
         const id = setInterval(() => {
