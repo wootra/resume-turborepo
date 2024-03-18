@@ -20,6 +20,7 @@ export default defineConfig({
             'assets/fonts/RobotoCondensed-Regular.ttf',
         ],
     }),
+
     integrations: [
         tailwind(),
         // image({

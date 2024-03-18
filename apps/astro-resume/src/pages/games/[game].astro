@@ -3,6 +3,7 @@ import SpotIt from '../../components/games/solid-games/SpotIt';
 import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
 import GameLayout from '@/layouts/GameLayout.astro';
+import { ThreeJsSamples } from '@/components/games/react-games/threejs';
 
 const { game } = Astro.params;
 type Info = {
@@ -21,6 +22,10 @@ const info: {[game:string]:Info} = {
 	'snake': {
 		title: 'Snake',
 		languages: ['Solid.js']
+	},
+	'threejs': {
+		title: 'Three.js Playground',
+		languages: ['Three.js', "React"]
 	}
 }
 const name = info[game as keyof typeof info]?.title ?? 'Untitled';
@@ -36,6 +41,7 @@ const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 					{game === 'spot-it' && <SpotIt client:only="solid" />}
 					{game === 'spot-it2' && <SlapIt2 client:only="react" />}
 					{game === 'snake' && <SnakeGame client:only="solid" />}
+					{game === 'threejs' && <ThreeJsSamples client:only="react" />}
 				</div>
 				<div class="w-full flex flex-wrap items-center h-32 bg-slate-300 rounded-md shadow-md">
 					<div>
