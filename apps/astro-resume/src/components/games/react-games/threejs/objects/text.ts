@@ -25,7 +25,6 @@ export const basicText = async (
     const font = await loader.loadAsync(
         '/fonts3d/droid_sans_bold.typeface.json'
     );
-    console.log('font is', font);
     const textGeo = new TextGeometry('Hi!', {
         font: font as Font,
         size: 10,

@@ -36,8 +36,8 @@ export default function ThreeExample({
             camera.position.set(0, 400, 700);
             const cameraTarget = new THREE.Vector3(0, 150, 0);
             scene.background = new THREE.Color(0x000000);
-            scene.fog = new THREE.Fog(0x000000, 250, 1400);
-
+            scene.fog = new THREE.Fog(0x000000, 250, 1300);
+            camera.lookAt(cameraTarget);
             addLight(scene);
 
             const group = new THREE.Group();
@@ -65,16 +65,10 @@ export default function ThreeExample({
 
             const renderer = initBasicRenderer(width, height);
 
-            // scene.add(text);
-            // camera.position.z = 5;
-
             const update = () => {
                 group.rotation.y += 0.005;
-                // (targetLocationRef.current - group.rotation.y) * 0.05;
 
-                camera.lookAt(cameraTarget);
-
-                renderer.clear();
+                // renderer.clear();
                 renderer.render(scene, camera);
             };
             return { renderer, update };
