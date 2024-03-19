@@ -2,34 +2,42 @@ import React, { Suspense, type ComponentType, useEffect, useRef } from 'react';
 // import GrayButton from '../../../../../src/components/app-comps/react-libraries/components/GrayButton';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import GrayButton from '@/components/app-comps/react-libraries/components/GrayButton';
-const CubeExample = React.lazy(
-    () =>
-        import('./sample/CubeExample') as Promise<{
-            default: ComponentType<any>;
-        }>
-);
-const ArrpwExample = React.lazy(
-    () =>
-        import('./sample/ArrowExample') as Promise<{
-            default: ComponentType<any>;
-        }>
-);
 
-type Components = 'cube' | 'arrow' | 'none';
+type Components = 'cube' | 'arrow' | 'text' | 'none';
 const examples: {
     compoType: Components;
     label: string;
-    component: React.LazyExoticComponent<React.ComponentType<any>>;
+    Component: React.LazyExoticComponent<React.ComponentType<any>>;
 }[] = [
     {
         compoType: 'cube',
         label: 'Cube',
-        component: CubeExample,
+        Component: React.lazy(
+            () =>
+                import('./sample/CubeExample') as Promise<{
+                    default: ComponentType<any>;
+                }>
+        ),
     },
     {
         compoType: 'arrow',
         label: 'Arrow',
-        component: ArrpwExample,
+        Component: React.lazy(
+            () =>
+                import('./sample/ArrowExample') as Promise<{
+                    default: ComponentType<any>;
+                }>
+        ),
+    },
+    {
+        compoType: 'text',
+        label: 'Text',
+        Component: React.lazy(
+            () =>
+                import('./sample/TextExample') as Promise<{
+                    default: ComponentType<any>;
+                }>
+        ),
     },
 ];
 
@@ -99,7 +107,7 @@ export const ThreeJsSamples = () => {
             >
                 <div className='absolute inset-0'>
                     {examples.map(
-                        ({ compoType, component: Component }) =>
+                        ({ compoType, Component }) =>
                             compo === compoType &&
                             WebGL.isWebGL2Available() && (
                                 <Suspense fallback={<div>loading...</div>}>

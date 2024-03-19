@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 import { initBasicCamera } from '../libs/cameras';
 import { initBasicRenderer } from '../libs/renders';
-import { basicLineCube } from '../objects/cube';
 import SampleHolder from './SampleHolder';
+import { basicLineArrow } from '../objects/line-arrow';
 
 export default function ThreeExample({
     width,
@@ -17,7 +17,7 @@ export default function ThreeExample({
         const camera = initBasicCamera({ width, height });
 
         const renderer = initBasicRenderer(width, height);
-        const cube = basicLineCube();
+        const cube = basicLineArrow();
         scene.add(cube);
         camera.position.z = 5;
 
