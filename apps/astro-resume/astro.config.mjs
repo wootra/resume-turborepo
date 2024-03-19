@@ -18,6 +18,9 @@ export default defineConfig({
             'assets/fonts/RobotoCondensed-BoldItalic.ttf',
             'assets/fonts/RobotoCondensed-Italic.ttf',
             'assets/fonts/RobotoCondensed-Regular.ttf',
+            'assets/fonts3d/droid_sans_bold.typeface.json',
+            'assets/textures/stone.jpg',
+            'assets/textures/f-texture.png',
         ],
     }),
 

@@ -20,7 +20,7 @@ export default function ThreeExample({
     > | null>(null);
     const targetLocationRef = useRef(0);
     useEffect(() => {
-        basicText().then(txt => {
+        basicText('Hello!', 'stone').then(txt => {
             setText(txt);
         });
     }, [width, height]);

@@ -15,7 +15,7 @@ const getTextureImage = (textureName: TextureName) => {
 
 export const basicText = async (
     text: string,
-    textureName: TextureName = 'f-texture.png'
+    textureName: TextureName = 'f-texture'
 ) => {
     const image = getTextureImage(textureName);
     const texture = await new THREE.TextureLoader().loadAsync(image);
@@ -26,7 +26,7 @@ export const basicText = async (
     const font = await loader.loadAsync(
         '/fonts3d/droid_sans_bold.typeface.json'
     );
-    const textGeo = new TextGeometry('Hi!', {
+    const textGeo = new TextGeometry(text, {
         font: font as Font,
         size: 10,
         height: 4,
