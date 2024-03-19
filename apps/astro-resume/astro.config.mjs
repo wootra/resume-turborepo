@@ -25,7 +25,9 @@ export default defineConfig({
     }),
 
     integrations: [
-        tailwind(),
+        tailwind({
+            nesting: true,
+        }),
         // image({
         //     cacheDir: '.astro/cache',
         // }),
