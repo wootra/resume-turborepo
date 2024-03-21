@@ -13,6 +13,7 @@ export const COLORS = {
     SKILL_CATEGORY: '#0369a1',
     SKILL: '#d97706',
     COMPANY_NAME: '#c59700',
+    PERIOD: '#5c94a8',
     ACHIEVEMENT_NAME: '#003300',
 } as const;
 
