@@ -3,15 +3,20 @@ import fs from 'node:fs/promises';
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async context => {
-    console.log('loading image:');
     const img = context.params.image ?? 'f-texture.png';
     const jpg = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : '', // 'apps/astro-resume',
-        `assets/textures/${img}`
+        import.meta.env.DEV
+            ? 'assets/textures'
+            : 'apps/astro-resume/assets/textures',
+        `${img}`
     );
+    console.log('trying to load image:', jpg);
     const binary = await fs.readFile(jpg);
-    const imgType = img.includes('.jpg') ? 'image/jpeg' : 'image/png';
+    const imgType =
+        img.includes('.jpg') || img.includes('.jpeg')
+            ? 'image/jpeg'
+            : 'image/png';
     const headers = new Headers();
     headers.set('Content-Type', imgType);
     headers.set('Content-Disposition', `attachment; filename=${img}`);

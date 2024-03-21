@@ -4,7 +4,6 @@ import ContentHolder from '@/layouts/sublayouts/ContentHolder.astro';
 import Nav from '@/components/links/Nav.astro';
 import AppLayout from '@/layouts/AppLayout.astro';
 import PortfolioLayout from '@/layouts/sublayouts/PortfolioLayout.astro';
-import { Icon } from 'astro-icon/components'
 import SourceRenderer from '@/utils/SourceRenderer.astro';
 import SpaceSeparator from '@/layouts/sublayouts/SpaceSeparator.astro';
 const colorThemes = [
@@ -105,7 +104,7 @@ const portfolios = [
 	},
 	
 ];
-
+export const prerender=false;
 ---
 <AppLayout title="home" backText='Home' backUrl='/'>
 	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">

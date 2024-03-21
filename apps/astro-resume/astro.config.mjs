@@ -22,6 +22,9 @@ export default defineConfig({
             'assets/textures/stone.jpg',
             'assets/textures/f-texture.png',
         ],
+        imagesConfig: {
+            cacheDir: '.astro/cache',
+        },
     }),
 
     integrations: [
