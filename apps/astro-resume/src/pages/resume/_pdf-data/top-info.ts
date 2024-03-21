@@ -4,15 +4,23 @@ import {
     getGithubSvg,
     getLineSvg,
 } from '../../../server-utils/imageHandlers';
+import path from 'node:path';
+import fs from 'fs/promises';
 import fetch from 'node-fetch';
 import type { Content } from 'pdfmake/interfaces';
 const { name, address, contact, position, website } = TopContents;
 import { getHost } from '../../../server-utils/host';
 export const getImageMap = async () => {
-    const image = await fetch(`${getHost()}/profile-photo150.png`).then(res =>
-        res.blob()
+    // const image = await fetch(`${getHost()}/profile-photo150.png`).then(res =>
+    //     res.blob()
+    // );
+    const imagePath = path.join(
+        process.cwd(),
+        import.meta.env.DEV ? 'assets/textures' : 'assets/textures',
+        'profile-photo150.png'
     );
-    const imageBuffer = Buffer.from(await image.arrayBuffer());
+    const imageBuffer = await fs.readFile(imagePath);
+    // const imageBuffer = Buffer.from(await image.arrayBuffer());
     const profileImage = convertImgBlobToBase64('png', imageBuffer);
     return {
         profileImage: profileImage,

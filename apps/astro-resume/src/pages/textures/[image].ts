@@ -31,5 +31,6 @@ export function getStaticPaths() {
     return [
         { params: { image: 'stone.jpg' } },
         { params: { image: 'f-texture.png' } },
+        { params: { image: 'profile-photo150.png' } },
     ];
 }

@@ -21,6 +21,7 @@ export default defineConfig({
             'assets/fonts3d/droid_sans_bold.typeface.json',
             'assets/textures/stone.jpg',
             'assets/textures/f-texture.png',
+            'assets/textures/profile-photo150.png',
         ],
         // imagesConfig: {
         //     cacheDir: '.astro/cache',
