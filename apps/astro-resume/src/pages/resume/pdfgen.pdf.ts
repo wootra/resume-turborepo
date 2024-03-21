@@ -11,6 +11,8 @@ import * as moreAchievements from './_pdf-data/more-achievements';
 import path from 'node:path';
 import { CONTINUE_IN_NEXT_PAGE } from './_pdf-data/consts';
 
+export const prerender = true;
+
 export const GET: APIRoute = async () => {
     try {
         const top = await topSection.createPdfMake();
@@ -74,27 +76,27 @@ export async function createPdfBinary(
 ): Promise<Buffer> {
     const robotoRegular = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'assets/fonts',
+        import.meta.env.DEV ? 'assets/fonts' : 'assets/fonts',
         'RobotoCondensed-Regular.ttf'
     );
     const robotoBold = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'assets/fonts',
+        import.meta.env.DEV ? 'assets/fonts' : 'assets/fonts',
         'RobotoCondensed-Bold.ttf'
     );
     const robotoItalic = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'assets/fonts',
+        import.meta.env.DEV ? 'assets/fonts' : 'assets/fonts',
         'RobotoCondensed-Italic.ttf'
     );
     const robotoBoldItalic = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'assets/fonts',
+        import.meta.env.DEV ? 'assets/fonts' : 'assets/fonts',
         'RobotoCondensed-BoldItalic.ttf'
     );
     const openSansEmoji = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'assets/fonts',
+        import.meta.env.DEV ? 'assets/fonts' : 'assets/fonts',
         'OpenSansEmoji.ttf'
     );
 
