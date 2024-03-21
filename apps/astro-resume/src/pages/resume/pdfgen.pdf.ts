@@ -74,28 +74,28 @@ export async function createPdfBinary(
 ): Promise<Buffer> {
     const robotoRegular = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'apps/astro-resume',
-        'assets/fonts/RobotoCondensed-Regular.ttf'
+        import.meta.env.DEV ? '' : 'assets/fonts',
+        'RobotoCondensed-Regular.ttf'
     );
     const robotoBold = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'apps/astro-resume',
-        'assets/fonts/RobotoCondensed-Bold.ttf'
+        import.meta.env.DEV ? '' : 'assets/fonts',
+        'RobotoCondensed-Bold.ttf'
     );
     const robotoItalic = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'apps/astro-resume',
-        'assets/fonts/RobotoCondensed-Italic.ttf'
+        import.meta.env.DEV ? '' : 'assets/fonts',
+        'RobotoCondensed-Italic.ttf'
     );
     const robotoBoldItalic = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'apps/astro-resume',
-        'assets/fonts/RobotoCondensed-BoldItalic.ttf'
+        import.meta.env.DEV ? '' : 'assets/fonts',
+        'RobotoCondensed-BoldItalic.ttf'
     );
     const openSansEmoji = path.join(
         process.cwd(),
-        import.meta.env.DEV ? '' : 'apps/astro-resume',
-        'assets/fonts/OpenSansEmoji.ttf'
+        import.meta.env.DEV ? '' : 'assets/fonts',
+        'OpenSansEmoji.ttf'
     );
 
     const FONT_DESCRIPTOR = {
