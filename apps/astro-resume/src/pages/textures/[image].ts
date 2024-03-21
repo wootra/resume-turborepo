@@ -6,9 +6,7 @@ export const GET: APIRoute = async context => {
     const img = context.params.image ?? 'f-texture.png';
     const jpg = path.join(
         process.cwd(),
-        import.meta.env.DEV
-            ? 'assets/textures'
-            : 'apps/astro-resume/assets/textures',
+        import.meta.env.DEV ? 'assets/textures' : 'assets/textures',
         `${img}`
     );
     console.log('trying to load image:', jpg);
