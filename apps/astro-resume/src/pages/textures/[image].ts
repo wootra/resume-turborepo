@@ -28,3 +28,10 @@ export const GET: APIRoute = async context => {
         headers,
     });
 };
+
+export function getStaticPaths() {
+    return [
+        { params: { image: 'stone.jpg' } },
+        { params: { image: 'f-texture.png' } },
+    ];
+}

@@ -20,3 +20,7 @@ export const GET: APIRoute = async context => {
         headers,
     });
 };
+
+export function getStaticPaths() {
+    return [{ params: { font: 'droid_sans_bold.typeface.json' } }];
+}

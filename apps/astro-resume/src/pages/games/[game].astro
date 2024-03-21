@@ -40,7 +40,15 @@ const info: Record<Games, Info> = {
 const name = info[game as keyof typeof info]?.title ?? 'Untitled';
 const sourceLink = info[game as keyof typeof info]?.repo ?? '';
 const frameworks = info[game as keyof typeof info]?.languages ?? [];
-
+export function getStaticPaths() {
+  return [
+    {params: {game: 'spot-it'}},
+    {params: {game: 'spot-it2'}},
+    {params: {game: 'snake'}},
+    {params: {game: 'threejs'}},
+  ];
+}
+export const prerender = false;
 ---
 
 <GameLayout title={name} backUrl='/apps' backText='App Home'>
