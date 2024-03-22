@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+// import * as TC from 'three/src/constants';
 import type { TextureName } from '../libs/types';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { Font, FontLoader } from 'three/addons/loaders/FontLoader.js';
@@ -19,9 +20,12 @@ export const basicText = async (
 ) => {
     const image = getTextureImage(textureName);
     const texture = await new THREE.TextureLoader().loadAsync(image);
+    texture.repeat.set(64, 64);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(400, 400);
+    texture.needsUpdate = true;
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    // texture.format = TC.CompressedPixelFormat;
     const loader = new FontLoader();
     const font = await loader.loadAsync(
         '/fonts3d/droid_sans_bold.typeface.json'
@@ -40,19 +44,21 @@ export const basicText = async (
     const materials = [
         // new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
         // new THREE.MeshPhongMaterial({ color: 0xffffff }), // side
-        new THREE.MeshPhongMaterial({
-            // color: 0xff0000,
+        new THREE.MeshNormalMaterial({
+            wireframe: false,
+            bumpMap: texture,
+            // color: 'white',
             // flatShading: true,
+            // map: texture,
+        }), // front
+        new THREE.MeshPhongMaterial({
+            color: 'white',
+            flatShading: true,
             map: texture,
         }), // front
         new THREE.MeshPhongMaterial({
-            // color: 0xff0000,
-            // flatShading: true,
-            map: texture,
-        }), // front
-        new THREE.MeshPhongMaterial({
-            // color: 0xff0000,
-            // flatShading: true,
+            color: 'white',
+            flatShading: false,
             map: texture,
         }), // front
     ];

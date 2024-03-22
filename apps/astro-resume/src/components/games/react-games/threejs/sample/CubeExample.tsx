@@ -25,9 +25,23 @@ export default function ThreeExample({
         const camera = initBasicCamera({ width, height });
 
         const renderer = initBasicRenderer(width, height);
-        const cube = basicCube();
+        const cube = basicCube(1, 'mesh-normal');
         scene.add(cube);
+        const dirLight = new THREE.DirectionalLight(0xffdd00, 0.4);
+        dirLight.position.set(0, 0, 0).normalize();
+        scene.add(dirLight);
+
+        const pointLight = new THREE.PointLight(0x00eecc, 4.5, 0, 0);
+        pointLight.color.setHSL(Math.random(), 1, 0.5);
+        pointLight.position.set(0, 0, 0.3);
+        scene.add(pointLight);
         camera.position.z = 5;
+
+        // camera.position.set(0, 400, 700);
+        scene.background = new THREE.Color(0x000000);
+        scene.fog = new THREE.Fog(0x000000, 250, 1300);
+        // camera.position.set(0, 0, 100);
+        // camera.lookAt(0, 0, 0);
 
         const update = () => {
             rotateGroupOnPointer(cube, ['x', 'y'], () => {

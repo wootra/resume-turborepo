@@ -16,11 +16,7 @@ export default function ThreeExample({
     width: number;
     height: number;
 }) {
-    const [text, setText] = useState<THREE.Mesh<
-        TextGeometry,
-        THREE.MeshPhongMaterial[],
-        THREE.Object3DEventMap
-    > | null>(null);
+    const [text, setText] = useState<THREE.Mesh | null>(null);
     const groupRef = useRef(new THREE.Group());
     const sceneRef = useRef(new THREE.Scene());
     const cameraRef = useRef(

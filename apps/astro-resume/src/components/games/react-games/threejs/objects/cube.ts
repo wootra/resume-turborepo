@@ -1,13 +1,14 @@
 import * as THREE from 'three';
-import { initMeterial } from '../libs/materials';
+import { initMaterial } from '../libs/materials';
 import type { Materials } from '../libs/types';
 
 export const basicCube = (
     size: number = 1,
-    material: Materials = 'line-basic'
+    materialType: Materials = 'mesh-normal'
 ) => {
     const geometry = new THREE.BoxGeometry(size, size, size);
-    const meterial = initMeterial(material);
-    const cube = new THREE.Mesh(geometry, meterial);
+
+    const material = initMaterial(materialType);
+    const cube = new THREE.Mesh(geometry, material);
     return cube;
 };

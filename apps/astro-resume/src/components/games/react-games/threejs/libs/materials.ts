@@ -1,24 +1,30 @@
 import * as THREE from 'three';
 import type { Materials } from './types';
 
-export const initMeterial = (
-    materialType: Materials,
-    color: number = 0x00ff00
-) => {
-    let meterial: THREE.Material;
+export const initMaterial = (materialType: Materials) => {
+    let material: THREE.Material;
     if (materialType === 'mesh-basic') {
-        meterial = new THREE.MeshBasicMaterial({
-            color,
-        });
-    } else if (materialType === 'line-basic') {
-        meterial = new THREE.LineBasicMaterial({
-            color,
-        });
-    } else {
-        //default
-        meterial = new THREE.MeshBasicMaterial({
-            color,
+        material = new THREE.MeshBasicMaterial({
+            color: 0xff0000,
+            opacity: 0.5,
+            transparent: true,
         });
     }
-    return meterial;
+    if (materialType === 'mesh-normal') {
+        material = new THREE.MeshNormalMaterial({
+            opacity: 0.7,
+            transparent: true,
+        });
+    } else if (materialType === 'line-basic') {
+        material = new THREE.LineBasicMaterial({
+            color: 0x00ff00,
+        });
+    } else {
+        material = new THREE.MeshBasicMaterial({
+            color: 0x00ffff,
+            opacity: 0.5,
+            transparent: true,
+        });
+    }
+    return material;
 };
