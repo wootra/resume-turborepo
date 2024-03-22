@@ -27,14 +27,14 @@ type LeftContentsType = {
     achievements: AchievementObj[];
 };
 export const LeftContents: LeftContentsType = Object.freeze({
-    Introduction: Object.freeze({
+    Introduction: {
         TITLE: 'Introduction',
         DESC: `A strong problem solver from Fast and deep focusing with dynamic programming method.
          An enthusiastic performance improver. A patient mentor. An Addict on High performance.
          A careful proposer. 
          Recently interested in the trend on frontend technology crossing over backend area.`,
-    }),
-    Careers: Object.freeze({
+    },
+    Careers: {
         TITLE: 'Careers',
         CAREERS: [
             buildCareer(
@@ -191,7 +191,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 ]
             ),
         ],
-    }),
+    },
     achievements: [
         buildAchievement('Dimensional Fund Advisors', [
             buildAchievementItem(
@@ -613,7 +613,8 @@ export const RightContents: RightContentsType = Object.freeze({
         ],
         Documentation: [
             buildSkillLevel('JsDocs', 5),
-            buildSkillLevel('ReadMe(md)', 3),
+            buildSkillLevel('ReadMe(md)', 5),
+            buildSkillLevel('Mermaid', 5),
         ],
         'Project Management': [
             buildSkillLevel('Agile/Jira', 5),

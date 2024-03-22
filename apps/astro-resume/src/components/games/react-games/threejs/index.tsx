@@ -2,6 +2,7 @@ import React, { Suspense, type ComponentType, useEffect, useRef } from 'react';
 // import GrayButton from '../../../../../src/components/app-comps/react-libraries/components/GrayButton';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import GrayButton from '@/components/app-comps/react-libraries/components/GrayButton';
+import AutoLoading from './sample/AutoLoading';
 
 type Components = 'cube' | 'arrow' | 'text' | 'none';
 const examples: {
@@ -110,7 +111,11 @@ export const ThreeJsSamples = () => {
                         ({ compoType, Component }) =>
                             compo === compoType &&
                             WebGL.isWebGL2Available() && (
-                                <Suspense fallback={<div>loading...</div>}>
+                                <Suspense
+                                    fallback={
+                                        <AutoLoading loadingTime={1000} />
+                                    }
+                                >
                                     <Component width={size.w} height={size.h} />
                                 </Suspense>
                             )

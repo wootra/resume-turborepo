@@ -5,6 +5,7 @@ import SampleHolder from './SampleHolder';
 import { addLight } from '../libs/lights';
 import { basicText } from '../objects/text';
 import type { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import AutoLoading from './AutoLoading';
 
 export default function ThreeExample({
     width,
@@ -20,7 +21,7 @@ export default function ThreeExample({
     > | null>(null);
     const targetLocationRef = useRef(0);
     useEffect(() => {
-        basicText('Hello!', 'stone').then(txt => {
+        basicText('Hello!', 'f-texture').then(txt => {
             setText(txt);
         });
     }, [width, height]);
@@ -85,6 +86,6 @@ export default function ThreeExample({
             update={update}
         />
     ) : (
-        <div>loading...</div>
+        <AutoLoading loadingTime={1000} />
     );
 }
