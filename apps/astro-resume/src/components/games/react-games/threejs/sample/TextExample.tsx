@@ -53,6 +53,7 @@ export default function ThreeExample({
             addLight(scene);
 
             const group = groupRef.current;
+            group.clear();
             group.position.y = 100;
             group.position.z = 0;
             group.position.x = 0;
@@ -78,7 +79,7 @@ export default function ThreeExample({
             const renderer = initBasicRenderer(width, height);
 
             const update = () => {
-                rotateGroupOnPointer(group, ['y'], () => {
+                rotateGroupOnPointer(text, ['y'], () => {
                     group.rotation.y += 0.005;
                 });
                 // renderer.clear();
