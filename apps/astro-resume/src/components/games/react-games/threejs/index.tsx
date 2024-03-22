@@ -91,6 +91,7 @@ export const ThreeJsSamples = () => {
                 </GrayButton>
                 {examples.map(({ compoType, label }) => (
                     <GrayButton
+                        key={compoType}
                         onClick={() => setCompo(compoType)}
                         selected={compo === compoType}
                     >
@@ -112,6 +113,7 @@ export const ThreeJsSamples = () => {
                             compo === compoType &&
                             WebGL.isWebGL2Available() && (
                                 <Suspense
+                                    key={compoType}
                                     fallback={
                                         <AutoLoading loadingTime={1000} />
                                     }

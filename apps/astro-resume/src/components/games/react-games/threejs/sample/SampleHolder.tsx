@@ -12,11 +12,15 @@ export default function SampleHolder({
     height,
     renderer,
     update,
+    onMount,
+    onUnmount,
 }: {
     width: number;
     height: number;
     renderer: THREE.WebGLRenderer;
     update: () => void;
+    onMount?: (el: HTMLDivElement | null) => void;
+    onUnmount?: (el: HTMLDivElement | null) => void;
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const animationRef = useRef<boolean>(true);
@@ -29,16 +33,21 @@ export default function SampleHolder({
                 requestAnimationFrame(animate);
             }
         };
-        if (ref.current) {
-            ref.current.innerHTML = '';
+        const mountedRef = ref.current;
+        if (mountedRef) {
+            onMount && onMount(mountedRef);
+            mountedRef.innerHTML = '';
             animationRef.current = true;
             timing.current = 0;
-            ref.current?.appendChild(renderer.domElement);
+            mountedRef.appendChild(renderer.domElement);
             requestAnimationFrame(animate);
         }
         return () => {
             animationRef.current = false;
             timing.current = 0;
+            if (mountedRef) {
+                onUnmount && onUnmount(mountedRef);
+            }
             //when unmouting
         };
     }, [width, height, update, renderer]);
