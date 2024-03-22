@@ -7,6 +7,7 @@ import { basicText } from '../objects/text';
 import type { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import AutoLoading from './AutoLoading';
 import usePointerEvents from './usePointerEvents';
+import useRotationActions from './useRotationActions';
 
 export default function ThreeExample({
     width,
@@ -30,29 +31,8 @@ export default function ThreeExample({
             1500
         )
     );
-    const targetAngleRef = useRef(0);
-    const targetAngleOnPressRef = useRef(0);
-    const startPosRef = useRef(0);
-    const customMovingRef = useRef(false);
-    const onPress = (e: PointerEvent) => {
-        console.log('press...');
-        customMovingRef.current = true;
-        startPosRef.current = e.clientX;
-        targetAngleOnPressRef.current = targetAngleRef.current;
-    };
-    const onRelease = (e: PointerEvent) => {
-        customMovingRef.current = false;
-        console.log('release...');
-    };
-    const onMoving = (e: PointerEvent) => {
-        const diff = e.clientX - startPosRef.current;
-        targetAngleRef.current = targetAngleOnPressRef.current + diff * 0.02;
-    };
-    const { onMount, onUnmount } = usePointerEvents({
-        onPress,
-        onMoving,
-        onRelease,
-    });
+    const { onMount, onUnmount, rotateGroupOnPointer } = useRotationActions();
+
     useEffect(() => {
         basicText('Hello!', 'f-texture').then(txt => {
             setText(txt);
@@ -98,15 +78,9 @@ export default function ThreeExample({
             const renderer = initBasicRenderer(width, height);
 
             const update = () => {
-                if (customMovingRef.current) {
-                    group.rotation.y =
-                        group.rotation.y +
-                        (targetAngleRef.current - group.rotation.y) * 0.05;
-                } else {
+                rotateGroupOnPointer(group, ['y'], () => {
                     group.rotation.y += 0.005;
-                    targetAngleRef.current = group.rotation.y % 360;
-                }
-
+                });
                 // renderer.clear();
                 renderer.render(scene, camera);
             };
