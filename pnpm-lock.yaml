@@ -139,6 +139,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
 
+  apps/resume-html: {}
+
   apps/svg-designer-app:
     dependencies:
       '@tailwindcss/aspect-ratio':

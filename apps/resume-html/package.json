@@ -8,14 +8,11 @@
         "url": "https://github.com/wootra/resume-turborepo/tree/main/apps/resume-html"
     },
     "scripts": {
-        "dev": "vite",
         "build": "echo 'no build.'",
         "test": "echo 'no test.'"
     },
     "keywords": [],
     "author": "Songhyeon Jun (shjeon0730@gmail.com)",
     "license": "ISC",
-    "devDependencies": {
-        "vite": "^4.3.6"
-    }
+    "devDependencies": {}
 }
