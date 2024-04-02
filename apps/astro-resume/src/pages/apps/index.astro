@@ -107,7 +107,7 @@ const portfolios = [
 export const prerender=false;
 ---
 <AppLayout title="home" backText='Home' backUrl='/'>
-	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
+	<div class="w-[100vw] min-h-[100vh] flex flex-col">
 		{portfolios.map((item, idx)=>{
 			const {id, href, src, title, desc, techStacks, github, gitlab, npm, videoSrc} = item;
 			const bgColor = bgThemes[idx% bgThemes.length];

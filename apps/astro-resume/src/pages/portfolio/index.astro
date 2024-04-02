@@ -8,7 +8,7 @@ import PortfolioContents from '@/components/portfolio/PortfolioContents.astro';
 import {bgThemes, colorThemes, portfolios, portfoliosInKr} from '@/components/portfolio/consts';
 ---
 <AppLayout title="home" backText='Home' backUrl='/'>
-	<div class="w-[100vw] min-h-[100vh] flex flex-col snap-y snap-mandatory">
+	<div class="w-[100vw] min-h-[100vh] flex flex-col">
 		
 		{portfolios.map((item, idx)=>{
 			const {id, src, title, desc, techStacks, devTechStacks, myRole, href, github,gitlab,npm} = item;
