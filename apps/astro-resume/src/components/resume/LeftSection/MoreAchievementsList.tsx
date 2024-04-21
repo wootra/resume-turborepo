@@ -5,7 +5,7 @@ const { achievements } = LeftContents;
 
 export const MoreAchievementsList = () => {
     return (
-        <ExpandPanelProvider client:only='react'>
+        <ExpandPanelProvider>
             {achievements.map(a => (
                 <ExpandPanel
                     key={a.company}
@@ -17,7 +17,7 @@ export const MoreAchievementsList = () => {
                     <ul className='flex flex-col gap-4 pt-4'>
                         {a.items.map(item => (
                             <li className='flex flex-col' key={item.name}>
-                                <heading>{item.name}</heading>
+                                <header>{item.name}</header>
                                 <p
                                     className='business-value text-sm text-cyan-600'
                                     data-tooltip='Business Values'

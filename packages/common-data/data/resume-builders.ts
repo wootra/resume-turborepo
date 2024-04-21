@@ -25,12 +25,14 @@ export const buildCareer = (
 export type CareerType = ReturnType<typeof buildCareer>;
 
 export const buildSkillLevel = (skillName: string, levelNo: number) => ({
+    dataType: 'skillLevel',
     skillName,
     levelNo,
 });
 export type SkillLevelObj = ReturnType<typeof buildSkillLevel>;
 
 export const buildVolunteer = (role: string, where: string, url: string) => ({
+    dataType: 'volunteer',
     role,
     where,
     url,
@@ -41,6 +43,7 @@ export const buildSchool = (name: string, url: string) => ({ name, url });
 export type SchoolObj = ReturnType<typeof buildSchool>;
 
 export const buildDegree = (major: string, degree: string, year: number) => ({
+    dataType: 'schoolDegree',
     major,
     degree,
     year: year,
@@ -48,6 +51,7 @@ export const buildDegree = (major: string, degree: string, year: number) => ({
 export type DegreeObj = ReturnType<typeof buildDegree>;
 
 export const buildEducation = (school: SchoolObj, degrees: DegreeObj[]) => ({
+    dataType: 'education',
     school,
     degrees,
 });
@@ -62,6 +66,7 @@ export const buildAchievementItem = (
     myPart: string,
     desc?: string
 ) => ({
+    dataType: 'achievement-item',
     name,
     businessValue,
     myPart,
@@ -74,6 +79,7 @@ export const buildAchievement = (
     company: string,
     items: AchievementItemObj[]
 ) => ({
+    dataType: 'achievement-in-company',
     company,
     items,
 });

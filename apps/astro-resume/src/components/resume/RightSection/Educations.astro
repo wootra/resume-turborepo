@@ -12,11 +12,11 @@ const {educations} = RightContents;
     <div class="flex flex-col gap-2">
         {educations.map(({school, degrees})=>(
             <section class="flex flex-col gap-2 edu">
-                <heading class="edu-at" data-tooltip={`move to ${school.name}`} >
+                <header class="edu-at" data-tooltip={`move to ${school.name}`} >
                     <a href={school.url} target="_blank" rel="noopener noreferrer" aria-label={`move to ${school.name}`} class="animate-underline">
                         {school.name}
                     </a>
-                </heading>
+                </header>
                 <ul>
                     {degrees.map(a=>(
                         <li class="flex flex-row gap-1">

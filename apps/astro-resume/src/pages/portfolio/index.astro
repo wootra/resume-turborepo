@@ -25,7 +25,7 @@ import {bgThemes, colorThemes, portfolios, portfoliosInKr} from '@/components/po
 					bgColor={bgColor}
 					bgImage="/images/nasa-star-night.jpg"
 				> 
-					<heading slot="location" class="absolute left-4 top-4 text-sm text-white/40">@US</heading>
+					<header slot="location" class="absolute left-4 top-4 text-sm text-white/40">@US</header>
 					{
 						idx === 0 && <Nav slot="nav-area" className="absolute pl-[2rem] top-0 right-0 rounded-bl-[3rem] bg-white/30 z-50 py-2"/>
 					}
@@ -65,7 +65,7 @@ import {bgThemes, colorThemes, portfolios, portfoliosInKr} from '@/components/po
 					bgColor={bgColor}
 					bgImage="/images/nasa-star-night.jpg"
 				> 
-				<heading slot="location" class="absolute left-4 top-4 text-sm text-white/40">@KR</heading>
+				<header slot="location" class="absolute left-4 top-4 text-sm text-white/40">@KR</header>
 					<GotoTopLink slot="nav-area" href={`#${portfolios[0].id}`}/>
 					<PortfolioContents
 						title={title}
