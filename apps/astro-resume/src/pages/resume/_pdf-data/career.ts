@@ -1,8 +1,9 @@
 import { createTitle } from '../../../server-utils/pdf-utils';
-import { LeftContents } from 'common-data';
 import type { Content } from 'pdfmake/interfaces';
 import { COLORS, INDENT_SIZE, TITLE_WID, buildTitle } from './consts';
-const { Careers } = LeftContents;
+import data from './data-loader';
+const { Careers } = data;
+
 export const getImageMap = async () => {
     return {};
 };
@@ -201,10 +202,10 @@ const buildRoleInfo = (career: (typeof Careers.CAREERS)[0]): Content => {
         ],
     };
 };
-const getMonthYear = (
-    yearMonthArr: [number, number] | null,
-    fromOrTo: string
-) => {
+
+type YearMonth = [number, number] | null;
+
+const getMonthYear = (yearMonthArr: YearMonth, fromOrTo: string) => {
     if (yearMonthArr === null) return `currently work here`;
     const [year, month] = yearMonthArr;
     return `${fromOrTo}: ${month}/${year}`;
@@ -245,7 +246,10 @@ const buildCompanyInfo = (career: (typeof Careers.CAREERS)[0]): Content => {
                     {
                         // width: '*',
                         fontSize: 13,
-                        text: `${getMonthYear(career.start, 'From')}`,
+                        text: `${getMonthYear(
+                            career.start as YearMonth,
+                            'From'
+                        )}`,
                         color: COLORS.PERIOD,
                         // margin: [0, 4, 0, 0],
                         alignment: 'right',
@@ -253,7 +257,7 @@ const buildCompanyInfo = (career: (typeof Careers.CAREERS)[0]): Content => {
                     {
                         // width: '*',
                         fontSize: 13,
-                        text: `${getMonthYear(career.end, 'To')}`,
+                        text: `${getMonthYear(career.end as YearMonth, 'To')}`,
                         color: COLORS.PERIOD,
                         // margin: [0, 4, 0, 0],
                         alignment: 'right',
@@ -290,9 +294,9 @@ const buildCompanyInfoSimple = (
                     {
                         width: '*',
                         text: `${getMonthYear(
-                            career.start,
+                            career.start as YearMonth,
                             'From'
-                        )} ~ ${getMonthYear(career.end, 'To')}`,
+                        )} ~ ${getMonthYear(career.end as YearMonth, 'To')}`,
                         fontSize: 10,
                         color: COLORS.PERIOD,
                         margin: [0, 5, 0, 0],

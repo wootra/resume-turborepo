@@ -6,6 +6,7 @@ import * as topSection from './_pdf-data/top-info';
 import * as introduction from './_pdf-data/introduction';
 import * as career from './_pdf-data/career';
 import * as education from './_pdf-data/education';
+import * as skillLevels from './_pdf-data/skill-levels';
 import path from 'node:path';
 
 export const prerender = true;
@@ -16,10 +17,23 @@ export const GET: APIRoute = async () => {
         const introductionDoc = await introduction.createPdfMake();
         const careerDoc = await career.createPdfMakeSimple();
         const educationDoc = await education.createPdfMake();
+        const skillLevelsDoc = await skillLevels.createPdfMake();
         const topImage = await topSection.getImageMap();
 
         const dd = createPage(
-            [...top, ...introductionDoc, ...careerDoc, ...educationDoc],
+            [
+                ...top,
+                ...introductionDoc,
+                ...careerDoc,
+                {
+                    text: '...continue in the next page',
+                    pageBreak: 'after',
+                    fontSize: 10,
+                    margin: [0, 20, 0, 0],
+                },
+                ...educationDoc,
+                ...skillLevelsDoc,
+            ],
             {
                 ...topImage,
             }

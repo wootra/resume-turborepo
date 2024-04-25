@@ -1,8 +1,8 @@
 import { createTitle } from '../../../server-utils/pdf-utils';
-import { RightContents } from 'common-data';
 import type { Content } from 'pdfmake/interfaces';
 import { COLORS, INDENT_SIZE } from './consts';
-const { skillLevels } = RightContents;
+import data from './data-loader';
+const { skillLevels } = data;
 export const getImageMap = async () => {
     return {};
 };
@@ -22,7 +22,9 @@ export async function createPdfMake() {
                         },
                         {
                             width: 430 - INDENT_SIZE,
-                            text: skillLevels[category]
+                            text: skillLevels[
+                                category as keyof typeof skillLevels
+                            ]
                                 .sort((v1, v2) => v2.levelNo - v1.levelNo)
                                 .map(
                                     skill =>

@@ -1,0 +1,151 @@
+{
+    "name": "Songhyeon Jun",
+    "address": "San Antonio, TX, 78261",
+    "position": "Lead Front-End Engineer",
+    "contact": {
+        "phone": "(512)919-6009",
+        "email": "shjeon0730@gmail.com"
+    },
+    "website": {
+        "homepage": "https://www.sh-jun.com",
+        "github": "https://github.com/wootra"
+    },
+    "Introduction": {
+        "TITLE": "Introduction",
+        "DESC": "An experienced front-end leader with a deep focus on modern JavaScript frameworks and a passion for enhancing user experience. Skilled in leading development teams and introducing front-end innovations that streamline and enhance user interactions."
+    },
+    "Careers": {
+        "TITLE": "Careers",
+        "CAREERS": [
+            {
+                "companyName": "Dimensional Fund Advisors (DFA)",
+                "url": "https://dimensional.com/",
+                "start": [2022, 8],
+                "end": null,
+                "role": "Lead and enhance front-end development for key financial applications",
+                "industry": "Financial / Investment / Asset Management",
+                "jobTitle": "SW Engineer Senior",
+                "techStacks": [
+                    "React 17,18 (class, functional)",
+                    "GraphQL",
+                    "TypeScript",
+                    "Javascript (ES6~2022), Node.js",
+                    "SASS/SCSS/CSS3",
+                    "SQL Alchemy",
+                    "Jenkins",
+                    "Jest",
+                    "Monorepo (Rush repo)"
+                ],
+                "achievements": [
+                    "Led the upgrade of legacy systems to modern React and TypeScript applications.",
+                    "Developed and optimized client-side infrastructure to support real-time financial data processing.",
+                    "Mentored junior developers and standardized front-end best practices across teams."
+                ]
+            },
+            {
+                "companyName": "USAA",
+                "url": "https://usaa.com/",
+                "start": [2018, 9],
+                "end": [2022, 8],
+                "role": "Oversaw and enhanced front-end architecture for insurance applications",
+                "industry": "Financial / Insurance",
+                "jobTitle": "SW Engineer Senior (Team Lead)",
+                "techStacks": [
+                    "React (class, functional)",
+                    "Redux",
+                    "StyledComponent",
+                    "CSS3/SASS/LESS",
+                    "TypeScript",
+                    "JavaScript (vanilla/ES6~2021)",
+                    "Cypress",
+                    "Jest"
+                ],
+                "achievements": [
+                    "Architected and implemented responsive designs across multiple insurance products.",
+                    "Led front-end team in delivering high-quality, scalable user interface components.",
+                    "Enhanced application performance, resulting in a smoother user experience and increased customer satisfaction."
+                ]
+            }
+        ]
+    },
+    "skillLevels": {
+        "Languages(FE)": [
+            {
+                "dataType": "skillLevel",
+                "skillName": "Javascript",
+                "levelNo": 5
+            },
+            {
+                "dataType": "skillLevel",
+                "skillName": "TypeScript",
+                "levelNo": 5
+            },
+            {
+                "dataType": "skillLevel",
+                "skillName": "HTML",
+                "levelNo": 5
+            },
+            {
+                "dataType": "skillLevel",
+                "skillName": "CSS3/SASS/LESS/SCSS",
+                "levelNo": 5
+            }
+        ],
+        "Frameworks(FE)": [
+            {
+                "dataType": "skillLevel",
+                "skillName": "React.js",
+                "levelNo": 5
+            }
+        ],
+        "Test Framework": [
+            {
+                "dataType": "skillLevel",
+                "skillName": "Jest",
+                "levelNo": 5
+            },
+            {
+                "dataType": "skillLevel",
+                "skillName": "Cypress",
+                "levelNo": 5
+            }
+        ],
+        "Backend skills": [
+            {
+                "dataType": "skillLevel",
+                "skillName": "Node.js",
+                "levelNo": 5
+            }
+        ],
+        "Project/Pakcage Management": [
+            {
+                "dataType": "skillLevel",
+                "skillName": "Npm",
+                "levelNo": 5
+            },
+            {
+                "dataType": "skillLevel",
+                "skillName": "Yarn",
+                "levelNo": 4
+            }
+        ]
+    },
+    "education": {
+        "school": {
+            "name": "Gyeongsang National University",
+            "url": "https://www.gnu.ac.kr/"
+        },
+        "degrees": [
+            {
+                "major": "Computer Science",
+                "degree": "BC",
+                "year": 2005
+            },
+            {
+                "major": "Mechanical Engineering",
+                "degree": "BE",
+                "year": 2005
+            }
+        ]
+    }
+}

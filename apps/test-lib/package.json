@@ -1,0 +1,27 @@
+{
+    "name": "test-lib",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "type": "module",
+    "engines": {
+        "npm": ">=9",
+        "node": ">=18"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "make": "tsx ./src/index.ts"
+    },
+    "keywords": [],
+    "author": "Songhyeon Jun(shjeon0730@gmail.com)",
+    "license": "ISC",
+    "dependencies": {
+        "common-data": "workspace:*",
+        "ts-node": "^10.9.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.7",
+        "tsx": "^4.7.2",
+        "typescript": "^5.4.5"
+    },
+    "description": ""
+}
