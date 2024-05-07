@@ -42,7 +42,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'https://dimensional.com/',
                 [2022, 8],
                 null,
-                'maintain, debug, and improvement for SMA, Model Center, Fund Center, and other applications',
+                'FE Software engineer at Dimensional Fund Advisors. I upgraded and fixed the DdxTools application cooperating with BE and the design team. I established new testing methodologies, report systems, and development environments. I also led the team to the transition of the new CSS3 trends.',
                 'Financial / Investment / Asset Management',
                 'SW Engineer Senior',
                 [
@@ -86,7 +86,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'https://usaa.com/',
                 [2018, 9],
                 [2022, 8],
-                'Maintain & Improve Financial Readiness/Wellness app, Small Business Insurance app',
+                'As a team lead of the full-stack team, I upgraded the Small business insurance application connecting the Guidewire system to the React client application in a wizard look & feel. I improved development experiences including optimization of the visual contexts. The team performed in a start-up fashion with a strong agile methodology. ',
                 'Financial / Insurance',
                 'SW Engineer Senior (Team Lead)',
                 [
@@ -126,7 +126,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 '',
                 [2018, 3],
                 [2018, 9],
-                'Design ANN, Pre-process data, train ANN model, Assistant for medical research paper, Organize/Analize/Visualize result',
+                'Af a freelancer software engineer, I got a contract for the initial stage of an AI project. I was only one engineer and there were not enough resources for this area. From the basis of the ANN to the final result of ANN including implementation of data cleaning, analysis, design & adjustment of network, and charting and data organization for the report.',
                 'Artificial Intelligence/Medical Research',
                 'Freelancer',
                 ['Python', 'Jupiter Notebook', 'Keras', 'TensorFlow'],
@@ -141,7 +141,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'http://eonic.co.kr/',
                 [2016, 7],
                 [2018, 3],
-                'Signal Analysis, Architecutre, Development',
+                'As a lead UI Engineer, I developed analysis and operation tools for analog and digital signals. The job took advantage of the full capability of multi-core systems. I directly cooperated with clients to establish the initial stage of sonar systems including raw data analysis.',
                 'Sonar / Defense systems',
                 'Lead SW Engineer',
                 [
@@ -166,7 +166,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
                 'http://realtimewave.com/',
                 [2011, 2],
                 [2016, 6],
-                'Development of Automated/Manual Test Solutions for real time devices such as UAV and Guided Missile Systems',
+                'As a senior UI engineer, I developed hardware/network testing applications using multiple programming languages and technology. I also initiated new products improving usability dramatically. Mostly I worked on missile systems, unmanned air vehicles, and satellite systems. ',
                 'Aero / Defense systems',
                 'SW Engineer',
                 [

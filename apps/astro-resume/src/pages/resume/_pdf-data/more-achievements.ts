@@ -2,6 +2,8 @@ import { createTitle } from '../../../server-utils/pdf-utils';
 import { LeftContents } from 'common-data';
 import type { Content } from 'pdfmake/interfaces';
 import { COLORS, INDENT_SIZE } from './consts';
+import data from './data-loader';
+
 const { achievements } = LeftContents;
 export const getImageMap = async () => {
     return {};
