@@ -8,6 +8,6 @@ const combined = {
     ...RightContents,
 };
 
-const loadedData = data.Careers ? data : combined;
+const loadedData = (data as any).Careers ? data : combined;
 
 export default loadedData;
