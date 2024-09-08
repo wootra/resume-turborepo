@@ -1,5 +1,5 @@
 import { checkVisible } from '@/utils/checkVisible';
-import React, { useCallback, useEffect, useRef, type RefObject, useState } from 'react';
+import { useCallback, useEffect, useRef, type RefObject, useState } from 'react';
 import * as d3 from 'd3';
 type BallInfo = {
 	xSpeed: number;
