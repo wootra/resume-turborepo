@@ -21,7 +21,8 @@ const { title, usePdf=false } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Songhyeon Jun's resume in astro">
-		<meta name="viewport" content={usePdf ? "width=768, initial-scale=1" : "width=device-width"} />
+		<meta name="viewport" content={`${usePdf ? "width=768, initial-scale=1" : "initial-scale=1.0, width=device-width, maximum-scale=1, user-scalable=0"}`} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
