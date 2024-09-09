@@ -14,5 +14,6 @@ const currentPath = pathname; // remove the first "/"
 ---
 <a href={href} class={twMerge("px-2 flex-nowrap whitespace-nowrap hover:scale-125 transition-all relative", className)} aria-label={ariaLabel} {...anchorProps}>
     <slot/>
-    {href ===currentPath && <div class="h-[2px] absolute -bottom-2 inset-x-2 bg-white/50"></div>}
+    {(href !== '/' && currentPath !== '/' && currentPath.includes(href)) && <div class="h-[2px] absolute -bottom-2 inset-x-2 bg-white/50"></div>}
+    {(href==='/' && currentPath === '/') && <div class="h-[2px] absolute -bottom-2 inset-x-2 bg-white/50"></div>}
 </a>

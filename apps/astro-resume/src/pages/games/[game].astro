@@ -1,4 +1,5 @@
 ---
+
 import SpotIt from '../../components/games/solid-games/SpotIt';
 import SlapIt2 from '../../components/games/react-games/SlapIt2';
 import SnakeGame from '../../components/games/solid-games/SnakeGame';
@@ -48,7 +49,8 @@ export function getStaticPaths() {
     {params: {game: 'threejs'}},
   ];
 }
-export const prerender = false;
+// export const prerender = false;
+export const prerender = true
 ---
 
 <GameLayout title={name} backUrl='/apps' backText='App Home'>

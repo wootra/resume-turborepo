@@ -15,9 +15,13 @@
 		"test": "vitest"
 	},
 	"dependencies": {
+		"@fontsource-variable/rubik": "^5.0.24",
+		"@fontsource/inter": "^5.0.21",
+		"@fontsource/lora": "^5.0.19",
 		"@jridgewell/sourcemap-codec": "^1.4.15",
 		"@prisma/client": "5.2.0",
 		"@shjeon0730/react-svg-chart": "workspace:*",
+		"@tailwindcss/typography": "^0.5.15",
 		"@vercel/postgres": "^0.4.1",
 		"astro-icon": "^1.1.0",
 		"common-data": "workspace:*",

@@ -1,0 +1,24 @@
+---
+title: Making Google Logo with Animation
+description: I think google logo with animation is pretty cool. To make it, it might need some graphic. I wanted to make a google logo with animation.
+pubDate: 2023-09-10
+tags: ["css", "animation"]
+slug: making-google-logo-with-animation
+---
+
+import GoogleLogoByCSS from '@/components/css/GoogleLogoByCSS.astro';
+import video from '@/video/google-logo.mp4';
+
+# {frontmatter.title}
+
+I think google logo with animation is pretty cool. To make it, it might need some graphic 
+I wanted to make a google logo 
+
+
+<video controls="" autoplay="" transition:persist>
+  <source src={video} type="video/mp4" />
+</video>
+
+## using only CSS?
+
+<GoogleLogoByCSS style="width: 100px; height: 100px; aspect-ratio: 1"/>

@@ -1,0 +1,35 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import BlogWrapper from '@/layouts/sublayouts/BlogWrapper.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import blogSchema from '@/schema/blogSchema';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+const blogEntries = await getCollection('blog');
+const parsedEntries = blogEntries.map((entry:any) => {
+  return {
+    ...entry,
+    data: blogSchema.parse(entry.data),
+  };
+});
+export const prerender = true;
+
+---
+<BlogLayout title="blog" description='blog of Songhyeon Jun'>
+    <ul class="blog-list">
+
+    {parsedEntries.map(({data, slug}: CollectionEntry<"blog">) => (
+        <BlogWrapper {...data} slug={slug} />
+      ))}
+    </ul>
+</BlogLayout>
+
+<style>
+    .blog-list {
+        display: grid;
+        grid-template-columns: auto ;
+    }
+</style>

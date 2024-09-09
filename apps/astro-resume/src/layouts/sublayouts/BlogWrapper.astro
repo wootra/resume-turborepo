@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type Props = CollectionEntry<"blog">;
+
+const {title, description, slug } = Astro.props;
+---
+<li class="blog-wrapper">
+    <a href={`/blog/${slug}`}><div class="title" data-description={description}>{title}</div></a>
+    <slot />
+    
+</li>
+
+<style>
+    @media (prefers-color-scheme: dark) {
+        .blog-wrapper {
+            --blog-title-color: white;
+            --blog-text-color: white;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        .blog-wrapper {
+            --blog-title-color: black;
+            --blog-text-color: black;
+        }
+    }
+    
+    .blog-wrapper {
+        list-style-type: none;
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        color: var(--blog-text-color);
+    }
+</style>
