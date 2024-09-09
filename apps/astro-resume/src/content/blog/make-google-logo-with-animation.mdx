@@ -25,9 +25,14 @@ Since there are multiple phases in this video, I decided to make them 3 differen
 ### 1. jumping dots.
 <GoogleJumpingDots />
 
-This process looks like easy animations on dots with delays. 
-
-
+This process looks like easy animations on dots with delays. [Source Code](https://github.com/wootra/resume-turborepo/blob/main/apps/astro-resume/src/components/css/GoogleJumpingDots.astro)
+But to make the motion naturally, it need a little trials.
+Basically, I made 4 dots wrapped with containers, and put animations on both container and dots.
+The container makes the dots aligned on top of the container, and the dots are combinations of 2 circles and its body.
+The top circle is `(::before)` connected on top of the rectangular body, and only the rectangular body is resized.
+and its position is controlled by changing height.
+ 
+![dot-combination](./dot-combinations.png)
 
 ### 2. merging dots.
 
@@ -35,4 +40,4 @@ This process looks like easy animations on dots with delays.
 
 <GoogleLogoByCSS style="width: 100px; height: 100px"/>
 
-This process need a little thought process.
+This process need a little thought process. [Source Code](https://github.com/wootra/resume-turborepo/blob/main/apps/astro-resume/src/components/css/GoogleLogoByCSS.astro)
