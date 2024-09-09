@@ -1,0 +1,251 @@
+---
+type Props = {
+    style: string;
+    useAnimation?: boolean;
+}
+const {style, useAnimation = true} = Astro.props;
+
+---
+<div class={`google-jumping-dots-holder ${useAnimation ? 'animate' : ''}`} style={style}>
+    {["blue", "red", "yellow", "green"].map(color=>(
+        <div class="dot-holder">
+            <div class={color}/>
+        </div>
+    ))}
+</div>
+<style>
+    
+.google-jumping-dots-holder {
+    height: 7rem;
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 1rem;
+    --google-jumping-red: #ea4335;
+    --google-jumping-yellow:  #fbbc05;
+    --google-jumping-blue:  #4285f4;
+    --google-jumping-green:  #34a853;
+    --dot-size: 1.5rem;
+    --jump: 2rem;
+    --dot-bar-max-height: 1rem;
+    --dot-bar-min-height: 0;
+    --animation-duration: 2s;
+    --jumping-delay-unit: 0.1s;
+
+    .dot-holder {
+        display: inline-block;
+        justify-content: center;
+        align-items: flex-start;
+        height: var(--dot-size);
+    }
+
+    .red, .yellow, .blue, .green {
+        /* transform: scaleY(0.1); */
+        &, &::before, &::after {
+            height: var(--dot-size);
+            /* animation: none; */
+        }
+        height: 0;
+        &::before, &::after {
+            transform: translate(-50%, 0);
+        }
+    }
+
+    &.animate {
+        .dot-holder {
+            animation: google-jumping-container var(--animation-duration) ease-in-out infinite;
+        }
+        .red, .yellow, .blue, .green {
+            /* transform: scaleY(1); */
+            animation: google-jumping var(--animation-duration) ease-in-out infinite;
+            &::before, &::after {
+                transform: translate(-50%, 0);
+            }
+            /* &::before {
+                animation: google-upper-jumping var(--animation-duration) ease-in-out forwards;
+            }
+            &::after {
+                animation: google-lower-jumping var(--animation-duration) ease-in-out forwards;
+            } */
+        }
+
+        .blue {
+            animation-delay: 0;
+            &, &::before, &::after {
+            }
+        }
+
+        .dot-holder:has(>.red){
+            animation-delay: calc(var(--jumping-delay-unit) * 1);
+
+        }
+        .red {
+            &, &::before, &::after {
+                animation-delay: calc(var(--jumping-delay-unit) * 1);
+            }
+        }
+        .dot-holder:has(>.yellow){
+            animation-delay: calc(var(--jumping-delay-unit) * 2);
+
+        }
+        .yellow {
+            &, &::before, &::after {
+                animation-delay: calc(var(--jumping-delay-unit) * 2);
+            }
+        }
+        .dot-holder:has(>.green){
+            animation-delay: calc(var(--jumping-delay-unit) * 3);
+
+        }
+
+        .green {
+            &, &::before, &::after {
+                animation-delay: calc(var(--jumping-delay-unit) * 3);
+            }
+        }
+    }
+}
+
+
+.red, .yellow, .blue, .green {
+    width: var(--dot-size);
+    /* height: var(--dot-size); */
+    
+    position: relative;
+    &::before, &::after {
+       
+        content: "";
+         display: block;
+         position: absolute;
+         left: 50%;
+         transform: translate(-50%, 0);
+         width: var(--dot-size);
+         height: var(--dot-size);
+         border-radius: 50%;
+    }
+
+    &:before {
+        bottom: calc(var(--dot-size) / -2);
+    }
+
+    &:after {
+        top: calc(var(--dot-size) / -2);
+    }
+}
+
+.blue {
+    &, &::before, &::after {
+        background-color: var(--google-jumping-blue);
+    }
+}
+
+
+.red {
+    &, &::before, &::after {
+        background-color: var(--google-jumping-red);
+    }
+}
+
+.yellow {
+    &, &::before, &::after {
+        background-color: var(--google-jumping-yellow);
+    }
+}
+
+
+.green {
+    &, &::before, &::after {
+        background-color: var(--google-jumping-green);
+    }
+}
+
+@keyframes google-jumping {
+    0%, 100% {
+        height: 0;
+        /* transform: translate(0, 0); */
+    }
+    10%, 50% {
+        height: calc(var(--dot-size) * 1.4);
+        
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+    20%, 60% {
+        height: calc(var(--dot-size) / 2);
+        /* width: calc(var(--dot-size) * 0.9); */
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+    30%, 70% {
+        height: calc(var(--dot-size) * 1.4);
+        /* width: calc(var(--dot-size) * 0.8); */
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+    40%, 80%  {
+        height: 0;
+        /* transform: translate(0, 0); */
+    }
+}
+
+@keyframes google-jumping-container {
+    0%, 100% {
+        height: 0;
+        transform: scaleX(1);
+        /* transform: translate(0, 0); */
+    }
+    10%, 50% {
+        height: calc(var(--dot-size) * 1.4);
+        transform: scaleX(0.8);
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+    20%, 60% {
+        height: calc(var(--jump) + calc(var(--dot-size) / 2));
+        transform: scaleX(0.9);
+        /* height: calc(var(--dot-size) / 2); */
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+    30%, 70% {
+        height: calc(var(--dot-size) * 1.4);
+        transform: scaleX(0.8);
+        /* transform: translate(0, calc(0px - var(--jump))); */
+    }
+   
+    40%, 80%  {
+        height: 0;
+        transform: scaleX(1.1);
+        /* transform: translate(0, 0); */
+    }
+}
+/* 
+@keyframes google-upper-jumping {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    20%, 60% {
+        transform: translate(-50%, 0);
+    }
+    40%, 80%  {
+        transform: translate(-50%, 0);
+    }
+} */
+
+/* 
+@keyframes google-lower-jumping {
+    0% {
+        transform: scaleY(100) translate(-50%, 0);
+    }
+
+    20%, 60% {
+        transform: scaleY(1) translate(-50%, 0);
+    }
+    40%, 80%  {
+        transform: scaleY(100) translate(-50%, 0);
+    }
+    100% {
+        transform: scaleY(1) translate(-50%, 0);
+    }
+}
+ */
+
+</style>

@@ -6,19 +6,33 @@ tags: ["css", "animation"]
 slug: making-google-logo-with-animation
 ---
 
-import GoogleLogoByCSS from '@/components/css/GoogleLogoByCSS.astro';
 import video from '@/video/google-logo.mp4';
+import GoogleLogoByCSS from '@/components/css/GoogleLogoByCSS.astro';
+import GoogleJumpingDots from '@/components/css/GoogleJumpingDots.astro';
 
 # {frontmatter.title}
 
-I think google logo with animation is pretty cool. To make it, it might need some graphic 
-I wanted to make a google logo 
-
+I think google logo with animation is pretty cool. To make it, it might need some scripts or graphical libraries.
 
 <video controls="" autoplay="" transition:persist>
   <source src={video} type="video/mp4" />
 </video>
 
 ## using only CSS?
+But I wanted to make it only using CSS. 
+Since there are multiple phases in this video, I decided to make them 3 different parts.
 
-<GoogleLogoByCSS style="width: 100px; height: 100px; aspect-ratio: 1"/>
+### 1. jumping dots.
+<GoogleJumpingDots />
+
+This process looks like easy animations on dots with delays. 
+
+
+
+### 2. merging dots.
+
+### 3. opening circles
+
+<GoogleLogoByCSS style="width: 100px; height: 100px"/>
+
+This process need a little thought process.
