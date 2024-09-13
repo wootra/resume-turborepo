@@ -25,8 +25,6 @@ export default defineConfig({
 			'assets/textures/stone.jpg',
 			'assets/textures/f-texture.png',
 			'assets/textures/profile-photo150.png',
-			'apps/astro-resume/src/content/blog/assets_make-google-logo-with-animation/dot-combinations.png',
-			'apps/astro-resume/src/content/blog/assets_make-google-logo-with-animation/google-logo.mp4',
 		],
 		// imagesConfig: {
 		//     cacheDir: '.astro/cache',
