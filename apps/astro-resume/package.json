@@ -8,6 +8,7 @@
 	},
 	"scripts": {
 		"dev": "astro dev",
+		"dev:resume": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
@@ -23,6 +24,8 @@
 		"@shjeon0730/react-svg-chart": "workspace:*",
 		"@tailwindcss/typography": "^0.5.15",
 		"@vercel/postgres": "^0.4.1",
+		"ag-grid-community": "^32.1.0",
+		"ag-grid-react": "^32.1.0",
 		"astro-icon": "^1.1.0",
 		"common-data": "workspace:*",
 		"d3": "^7.9.0",

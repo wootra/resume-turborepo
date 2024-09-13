@@ -4,6 +4,9 @@ import BlogWrapper from '@/layouts/sublayouts/BlogWrapper.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import blogSchema from '@/schema/blogSchema';
+import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
+import "ag-grid-community/styles/ag-theme-quartz.css"; 
+import { AgGridReact } from 'ag-grid-react';
 
 // Get all entries from a collection.
 // Requires the name of the collection as an argument.
@@ -15,6 +18,8 @@ const parsedEntries = blogEntries.map((entry:any) => {
     data: blogSchema.parse(entry.data),
   };
 });
+
+
 export const prerender = true;
 
 ---
