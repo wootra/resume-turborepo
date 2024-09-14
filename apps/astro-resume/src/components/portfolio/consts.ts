@@ -6,39 +6,33 @@ export const colorThemes = [
 		twMerge('bg-slate-200/50'),
 		twMerge('to-slate-700/50 from-slate-500/30'),
 	],
-	[
-		twMerge('from-red-700/70 to-red-500/50'),
-		twMerge('bg-red-200/50'),
-		twMerge('to-red-700/50 from-red-500/30'),
-	],
-	[
-		twMerge('from-cyan-700/70 to-cyan-500/50'),
-		twMerge('bg-cyan-200/50'),
-		twMerge('to-cyan-700/50 from-cyan-500/30'),
-	],
-	[
-		twMerge('from-lime-700/70 to-lime-500/50'),
-		twMerge('bg-lime-200/50'),
-		twMerge('to-lime-700/50 from-lime-500/30'),
-	],
+	[twMerge('from-red-700/70 to-red-500/50'), twMerge('bg-red-200/50'), twMerge('to-red-700/50 from-red-500/30')],
+	[twMerge('from-cyan-700/70 to-cyan-500/50'), twMerge('bg-cyan-200/50'), twMerge('to-cyan-700/50 from-cyan-500/30')],
+	[twMerge('from-lime-700/70 to-lime-500/50'), twMerge('bg-lime-200/50'), twMerge('to-lime-700/50 from-lime-500/30')],
 ];
 
-export const bgThemes = [
-	'gray',
-	'rgb(206, 157, 199)',
-	'rgb(166, 173, 188)',
-	'rgb(174, 161, 19)',
-];
+export const bgThemes = ['gray', 'rgb(206, 157, 199)', 'rgb(166, 173, 188)', 'rgb(174, 161, 19)'];
 
 export const portfolios = [
+	{
+		id: 'container-break-points',
+		title: 'container-break-points',
+		github: 'https://github.com/wootra/container-break-points',
+		gitlab: '',
+		npm: 'https://www.npmjs.com/package/container-breakpoints-react',
+		techStacks: 'Typescript, React.js(Context, Ref, State, Memo), Javascript(CustomEvent)',
+		desc: `break point manager that is highly optimized using CustomEvent and React.js. It minimized updating rendering like state managers (i.e. Jotai, Redux, etc.). It is perfect to manage container query with javascript. It also fully support custom typing using type inferring system to help programming.`,
+		myRole: 'A-Z',
+		href: 'https://www.npmjs.com/package/container-breakpoints-react',
+		src: '/images/app-screenshots/container-breakpoints-react.png',
+	},
 	{
 		id: 'svg-table',
 		title: '@shjeon0730/svg-table',
 		github: 'https://github.com/wootra/svg-table/tree/main/apps/docs',
 		gitlab: '',
 		npm: 'https://www.npmjs.com/package/@shjeon0730/svg-table',
-		techStacks:
-			'Typescript, Astro.js(SSG, SSR, SPA), React.js, SVG, Rollup, Typescript, TurboRepo',
+		techStacks: 'Typescript, Astro.js(SSG, SSR, SPA), React.js, SVG, Rollup, Typescript, TurboRepo',
 		desc: `An opensource project for SVG table. I motivated a work that needed to convert HTML table to SVG talbe image. 
         I realized that it is not that easy and time consuming, and if this kind of librar exists, it would be very easy.`,
 		myRole: 'A-Z',
@@ -69,8 +63,7 @@ export const portfolios = [
 		github: 'https://github.com/wootra/sa-korean-school',
 		gitlab: '',
 		npm: '',
-		techStacks:
-			'Next.js 14(app router), Tailwindcss, shadcn/ui, Stripe, Google Sheet API',
+		techStacks: 'Next.js 14(app router), Tailwindcss, shadcn/ui, Stripe, Google Sheet API',
 		desc: ` San Antonio Korean School wanted to improve existing homepage.
         Implemented SSG first pages using Google Sheets API for the contents update.
         Full server side generated Navigation system, payment system using stripe API.`,
@@ -81,10 +74,8 @@ export const portfolios = [
 	{
 		id: 'dimensional-fund-center',
 		title: 'Dimensional Fund Center / Model Center / SMA Center',
-		techStacks:
-			'React.js 16~18, React Router 5, D3, PDFMake, Express.js, Sitecore-CMS, Jotai 1/2',
-		devTechStacks:
-			'Vite, Jest, RTL, Playwright, Docker, Bitbucket/Github, Jenkins',
+		techStacks: 'React.js 16~18, React Router 5, D3, PDFMake, Express.js, Sitecore-CMS, Jotai 1/2',
+		devTechStacks: 'Vite, Jest, RTL, Playwright, Docker, Bitbucket/Github, Jenkins',
 		desc: 'For the fund advisors, DFA offers multiple ways of analyzation and visualization.',
 		myRole: `Development/Debug/Testing over Fund Center & Model Center & SMA Center.
         Leading Unit/e2e/Manual testing process / Code Review
@@ -95,10 +86,8 @@ export const portfolios = [
 	{
 		id: 'small-business-insurance',
 		title: 'Small Business Insurance',
-		techStacks:
-			'React.js 16(Hook, Context), ReduxToolkit, React Router 5, Guidewire, Java',
-		devTechStacks:
-			'Chai, Mocha, sinon, RTL, Storybook, Cypress, Mockito, Spring Framework',
+		techStacks: 'React.js 16(Hook, Context), ReduxToolkit, React Router 5, Guidewire, Java',
+		devTechStacks: 'Chai, Mocha, sinon, RTL, Storybook, Cypress, Mockito, Spring Framework',
 		desc: 'Created the join/maintain process of Small business Insurance',
 		myRole: 'Leading Frontend team, Cowork with BE team as co-leader.',
 		href: 'https://www.usaa.com/insurance/small-business',
@@ -107,10 +96,8 @@ export const portfolios = [
 	{
 		id: 'financial-readiness',
 		title: 'USAA Financial Readiness Assessments',
-		techStacks:
-			'React.js 15,16(Class, Hook), Redux, React Router 4, MS-DB2, Java',
-		devTechStacks:
-			'Chai, Mocha, sinon, Enzyme, Selenium, Mockito, Spock, Jax-RS(RestAPI)',
+		techStacks: 'React.js 15,16(Class, Hook), Redux, React Router 4, MS-DB2, Java',
+		devTechStacks: 'Chai, Mocha, sinon, Enzyme, Selenium, Mockito, Spock, Jax-RS(RestAPI)',
 		desc: 'Created a process for Financial Readiness Assessment and analyzations',
 		myRole: 'Develop/Debug/Architecture on both FE and BE',
 		href: 'https://mobile.usaa.com/advice/financial-readiness?akredirect=true',
@@ -143,17 +130,13 @@ export const portfoliosInKr = [
 		View/Print/PDF generation`,
 		github: 'https://github.com/wootra/GlobalReporter',
 		href: 'https://github.com/wootra/GlobalReporter',
-		src: [
-			'/images/app-screenshots/global-report.png',
-			'/images/app-screenshots/global-report2.png',
-		],
+		src: ['/images/app-screenshots/global-report.png', '/images/app-screenshots/global-report2.png'],
 		myRole: 'A-Z, Plan, Introducing MV concept, Architecture, Design, Implement',
 	},
 	{
 		id: 'ifcc-dev-test-sw',
 		title: 'IFCC Device Test SW',
-		techStacks:
-			'C#.Net, Custom components, OpenGL, TCP/UDP, Serial(RS-232/RS-422), Can',
+		techStacks: 'C#.Net, Custom components, OpenGL, TCP/UDP, Serial(RS-232/RS-422), Can',
 		desc: `Automated testing software for IFCC device including data integrity, communication, and smoke test.
 		Before this software, all test had to be manually created in each project, but this software allowed to skip 
 		massive amount of redundant work. It also allowed injecting errors by easy UI, so improved testability dramatically.`,
@@ -166,8 +149,7 @@ export const portfoliosInKr = [
 	{
 		id: 'testngine-1-0',
 		title: 'TestNgine 1.0',
-		techStacks:
-			'C#.Net, WCF, TCP/UDP, C, VxWorks(RTOS), Python(for loop), XML',
+		techStacks: 'C#.Net, WCF, TCP/UDP, C, VxWorks(RTOS), Python(for loop), XML',
 		desc: `Connecting with high-powered Realtime OS(VxWorks), this application allowed creation, edit, and execution of dynamic testing scenarios by easy accessible UI.
 		Also allowing multi-depth scenario managed by XML which made it possible to be modularized.
 		PDF, Excel report
@@ -180,10 +162,7 @@ export const portfoliosInKr = [
 		title: 'IGTE',
 		techStacks: 'C#.Net, WCF, TCP/UDP, C, VxWorks(RTOS), XML, MS-SQL',
 		desc: `Managing 6-DOF avionics models with database while developing Missiles to boost testing process`,
-		src: [
-			'/images/app-screenshots/igte-1.png',
-			'/images/app-screenshots/igte-2.png',
-		],
+		src: ['/images/app-screenshots/igte-1.png', '/images/app-screenshots/igte-2.png'],
 		myRole: 'Client SW development.',
 	},
 	{
@@ -237,8 +216,7 @@ export const portfoliosInKr = [
 	{
 		id: 'active-sonar-controller',
 		title: 'Active Sonar Test SW',
-		techStacks:
-			'C++, Lab Windows/CVI, FFT algorithm, multi-thread(Intel TBB)',
+		techStacks: 'C++, Lab Windows/CVI, FFT algorithm, multi-thread(Intel TBB)',
 		desc: `Performed actual testing for active-sonar using this application. 
 		Visualization of sonar signals, active status of each sensors, Beam patterns and high resolution frequencies.`,
 		src: [
