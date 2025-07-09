@@ -1,0 +1,109 @@
+<svg width="300" height="300" viewBox="0 0 300 300"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- 투명 배경 -->
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <defs>
+    <!-- 깃털 공통 템플릿: 나뭇잎 형태, 주황 채움, 갈색 줄기 -->
+    <g id="featherTemplate">
+      <!-- 깃털 외곽 (나뭇잎 모양) -->
+      <path
+        d="M0,0
+           C5,30 20,60 0,90
+           C-20,60 -5,30 0,0 Z"
+        fill="orange" stroke="saddlebrown" stroke-width="2"/>
+      <!-- 줄기 -->
+      <path
+        d="M0,0 C2,45 -2,45 0,90"
+        fill="none" stroke="saddlebrown" stroke-width="2"/>
+    </g>
+  
+   <!-- 드림캐쳐 그라데이션 정의 -->
+    <radialGradient id="catcherGradient" cx="150" cy="120" r="70" fx="150" fy="120" gradientUnits="userSpaceOnUse">
+      <stop offset="50%" stop-color="#090332"/>
+      <stop offset="60%" stop-color="#170b3f"/>
+      <stop offset="70%" stop-color="#0c1934"/>
+      <stop offset="80%" stop-color="#031432"/>
+      <stop offset="100%" stop-color="#010515"/>
+    </radialGradient>
+
+    <!-- 마스크 정의: 눈 흰자 형태 기반 -->
+    <mask id="eyeMask">
+      <path d="M95,120 C115,120 125,100 150,100 C190,100 185,120 205,120 C195,125 190,140 150,140 C110,140 115,125 95,120Z"
+            fill="white" />
+    </mask>
+
+    <!-- 눈꺼풀 그라데이션 정의 -->
+    <radialGradient id="eyelidGradient" cx="150" cy="120" r="70" fx="150" fy="120" gradientUnits="userSpaceOnUse">
+      <stop offset="30%" stop-color="#FFFF66"/>
+      <stop offset="100%" stop-color="#001F3F"/>
+    </radialGradient>
+
+    <!-- 눈동자 그라데이션 정의 -->
+    <radialGradient id="irisGradient" cx="150" cy="115" r="26" fx="150" fy="117" gradientUnits="userSpaceOnUse">
+      <stop offset="40%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#0758a4"/>
+    </radialGradient>
+
+     <!-- 눈흰자 그라데이션 정의 -->
+    <radialGradient id="whiteGradient" cx="150" cy="120" r="50" fx="150" fy="120" gradientUnits="userSpaceOnUse">
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="80%" stop-color="#7a9ce1"/>
+      <stop offset="100%" stop-color="#430118"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 드림캐처 외곽 원 -->
+  <circle cx="150" cy="120" r="70"
+          fill="url(#catcherGradient)" stroke="#D4AF37" stroke-width="3" />
+
+  <!-- 상단 빨간 아크 -->
+  <path d="M85,130 C85,30 215,30 215,130 M210,130 C200,55 100,55 90,130Z"
+        fill="#B33B17" stroke="#937616" stroke-width="2" />
+
+      <!-- 눈 형태 -->
+      <g transform="translate(0, 10)">
+  <!-- 눈꺼풀 형태 -->
+  <path d="M80,120 C100,120 110,80 150,80 C190,80 210,120 220,120 C210,120 190,150 150,150 C110,150 100,120 80,120Z"
+        fill="url(#eyelidGradient)"/>
+
+  <!-- 눈 흰자 내부 -->
+  <path d="M95,120 C115,120 125,100 150,100 C190,100 185,120 205,120 C195,125 190,140 150,140 C110,140 115,125 95,120Z"
+        fill="url(#whiteGradient)" />
+
+  <!-- 눈동자와 홍채 (마스크 적용) -->
+  <g mask="url(#eyeMask)">
+    <circle cx="150" cy="115" r="30" stroke="#0b072a" stroke-width="0.4" fill="transparent" />
+    <circle cx="150" cy="115" r="35" stroke="#100946" stroke-width="0.3" fill="transparent" />
+    <circle cx="150" cy="115" r="42" stroke="#352b87" stroke-width="0.2" fill="transparent" />
+    <circle cx="150" cy="115" r="48" stroke="#2e1bc0" stroke-width="0.2" fill="transparent" />
+    <circle cx="150" cy="115" r="25" fill="url(#irisGradient)" stroke="#D4AF37" stroke-width="2" />
+    <circle cx="150" cy="115" r="15" fill="black" />
+    <ellipse rx="4" ry="5" cx="134" cy="80" fill="white" transform="rotate(45 100 100)"/>
+    <!-- 눈동자안의 별 -->
+    <g fill="#D4AF37" stroke="#D4AF37">
+      <circle cx="140" cy="115" r="2"/>
+      <circle cx="155" cy="110" r="2.5"/>
+      <circle cx="160" cy="125" r="2"/>
+      <line x1="140" y1="115" x2="155" y2="110" stroke-width="1.2"/>
+      <line x1="155" y1="110" x2="160" y2="125" stroke-width="1.2"/>
+    </g>
+  </g>
+</g>
+  <!-- 깃털 3개 배치 -->
+  <path d="M110,180 V230" stroke="saddlebrown" stroke-width="1"/>
+  <!-- 깃털 왼쪽 (좌우 반전) -->
+  <use href="#featherTemplate" x="110" y="190" transform="scale(1,1)"/>
+
+  <!-- 중앙 깃털 줄 -->
+  <path d="M150,192 V240" stroke="saddlebrown" stroke-width="1"/>
+  <!-- 중앙 깃털 (정방향) -->
+  <use href="#featherTemplate" x="150" y="210" transform="scale(1,1)"/>
+
+  <!-- 오른쪽 깃털 줄 -->
+  <path d="M190,180 V230" stroke="saddlebrown" stroke-width="1"/>
+  <!-- 깃털 오른쪽 (수평 반전) -->
+  <use href="#featherTemplate" x="190" y="190" transform="scale(1,1) translate=(-180,0)"/>
+
+</svg>
