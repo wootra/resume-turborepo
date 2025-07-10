@@ -1,36 +1,39 @@
 ---
-title: Welcome to Dream Reader
+title: 꿈자리는 사납지 않아요!
 description: Get started building your docs site with Dream Reader.
 template: splash
 hero:
-  tagline: Congrats on setting up a new Dream Reader project!
+  tagline: 스스로도 미처 깨닫지 못했던 자신의 내면. 당신의 꿈은 이미 알고 있습니다.
   image:
     file: ../../assets/dream-reader.svg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: 더 알아보기
+      link: /guides/how-to-install/
       icon: right-arrow
-    - text: Read the Dream Reader docs
-      link: https://dream-reader-web.astro.build
+    - text: 문제 보고
+      link: https://github.com/wootra/dream-reader-customer-service/tree/main
       icon: external
       variant: minimal
 ---
+import { Card, CardGrid,  } from '@astrojs/starlight/components';
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+## 나 자신에 대해 얼마나 알고 있나요?
 
-## Next steps
+> 어쩌면 우리는 내가 아는 것 보다 더 많은 것을 알고 있을 지도 모릅니다.
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="개꿈도 뜻이 있다?" icon="moon">
+		어쩌면 당신의 "개꿈" 도 당신의 내면이 당신에게 하는 이야기일 수도 있어요.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="꿈은 어쩌면 미래의 예지일 수도" icon="information">
+		미래를 보는 것이 미신일까요? 어쩌면 당신이 지금까지 쌓아 놓은 카르마의 결과가 아닐까요?
+		그렇다면 당신의 꿈이 예지하는 것은 단순한 미신이 아니라 높은 확률로 일어날 일일지도 모릅니다.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="적을 알고 나를 알면 백전 불태" icon="star">
+		당신의 무의식은 스스로에 대해서, 그리고 당신의 주변에 대해 더 많이 알고 있을지도 모릅니다.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Dream Reader Docs](https://dream-reader-web.astro.build/).
+	<Card title="스스로에게 투자하세요" icon="open-book">
+		주변에서 일어나는 일을 처리하느라 스스로를 돌보는 것을 잊지 마세요.
+		하루 5분, 잠깐 멈추고 나 자신을 돌아보는 시간을 가져보세요.
 	</Card>
 </CardGrid>
