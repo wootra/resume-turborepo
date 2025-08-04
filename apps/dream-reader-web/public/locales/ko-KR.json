@@ -6,5 +6,18 @@
 	"L_ChatSSE_Halt": "중단",
 	"L_ChatSSE_Reset": "새로 시작",
 	"L_ChatSSE_Send": "보내기",
-	"L_ChatSSE_Thinking": "생각 중..."
+	"L_ChatSSE_Thinking": "생각 중...",
+	"L_Settings_Email": "이메일",
+	"L_Settings_Username": "사용자 이름",
+	"L_Settings_Premium": "프리미엄",
+	"L_Settings_YouCanUsePremimumWhenLogin": "로그인을 하시면 추가 기능을 사용하실 수 있습니다.",
+	"L_Settings_Logout": "로그아웃",
+	"L_Settings_Login": "로그인",
+	"L_Settings_ReallyLogout": "정말 로그아웃하시겠습니까?",
+	"L_Settings_Cancel": "취소",
+	"L_Settings_Settings": "설정",
+	"L_Settings_PrivacyPolicy": "개인정보 처리방침",
+	"L_Settings_TermsCond": "서비스 이용 약관",
+	"L_Settings_Using": "사용 중",
+	"L_Settings_FreeMember": "무료 회원"
 }

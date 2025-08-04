@@ -6,5 +6,18 @@
 	"L_ChatSSE_Halt": "Halt",
 	"L_ChatSSE_Reset": "Reset",
 	"L_ChatSSE_Send": "Send",
-	"L_ChatSSE_Thinking": "Thinking..."
+	"L_ChatSSE_Thinking": "Thinking...",
+	"L_Settings_Email": "email",
+	"L_Settings_Username": "username",
+	"L_Settings_Premium": "premium",
+	"L_Settings_YouCanUsePremimumWhenLogin": "You can use premium features when logged in.",
+	"L_Settings_Logout": "Logout",
+	"L_Settings_Login": "Login",
+	"L_Settings_ReallyLogout": "Are you sure you want to logout?",
+	"L_Settings_Cancel": "Cancel",
+	"L_Settings_Settings": "Settings",
+	"L_Settings_PrivacyPolicy": "Privacy Policy",
+	"L_Settings_TermsCond": "Terms and Conditions",
+	"L_Settings_Using": "Using",
+	"L_Settings_FreeMember": "Free Member"
 }
