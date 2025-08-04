@@ -1,0 +1,10 @@
+{
+	"L_ChatSSE_InResponding": "응답이 진행 중입니다. 잠시 후 다시 시도해 주세요.",
+	"L_ChatSSE_PleaseRetry": "머리가 아프네요... 잠시 후 다시 시도해 주세요.",
+	"L_ChatSSE_TellMeFreely": "생각 나는 만큼 자유롭게 말씀해 보세요...",
+	"L_ChatSSE_TellMeYourDream": "당신의 꿈을 말해 보세요.",
+	"L_ChatSSE_Halt": "중단",
+	"L_ChatSSE_Reset": "새로 시작",
+	"L_ChatSSE_Send": "보내기",
+	"L_ChatSSE_Thinking": "생각 중..."
+}
