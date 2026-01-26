@@ -12,33 +12,41 @@ export default defineConfig({
 				starlightSidebarTopics([
 					{
 						label: {
-							kr: 'Dream Reader 에 오신것을 환영합니다.',
-							en: 'Welcome to Dream Reader',
+							kr: '문서',
+							en: 'Documents',
 						},
-						link: '/'
-					},
-					{
-						label: {
-							kr: '설치방법',
-							en: 'Getting Started',
-						},
-						link: 'how-to-install'
+						id: 'documents',
+						link: 'documents',
+						items: [
+							'how-to-install', 'privacy-policy', 'terms-cond'
+						]
 					},
 
-					{
-						label: {
-							kr: '개인정보 처리방침',
-							en: 'Privacy Policy',
-						},
-						link: 'privacy_policy',
-					},
-					{
-						label: {
-							kr: '서비스 이용 약관',
-							en: 'Terms & Conditions',
-						},
-						link: 'terms-cond',
-					},
+					// {
+					// 	label: {
+					// 		kr: '설치방법',
+					// 		en: 'Getting Started',
+					// 	},
+					// 	id: 'how-to-install',
+					// 	link: 'kr/how-to-install'
+					// },
+
+					// {
+					// 	label: {
+					// 		kr: '개인정보 처리방침',
+					// 		en: 'Privacy Policy',
+					// 	},
+					// 	id: 'privacy-policy',
+					// 	link: '/privacy-policy',
+					// },
+					// {
+					// 	label: {
+					// 		kr: '서비스 이용 약관',
+					// 		en: 'Terms & Conditions',
+					// 	},
+					// 	id: 'terms-cond',
+					// 	link: '/terms-cond',
+					// },
 				]),
 			],
 			title: 'Dream Reader',
