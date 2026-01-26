@@ -30,7 +30,7 @@ export default defineConfig({
 							kr: '개인정보 처리방침',
 							en: 'Privacy Policy',
 						},
-						link: 'privacy-policy',
+						link: 'privacy_policy',
 					},
 					{
 						label: {
