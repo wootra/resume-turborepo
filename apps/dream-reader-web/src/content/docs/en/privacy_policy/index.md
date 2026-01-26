@@ -1,0 +1,45 @@
+---
+title: Privacy Policy
+description: This application includes Google AdMob ads and may collect certain information to improve user experience and provide personalized advertisements.
+---
+
+## Information We Collect
+
+- Customer email address and Google ID (for membership verification)
+- Advertising ID and device information
+- User location information (for ad targeting purposes)
+- Keywords inferred from dream interpretation results (e.g., #courage, #truth, etc.)
+- User voice recordings for voice input (optional)
+
+## Purpose of Information Use
+
+- Providing personalized ads (automatically processed through Google AdMob platform)
+- Recommending ads based on user preferences and interests
+
+## Third-Party Disclosure
+
+- This app uses the Google AdMob SDK for ad delivery.
+- AdMob may process user information according to its own policies.
+  - For more details, please refer to the [Google Privacy Policy](https://policies.google.com/privacy).
+
+## Data Storage and Deletion
+
+- This app does not store or retain user personal information on its own servers.
+- Ad-related data is processed by Google, and the app does not access it.
+- Recorded voice data is not currently transmitted to servers and is used only within the native app. However, in future Premium services, if the user chooses, voice data may be sent to servers to improve recognition accuracy. While it is not stored on Dream Reader's data servers, it may be stored or post-processed on OpenAI's Whisper service according to their processing methods. Dream Reader will inform users of this when providing the feature and when the option is selected.
+
+## User Rights
+
+- Users can earn coins that can be used in Dream Reader by clicking on ads.
+- Users can configure whether to receive personalized ads through app settings or ad settings.
+- Android: Settings → Google → Ads → Opt out of Ads Personalization
+- iOS: Settings → Privacy → Tracking → Limit App Tracking
+
+## Contact
+
+For inquiries regarding personal information processing, please contact us via email:  
+📧 admin@sh-jun.com
+
+---
+
+> This document was prepared as of July 7, 2025, and may be updated in response to legal requirements or changes to Google policies.
