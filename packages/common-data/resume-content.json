@@ -9,7 +9,7 @@
 			{
 				"companyName": "NBH Bank",
 				"url": "https://www.nbhbank.com/",
-				"start": "2022-8",
+				"start": "2024-10",
 				"end": "current",
 				"role": "Leading the mobile, web development team with Nest.js, Azure, Auth0 BE. Leading mobile upgrade project, upgrading React Native from 0.70 to 0.81.5, eslint migration from json to js, test stabilization, debug environment upgrade, A11y improvement, and code refactoring.",
 				"industry": "Financial",
@@ -44,7 +44,7 @@
 				"companyName": "Dimensional Fund Advisors (DFA)",
 				"url": "https://dimensional.com/",
 				"start": "2022-8",
-				"end": "current",
+				"end": "2024-10",
 				"role": "FE Software engineer at Dimensional Fund Advisors. I upgraded and fixed the DDX Tools application cooperating with BE and the design team. I established new testing methodologies, report systems, and development environments. I also led the team to the transition of the new CSS3 trends.",
 				"industry": "Financial / Investment / Asset Management",
 				"jobTitle": "SW Engineer Senior",

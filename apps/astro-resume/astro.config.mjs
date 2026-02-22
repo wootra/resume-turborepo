@@ -7,12 +7,14 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 // import preact from '@astrojs/preact';
 // import image from '@astrojs/image';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 import icon from 'astro-icon';
+
+import db from '@astrojs/db';
 
 // https://astro.build/config
 export default defineConfig({
-	output: 'hybrid',
+	output: 'static',
 	site: 'https://www.sh-jun.com',
 	adapter: vercel({
 		includeFiles: [
@@ -34,8 +36,7 @@ export default defineConfig({
 	integrations: [
 		tailwind({
 			nesting: true,
-		}),
-		// image({
+		}), // image({
 		//     cacheDir: '.astro/cache',
 		// }),
 		solid({
@@ -49,8 +50,7 @@ export default defineConfig({
 				'**/react-apps/**/*',
 				'**/react-libraries/**/*',
 			],
-		}),
-		// preact({
+		}), // preact({
 		//     compat: true,
 		// }),
 		mdx({
@@ -59,5 +59,6 @@ export default defineConfig({
 		svelte({}),
 		icon(),
 		sitemap(),
+		db(),
 	],
 });
