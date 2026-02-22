@@ -29,7 +29,9 @@ type LeftContentsType = {
 export const LeftContents: LeftContentsType = Object.freeze({
 	Introduction: {
 		TITLE: 'Introduction',
-		DESC: "I am a team lead who values every team member's gifts. I believe a team is created not by their individual skills or efforts alone, but by the synergy of the team as a whole.\n I have been leading teams for 5 years, while I have been a software engineer for 13 years. My wide range of experience in various industries such as financial, defense, and aerospace have been helping for me to be flexible and adaptable, and I am always eager to learn new technologies. I am also a strong advocate for agile methodologies and continuous improvement.\\n I am looking for a company that values teamwork, innovation, and continuous learning. I am excited to contribute my skills and experience to a team that is passionate about creating great products and making a positive impact on the world.",
+		DESC: `I am a team lead who values every team member's gifts. I believe a team is created not by their individual skills or efforts alone, but by the synergy of the team as a whole.
+ I have been leading teams for 5 years, while I have been a software engineer for 13 years. My wide range of experience in various industries such as financial, defense, and aerospace have been helping for me to be flexible and adaptable, and I am always eager to learn new technologies. I am also a strong advocate for agile methodologies and continuous improvement.
+ I am looking for a company that values teamwork, innovation, and continuous learning. I am excited to contribute my skills and experience to a team that is passionate about creating great products and making a positive impact on the world.`,
 	},
 	Careers: {
 		TITLE: 'Careers',
@@ -39,9 +41,7 @@ export const LeftContents: LeftContentsType = Object.freeze({
 				'https://www.nbhbank.com/',
 				[2024, 10],
 				null,
-				`I am a team-oriented engineering leader who values the unique strengths each team member brings. I believe successful teams are built not only on individual talent, but on collaboration, shared purpose, and collective synergy. With over 13 years of experience as a software engineer — including 5 years in technical leadership roles — I have guided teams across diverse industries such as finance, defense, and aerospace. These experiences have strengthened my adaptability, broadened my technical perspective, and reinforced my commitment to continuous learning.
-
-I am a strong advocate for agile methodologies, iterative improvement, and building high-performing engineering cultures. I am seeking an organization that prioritizes teamwork, innovation, and growth, where I can contribute my leadership, technical expertise, and passion for developing impactful, high-quality products.`,
+				`As a team lead of the full-stack team in NBH Bank. I have been leading the mobile/web upgrade project, managing and upgrading existing Nest.js BE. I have been improving the performance of the development team by improving multiple development processes and technical architecture.`,
 				'Financial',
 				'Lead Fullstack engineer',
 				[
@@ -545,8 +545,8 @@ type TopContentsType = {
 };
 export const TopContents: TopContentsType = Object.freeze({
 	name: 'Songhyeon Jun',
-	address: 'San Antonio, TX, 78261',
-	position: 'Fullstack SW Engineer',
+	address: 'Melissa, TX, 75454',
+	position: 'Lead Fullstack Engineer',
 	contact: {
 		phone: '(512)919-6009',
 		email: 'shjeon0730@gmail.com',
@@ -568,104 +568,123 @@ type RightContentsType = Readonly<{
 }>;
 export const RightContents: RightContentsType = Object.freeze({
 	skillLevels: {
-		'Languages(FE)': [
+		'Programming Languages': [
+			buildSkillLevel('Typescript', 5),
 			buildSkillLevel('Javascript', 5),
-			buildSkillLevel('TypeScript', 5),
-			buildSkillLevel('HTML', 5),
-			buildSkillLevel('CSS3/SASS/LESS/SCSS', 5),
-			buildSkillLevel('TailwindCSS', 5),
-			buildSkillLevel('StyledComponent', 5),
-			buildSkillLevel('StyleX', 3),
-		],
-		'Languages(Etc)': [
 			buildSkillLevel('Java', 5),
-			buildSkillLevel('YAML', 5),
 			buildSkillLevel('Python', 5),
-			buildSkillLevel('NodeJs', 5),
-			buildSkillLevel('SQL', 4),
-			buildSkillLevel('C#.Net', 3),
-			buildSkillLevel('XML', 3),
+			buildSkillLevel('C#.Net', 5),
+			buildSkillLevel('C/C++', 5),
 			buildSkillLevel('LUA', 3),
-			buildSkillLevel('C/C++', 3),
-			buildSkillLevel('Rust', 2),
-			buildSkillLevel('Dart', 2),
-			buildSkillLevel('Go', 2),
-			buildSkillLevel('JPA', 3),
+			buildSkillLevel('Rust', 3),
+			buildSkillLevel('Dart', 3),
+			buildSkillLevel('Go', 3),
 		],
-		'Frameworks(FE)': [
+		'Descriptive Languages': [buildSkillLevel('YAML', 5), buildSkillLevel('XML', 5), buildSkillLevel('SVG', 5)],
+		'Etc Languages': [buildSkillLevel('SQL', 4)],
+		'Frameworks(FE/Fullstack)': [
 			buildSkillLevel('React.js', 5),
-			buildSkillLevel('Astro.js', 4),
-			buildSkillLevel('Next.js', 4),
+			buildSkillLevel('React Native', 5),
+			buildSkillLevel('Next.js', 5),
+			buildSkillLevel('Astro.js', 5),
 			buildSkillLevel('Solid.js', 4),
+
 			buildSkillLevel('Svelte', 3),
 			buildSkillLevel('JQuery', 3),
 			buildSkillLevel('Angular 6', 2),
 		],
-		'Backend skills': [
+		Analytics: [
+			buildSkillLevel('Elastic Search', 3),
+			buildSkillLevel('Google Analytics', 3),
+			buildSkillLevel('App Insight', 3),
+			buildSkillLevel('Azure Non Sentinel', 3),
+		],
+		'Libraries(Core)': [
+			buildSkillLevel('Rxjs', 4),
+			buildSkillLevel('jotai', 5),
+			buildSkillLevel('zustand', 5),
+			buildSkillLevel('RTK', 5),
+			buildSkillLevel('Pdf Make', 5),
+		],
+		Security: [buildSkillLevel('Auth0', 5), buildSkillLevel('NextAuth', 4)],
+		A11y: [buildSkillLevel('WCAG 2.1 AA', 4)],
+		'Frameworks(BE)': [
 			buildSkillLevel('Node.js', 5),
 			buildSkillLevel('Express', 5),
 			buildSkillLevel('Jax-RS', 4),
 			buildSkillLevel('Spring Boot', 4),
+			buildSkillLevel('Kafka', 2),
+		],
+		'Frameworks(DB)': [
 			buildSkillLevel('GraphQL', 4),
+			buildSkillLevel('Prisma', 4),
 			buildSkillLevel('Flask', 4),
 			buildSkillLevel('SQL Alchemy', 4),
 			buildSkillLevel('Firebase/firestore', 4),
-			buildSkillLevel('NextAuth', 4),
 			buildSkillLevel('supabase', 4),
-			buildSkillLevel('.Net', 3),
-			buildSkillLevel('Elastic Search', 3),
-			buildSkillLevel('Kafka', 2),
+			buildSkillLevel('JPA', 3),
 		],
-		'Project/Pakcage Management': [
+		database: [
+			buildSkillLevel('MS-SQL', 4),
+			buildSkillLevel('Postgres', 4),
+			buildSkillLevel('My-SQL', 4),
+			buildSkillLevel('DB2', 4),
+			buildSkillLevel('Mongo DB', 4),
+		],
+		UX: [
+			buildSkillLevel('CSS3/SASS/LESS/SCSS', 5),
+			buildSkillLevel('TailwindCSS', 5),
+			buildSkillLevel('CSS Module', 5),
+			buildSkillLevel('StyledComponent', 5),
+			buildSkillLevel('StyleX', 3),
+		],
+		Design: [buildSkillLevel('Figma', 3), buildSkillLevel('Photoshop', 3), buildSkillLevel('Illustrator', 3)],
+		'Bundler/Task Runner': [
 			buildSkillLevel('Vite', 5),
-			buildSkillLevel('Turbo repo', 5),
 			buildSkillLevel('Npm.js', 5),
 			buildSkillLevel('Npm', 5),
 			buildSkillLevel('pnpm', 5),
 			buildSkillLevel('yarn', 4),
-			buildSkillLevel('Nx Repo', 3),
-			buildSkillLevel('Rush Repo', 2),
+			buildSkillLevel('bun', 3),
+			buildSkillLevel('gulp', 3),
 			buildSkillLevel('Rollup', 2),
 			buildSkillLevel('Webpack', 2),
 		],
-		'State Libraries': [
-			buildSkillLevel('jotai', 5),
-			buildSkillLevel('zustand', 5),
-			buildSkillLevel('Redux/Toolkit', 5),
-			buildSkillLevel('React Context', 5),
-			buildSkillLevel('React Hooks', 5),
-		],
-		'Shell Scripts': [buildSkillLevel('bash-sh', 4), buildSkillLevel('cmd-sh', 3)],
+		'Mono repo': [buildSkillLevel('Turbo repo', 5), buildSkillLevel('Nx Repo', 3), buildSkillLevel('Rush Repo', 2)],
+		'Shell Scripts': [buildSkillLevel('bash', 4), buildSkillLevel('cmd-sh', 3)],
 		'Test Framework': [
-			buildSkillLevel('Playwright', 5),
+			buildSkillLevel('RTL', 5),
 			buildSkillLevel('Jest', 5),
+			buildSkillLevel('Vitest', 5),
+			buildSkillLevel('Playwright', 5),
+			buildSkillLevel('Cypress', 5),
 			buildSkillLevel('Mocha', 5),
-			buildSkillLevel('React TestingLibrary', 5),
 			buildSkillLevel('Enzyme', 5),
 			buildSkillLevel('sinon', 5),
 			buildSkillLevel('Mockito', 5),
-			buildSkillLevel('Cypress', 5),
 			buildSkillLevel('Pytest', 4),
-			buildSkillLevel('Vitest', 4),
 			buildSkillLevel('Selenium', 3),
 			buildSkillLevel('Spock', 3),
 		],
-		database: [
-			buildSkillLevel('My-SQL', 4),
-			buildSkillLevel('MS-SQL', 4),
-			buildSkillLevel('DB2', 4),
-			buildSkillLevel('Mongo DB', 3),
-			buildSkillLevel('Postgres', 3),
-		],
+
 		'Dev Ops': [
-			buildSkillLevel('Gialb-ci', 4),
-			buildSkillLevel('Jenkins', 4),
+			buildSkillLevel('Azure DevOps', 5),
+			buildSkillLevel('Gialb-ci', 5),
+			buildSkillLevel('Jenkins', 5),
 			buildSkillLevel('Docker', 4),
+			buildSkillLevel('Kubernetes', 4),
 			buildSkillLevel('Openshift', 3),
-			buildSkillLevel('github-actions', 2),
 		],
-		'Machine Learning': [buildSkillLevel('TensorFlow/Keras', 3), buildSkillLevel('Jupiter Notebook', 3)],
-		'Analysis Tools': [
+		AI: [
+			buildSkillLevel('OpenAI API', 5),
+			buildSkillLevel('Jupiter Notebook', 4),
+			buildSkillLevel('Pandas', 4),
+			buildSkillLevel('Numpy', 4),
+			buildSkillLevel('Matplotlib', 4),
+			buildSkillLevel('TensorFlow/Keras', 3),
+			buildSkillLevel('Scikit-learn', 3),
+		],
+		'Analysis Tools(HW)': [
 			buildSkillLevel('Lab Windows/CVI', 5),
 			buildSkillLevel('Matlab', 4),
 			buildSkillLevel('Labview', 3),
@@ -676,7 +695,7 @@ export const RightContents: RightContentsType = Object.freeze({
 			buildSkillLevel('SAFE', 5),
 			buildSkillLevel('SDLC', 5),
 		],
-		Network: [
+		'Network(HW)': [
 			buildSkillLevel('TCP/IP, UDP', 5),
 			buildSkillLevel('RS-232/RS-422/MIL1553', 4),
 			buildSkillLevel('Analog/Discrete', 4),
