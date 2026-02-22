@@ -33,10 +33,9 @@ const buildCareer = (companyName, url, start, end, role, industry, jobTitle, tec
 export const LeftContents = Object.freeze({
 	Introduction: Object.freeze({
 		TITLE: 'Introduction',
-		DESC: `Fast and deep focusing is my weapon making me a good problem solver.
-         I enjoy learning new tech solutions as well as trying to use it in my personal projects. 
-         That makes me a valuable team member with high performance.
-         Recently focusing on Frontend development with React18, Next/Astro.js, Typescript, Jotai2, and TailwindCSS.`,
+		DESC: `I am a team lead who values every team member's gifts. I believe a team is created not by their individual skills or efforts alone, but by the synergy of the team as a whole.
+ I have been leading teams for 5 years, while I have been a software engineer for 13 years. My wide range of experience in various industries such as financial, defense, and aerospace have been helping for me to be flexible and adaptable, and I am always eager to learn new technologies. I am also a strong advocate for agile methodologies and continuous improvement.
+ I am looking for a company that values teamwork, innovation, and continuous learning. I am excited to contribute my skills and experience to a team that is passionate about creating great products and making a positive impact on the world.`,
 	}),
 	Careers: Object.freeze({
 		TITLE: 'Careers',
