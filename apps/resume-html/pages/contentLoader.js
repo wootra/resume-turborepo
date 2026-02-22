@@ -1,8 +1,8 @@
 const {
-    LeftContents: __LeftContents,
-    TopContents: __TopContents,
-    RightContents: __RightContents,
-} = await import('./consts.js');
+	LeftContents: __LeftContents,
+	TopContents: __TopContents,
+	RightContents: __RightContents,
+} = await import('./consts.js?' + getVariant());
 
 /**
  * LeftContents
