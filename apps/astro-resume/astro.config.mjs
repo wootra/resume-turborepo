@@ -10,8 +10,6 @@ import mdx from '@astrojs/mdx';
 import vercel from '@astrojs/vercel';
 import icon from 'astro-icon';
 
-import db from '@astrojs/db';
-
 // https://astro.build/config
 export default defineConfig({
 	output: 'static',
@@ -59,6 +57,5 @@ export default defineConfig({
 		svelte({}),
 		icon(),
 		sitemap(),
-		db(),
 	],
 });

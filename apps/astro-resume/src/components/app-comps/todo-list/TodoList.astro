@@ -35,21 +35,23 @@ const {
     </form>
     <ul class='py-4'>
         {todos.map(todo => {
-            return (<li class='flex gap-2'>
-                <input
-                    type='checkbox'
-                    hx-post='/apps/todo-list/remove'
-                    name='todo-item'
-                    value={todo.id}
-                    id={todo.id}
-                    hx-swap='outerHTML'
-                    class='cursor-pointer'
-                    hx-target='#todo-list'
-                ></input>
-                <label for={todo.id} class='cursor-pointer'>
-                    {todo.text}
-                </label>
-            </li>)
+            return (
+                <li class='flex gap-2'>
+                    <input
+                        type='checkbox'
+                        hx-post='/apps/todo-list/remove'
+                        name='todo-item'
+                        value={todo.id}
+                        id={todo.id}
+                        hx-swap='outerHTML'
+                        class='cursor-pointer'
+                        hx-target='#todo-list'
+                    ></input>
+                    <label for={todo.id} class='cursor-pointer'>
+                        {todo.text}
+                    </label>
+                </li>
+            )
         })}
     </ul>
 </div>
