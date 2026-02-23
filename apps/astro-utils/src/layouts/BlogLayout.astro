@@ -1,0 +1,102 @@
+---
+import { twMerge } from 'tailwind-merge';
+import FlexCenterLayout from './sublayouts/FlexCenterLayout.astro';
+import FlexScrollLayout from './sublayouts/FlexScrollLayout.astro';
+import Head from '@/components/common/Head.astro';
+import Nav from '@/components/links/Nav.astro';
+// Supports weights 300-900
+import '@fontsource-variable/rubik';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	title: string;
+    description: string;
+}
+
+const {title, description } = Astro.props;
+---
+<head>
+    <Head title={"Song's blog:" + title} description={description} />
+</head>
+<div class="w-[100vw] min-h-[100vh] grid grid-rows-[5rem_1fr] flex-col justify-center items-center bg-gradient-to-br px-2 md:px-8 pb-4 relative bg-slate-700">
+    <div class="blog-top-area">
+        <div class="blog-title p-4 hidden md:flex" aria-hidden>
+            <Icon name="musical-note" /> Song's blog 
+        </div>
+        <Nav />
+    </div> 
+    <FlexCenterLayout className={twMerge("rounded-3xl max-w-[1024px] m-auto w-full h-full min-h-full shadow-lg p-1 bg-slate-800")}>
+        <FlexScrollLayout>
+            <div class="blog-contents">
+                <slot />
+            </div>
+        </FlexScrollLayout>
+    </FlexCenterLayout>
+</div>
+
+
+<style type="text/css" is:global>
+    .blog-top-area {
+        width: 100%;
+        @apply flex justify-between items-center;
+    }
+
+    .blog-title {
+        font-family:  'Rubik Variable', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        @apply text-lime-400;
+        
+        gap: 0.5rem;
+    }
+
+    .blog-contents {
+        color: #f8f8f2;
+        font-family:  'Rubik Variable', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0.025em;
+        text-align: left;
+        padding: 16px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        min-height: 100%;
+        @apply text-slate-400;
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            @apply text-slate-200;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            @apply text-slate-200;
+        }
+
+        p {
+            margin-bottom: 16px;
+            @apply text-slate-400;
+
+            & > a {
+                @apply text-lime-400;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+
+            & > a:hover {
+                @apply text-lime-200;
+                text-underline-offset: 2px;
+            }
+        }
+        
+    }
+
+   
+
+</style>
+

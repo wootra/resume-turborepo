@@ -34,6 +34,18 @@ const {
         />
     </form>
     <ul class='py-4'>
+        <p>Logged in as {email}
+
+            <button 
+                class="border-spacing-2 bg-black text-white p-2 rounded-md cursor-pointer"
+                 hx-get="/apps/todo-list" hx-push-url="true"
+                 hx-swap="outerHTML"
+                 hx-target="body"
+            >
+                logout
+            </button>
+        </p>
+
         {todos.map(todo => {
             return (
                 <li class='flex gap-2'>

@@ -1,0 +1,13 @@
+--- 
+import {twMerge} from 'tailwind-merge';
+interface Props {
+	className?: string;
+	id?: string;
+}
+
+const { className, id } = Astro.props;
+---
+<div class={twMerge("flex flex-col justify-start items-start overflow-y-auto w-full min-h-full", className)} id={id}>
+	<slot />
+</div>
+	

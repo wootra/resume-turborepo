@@ -1,0 +1,26 @@
+---
+import TodoList from "@/components/app-comps/todo-list/TodoList.astro";
+import { getTodos } from "@/components/app-comps/todo-list/todo-utils";
+import type { Todo } from "@/components/app-comps/todo-list/types";
+import { createPool } from "@vercel/postgres";
+
+const req = Astro.request;
+const forms = await req.text();
+const data = new URL("http://localhost?"+forms).searchParams;
+const email = data.get('email') || 'public@no-email.com';
+// let idBase = +(data.get("id-base") || '')?? 1;
+const todoText = data.get("todo") ?? "default";
+
+const pool = createPool({
+		connectionString: import.meta.env.POSTGRES_URL,
+});
+await pool.sql`INSERT INTO "Todo" (text, email) VALUES (${todoText}, ${email})`;
+
+const todos = await getTodos(email);
+
+// todos.push(({id: `todo-${idBase}`, text: todoText}))
+
+// const data = await req.formData();
+// const todoText = data.get("todo");
+---
+<TodoList todos={todos} email={email} />

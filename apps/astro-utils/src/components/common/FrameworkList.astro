@@ -1,0 +1,32 @@
+---
+import 'resume-css/banner/banner.css';
+import 'resume-css/link/animate-underline.css';
+interface Props {
+    frameworks: string[];
+    sourceLink: string;
+};
+
+const {
+    frameworks,
+    sourceLink,
+} = Astro.props;
+
+---
+<div class='min-h-8 flex flex-col bg-amber-100 justify-start items-center p-4'>
+    <div class='flex flex-row gap-2'>
+        <span>This page is written in </span>
+        <span class="flex flex-row gap-1">
+        {frameworks.map(lang => (
+            <span class='rounded-lg bg-amber-200 text-amber-700 px-2'>
+                {lang}
+            </span>
+        ))}
+        </span>
+    </div>
+    <a
+        class='animate-underline'
+        href={sourceLink}
+    >
+        source repo
+    </a>
+</div>

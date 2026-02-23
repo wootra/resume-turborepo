@@ -1,0 +1,67 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+    href?: string;
+    src?: string | string[];
+}
+const {href, src} = Astro.props;
+const isArray = Array.isArray(src);
+const itemCount = isArray ? src.length : 1;
+
+---
+<div class={twMerge(
+    `gap-2 max-w-full w-full h-full justify-center items-center relative overflow-hidden`,
+    itemCount > 1 && 'mask-image'
+)}>
+    <div 
+        class={twMerge(
+            isArray && 'animate-scroll-x absolute inset-y-0 grid justify-center items-center',
+            isArray && itemCount === 1 && 'grid-cols-2',
+            isArray && itemCount === 2 && 'grid-cols-4',
+            isArray && itemCount === 3 && 'grid-cols-6',
+            isArray && itemCount === 4 && 'grid-cols-8',
+            isArray && itemCount === 5 && 'grid-cols-10',
+            isArray && itemCount === 6 && 'grid-cols-12',
+            isArray && itemCount === 7 && 'grid-cols-14',
+            !isArray && 'absolute inset-0 flex justify-center items-center',
+            
+        )} 
+        style={`--itemCount:${itemCount}`}>
+        {href && src && isArray && src.map(aSrc=>(
+            <a href={href} target="_blank" class="col-span-1" >
+                
+                <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            </a>
+        ))}
+        {
+            // if it is array, animation will be applied. should be rendered double amount
+        href && src && isArray && src.map(aSrc=>(
+            <a href={href} target="_blank" class="col-span-1" >
+                
+                <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+            </a>
+        ))}
+        {href && src && !isArray && (
+            <a href={href} target="_blank"  class="col-span-1">
+                
+                <img alt={src} loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+            </a>
+        )}
+        {!href && src && isArray && src.map(aSrc=>(
+            <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+        ))}
+        {!href && src && isArray && src.map(aSrc=>(
+            <img alt={aSrc} loading="lazy" src={aSrc} class="flex-shrink col-span-1 rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-auto object-contain" />
+        ))}
+        {!href && src && !isArray && (
+            <img alt={src}  loading="lazy" src={src} class="flex-shrink rounded-lg max-w-[400px] max-h-[400px] w-full lg:h-auto h-auto px-4 aspect-1 object-contain" />
+        )}
+    </div>
+</div>
+
+<style>
+    .mask-image {
+        mask-image: linear-gradient(to right, transparent 5%,black 25%,black 75%, transparent 95%)
+    }
+</style>

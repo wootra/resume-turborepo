@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 200" width="500" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="250.47" y1="-2.797" x2="250.47" y2="178.996" id="gradient-0">
+      <stop offset="0" style="stop-color: rgb(0, 255, 72);"/>
+      <stop offset="1" style="stop-color: rgb(0, 196, 255);"/>
+    </linearGradient>
+    <filter id="gaussian-blur-filter-0" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="gaussian-blur 1 5">
+      <feGaussianBlur stdDeviation="5 5" edgeMode="none"/>
+    </filter>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="250.013" cy="98.531" r="256.681" id="gradient-1">
+      <stop offset="0" style="stop-color: rgb(253, 38, 38);"/>
+      <stop offset="1" style="stop-color: rgb(255, 255, 0);"/>
+    </radialGradient>
+    <filter id="motion-blur-filter-0" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="motion-blur 1 5 horizontal">
+      <feGaussianBlur stdDeviation="5 0" edgeMode="none"/>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="250.47" y1="-2.797" x2="250.47" y2="178.996" id="gradient-2" gradientTransform="matrix(1, 0, 0, 1, 5.775593, 1.99441)">
+      <stop offset="0" style="stop-color: rgb(0, 255, 72);"/>
+      <stop offset="1" style="stop-color: rgb(0, 196, 255);"/>
+    </linearGradient>
+    <filter id="filter-1" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="gaussian-blur 1 5">
+      <feGaussianBlur stdDeviation="5 5" edgeMode="none"/>
+    </filter>
+  </defs>
+  <path style="stroke: rgb(0, 0, 0); fill: url(#gradient-0); paint-order: fill; stroke-width: 0px; filter: url(#gaussian-blur-filter-0);" d="M 508.067 -1.042 L -7.128 -2.797 L -6.328 90.02 C -6.026 134.273 50.397 172.423 95.494 178.275 C 139.271 183.955 134.124 155.278 214.041 120.809 C 293.957 86.34 296.254 89.723 382.049 135.169 C 449.493 170.895 471.843 154.544 505.997 79.387 L 508.067 -1.042 Z"/>
+  <path style="stroke: rgb(0, 0, 0); mix-blend-mode: multiply; fill-rule: nonzero; fill: url(#gradient-1); filter: url(#motion-blur-filter-0); stroke-width: 0px;" d="M 532.074 -7.759 C 400.105 -42.624 43.725 -51.864 -11.321 -19.239 C -61.518 10.513 -5.871 105.105 -5.871 105.105 C -5.57 129.509 70.618 136.44 123.276 132.67 C 170.218 129.309 211.971 42.439 259.426 42.793 C 300.44 43.099 355.445 110.259 393.213 109.292 C 439.564 108.105 497.29 211.814 521.709 170.37 C 521.709 170.37 552.541 -2.352 532.074 -7.759 Z"/>
+  <path style="stroke: rgb(0, 0, 0); paint-order: fill; stroke-width: 0px; fill: url(#gradient-2); filter: url(#filter-1); mix-blend-mode: hue;" d="M 513.843 0.952 L -1.352 -0.803 L -0.552 92.014 C -0.25 136.267 56.173 174.417 101.27 180.269 C 145.047 185.949 139.9 157.272 219.817 122.803 C 299.733 88.334 302.03 91.717 387.825 137.163 C 455.269 172.889 477.619 156.538 511.773 81.381 L 513.843 0.952 Z"/>
+</svg>
