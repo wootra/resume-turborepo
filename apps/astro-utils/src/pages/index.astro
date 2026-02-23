@@ -1,0 +1,25 @@
+---
+import FrameworkList from '@/components/common/FrameworkList.astro';
+import GameLayout from '@/layouts/GameLayout.astro';
+const backUrl = (new URL(Astro.url)).searchParams.get('backUrl') || '/';
+---
+
+<GameLayout title={'HTMX Todo'} backUrl={backUrl} backText='App Home'>
+	<FrameworkList frameworks={['Astro.js', 'HTMX', 'Tailwind']} sourceLink="https://github.com/wootra/resume-turborepo/tree/main/apps/astro-utils/src/pages/todo-list"/>
+	<div class="w-full h-[calc(100vh-62px)] flex flex-col justify-center items-center">
+		<main class="w-auto h-auto shadow-md flex flex-col gap-2 bg-slate-200 p-10 rounded-lg">
+			<h1 class="text-xl text-center font-extrabold" transition:name="HTMX todo List" >HTMX Todo List</h1>
+			<input type="text" id="email-address" placeholder="email to save todo list" type="email" class="p-2 rounded-md w-[300px] shadow-inner">
+			<button class="text-black bg-slate-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" onclick="logIn();">Log in</button>
+		</main>
+	</div>
+</GameLayout>
+
+<script>
+	function logIn() {
+		const email = (document.getElementById("email-address") as HTMLInputElement)?.value;
+		window.location.href = `/todo-list/logged-in?email=${email}`;
+		console.log(email);
+	}
+	(window as unknown as (Window & {logIn: ()=>void})).logIn = logIn;
+</script>
