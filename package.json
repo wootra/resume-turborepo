@@ -12,6 +12,5 @@
 		"prettier": "^2.8.8",
 		"turbo": "^2.8.10"
 	},
-	"packageManager": "pnpm@9.15.5",
 	"name": "resume-turborepo"
 }
