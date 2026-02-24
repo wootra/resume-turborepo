@@ -24,6 +24,7 @@
 		"@vercel/postgres": "^0.10.0",
 		"astro-icon": "^1.1.0",
 		"d3": "^7.9.0",
+		"resume-css": "workspace:*",
 		"node-fetch": "^3.3.2",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
