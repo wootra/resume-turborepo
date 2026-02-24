@@ -14,6 +14,9 @@ import icon from 'astro-icon';
 export default defineConfig({
 	output: 'server',
 	site: 'https://resume-utils.sh-jun.com',
+	security: {
+		checkOrigin: false,
+	},
 	adapter: vercel({
 		// imagesConfig: {
 		//     cacheDir: '.astro/cache',
