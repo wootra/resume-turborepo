@@ -51,7 +51,7 @@ const {
                 <li class='flex gap-2'>
                     <input
                         type='checkbox'
-                        hx-post='/todo-list/remove'
+                        hx-post={`/todo-list/remove?email=${email}`}
                         name='todo-item'
                         value={todo.id}
                         id={todo.id}
