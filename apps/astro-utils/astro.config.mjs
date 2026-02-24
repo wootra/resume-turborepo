@@ -13,7 +13,7 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
 	output: 'server',
-	site: 'https://utils.sh-jun.com',
+	site: 'https://resume-utils.sh-jun.com',
 	adapter: vercel({
 		// imagesConfig: {
 		//     cacheDir: '.astro/cache',
